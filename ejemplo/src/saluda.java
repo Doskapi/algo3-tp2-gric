@@ -16,9 +16,10 @@ public class saluda {
 		tuna = 3.14;
 		System.out.println(tuna);
 
-		Scanner apple = new Scanner(System.in);
-	    System.out.println(apple.nextLine());
-	    System.out.println("Aguante Racing");
+		//Scanner apple = new Scanner(System.in);
+	    //System.out.println(apple.nextLine());
+	    
+		System.out.println("Aguante Racing");
 	    System.out.println("hola, funciona.");
 
 	   	System.out.println( "NACHO OK\n" ) ;
