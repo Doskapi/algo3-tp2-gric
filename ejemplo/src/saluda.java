@@ -15,7 +15,7 @@ public class saluda {
 
 		Scanner apple = new Scanner(System.in);
 	    System.out.println(apple.nextLine());
-	    
+	    System.out.println("Aguante Racing");
 	}
 
 }
