@@ -19,6 +19,7 @@ public class saluda {
 		Scanner apple = new Scanner(System.in);
 	    System.out.println(apple.nextLine());
 	    System.out.println("Aguante Racing");
+	    System.out.println("hola, funciona.");
 
 	   	System.out.println( "NACHO OK\n" ) ;
 	   	JOptionPane.showMessageDialog ( null, "Aguante Racing\n ROJO SOS DE LA B\n ");
