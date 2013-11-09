@@ -1,7 +1,6 @@
 package ar.fi.uba.GPSChallengeTests;
 
 import org.junit.Test;
-
 import ar.fi.uba.GPSChallenge.Modelo.ObstaculoPiquete;
 import junit.framework.TestCase;
 

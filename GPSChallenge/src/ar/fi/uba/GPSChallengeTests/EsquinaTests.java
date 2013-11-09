@@ -1,8 +1,6 @@
 package ar.fi.uba.GPSChallengeTests;
 import junit.framework.TestCase;
-
 import org.junit.Test;
-
 import ar.fi.uba.GPSChallenge.Modelo.Esquina;
 import ar.fi.uba.GPSChallenge.Modelo.Posicion;
 
@@ -19,8 +17,6 @@ public class EsquinaTests extends TestCase {
 		Posicion posicion = new Posicion(2,1);
 		Esquina esquina = new Esquina(posicion);
 		assertEquals(esquina.getPosicion(),posicion);
-		
-		
 	}
 
 }

@@ -4,7 +4,6 @@ import org.junit.Test;
 import junit.framework.TestCase;
 import ar.fi.uba.GPSChallenge.Modelo.Imprevisto;
 
-
 public class ImprevistoTest extends TestCase {
 
 	@Test

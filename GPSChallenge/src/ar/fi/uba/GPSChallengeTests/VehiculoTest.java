@@ -1,12 +1,8 @@
 package ar.fi.uba.GPSChallengeTests;
 
 import static org.junit.Assert.*;
-
 import org.junit.Test;
-
 import ar.fi.uba.GPSChallenge.Modelo.*;
-
-
 
 public class VehiculoTest {
 
