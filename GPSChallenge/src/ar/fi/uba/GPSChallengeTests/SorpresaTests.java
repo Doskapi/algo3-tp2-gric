@@ -3,7 +3,6 @@ import junit.framework.TestCase;
 
 import org.junit.Test;
 
-import ar.fi.uba.GPSChallenge.Modelo.Calle;
 import ar.fi.uba.GPSChallenge.Modelo.Sorpresa;
 
 public class SorpresaTests extends TestCase {
@@ -14,6 +13,5 @@ public class SorpresaTests extends TestCase {
 			Sorpresa sorpresa = new Sorpresa();
 			assertNotNull (sorpresa);
 		}
-		
 		
 	}
