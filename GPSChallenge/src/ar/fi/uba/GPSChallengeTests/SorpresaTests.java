@@ -8,7 +8,6 @@ import ar.fi.uba.GPSChallenge.Modelo.Sorpresa;
 public class SorpresaTests extends TestCase {
 	
 		@Test
-		
 		public void testCreoUnaSorpresa(){
 			Sorpresa sorpresa = new Sorpresa();
 			assertNotNull (sorpresa);
