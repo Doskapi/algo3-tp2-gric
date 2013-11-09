@@ -1,5 +1,5 @@
 package ar.fi.uba.GPSChallenge.Modelo;
 
-public class Obstaculo {
+public class Obstaculo extends Imprevisto {
 
 }
