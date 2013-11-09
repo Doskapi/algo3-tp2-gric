@@ -12,5 +12,4 @@ public class SorpresaTests extends TestCase {
 			Sorpresa sorpresa = new Sorpresa();
 			assertNotNull (sorpresa);
 		}
-		
-	}
+}		
