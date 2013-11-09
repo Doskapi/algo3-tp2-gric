@@ -12,5 +12,14 @@ public class EsquinaTests extends TestCase {
 		Esquina esquina = new Esquina();
 		assertNotNull (esquina);
 	}
+	
+	@Test
+	public void testCrearUnaEsquinaConUnaPosicion(){
+		Posicion posicion = new Posicion(2,1);
+		Esquina esquina = new Esquina(posicion);
+		assertEquals(esquina.getPosicion(),posicion);
+		
+		
+	}
 
 }

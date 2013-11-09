@@ -1,5 +1,22 @@
 package ar.fi.uba.GPSChallenge.Modelo;
 
-public class Esquina {
+import ar.fi.uba.GPSChallengeTests.Posicion;
 
+public class Esquina {
+	
+	private Posicion posicion;
+	
+	public Esquina(){}
+
+	public Esquina(Posicion posicion) {
+		this.posicion = posicion;
+	}
+
+	public Posicion getPosicion() {
+		
+		return posicion;
+	}
+
+	
+	
 }

@@ -13,6 +13,7 @@ public class VehiculoTest {
 		Vehiculo vehiculo = new Vehiculo();
 		assertNotNull(vehiculo);
 	}
+	
 }
 	
 	
