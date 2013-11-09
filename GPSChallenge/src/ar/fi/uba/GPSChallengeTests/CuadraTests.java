@@ -12,12 +12,8 @@ public class CuadraTests extends TestCase  {
 	public void testCrearCuadra(){
 		
 		Cuadra cuadra = new Cuadra();
-		assertTrue (cuadra != null);
+		assertNotNull (cuadra);
 			
 	}
-	
-	
-	
-	
 
 }

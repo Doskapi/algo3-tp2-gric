@@ -11,7 +11,7 @@ public class CalleTests extends TestCase {
 	@Test
 	public void testCreoUnaCalle(){
 		Calle calle = new Calle();
-		assertTrue(calle != null);
+		assertNotNull(calle);
 	}
 
 }
