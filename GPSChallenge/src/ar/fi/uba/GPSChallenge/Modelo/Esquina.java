@@ -6,7 +6,9 @@ public class Esquina {
 	
 	private Posicion posicion;
 	
-	public Esquina(){}
+	public Esquina(){
+		
+	}
 
 	public Esquina(Posicion posicion) {
 		this.posicion = posicion;
@@ -16,6 +18,8 @@ public class Esquina {
 		
 		return posicion;
 	}
+	
+	
 
 	
 	
