@@ -1,6 +1,6 @@
 package ar.fi.uba.GPSChallenge.Modelo;
 
-import ar.fi.uba.GPSChallengeTests.Posicion;
+import ar.fi.uba.GPSChallenge.Modelo.Posicion;
 
 public class Esquina {
 	

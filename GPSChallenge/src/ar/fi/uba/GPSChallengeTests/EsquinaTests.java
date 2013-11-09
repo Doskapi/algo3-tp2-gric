@@ -4,6 +4,7 @@ import junit.framework.TestCase;
 import org.junit.Test;
 
 import ar.fi.uba.GPSChallenge.Modelo.Esquina;
+import ar.fi.uba.GPSChallenge.Modelo.Posicion;
 
 public class EsquinaTests extends TestCase {
 	
