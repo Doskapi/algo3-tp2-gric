@@ -7,6 +7,7 @@ import junit.framework.TestCase;
 
 public class ObstaculoTest extends TestCase {
 
+	@Test
 	public void testCreoObstaculo() {
 		Obstaculo obstaculo = new Obstaculo();
 		assertNotNull(obstaculo);
