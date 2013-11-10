@@ -18,7 +18,6 @@ public class Esquina {
 	}
 
 	public Posicion getPosicion() {
-		
 		return posicion;
 	}
 	
@@ -30,5 +29,10 @@ public class Esquina {
 		this.hayVehiculo = true;
 	}
 	
-}
+	public boolean equals(Object otraEsquina){
+		Esquina esquina = (Esquina)otraEsquina;
+		return ((this.getPosicion().equals(esquina.getPosicion())));
+	}
 	
+	
+}
