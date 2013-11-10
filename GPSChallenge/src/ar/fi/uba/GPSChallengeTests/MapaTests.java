@@ -8,9 +8,8 @@ public class MapaTests extends TestCase {
 	
 		@Test
 		public void testCreoUnMapa(){
-			Mapa mapa = new Mapa();
+			Mapa mapa = new Mapa(10,10);
 			assertNotNull (mapa);
-		}
-		
+		}	
 	}
 

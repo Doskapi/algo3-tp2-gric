@@ -16,7 +16,7 @@ public class Posicion {
 	
 	}
 	
-	public boolean equals(Object otraPosicion){
+	public boolean equals(Posicion otraPosicion){
 		Posicion p = (Posicion)otraPosicion;
 		return (this.fila == p.fila && this.columna == p.columna);
 	}
