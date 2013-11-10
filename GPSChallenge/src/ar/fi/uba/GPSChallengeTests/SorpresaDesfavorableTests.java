@@ -12,5 +12,19 @@ public class SorpresaDesfavorableTests extends TestCase{
 		SorpresaDesfavorable sorpresaDesfavorable = new SorpresaDesfavorable();
 		assertNotNull(sorpresaDesfavorable);
 
-}
-}
+	}
+
+	@Test
+	public void testSorpresaDesfavorableSumaMovimientos(){
+	
+		SorpresaDesfavorable sorpresaDesfavorable = new SorpresaDesfavorable();
+		int cantidadDeMovimientos = 10;
+		
+		sorpresaDesfavorable.aplicarSorpresa(cantidadDeMovimientos);
+		
+		assertTrue(cantidadDeMovimientos == 13);
+	
+	}
+}	
+
+	
