@@ -3,6 +3,7 @@ package ar.fi.uba.GPSChallenge.Modelo;
 public class Vehiculo {
 	
 	private Estado estado;
+	private Esquina esquina;
 	
 	public Vehiculo() {
 		

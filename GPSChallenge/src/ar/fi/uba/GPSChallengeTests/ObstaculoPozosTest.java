@@ -15,15 +15,13 @@ public class ObstaculoPozosTest extends TestCase {
 		assertNotNull (obstaculoPozos);
 	}
 	
-	
-	
 	@Test
 	public void testIdentificarQueVehiculoEs(){
 		ObstaculoPozos obstaculoPozos = new ObstaculoPozos();
 		CuatroPorCuatro cuatroPorCuatro = new CuatroPorCuatro();
 		Vehiculo vehiculo = new Vehiculo(cuatroPorCuatro);
-		obstaculoPozos.identificarQueVehiculoEs();
-		assertTrue(obstaculoPozos.identificarQueVehiculoEs() == CuatroPorCuatro);
+		obstaculoPozos.agregarVehiculo(vehiculo);
+		assertTrue(obstaculoPozos.identificarQueVehiculoEs() == cuatroPorCuatro);
 	}
 
 }

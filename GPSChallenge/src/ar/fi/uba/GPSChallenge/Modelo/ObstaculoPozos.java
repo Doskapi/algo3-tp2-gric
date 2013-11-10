@@ -8,5 +8,8 @@ public class ObstaculoPozos extends Obstaculo {
 		return this.vehiculo.getEstado();
 	}
 	
+	public void agregarVehiculo(Vehiculo vehiculo){
+		this.vehiculo = vehiculo;
+	}
 
 }

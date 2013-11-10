@@ -32,6 +32,7 @@ public class VehiculoTest {
 		Vehiculo vehiculo = new Vehiculo(moto);
 		assertEquals(vehiculo.getEstado(),moto);
 	}
+	
 }
 	
 	
