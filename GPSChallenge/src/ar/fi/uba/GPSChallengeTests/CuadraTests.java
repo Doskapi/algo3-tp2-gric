@@ -11,6 +11,5 @@ public class CuadraTests extends TestCase {
 		Cuadra cuadra = new Cuadra();
 		assertNotNull (cuadra);	
 	}
-	
 
 }
