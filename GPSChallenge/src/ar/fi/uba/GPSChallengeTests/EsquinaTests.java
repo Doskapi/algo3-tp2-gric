@@ -19,5 +19,20 @@ public class EsquinaTests extends TestCase {
 		Esquina esquina = new Esquina(posicion);
 		assertEquals(esquina.getPosicion(),posicion);
 	}
+	
+	@Test
+	public void testCrearUnaEsquinaYNoTieneVehiculo(){
+		Esquina esquina = new Esquina();
+		assertFalse (esquina.hayVehiculo());
+	}
+	
+	@Test
+	public void testCrearUnaEsquinaYLeAgregoVehiculo(){
+		Esquina esquina = new Esquina();
+		esquina.agregarVehiculo();
+		assertTrue (esquina.hayVehiculo());
+	}
+	
+	
 
 }

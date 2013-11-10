@@ -26,5 +26,9 @@ public class Esquina {
 		return this.hayVehiculo;
 	}
 	
+	public void agregarVehiculo(){
+		this.hayVehiculo = true;
+	}
+	
 }
 	
