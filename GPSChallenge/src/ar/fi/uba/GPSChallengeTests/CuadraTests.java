@@ -12,4 +12,15 @@ public class CuadraTests extends TestCase {
 		assertNotNull (cuadra);	
 	}
 
+
+
+	public void testCreaUnaCuadraConUnObstaculo(){
+		Cuadra cuadra = new Cuadra();
+		ObstaculoPiquete obstaculoPiquete = new ObstaculoPiquete();
+		
+		cuadra.setImprevisto(obstaculoPiquete);
+		
+		assertNotNull(cuadra.getImprevisto());
+		
+	}
 }
