@@ -20,9 +20,8 @@ public class SorpresaFavorableTests extends TestCase{
 		SorpresaFavorable sorpresaFavorable = new SorpresaFavorable();
 		int cantidadDeMovimientos = 10;
 		
-		sorpresaFavorable.aplicarSorpresa(cantidadDeMovimientos);
-		
-		assertTrue(cantidadDeMovimientos == 8);
+		cantidadDeMovimientos = sorpresaFavorable.aplicarSorpresa(cantidadDeMovimientos);
+		assertTrue(cantidadDeMovimientos == 8 );
 	
 	}
 }	

@@ -2,10 +2,12 @@ package ar.fi.uba.GPSChallenge.Modelo;
 
 public class SorpresaFavorable extends Sorpresa {
 		
-	public void aplicarSorpresa(int cantidadDeMovimientos){
+	public int aplicarSorpresa(int cantidadDeMovimientos){
 		
 		int movimientos = cantidadDeMovimientos;
 		cantidadDeMovimientos = (movimientos-(movimientos*20/100));
+
+		return cantidadDeMovimientos;
 	}
 }
 	

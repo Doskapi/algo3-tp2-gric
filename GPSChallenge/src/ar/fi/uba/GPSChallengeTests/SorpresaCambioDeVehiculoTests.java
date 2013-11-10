@@ -12,4 +12,6 @@ public class SorpresaCambioDeVehiculoTests extends TestCase{
 		SorpresaCambioDeVehiculo sorpresaCambioDeVehiculo = new SorpresaCambioDeVehiculo();
 		assertNotNull(sorpresaCambioDeVehiculo);
 	}
+
+
 }
