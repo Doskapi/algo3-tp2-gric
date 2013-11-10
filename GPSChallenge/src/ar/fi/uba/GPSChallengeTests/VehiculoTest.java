@@ -33,6 +33,20 @@ public class VehiculoTest {
 		assertEquals(vehiculo.getEstado(),moto);
 	}
 	
-}
+	@Test
+	public void testGetCantidadDeMovimientos(){
+		Vehiculo vehiculo = new Vehiculo();
+		assertEquals(vehiculo.getCantidadDeMovimientos(),0);
+	}
 	
+	@Test
+	public void testSetCantidadDeMovimientos(){
+		Vehiculo vehiculo = new Vehiculo();
+		vehiculo.setCantidadDeMovimientos(8);
+		assertEquals(vehiculo.getCantidadDeMovimientos(), 8);
+	}
+	
+
+
+}
 	

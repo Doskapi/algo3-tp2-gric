@@ -6,8 +6,9 @@ public class Cuadra {
 
 	private ArrayList<Imprevisto> imprevistos;
 	
-	public Cuadra(){
+	public Cuadra(Imprevisto imprevisto){
 		ArrayList<Imprevisto> imprevistos = new ArrayList<Imprevisto>();
+		
 	}
 
 	public ArrayList<Imprevisto> getImprevisto() {
