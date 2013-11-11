@@ -5,6 +5,8 @@ import java.util.*;
 public class Esquinas {
 	
 	List<ArrayList<Esquina>> esquinas = new ArrayList<ArrayList<Esquina>>();
+	int filas;
+	int columnas;
 	
 	public Esquinas(int filas, int columnas){
 		
@@ -15,6 +17,16 @@ public class Esquinas {
 			}
 			esquinas.add(contenido);
 			}
+		this.filas = filas;
+		this.columnas = columnas;
+	}
+	
+	public int getFilas(){
+		return (this.filas);
+	}
+	
+	public int getColumnas(){
+		return (this.columnas);
 	}
 	
 	public Esquina devolverEsquina (int fila, int columna){

@@ -7,6 +7,13 @@ import ar.fi.uba.GPSChallenge.Modelo.*;
 public class EsquinasTests extends TestCase {
 	
 	@Test
+	public void testCreoEsquinasDe8x5YVerificoDimensiones(){
+		Esquinas esquinas = new Esquinas (8,5);
+		assertEquals(esquinas.getFilas(), 8);
+		assertEquals(esquinas.getColumnas(), 5);
+	}
+	
+	@Test
 	public void testCreoEsquinasDe10x10(){
 		Esquinas esquinas = new Esquinas (10,10);
 		Esquina esquina = esquinas.devolverEsquina(3,2);
