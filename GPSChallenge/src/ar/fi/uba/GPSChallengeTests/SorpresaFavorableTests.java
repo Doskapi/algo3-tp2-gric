@@ -2,7 +2,10 @@ package ar.fi.uba.GPSChallengeTests;
 
 import junit.framework.TestCase;
 import org.junit.Test;
+
+import ar.fi.uba.GPSChallenge.Modelo.CuatroPorCuatro;
 import ar.fi.uba.GPSChallenge.Modelo.SorpresaFavorable;
+import ar.fi.uba.GPSChallenge.Modelo.Vehiculo;
 
 public class SorpresaFavorableTests extends TestCase{
 	
@@ -18,10 +21,14 @@ public class SorpresaFavorableTests extends TestCase{
 	public void testSorpresaFavorableRestaMovimientos(){
 	
 		SorpresaFavorable sorpresaFavorable = new SorpresaFavorable();
-		int cantidadDeMovimientos = 10;
+		CuatroPorCuatro cuatroPorCuatro = new CuatroPorCuatro();
+		Vehiculo vehiculo = new Vehiculo(cuatroPorCuatro);
 		
-		cantidadDeMovimientos = sorpresaFavorable.aplicarSorpresa(cantidadDeMovimientos);
-		assertTrue(cantidadDeMovimientos == 8 );
+		vehiculo.setCantidadDeMovimientos(10);
+		
+		sorpresaFavorable.aplicarImprevisto(vehiculo);
+		
+		assertTrue(vehiculo.getCantidadDeMovimientos() == 8 );
 	
 	}
 }	
