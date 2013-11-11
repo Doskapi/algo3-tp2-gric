@@ -123,6 +123,16 @@ public class VehiculoTest extends TestCase {
 		assertEquals(vehiculo.devolverEsquina(), esquinaFinal);
 		assertEquals(vehiculo.getCantidadDeMovimientos(), 1);
 	}
+	
+	@Test
+	public void testUnVehículoMotoCambiaDeEstadoAAuto(){
+		Moto moto = new Moto();
+		Auto auto = new Auto();
+		Vehiculo vehiculo = new Vehiculo(moto);
+		assertEquals(vehiculo.getEstado(), moto);
+		vehiculo.setEstado(auto);
+		assertEquals(vehiculo.getEstado(), auto);
+	}
 }
 
 	

@@ -19,6 +19,10 @@ public class Vehiculo {
     	return this.estado;
                
     }
+    
+    public void setEstado(Estado estado){
+    	this.estado = estado;
+    }
        
     public int getCantidadDeMovimientos(){
     	return movimientos;
