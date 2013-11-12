@@ -19,14 +19,30 @@ public class Mapa {
 		int columnaLargada = 1;
 		int filaLargada = this.filas / 2;
 		Esquina esquinaLargada = new Esquina(new Posicion(filaLargada, columnaLargada));
-		this.largada = esquinaLargada;
+		setEsquinaLargada(esquinaLargada);
 	}
 	
 	private void setMetaEnFormaAleatoria() {
 		int columnaMeta = this.columnas;
 		int filaMeta = (1 + (int)(Math.random() * ((this.filas - 1) + 1)));
 		Esquina esquinaMeta = new Esquina(new Posicion(filaMeta, columnaMeta));
-		this.meta = esquinaMeta;
+		setEsquinaMeta(esquinaMeta);
+	}
+	
+	public void setEsquinaLargada(Esquina esquina){
+		this.largada = esquina;
+	}
+	
+	public void setEsquinaMeta(Esquina esquina){
+		this.meta = esquina;
+	}
+	
+	public Esquina getEsquinaMeta(){
+		return(this.meta);
+	}
+	
+	public Esquina getEsquinaLargada(){
+		return(this.largada);
 	}
 
 	public int dimensiones(){
@@ -39,22 +55,6 @@ public class Mapa {
 	
 	public int cantidadColumnas(){
 		return this.columnas;
-	}
-
-	public void setEsquinaLargada(Esquina esquina){
-		this.largada = esquina;
-	}
-	
-	public Esquina getEsquinaLargada(){
-		return(this.largada);
-	}
-
-	public void setEsquinaMeta(Esquina esquina){
-		this.meta = esquina;
-	}
-	
-	public Esquina getEsquinaMeta(){
-		return(this.meta);
 	}
 
 	public void agregarVehiculo(Vehiculo vehiculo){
