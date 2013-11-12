@@ -1,15 +1,18 @@
 package ar.fi.uba.GPSChallenge.Modelo;
 
 public class ObstaculoPozos extends Obstaculo {
-	
-	private Vehiculo vehiculo;
 
-	public Estado identificarQueVehiculoEs() {
-		return this.vehiculo.getEstado();
+	private int movimientosDePenalizacion = 3;
+	
+	public void ObstaculosPozos(){
 	}
 	
-	public void agregarVehiculo(Vehiculo vehiculo){
-		this.vehiculo = vehiculo;
+	public void aplicarImprevisto(Vehiculo vehiculo){
+		
+		int movimientosDelVehiculo = vehiculo.getCantidadDeMovimientos();
+		movimientosDelVehiculo = movimientosDelVehiculo + this.movimientosDePenalizacion;
+		if (vehiculo.getNombreEstado() != "CuatroPorCuatro"){
+			vehiculo.setCantidadDeMovimientos(movimientosDelVehiculo);
+		}
 	}
-
 }
