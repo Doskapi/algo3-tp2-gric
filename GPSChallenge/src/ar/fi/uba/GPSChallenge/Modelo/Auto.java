@@ -7,4 +7,9 @@ public class Auto implements Estado{
 	public String getEstado(){
 		return "Auto";
 	}	
+	
+	public Estado nuevoEstado(){
+		CuatroPorCuatro cuatroPorCuatro = new CuatroPorCuatro();
+		return cuatroPorCuatro;
+	}
 }

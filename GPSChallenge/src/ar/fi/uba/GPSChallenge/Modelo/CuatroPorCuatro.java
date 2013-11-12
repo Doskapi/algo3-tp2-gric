@@ -7,4 +7,9 @@ public class CuatroPorCuatro implements Estado{
 	public String getEstado(){
 		return "CuatroPorCuatro";
 	}	
+
+	public Estado nuevoEstado(){
+		Moto moto = new Moto();
+		return moto;
+	}
 }

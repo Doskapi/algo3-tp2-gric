@@ -4,4 +4,5 @@ public interface Estado {
 
 	public abstract String getEstado();
 	
+	public Estado nuevoEstado();
 }

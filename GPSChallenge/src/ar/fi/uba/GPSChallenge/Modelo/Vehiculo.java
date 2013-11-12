@@ -49,5 +49,13 @@ public class Vehiculo {
 		colocarEnEsquina(rumbo.moverVehiculo(devolverEsquina()));
 		this.sumarMovimientos();
 	}
+
+	public Estado getNuevoEstado(){
+		return this.estado.nuevoEstado();
+	}
+
+	public String getNombreEstado(){
+		return this.estado.getEstado();
+	}
 }
 

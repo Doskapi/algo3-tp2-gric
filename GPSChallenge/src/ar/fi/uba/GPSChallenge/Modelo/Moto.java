@@ -6,5 +6,13 @@ public class Moto implements Estado{
 	
 	public String getEstado(){
 		return "Moto";
-	}	
+	
+	}
+	
+	public Estado nuevoEstado(){
+		Auto auto = new Auto();
+		return auto;
+	}
+	
 }
+
