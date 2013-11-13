@@ -11,11 +11,11 @@ public class Mapa {
 	public Mapa(int filas, int columnas){
 		this.filas = filas;
 		this.columnas = columnas;
-		setLargadaAutomaticamente();
+		setLargada();
 		setMetaEnFormaAleatoria();
 	}
 
-	private void setLargadaAutomaticamente() {
+	private void setLargada() {
 		int columnaLargada = 1;
 		int filaLargada = this.filas / 2;
 		Esquina esquinaLargada = new Esquina(new Posicion(filaLargada, columnaLargada));

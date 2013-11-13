@@ -6,10 +6,6 @@ public class Vehiculo {
     private Esquina esquina;
     private int movimientos;
        
-    public Vehiculo() {
-               
-    }
-
     public Vehiculo(Estado estado){
     	this.estado = estado;
         this.movimientos = 0;

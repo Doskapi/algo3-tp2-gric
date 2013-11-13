@@ -7,12 +7,6 @@ import ar.fi.uba.GPSChallenge.Modelo.*;
 public class VehiculoTest extends TestCase {
 
 	@Test
-		public void testCrearVehiculo(){
-		Vehiculo vehiculo = new Vehiculo();
-		assertNotNull(vehiculo);
-	}
-	
-	@Test
 	public void testCrearCuatroPorCuatro(){
 		CuatroPorCuatro cuatroPorCuatro = new CuatroPorCuatro();
 		Vehiculo vehiculo = new Vehiculo(cuatroPorCuatro);
@@ -35,13 +29,14 @@ public class VehiculoTest extends TestCase {
 	
 	@Test
 	public void testGetCantidadDeMovimientos(){
-		Vehiculo vehiculo = new Vehiculo();
+		
+		Vehiculo vehiculo = new Vehiculo(new Moto());
 		assertEquals(vehiculo.getCantidadDeMovimientos(),0);
 	}
 	
 	@Test
 	public void testSetCantidadDeMovimientos(){
-		Vehiculo vehiculo = new Vehiculo();
+		Vehiculo vehiculo = new Vehiculo(new Moto());
 		vehiculo.setCantidadDeMovimientos(8);
 		assertEquals(vehiculo.getCantidadDeMovimientos(), 8);
 	}
