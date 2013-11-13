@@ -6,7 +6,7 @@ public class ObstaculoPozos extends Obstaculo {
 	
 	public void ObstaculosPozos(){
 	}
-	
+
 	public void aplicarImprevisto(Vehiculo vehiculo){
 		
 		int movimientosDelVehiculo = vehiculo.getCantidadDeMovimientos();
