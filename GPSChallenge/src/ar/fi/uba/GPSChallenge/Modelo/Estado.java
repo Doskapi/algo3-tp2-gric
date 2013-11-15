@@ -4,8 +4,9 @@ public interface Estado {
 
 	public abstract String getEstado();
 	
-	public Estado nuevoEstado();
+	public abstract Estado nuevoEstado();
 
 	public abstract int agarrarPozos();
-	
+
+	public abstract double getProbabilidadDePenalizacion();
 }

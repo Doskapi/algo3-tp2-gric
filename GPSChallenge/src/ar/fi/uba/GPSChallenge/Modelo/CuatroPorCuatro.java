@@ -4,6 +4,8 @@ import ar.fi.uba.GPSChallenge.Modelo.Estado;
 
 public class CuatroPorCuatro implements Estado{
 	
+	private double probabilidadDePenalizacion = 0.3;
+	
 	public String getEstado(){
 		return "CuatroPorCuatro";
 	}	
@@ -17,4 +19,9 @@ public class CuatroPorCuatro implements Estado{
 		int movimientos = 0;
 		return movimientos;
 	}
+	
+	public double getProbabilidadDePenalizacion(){
+		return probabilidadDePenalizacion;
+	}
+	
 }

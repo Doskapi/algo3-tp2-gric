@@ -57,5 +57,8 @@ public class Vehiculo {
 		this.movimientos = this.movimientos + movimientosAAgregar;
 	}
 	
+	public double getProbabilidadDePenalizacion(){
+		return this.estado.getProbabilidadDePenalizacion();
+	}
 }
 

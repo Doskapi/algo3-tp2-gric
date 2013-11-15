@@ -17,5 +17,10 @@ public class Moto implements Estado{
 		int movimientos = 3;
 		return movimientos;
 	}
+
+	public double getProbabilidadDePenalizacion(){
+		double probabilidadDePenalizacion = 0.8;
+		return probabilidadDePenalizacion;
+	}
 }
 

@@ -18,4 +18,9 @@ public class Auto implements Estado{
 		return movimientos;
 	}
 	
+	public double getProbabilidadDePenalizacion(){
+		double probabilidadDePenalizacion = 0.5;
+		return probabilidadDePenalizacion;
+	}
+
 }
