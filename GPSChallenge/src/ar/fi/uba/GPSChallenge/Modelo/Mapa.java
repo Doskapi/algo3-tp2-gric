@@ -1,5 +1,7 @@
 package ar.fi.uba.GPSChallenge.Modelo;
 
+import java.util.Stack;
+
 public class Mapa {
 	
 	private int filas;
@@ -8,12 +10,17 @@ public class Mapa {
 	Esquina largada;
 	Esquina meta;
 	Vehiculo vehiculo;
+	Stack<Obstaculo> obstaculos;
+	Stack<Sorpresa> sorpresas;
 
 	public Mapa(int filas, int columnas){
 		this.filas = filas;
 		this.columnas = columnas;
 		setLargada();
 		setMeta();
+		this.obstaculos = new Stack<Obstaculo>();
+		this.sorpresas = new Stack<Sorpresa>();
+		
 	}
 
 	private void setLargada() {
@@ -78,4 +85,49 @@ public class Mapa {
 	public int cantidadDeImprevistosObstaculoAColocar() {
 		return (cantidadDeImprevistos()/2);
 	}
+	
+	public void generarObstaculos(int cantidadDeObstaculos){
+		int sorteo;
+		for (int i = 0; i < cantidadDeObstaculos; i++){
+			sorteo = 1 + (int)(Math.random() * 3);
+			switch(sorteo) {
+			 case 1: 
+			     this.obstaculos.add(new ObstaculoPiquete());
+			     break;
+			 case 2: 
+			     this.obstaculos.add(new ObstaculoPolicial());
+			     break;
+			 case 3: 
+			     this.obstaculos.add(new ObstaculoPozos());
+			     break;
+			}	
+		}
+	}
+	
+	public void generarSorpresas(int cantidadDeSorpresas){
+		int sorteo;
+		for (int i = 0; i < cantidadDeSorpresas; i++){
+			sorteo = 1 + (int)(Math.random() * 3);
+			switch(sorteo) {
+			 case 1: 
+			     this.sorpresas.add(new SorpresaCambioDeVehiculo());
+			     break;
+			 case 2: 
+			     this.sorpresas.add(new SorpresaDesfavorable());
+			     break;
+			 case 3: 
+			     this.sorpresas.add(new SorpresaFavorable());
+			     break;
+			}	
+		}
+	}
+	
+	public Stack<Obstaculo> obtenerObstaculos(){
+		return(this.obstaculos);
+	}
+	
+	public Stack<Sorpresa> obtenerSorpresas(){
+		return(this.sorpresas);
+	}
+
 }
