@@ -49,5 +49,31 @@ public class Posicion {
 		int columnaNueva = getColumna() - 1;
 		return (new Posicion (filaNueva,columnaNueva));
 	}
+
+	public void setPosicionRandom(int filas, int columnas) {
+		this.fila = 1 + (int)(Math.random() * filas);
+		this.columna = 1 + (int)(Math.random() * columnas);
+	}
+	//FALTA TESTEAR --> NO SABEMOS COMO
+	public Posicion getContiguaRandom() {
+		Posicion posicion = new Posicion();
+		int sorteo = 1 + (int)(Math.random() * 4);
+		switch(sorteo) {
+		 case 1: 
+			 posicion = new Posicion(this.getFila()-1,this.getColumna());
+		     break;
+		 case 2: 
+			 posicion = new Posicion(this.getFila(),this.getColumna()+1);
+		     break;
+		 case 3: 
+			 posicion = new Posicion(this.getFila()+1,this.getColumna());
+		     break;
+		 case 4: 
+			 posicion = new Posicion(this.getFila(),this.getColumna()-1);
+		     break;
+		}	
+		return posicion;
+	}
+	
 }
 

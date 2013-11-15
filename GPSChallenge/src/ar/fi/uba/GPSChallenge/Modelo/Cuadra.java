@@ -8,6 +8,9 @@ public class Cuadra {
 	private Esquina esquinaInicial;
 	private Esquina esquinaFinal;
 	
+	public Cuadra(){
+	}
+	
 	public Cuadra(Esquina esquinaInicial, Esquina esquinaFinal){
 		this.imprevistos = new ArrayList<Imprevisto>();
 		this.esquinaInicial = esquinaInicial;

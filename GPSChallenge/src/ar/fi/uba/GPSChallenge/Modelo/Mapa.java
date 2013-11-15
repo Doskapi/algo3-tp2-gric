@@ -1,6 +1,6 @@
 package ar.fi.uba.GPSChallenge.Modelo;
 
-import java.util.Stack;
+import java.util.*;
 
 public class Mapa {
 	
@@ -12,17 +12,20 @@ public class Mapa {
 	Vehiculo vehiculo;
 	Stack<Obstaculo> obstaculos;
 	Stack<Sorpresa> sorpresas;
+	List<Cuadra> cuadras;
 
 	public Mapa(int filas, int columnas){
 		this.filas = filas;
 		this.columnas = columnas;
-		setLargada();
-		setMeta();
+		this.setLargada();
+		this.setMeta();
 		this.obstaculos = new Stack<Obstaculo>();
 		this.sorpresas = new Stack<Sorpresa>();
-		
+		this.cuadras = new ArrayList<Cuadra>();	
+		this.generarObstaculos(this.cantidadDeImprevistosObstaculoAColocar());
+		this.generarSorpresas(this.cantidadDeImprevistosSorpresaAColocar());
 	}
-
+	
 	private void setLargada() {
 		int columnaLargada = 1;
 		int filaLargada = this.filas / 2;
@@ -57,11 +60,11 @@ public class Mapa {
 		return((this.filas) * (this.columnas));
 	}
 	
-	public int cantidadFilas(){
+	public int getFilas(){
 		return this.filas;
 	}
 	
-	public int cantidadColumnas(){
+	public int getColumnas(){
 		return this.columnas;
 	}
 
@@ -128,6 +131,48 @@ public class Mapa {
 	
 	public Stack<Sorpresa> obtenerSorpresas(){
 		return(this.sorpresas);
+	}
+
+	public Posicion getPosicionRandom(int filas, int columnas){
+		Posicion posicion = new Posicion();
+		posicion.setPosicionRandom(filas, columnas);
+		return posicion;
+	}
+	
+	public void generarCuadras() {
+		while (this.cuadras.size() < cantidadDeImprevistos()){
+			Posicion posicion1 = new Posicion();
+			Posicion posicion2 = new Posicion();
+			posicion1 = getPosicionRandom(this.filas, this.columnas);
+			posicion2 = posicion1.getContiguaRandom();		
+			Cuadra cuadra = new Cuadra(new Esquina(posicion1), new Esquina(posicion2));
+			
+			Iterator<Cuadra> iterador = this.cuadras.iterator();
+			boolean encontrada = false;
+			Cuadra cuadraActual = new Cuadra();
+			while(iterador.hasNext() && !encontrada){
+				cuadraActual = iterador.next();
+				encontrada = (cuadra.equals(cuadraActual));
+			}
+			if (!encontrada) {
+				this.cuadras.add(cuadra);
+			}
+		}
+	}
+
+	public void generarCuadraMetodoParaTesteo() {
+		Esquina esquinaInicial1 = new Esquina(new Posicion(1,2));
+		Esquina esquinaFinal1 = new Esquina(new Posicion(2,2));
+		Esquina esquinaInicial2 = new Esquina(new Posicion(4,3));
+		Esquina esquinaFinal2 = new Esquina(new Posicion(4,4));
+		Cuadra cuadra1 = new Cuadra(esquinaInicial1, esquinaFinal1);
+		Cuadra cuadra2 = new Cuadra(esquinaInicial2, esquinaFinal2);
+		cuadras.add(cuadra1);
+		cuadras.add(cuadra2);
+	}
+
+	public List<Cuadra> getCuadras() {
+		return this.cuadras;
 	}
 
 }

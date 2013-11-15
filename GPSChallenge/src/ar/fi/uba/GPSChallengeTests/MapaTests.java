@@ -107,5 +107,24 @@ public class MapaTests extends TestCase {
 		mapa.generarSorpresas(10);
 		assertEquals(mapa.obtenerSorpresas().size(), 10);
 	}
+	
+	@Test
+	public void testUnMapaCreaSusCuadras(){
+		Mapa mapa = new Mapa(5,5);
+		mapa.generarCuadras();
+		assertEquals(mapa.getCuadras().size(), 2);
+	}
+	
+	@Test
+	public void testGetPosicionRandom(){
+		Mapa mapa = new Mapa(16,12);
+		Posicion posicion = new Posicion();
+		posicion.setPosicionRandom(mapa.getFilas(), mapa.getColumnas());
+		assertTrue(posicion.getFila() <= mapa.getFilas());
+		assertTrue(posicion.getColumna() <= mapa.getColumnas());
+		assertTrue(posicion.getFila() > 0);
+		assertTrue(posicion.getColumna() > 0);
+	}
+
 }
 
