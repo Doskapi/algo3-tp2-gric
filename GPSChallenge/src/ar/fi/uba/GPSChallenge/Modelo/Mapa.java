@@ -12,7 +12,7 @@ public class Mapa {
 		this.filas = filas;
 		this.columnas = columnas;
 		setLargada();
-		setMetaEnFormaAleatoria();
+		setMeta();
 	}
 
 	private void setLargada() {
@@ -22,7 +22,7 @@ public class Mapa {
 		setEsquinaLargada(esquinaLargada);
 	}
 	
-	private void setMetaEnFormaAleatoria() {
+	private void setMeta() {
 		int columnaMeta = this.columnas;
 		int filaMeta = (1 + (int)(Math.random() * ((this.filas - 1) + 1)));
 		Esquina esquinaMeta = new Esquina(new Posicion(filaMeta, columnaMeta));

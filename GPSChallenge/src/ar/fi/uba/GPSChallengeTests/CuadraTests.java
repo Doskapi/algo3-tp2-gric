@@ -7,17 +7,20 @@ import junit.framework.TestCase;
 public class CuadraTests extends TestCase {
 
 	@Test
-	public void testCrearCuadraConImprevisto(){
-		ObstaculoPozos obstaculoPozo = new ObstaculoPozos();
-		Cuadra cuadra = new Cuadra(obstaculoPozo);
+	public void testCrearCuadra(){
+		Esquina esquinaInicial = new Esquina(new Posicion(2,1));
+		Esquina esquinaFinal = new Esquina(new Posicion(2,2));
+		Cuadra cuadra = new Cuadra(esquinaInicial, esquinaFinal);
 		assertNotNull(cuadra);
-		assertEquals((cuadra.getImprevistos()).get(0),obstaculoPozo);
+		assertEquals(cuadra.getEsquinaInicial(),esquinaInicial);
+		assertEquals(cuadra.getEsquinaFinal(),esquinaFinal);
 	}
 	
 	@Test
 	public void testAplicarImprevistosAlDerecho(){
+		Cuadra cuadra = new Cuadra(new Esquina(new Posicion(2,1)), new Esquina(new Posicion(2,2)));
 		ObstaculoPozos obstaculoPozos = new ObstaculoPozos();
-		Cuadra cuadra = new Cuadra(obstaculoPozos);
+		cuadra.agregarImprevisto(obstaculoPozos);
 		SorpresaFavorable sorpresaFavorable = new SorpresaFavorable();
 		cuadra.agregarImprevisto(sorpresaFavorable);
 		Auto auto = new Auto();
@@ -29,9 +32,10 @@ public class CuadraTests extends TestCase {
 	
 	@Test
 	public void testAplicarImprevistosAlReves(){
+		Cuadra cuadra = new Cuadra(new Esquina(new Posicion(2,1)), new Esquina(new Posicion(2,2)));
 		ObstaculoPozos obstaculoPozos = new ObstaculoPozos();
-		Cuadra cuadra = new Cuadra(obstaculoPozos);
 		SorpresaFavorable sorpresaFavorable = new SorpresaFavorable();
+		cuadra.agregarImprevisto(obstaculoPozos);
 		cuadra.agregarImprevisto(sorpresaFavorable);
 		Auto auto = new Auto();
 		Vehiculo vehiculo = new Vehiculo(auto);
@@ -39,4 +43,21 @@ public class CuadraTests extends TestCase {
 		cuadra.aplicarImprevistosAlReves(vehiculo);
 		assertEquals(vehiculo.getCantidadDeMovimientos(),19);
 	}
+	
+	@Test
+	public void testDosCuadrasSonIgualesCuandoCuandoCoicidenEsquinaInicialYEsquinaFinal(){
+		Cuadra cuadra1 = new Cuadra(new Esquina(new Posicion(2,1)), new Esquina(new Posicion(2,2)));
+		Cuadra cuadra2 = new Cuadra(new Esquina(new Posicion(2,1)), new Esquina(new Posicion(2,2)));
+		assertEquals(cuadra1, cuadra2);
+	}
+	
+	@Test
+	public void testDosCuadrasSonIgualesCuandoCuandoEsquinaInicialYEsquinaFinalEstanInvertidos(){
+		Cuadra cuadra1 = new Cuadra(new Esquina(new Posicion(2,1)), new Esquina(new Posicion(2,2)));
+		Cuadra cuadra2 = new Cuadra(new Esquina(new Posicion(2,2)), new Esquina(new Posicion(2,1)));
+		assertEquals(cuadra1, cuadra2);
+	}
+		
+		
 }
+	

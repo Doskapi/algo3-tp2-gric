@@ -11,7 +11,7 @@ public class Esquina {
 	}
 
 	public Posicion getPosicion() {
-		return posicion;
+		return this.posicion;
 	}
 	
 	public boolean equals(Object otraEsquina){
