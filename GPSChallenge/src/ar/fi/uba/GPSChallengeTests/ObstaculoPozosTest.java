@@ -14,39 +14,33 @@ public class ObstaculoPozosTest extends TestCase {
 	}
 	
 	@Test
-	public void testObstaculoPozosSumaMovimientos(){
-	
+	public void testObstaculoPozosSumaMovimientosAMoto(){
 		ObstaculoPozos obstaculoPozos = new ObstaculoPozos();
 		Moto moto = new Moto();
 		Vehiculo vehiculo = new Vehiculo(moto);
-		
-		vehiculo.setCantidadDeMovimientos(2);
-		
-		int movimientosDelVehiculo = vehiculo.getCantidadDeMovimientos();
-		movimientosDelVehiculo = (movimientosDelVehiculo + 3);
-		
+		assertEquals(vehiculo.getCantidadDeMovimientos(), 0);
 		obstaculoPozos.aplicarImprevisto(vehiculo);
-		
-		int luegoDeAplicar = vehiculo.getCantidadDeMovimientos();
-		
-		assertTrue(luegoDeAplicar == movimientosDelVehiculo);
+		assertEquals(vehiculo.getCantidadDeMovimientos(), 3);
+	}
+	
+	@Test
+	public void testObstaculoPozosSumaMovimientosAAuto(){
+		ObstaculoPozos obstaculoPozos = new ObstaculoPozos();
+		Auto auto = new Auto();
+		Vehiculo vehiculo = new Vehiculo(auto);
+		assertEquals(vehiculo.getCantidadDeMovimientos(), 0);
+		obstaculoPozos.aplicarImprevisto(vehiculo);
+		assertEquals(vehiculo.getCantidadDeMovimientos(), 3);
 	}
 	
 	@Test
 	public void testObstaculoPozosNoSumaMovimientosACuatroPorCuatro(){
-	
 		ObstaculoPozos obstaculoPozos = new ObstaculoPozos();
 		CuatroPorCuatro cuatroPorCuatro = new CuatroPorCuatro();
 		Vehiculo vehiculo = new Vehiculo(cuatroPorCuatro);
-		
-		vehiculo.setCantidadDeMovimientos(2);
-		
-		int movimientosDelVehiculo = vehiculo.getCantidadDeMovimientos();
-		
+		assertEquals(vehiculo.getCantidadDeMovimientos(), 0);
 		obstaculoPozos.aplicarImprevisto(vehiculo);
-		
-		int movLuegoDeAplicar = vehiculo.getCantidadDeMovimientos();
-		
-		assertTrue(movLuegoDeAplicar == movimientosDelVehiculo);
+		assertEquals(vehiculo.getCantidadDeMovimientos(), 0);
 	}
+	
 }

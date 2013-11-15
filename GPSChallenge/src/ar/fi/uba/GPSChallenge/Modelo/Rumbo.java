@@ -4,7 +4,6 @@ public abstract class Rumbo {
 
 	public Esquina moverVehiculo(Esquina esquina) {
 		return esquina;
-		
 	}
 
 }

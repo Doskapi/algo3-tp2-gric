@@ -6,7 +6,6 @@ public class Moto implements Estado{
 	
 	public String getEstado(){
 		return "Moto";
-	
 	}
 	
 	public Estado nuevoEstado(){
@@ -14,5 +13,9 @@ public class Moto implements Estado{
 		return auto;
 	}
 	
+	public int agarrarPozos(){
+		int movimientos = 3;
+		return movimientos;
+	}
 }
 

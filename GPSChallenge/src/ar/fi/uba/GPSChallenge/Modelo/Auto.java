@@ -12,4 +12,10 @@ public class Auto implements Estado{
 		CuatroPorCuatro cuatroPorCuatro = new CuatroPorCuatro();
 		return cuatroPorCuatro;
 	}
+	
+	public int agarrarPozos(){
+		int movimientos = 3;
+		return movimientos;
+	}
+	
 }

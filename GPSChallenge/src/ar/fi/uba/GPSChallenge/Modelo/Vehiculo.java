@@ -12,8 +12,7 @@ public class Vehiculo {
     }
        
     public Estado getEstado(){
-    	return this.estado;
-               
+    	return this.estado;    
     }
     
     public void setEstado(Estado estado){
@@ -25,8 +24,7 @@ public class Vehiculo {
     }
          
     private void sumarMovimientos(){
-    	movimientos = (movimientos + 1);
-               
+    	movimientos = (movimientos + 1);     
     }
        
     public void setCantidadDeMovimientos(int movimientos){
@@ -53,5 +51,11 @@ public class Vehiculo {
 	public String getNombreEstado(){
 		return this.estado.getEstado();
 	}
+
+	public void agarrarPozos(){
+		int movimientosAAgregar = this.estado.agarrarPozos();
+		this.movimientos = this.movimientos + movimientosAAgregar;
+	}
+	
 }
 

@@ -128,6 +128,16 @@ public class VehiculoTest extends TestCase {
 		vehiculo.setEstado(auto);
 		assertEquals(vehiculo.getEstado(), auto);
 	}
+	
+	@Test
+	public void testUnVehiculoAgararPozos(){
+		Moto moto = new Moto();
+		Vehiculo vehiculo = new Vehiculo(moto);
+		assertEquals(vehiculo.getCantidadDeMovimientos(), 0);
+		vehiculo.agarrarPozos();
+		assertEquals(vehiculo.getCantidadDeMovimientos(), 3);
+	}
 }
+
 
 	

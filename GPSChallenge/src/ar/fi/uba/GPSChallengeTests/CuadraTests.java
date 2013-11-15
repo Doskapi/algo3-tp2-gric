@@ -12,9 +12,7 @@ public class CuadraTests extends TestCase {
 		Cuadra cuadra = new Cuadra(obstaculoPozo);
 		assertNotNull(cuadra);
 		assertEquals((cuadra.getImprevistos()).get(0),obstaculoPozo);
-		
 	}
-	
 	
 	@Test
 	public void testAplicarImprevistosAlDerecho(){
@@ -27,7 +25,6 @@ public class CuadraTests extends TestCase {
 		vehiculo.setCantidadDeMovimientos(20);
 		cuadra.aplicarImprevistosAlDerecho(vehiculo);
 		assertEquals(vehiculo.getCantidadDeMovimientos(),19);
-		
 	}
 	
 	@Test
@@ -42,7 +39,4 @@ public class CuadraTests extends TestCase {
 		cuadra.aplicarImprevistosAlReves(vehiculo);
 		assertEquals(vehiculo.getCantidadDeMovimientos(),19);
 	}
-	
-	
-	
 }

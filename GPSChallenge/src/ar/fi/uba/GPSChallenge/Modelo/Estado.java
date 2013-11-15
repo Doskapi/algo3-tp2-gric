@@ -5,4 +5,7 @@ public interface Estado {
 	public abstract String getEstado();
 	
 	public Estado nuevoEstado();
+
+	public abstract int agarrarPozos();
+	
 }

@@ -12,4 +12,9 @@ public class CuatroPorCuatro implements Estado{
 		Moto moto = new Moto();
 		return moto;
 	}
+	
+	public int agarrarPozos(){
+		int movimientos = 0;
+		return movimientos;
+	}
 }
