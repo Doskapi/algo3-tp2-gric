@@ -4,6 +4,7 @@ public class Mapa {
 	
 	private int filas;
 	private int columnas;
+	private int porcentajeDeImprevistos = 10;
 	Esquina largada;
 	Esquina meta;
 	Vehiculo vehiculo;
@@ -45,7 +46,7 @@ public class Mapa {
 		return(this.largada);
 	}
 
-	public int dimensiones(){
+	public int cantidadDeElementos(){
 		return((this.filas) * (this.columnas));
 	}
 	
@@ -64,5 +65,17 @@ public class Mapa {
 	public Vehiculo devolverVehiculo(){
 		return(this.vehiculo);
 	}
+
+	public int cantidadDeImprevistos(){
+		return ((((this.filas*this.columnas)* this.porcentajeDeImprevistos))/100);
+	}
+
 	
+	public int cantidadDeImprevistosSorpresaAColocar() {
+		return (cantidadDeImprevistos()/2);
+	}
+	
+	public int cantidadDeImprevistosObstaculoAColocar() {
+		return (cantidadDeImprevistos()/2);
+	}
 }
