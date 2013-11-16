@@ -97,15 +97,13 @@ public class MapaTests extends TestCase {
 	@Test
 	public void testGeneroUnaPilaDe10Obstaculos(){
 		Mapa mapa = new Mapa(10,12);
-		mapa.generarObstaculos(10);
-		assertEquals(mapa.obtenerObstaculos().size(), 10);
+		assertEquals(mapa.obtenerObstaculos().size(), 6);
 	}
 	
 	@Test
 	public void testGeneroUnaPilaDe10Sorpresas(){
 		Mapa mapa = new Mapa(10,12);
-		mapa.generarSorpresas(10);
-		assertEquals(mapa.obtenerSorpresas().size(), 10);
+		assertEquals(mapa.obtenerSorpresas().size(), 6);
 	}
 	
 	@Test
