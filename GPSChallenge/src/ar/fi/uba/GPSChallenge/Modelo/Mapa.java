@@ -144,7 +144,7 @@ public class Mapa {
 			Posicion posicion1 = new Posicion();
 			Posicion posicion2 = new Posicion();
 			posicion1 = getPosicionRandom(this.filas, this.columnas);
-			posicion2 = posicion1.getContiguaRandom();		
+			posicion2 = posicion1.getContiguaRandom(this.filas, this.columnas);		
 			Cuadra cuadra = new Cuadra(new Esquina(posicion1), new Esquina(posicion2));
 			
 			Iterator<Cuadra> iterador = this.cuadras.iterator();
