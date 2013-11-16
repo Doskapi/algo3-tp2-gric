@@ -39,19 +39,26 @@ public class Cuadra {
 	
 	//Se supone al derecho de izquierda a derecha o de arriba a abajo
 	public void aplicarImprevistosAlDerecho(Vehiculo vehiculo){
+		boolean movimientoPermitido = true;
 		int tamanio = this.imprevistos.size();
-		for(int x = 0;x<tamanio;x=x+1){
-			(this.imprevistos.get(x)).aplicarImprevisto(vehiculo);
+		if(movimientoPermitido){
+			for(int x = 0;x<tamanio;x=x+1){
+				(this.imprevistos.get(x)).aplicarImprevisto(vehiculo);
+				movimientoPermitido = this.imprevistos.get(x).decidirSiMovimientoEstaPermitido();
+			}
 		}
 	}
 
 	//Se supone al reves de derecha a izquierda o de abajo hacia arriba
 	public void aplicarImprevistosAlReves(Vehiculo vehiculo) {
+		boolean movimientoPermitido = true;
 		int tamanio = this.imprevistos.size();
-		for(int x = (tamanio-1);x>=0;x=x-1){
-			(this.imprevistos.get(x)).aplicarImprevisto(vehiculo);
+		if(movimientoPermitido){
+			for(int x = (tamanio-1);x>=0;x=x-1){
+				(this.imprevistos.get(x)).aplicarImprevisto(vehiculo);
+				movimientoPermitido = this.imprevistos.get(x).decidirSiMovimientoEstaPermitido();
+			}
 		}
-		
 	}
 
 	public Esquina getEsquinaInicial() {
@@ -74,7 +81,7 @@ public class Cuadra {
 		boolean movimientoPermitido = true;
 		Imprevisto imprevistoActual;
 		Iterator<Imprevisto> iterador = this.imprevistos.iterator();
-		while(iterador.hasNext()){
+		while(iterador.hasNext() && movimientoPermitido){
 			imprevistoActual = (Imprevisto)iterador.next();
 			movimientoPermitido = imprevistoActual.decidirSiMovimientoEstaPermitido();
 		}
