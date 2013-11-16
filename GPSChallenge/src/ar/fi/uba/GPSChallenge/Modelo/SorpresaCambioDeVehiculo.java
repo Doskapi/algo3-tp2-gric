@@ -8,7 +8,11 @@ public class SorpresaCambioDeVehiculo extends Sorpresa {
 	}
 	
 	public void aplicarImprevisto(Vehiculo vehiculo){
-		Estado estadoModificado = vehiculo.getNuevoEstado();
-		vehiculo.setEstado(estadoModificado);
+		
+		if(!(usada)){
+			Estado estadoModificado = vehiculo.getNuevoEstado();
+			vehiculo.setEstado(estadoModificado);
+		}
+		this.usada = true;
 	}
 }

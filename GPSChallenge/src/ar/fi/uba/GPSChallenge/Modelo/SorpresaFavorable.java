@@ -7,8 +7,11 @@ public class SorpresaFavorable extends Sorpresa {
 	}
 	
 	public void aplicarImprevisto(Vehiculo vehiculo){
-		int movimientos = vehiculo.getCantidadDeMovimientos();
-		vehiculo.setCantidadDeMovimientos(movimientos-(movimientos*20/100));
+		
+		if(!(usada)){
+			int movimientos = vehiculo.getCantidadDeMovimientos();
+			vehiculo.setCantidadDeMovimientos(movimientos-(movimientos*20/100));
+			}
+		this.usada = true;
 	}
-}
-	
+}	

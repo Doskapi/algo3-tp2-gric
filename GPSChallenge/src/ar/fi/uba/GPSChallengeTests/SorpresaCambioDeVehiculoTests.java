@@ -17,6 +17,7 @@ public class SorpresaCambioDeVehiculoTests extends TestCase{
 		assertNotNull(sorpresaCambioDeVehiculo);
 	}
 
+	@Test
 	public void testCambioUnaMotoAAuto(){
 		SorpresaCambioDeVehiculo sorpresaCambioDeVehiculo = new SorpresaCambioDeVehiculo();
 		Moto moto = new Moto();
@@ -24,7 +25,8 @@ public class SorpresaCambioDeVehiculoTests extends TestCase{
 		sorpresaCambioDeVehiculo.aplicarImprevisto(vehiculo);
 		assertEquals(vehiculo.getNombreEstado(),"Auto");
 	}
-	
+
+	@Test
 	public void testCambioUnAutoACuatroPorCuatro(){
 		SorpresaCambioDeVehiculo sorpresaCambioDeVehiculo = new SorpresaCambioDeVehiculo();
 		Auto auto = new Auto();
@@ -32,35 +34,55 @@ public class SorpresaCambioDeVehiculoTests extends TestCase{
 		sorpresaCambioDeVehiculo.aplicarImprevisto(vehiculo);
 		assertEquals(vehiculo.getNombreEstado(),"CuatroPorCuatro");	
 	}
-	
+
+	@Test
 	public void testCambioUnaCuatroPorCuatroAMoto(){
 		SorpresaCambioDeVehiculo sorpresaCambioDeVehiculo = new SorpresaCambioDeVehiculo();
 		CuatroPorCuatro cuatroPorCuatro = new CuatroPorCuatro();
 		Vehiculo vehiculo = new Vehiculo(cuatroPorCuatro);
-		sorpresaCambioDeVehiculo.aplicarImprevisto(vehiculo);		
+		
+		sorpresaCambioDeVehiculo.aplicarImprevisto(vehiculo);	
 		assertEquals(vehiculo.getNombreEstado(),"Moto");
 	}	
 
-	public void testCambioUnaMotoAAutoYDespuesACuatroPorCuatro(){
-		SorpresaCambioDeVehiculo sorpresaCambioDeVehiculo = new SorpresaCambioDeVehiculo();
+	@Test
+	public void testUnaMotoSeCambiaAAutoYUnAutoACuatroPorCuatro(){
+		SorpresaCambioDeVehiculo unaSorpresaCambioDeVehiculo = new SorpresaCambioDeVehiculo();
+		SorpresaCambioDeVehiculo otraSorpresaCambioDeVehiculo = new SorpresaCambioDeVehiculo();
 		Moto moto = new Moto();
 		Vehiculo vehiculo = new Vehiculo(moto);
-		sorpresaCambioDeVehiculo.aplicarImprevisto(vehiculo);
+		
+		unaSorpresaCambioDeVehiculo.aplicarImprevisto(vehiculo);
 		assertEquals(vehiculo.getNombreEstado(),"Auto");
-		sorpresaCambioDeVehiculo.aplicarImprevisto(vehiculo);
+		otraSorpresaCambioDeVehiculo.aplicarImprevisto(vehiculo);
 		assertEquals(vehiculo.getNombreEstado(),"CuatroPorCuatro");
+		
 	}
 	
-	public void testCambioUnaMotoAAutoYDespuesACuatroPorCuatroYDespuesAMoto(){
+	@Test
+	public void testUnaMotoSeCambiaAAutoYUnAutoACuatroPorCuatroYDespuesAMoto(){
+		SorpresaCambioDeVehiculo unaSorpresaCambioDeVehiculo = new SorpresaCambioDeVehiculo();
+		SorpresaCambioDeVehiculo otraSorpresaCambioDeVehiculo = new SorpresaCambioDeVehiculo();
 		SorpresaCambioDeVehiculo sorpresaCambioDeVehiculo = new SorpresaCambioDeVehiculo();
 		Moto moto = new Moto();
 		Vehiculo vehiculo = new Vehiculo(moto);
-		sorpresaCambioDeVehiculo.aplicarImprevisto(vehiculo);
+		
+		unaSorpresaCambioDeVehiculo.aplicarImprevisto(vehiculo);
 		assertEquals(vehiculo.getNombreEstado(),"Auto");
-		sorpresaCambioDeVehiculo.aplicarImprevisto(vehiculo);
+		otraSorpresaCambioDeVehiculo.aplicarImprevisto(vehiculo);
 		assertEquals(vehiculo.getNombreEstado(),"CuatroPorCuatro");
 		sorpresaCambioDeVehiculo.aplicarImprevisto(vehiculo);
 		assertEquals(vehiculo.getNombreEstado(),"Moto");
 	}
-
+	
+	@Test
+	public void testNoSeVuelveAUsarLaMismaSorpresa(){
+		SorpresaCambioDeVehiculo sorpresaCambioDeVehiculo = new SorpresaCambioDeVehiculo();
+		Moto moto = new Moto();
+		Vehiculo vehiculo = new Vehiculo(moto);
+		sorpresaCambioDeVehiculo.aplicarImprevisto(vehiculo);
+		assertEquals(vehiculo.getNombreEstado(),"Auto");
+		sorpresaCambioDeVehiculo.aplicarImprevisto(vehiculo);
+		assertEquals(vehiculo.getNombreEstado(),"Auto");
+	}
 }

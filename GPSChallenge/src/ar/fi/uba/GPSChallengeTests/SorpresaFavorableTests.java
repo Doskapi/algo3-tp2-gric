@@ -24,4 +24,17 @@ public class SorpresaFavorableTests extends TestCase{
 		sorpresaFavorable.aplicarImprevisto(vehiculo);
 		assertTrue(vehiculo.getCantidadDeMovimientos() == 8 );
 	}
+	
+	@Test
+	public void testNoSeAplicaDosVecesLaMismaSorpresa(){
+		SorpresaFavorable sorpresaFavorable = new SorpresaFavorable();
+		CuatroPorCuatro cuatroPorCuatro = new CuatroPorCuatro();
+		Vehiculo vehiculo = new Vehiculo(cuatroPorCuatro);
+		vehiculo.setCantidadDeMovimientos(10);
+		
+		sorpresaFavorable.aplicarImprevisto(vehiculo);
+		assertTrue(vehiculo.getCantidadDeMovimientos() == 8 );
+		sorpresaFavorable.aplicarImprevisto(vehiculo);
+		assertTrue(vehiculo.getCantidadDeMovimientos() == 8 );
+	}
 }	
