@@ -22,5 +22,15 @@ public class Moto implements Estado{
 		double probabilidadDePenalizacion = 0.8;
 		return probabilidadDePenalizacion;
 	}
+	
+	public boolean puedeMoverse(){
+		return true;
+	}
+	
+	public int devolverPenalizacionPorPasarPorPiquete(){
+		int movimientos = 2;
+		return movimientos;
+	}
+
 }
 

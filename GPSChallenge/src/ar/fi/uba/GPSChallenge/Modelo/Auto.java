@@ -22,5 +22,14 @@ public class Auto implements Estado{
 		double probabilidadDePenalizacion = 0.5;
 		return probabilidadDePenalizacion;
 	}
+	
+	public boolean puedeMoverse(){
+		return false;
+	}
+	
+	public int devolverPenalizacionPorPasarPorPiquete(){
+		int movimientos = 0;
+		return movimientos;
+	}
 
 }

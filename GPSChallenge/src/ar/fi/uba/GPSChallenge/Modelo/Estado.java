@@ -9,4 +9,8 @@ public interface Estado {
 	public abstract int agarrarPozos();
 
 	public abstract double getProbabilidadDePenalizacion();
+	
+	public abstract int devolverPenalizacionPorPasarPorPiquete();
+	
+	public abstract boolean puedeMoverse();
 }

@@ -220,20 +220,26 @@ public class Mapa {
 	}
 	
 	public void moverVehiculo(Rumbo rumbo){
-		pasarPorCuadra(rumbo);
-		this.vehiculo.mover(rumbo);
+		boolean movimientoPermitido = true;
+		movimientoPermitido = pasarPorCuadra(rumbo);
+		if (movimientoPermitido){
+			this.vehiculo.mover(rumbo);
+		}
 	}
-	//FALTA VERIFICAR SI EL VEHICULO PASA DERECHO O AL REVES
-	public void pasarPorCuadra(Rumbo rumbo){
+	
+	public boolean pasarPorCuadra(Rumbo rumbo){
 		Esquina esquinaInicial = this.vehiculo.getEsquina();
 		Esquina esquinaFinal = rumbo.moverVehiculo(this.vehiculo.getEsquina());
+		boolean movimientoPermitido = true;
 		Cuadra cuadraAAtravesar = new Cuadra(esquinaInicial, esquinaFinal);
 		Iterator<Cuadra> iterador = this.cuadras.iterator();
 		while(iterador.hasNext()){
 			Cuadra cuadraActual = iterador.next();
 			if(cuadraAAtravesar.equals(cuadraActual)){
 				cuadraActual.aplicarImprevistos(this.vehiculo, esquinaInicial, esquinaFinal);
+				movimientoPermitido = cuadraActual.decidirSiMovimientoEstaPermitido();
 			}
 		}
+		return movimientoPermitido;
 	}
 }

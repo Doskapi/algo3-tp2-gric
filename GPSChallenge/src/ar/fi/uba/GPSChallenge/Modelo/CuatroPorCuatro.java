@@ -24,4 +24,14 @@ public class CuatroPorCuatro implements Estado{
 		return probabilidadDePenalizacion;
 	}
 	
+	public boolean puedeMoverse(){
+		return false;
+	}
+	
+	public int devolverPenalizacionPorPasarPorPiquete(){
+		int movimientos = 0;
+		return movimientos;
+	}
+
+	
 }

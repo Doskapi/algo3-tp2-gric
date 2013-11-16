@@ -1,6 +1,7 @@
 package ar.fi.uba.GPSChallenge.Modelo;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 public class Cuadra {
 
@@ -67,5 +68,16 @@ public class Cuadra {
 		sonIguales = ((this.getEsquinaInicial().equals(cuadra.getEsquinaInicial())) && (this.getEsquinaFinal().equals(cuadra.getEsquinaFinal())))
 				|| ((this.getEsquinaInicial().equals(cuadra.getEsquinaFinal())) && (this.getEsquinaFinal().equals(cuadra.getEsquinaInicial())));
 		return sonIguales;
+	}
+
+	public boolean decidirSiMovimientoEstaPermitido() {
+		boolean movimientoPermitido = true;
+		Imprevisto imprevistoActual;
+		Iterator<Imprevisto> iterador = this.imprevistos.iterator();
+		while(iterador.hasNext()){
+			imprevistoActual = (Imprevisto)iterador.next();
+			movimientoPermitido = imprevistoActual.decidirSiMovimientoEstaPermitido();
+		}
+		return movimientoPermitido;
 	}
 }

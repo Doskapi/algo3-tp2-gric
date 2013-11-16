@@ -4,6 +4,10 @@ public class ObstaculoPolicial extends Obstaculo {
 	
 	private int movimientosDePenalizacion = 3;	
 	
+	public ObstaculoPolicial(){
+		this.permitirMovimiento = true;
+	}
+	
 	public void aplicarImprevisto(Vehiculo vehiculo){
 		
 		double sorteoProbabilidad = Math.random();

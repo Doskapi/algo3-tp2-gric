@@ -60,5 +60,10 @@ public class Vehiculo {
 	public double getProbabilidadDePenalizacion(){
 		return this.estado.getProbabilidadDePenalizacion();
 	}
+	
+	public void agarrarPiquete(){
+		int movimientosAAgregar = this.estado.devolverPenalizacionPorPasarPorPiquete();
+		this.movimientos = this.movimientos + movimientosAAgregar;
+		}		
 }
 
