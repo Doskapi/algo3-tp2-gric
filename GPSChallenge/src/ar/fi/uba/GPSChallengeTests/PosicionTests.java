@@ -2,6 +2,7 @@ package ar.fi.uba.GPSChallengeTests;
 
 import junit.framework.TestCase;
 import org.junit.Test;
+import ar.fi.uba.GPSChallenge.Modelo.Mapa;
 import ar.fi.uba.GPSChallenge.Modelo.Posicion;
 
 public class PosicionTests extends TestCase {
@@ -28,5 +29,16 @@ public class PosicionTests extends TestCase {
 		assertTrue(posicion.getColumna() > 0);
 	}
 	
-	
+	@Test
+	public void testGetContiguaRandom(){
+		Mapa mapa = new Mapa(10,12);
+		Posicion posicion1 = new Posicion();
+		Posicion posicion2 = new Posicion();
+		posicion1.setPosicionRandom(mapa.getFilas(), mapa.getColumnas());
+		posicion2 = posicion1.getContiguaRandom(mapa.getFilas(), mapa.getColumnas());
+		assertTrue(posicion2.getFila() <= 10);
+		assertTrue(posicion2.getColumna() <= 50);
+		assertTrue(posicion2.getFila() > 0);
+		assertTrue(posicion2.getColumna() > 0);
+	}
 }

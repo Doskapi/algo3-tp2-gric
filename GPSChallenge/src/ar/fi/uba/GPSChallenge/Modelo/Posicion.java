@@ -54,26 +54,42 @@ public class Posicion {
 		this.fila = 1 + (int)(Math.random() * filas);
 		this.columna = 1 + (int)(Math.random() * columnas);
 	}
-	//FALTA TESTEAR --> NO SABEMOS COMO
-	public Posicion getContiguaRandom() {
+	
+	public Posicion getContiguaRandom(int filas, int columnas) {
 		Posicion posicion = new Posicion();
-		int sorteo = 1 + (int)(Math.random() * 4);
-		switch(sorteo) {
-		 case 1: 
-			 posicion = new Posicion(this.getFila()-1,this.getColumna());
-		     break;
-		 case 2: 
-			 posicion = new Posicion(this.getFila(),this.getColumna()+1);
-		     break;
-		 case 3: 
-			 posicion = new Posicion(this.getFila()+1,this.getColumna());
-		     break;
-		 case 4: 
-			 posicion = new Posicion(this.getFila(),this.getColumna()-1);
-		     break;
-		}	
+		boolean posicionValida = false;
+		while(!posicionValida){
+			int sorteo = 1 + (int)(Math.random() * 4);
+			switch(sorteo) {
+			 case 1: 
+				 posicion = new Posicion(this.getFila()-1,this.getColumna());
+				 posicionValida = posicion.validarPosicion(filas, columnas);
+			     break;
+			 case 2: 
+				 posicion = new Posicion(this.getFila(),this.getColumna()+1);
+				 posicionValida = posicion.validarPosicion(filas, columnas);
+			     break;
+			 case 3: 
+				 posicion = new Posicion(this.getFila()+1,this.getColumna());
+				 posicionValida = posicion.validarPosicion(filas, columnas);
+			     break;
+			 case 4: 
+				 posicion = new Posicion(this.getFila(),this.getColumna()-1);
+				 posicionValida = posicion.validarPosicion(filas, columnas);
+			     break;
+			}	
+		}
 		return posicion;
 	}
-	
+
+	private boolean validarPosicion(int filas, int columnas) {
+		boolean laPosicionEsValida = false;
+		if((this.getFila() > 0) && (this.getFila() <= filas)){
+			if((this.getColumna() > 0) && (this.getColumna() <= columnas)){
+				laPosicionEsValida = true;
+			}
+		}
+		return laPosicionEsValida;
+	}
 }
 
