@@ -155,7 +155,9 @@ public class Mapa {
 				encontrada = (cuadra.equals(cuadraActual));
 			}
 			if (!encontrada) {
-				this.cuadras.add(cuadra);
+				if ((this.sorpresas.size() != 0) || (this.obstaculos.size() != 0)){
+					this.cuadras.add(cuadra);
+				}
 			}
 		}
 	}
@@ -173,6 +175,48 @@ public class Mapa {
 
 	public List<Cuadra> getCuadras() {
 		return this.cuadras;
+	}
+
+	public List<Imprevisto> seleccionarImprevistos() {
+		List<Imprevisto> imprevistosAAsignar = new ArrayList<Imprevisto>();
+		
+		int aleatorio = 1 + (int)(Math.random() * 3);
+		if((this.sorpresas.size() != 0) && (this.obstaculos.size() != 0)){
+			switch(aleatorio) {
+			 case 1: //Toma uno de los obstáculos
+				 imprevistosAAsignar.add(this.obstaculos.pop());
+			     break;
+			 case 2: //Toma una de las sorpresas
+				 imprevistosAAsignar.add(this.sorpresas.pop());
+			     break;
+			 case 3: //Toma una sorpresa y un obstáculo
+				 imprevistosAAsignar = this.devolverImprevistosConUnOrdenAleatorio();
+			     break;
+			}
+		} 		
+		if(this.sorpresas.size() == 0){
+			 imprevistosAAsignar.add(this.sorpresas.pop());
+		}
+		if(this.obstaculos.size() == 0){
+			 imprevistosAAsignar.add(this.obstaculos.pop());
+		}
+		return imprevistosAAsignar;
+	}
+
+	private List<Imprevisto> devolverImprevistosConUnOrdenAleatorio() {
+		int aleatorio = 1 + (int)(Math.random() * 2);
+		List<Imprevisto> imprevistosAAsignar = new ArrayList<Imprevisto>();
+		switch(aleatorio) {
+		 case 1: //Toma primero el obstáculo y luego la sorpresa
+			 imprevistosAAsignar.add(this.obstaculos.pop());
+			 imprevistosAAsignar.add(this.sorpresas.pop());
+		     break;
+		 case 2: //Toma primero la sorpresa y luego el obstáculo
+			 imprevistosAAsignar.add(this.sorpresas.pop());
+			 imprevistosAAsignar.add(this.obstaculos.pop());
+		     break;
+		}
+		return imprevistosAAsignar;
 	}
 
 }
