@@ -1,6 +1,7 @@
 package ar.fi.uba.GPSChallengeTests;
 
 import junit.framework.TestCase;
+import java.util.*;
 import org.junit.Test;
 import ar.fi.uba.GPSChallenge.Modelo.*;
 
@@ -122,6 +123,21 @@ public class MapaTests extends TestCase {
 		assertTrue(posicion.getColumna() <= mapa.getColumnas());
 		assertTrue(posicion.getFila() > 0);
 		assertTrue(posicion.getColumna() > 0);
+	}
+	
+	@Test
+	public void testUnMapaGeneraSusCuadrasConImprevistos(){
+		Mapa mapa = new Mapa(10,10);
+		mapa.generarCuadras();
+		assertEquals(mapa.getCuadras().size(), 10);
+		List<Cuadra> listaDeCuadras = new ArrayList<Cuadra>();
+		listaDeCuadras = mapa.getCuadras();
+		Iterator<Cuadra> iterador = listaDeCuadras.iterator();
+		while (iterador.hasNext()){
+			Cuadra cuadra = new Cuadra();
+			cuadra = (Cuadra)iterador.next();
+			assertNotNull(cuadra.getImprevistos());
+		}
 	}
 
 }
