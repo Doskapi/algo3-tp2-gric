@@ -232,7 +232,7 @@ public class Mapa {
 		while(iterador.hasNext()){
 			Cuadra cuadraActual = iterador.next();
 			if(cuadraAAtravesar.equals(cuadraActual)){
-				cuadraActual.aplicarImprevistosAlDerecho(this.vehiculo);
+				cuadraActual.aplicarImprevistos(this.vehiculo, esquinaInicial, esquinaFinal);
 			}
 		}
 	}

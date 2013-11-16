@@ -27,6 +27,15 @@ public class Cuadra {
 		
 	}
 	
+	public void aplicarImprevistos(Vehiculo vehiculo, Esquina esquinaInicial, Esquina esquinaFinal) {
+		if (this.getEsquinaInicial().equals(esquinaInicial) && (this.getEsquinaFinal().equals(esquinaFinal))){
+			aplicarImprevistosAlDerecho(vehiculo);
+		}
+		if (this.getEsquinaInicial().equals(esquinaFinal) && (this.getEsquinaFinal().equals(esquinaInicial))){
+			aplicarImprevistosAlReves(vehiculo);
+		}
+	}
+	
 	//Se supone al derecho de izquierda a derecha o de arriba a abajo
 	public void aplicarImprevistosAlDerecho(Vehiculo vehiculo){
 		int tamanio = this.imprevistos.size();
@@ -59,7 +68,4 @@ public class Cuadra {
 				|| ((this.getEsquinaInicial().equals(cuadra.getEsquinaFinal())) && (this.getEsquinaFinal().equals(cuadra.getEsquinaInicial())));
 		return sonIguales;
 	}
-	
-	
-	
 }
