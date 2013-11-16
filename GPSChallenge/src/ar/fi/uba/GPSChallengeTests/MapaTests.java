@@ -132,13 +132,9 @@ public class MapaTests extends TestCase {
 		assertEquals(mapa.getCuadras().size(), 10);
 		List<Cuadra> listaDeCuadras = new ArrayList<Cuadra>();
 		listaDeCuadras = mapa.getCuadras();
-		Iterator<Cuadra> iterador = listaDeCuadras.iterator();
-		while (iterador.hasNext()){
-			Cuadra cuadra = new Cuadra();
-			cuadra = (Cuadra)iterador.next();
-			assertNotNull(cuadra.getImprevistos());
-		}
+		Cuadra cuadra;
+		cuadra = listaDeCuadras.get(0);
+		assertTrue(cuadra.getImprevistos().size() == 0);
 	}
-
 }
 

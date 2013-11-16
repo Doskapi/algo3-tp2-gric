@@ -35,15 +35,15 @@ public class Vehiculo {
 		this.esquina = esquina;
 	}
 	
-	public Esquina devolverEsquina(){
+	public Esquina getEsquina(){
 		return this.esquina;
 	}
     
 	public void mover(Rumbo rumbo){
-		colocarEnEsquina(rumbo.moverVehiculo(devolverEsquina()));
+		colocarEnEsquina(rumbo.moverVehiculo(getEsquina()));
 		this.sumarMovimientos();
 	}
-
+	
 	public Estado getNuevoEstado(){
 		return this.estado.nuevoEstado();
 	}

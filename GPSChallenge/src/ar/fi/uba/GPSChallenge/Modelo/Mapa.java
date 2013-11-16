@@ -218,5 +218,22 @@ public class Mapa {
 		}
 		return imprevistosAAsignar;
 	}
-
+	
+	public void moverVehiculo(Rumbo rumbo){
+		pasarPorCuadra(rumbo);
+		this.vehiculo.mover(rumbo);
+	}
+	//FALTA VERIFICAR SI EL VEHICULO PASA DERECHO O AL REVES
+	public void pasarPorCuadra(Rumbo rumbo){
+		Esquina esquinaInicial = this.vehiculo.getEsquina();
+		Esquina esquinaFinal = rumbo.moverVehiculo(this.vehiculo.getEsquina());
+		Cuadra cuadraAAtravesar = new Cuadra(esquinaInicial, esquinaFinal);
+		Iterator<Cuadra> iterador = this.cuadras.iterator();
+		while(iterador.hasNext()){
+			Cuadra cuadraActual = iterador.next();
+			if(cuadraAAtravesar.equals(cuadraActual)){
+				cuadraActual.aplicarImprevistosAlDerecho(this.vehiculo);
+			}
+		}
+	}
 }

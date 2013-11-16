@@ -48,7 +48,7 @@ public class VehiculoTest extends TestCase {
 		assertEquals(vehiculo.getEstado(),auto);
 		Esquina esquina = new Esquina(new Posicion(1,2));
 		vehiculo.colocarEnEsquina(esquina);
-		assertEquals(vehiculo.devolverEsquina(), esquina);
+		assertEquals(vehiculo.getEsquina(), esquina);
 	}
 	
 	@Test
@@ -59,9 +59,9 @@ public class VehiculoTest extends TestCase {
 		Esquina esquinaInicial = new Esquina(new Posicion(2,2));
 		Esquina esquinaFinal = new Esquina(new Posicion(1,2));
 		vehiculo.colocarEnEsquina(esquinaInicial);
-		assertEquals(vehiculo.devolverEsquina(), esquinaInicial);
+		assertEquals(vehiculo.getEsquina(), esquinaInicial);
 		vehiculo.mover(new Norte());
-		assertEquals(vehiculo.devolverEsquina(), esquinaFinal);
+		assertEquals(vehiculo.getEsquina(), esquinaFinal);
 	}
 	
 	@Test
@@ -72,9 +72,9 @@ public class VehiculoTest extends TestCase {
 		Esquina esquinaInicial = new Esquina(new Posicion(2,2));
 		Esquina esquinaFinal = new Esquina(new Posicion(3,2));
 		vehiculo.colocarEnEsquina(esquinaInicial);
-		assertEquals(vehiculo.devolverEsquina(), esquinaInicial);
+		assertEquals(vehiculo.getEsquina(), esquinaInicial);
 		vehiculo.mover(new Sur());
-		assertEquals(vehiculo.devolverEsquina(), esquinaFinal);
+		assertEquals(vehiculo.getEsquina(), esquinaFinal);
 	}
 	
 	@Test
@@ -85,9 +85,9 @@ public class VehiculoTest extends TestCase {
 		Esquina esquinaInicial = new Esquina(new Posicion(2,2));
 		Esquina esquinaFinal = new Esquina(new Posicion(2,3));
 		vehiculo.colocarEnEsquina(esquinaInicial);
-		assertEquals(vehiculo.devolverEsquina(), esquinaInicial);
+		assertEquals(vehiculo.getEsquina(), esquinaInicial);
 		vehiculo.mover(new Este());
-		assertEquals(vehiculo.devolverEsquina(), esquinaFinal);
+		assertEquals(vehiculo.getEsquina(), esquinaFinal);
 	}
 	
 	@Test
@@ -98,9 +98,9 @@ public class VehiculoTest extends TestCase {
 		Esquina esquinaInicial = new Esquina(new Posicion(2,2));
 		Esquina esquinaFinal = new Esquina(new Posicion(2,1));
 		vehiculo.colocarEnEsquina(esquinaInicial);
-		assertEquals(vehiculo.devolverEsquina(), esquinaInicial);
+		assertEquals(vehiculo.getEsquina(), esquinaInicial);
 		vehiculo.mover(new Oeste());
-		assertEquals(vehiculo.devolverEsquina(), esquinaFinal);
+		assertEquals(vehiculo.getEsquina(), esquinaFinal);
 	}
 	
 	@Test
@@ -113,9 +113,9 @@ public class VehiculoTest extends TestCase {
 		Esquina esquinaInicial = new Esquina(new Posicion(2,2));
 		Esquina esquinaFinal = new Esquina(new Posicion(2,1));
 		vehiculo.colocarEnEsquina(esquinaInicial);
-		assertEquals(vehiculo.devolverEsquina(), esquinaInicial);
+		assertEquals(vehiculo.getEsquina(), esquinaInicial);
 		vehiculo.mover(new Oeste());
-		assertEquals(vehiculo.devolverEsquina(), esquinaFinal);
+		assertEquals(vehiculo.getEsquina(), esquinaFinal);
 		assertEquals(vehiculo.getCantidadDeMovimientos(), 1);
 	}
 	
