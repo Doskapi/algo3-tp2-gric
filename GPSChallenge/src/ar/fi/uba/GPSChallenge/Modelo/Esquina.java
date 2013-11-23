@@ -14,6 +14,10 @@ public class Esquina {
 		return this.posicion;
 	}
 	
+	public void setPosicion(Posicion posicion) {
+		this.posicion = posicion;
+	}
+	
 	public boolean equals(Object otraEsquina){
 		Esquina esquina = (Esquina)otraEsquina;
 		return ((this.getPosicion().equals(esquina.getPosicion())));

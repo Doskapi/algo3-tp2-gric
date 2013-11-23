@@ -46,6 +46,7 @@ public class Mapa {
 	
 	public void setEsquinaMeta(Esquina esquina){
 		this.meta = esquina;
+	
 	}
 	
 	public Esquina getEsquinaMeta(){

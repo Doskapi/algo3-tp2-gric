@@ -22,10 +22,18 @@ public class Posicion {
 		return this.fila;
 	}
 	
+	public void setFila(int fila){
+		this.fila = fila;
+	}
+	
 	public int getColumna(){
 		return this.columna;
 	}
 
+	public void setColumna(int columna){
+		this.columna = columna;
+	}
+	
 	public Posicion moverAlNorte() {
 		int filaNueva = getFila() - 1;
 		int columnaNueva = getColumna();
