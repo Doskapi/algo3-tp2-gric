@@ -1,9 +1,17 @@
 package ar.fi.uba.GPSChallenge.Modelo;
 
 import java.util.*;
+import java.io.Serializable;
 
-public class Mapa {
-	
+import javax.xml.soap.Node;
+
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.NodeList;
+
+public class Mapa implements Serializable{
+
+	private static final long serialVersionUID = 1L;
 	private int filas;
 	private int columnas;
 	private int porcentajeDeImprevistos = 10;
@@ -14,6 +22,9 @@ public class Mapa {
 	Stack<Sorpresa> sorpresas;
 	List<Cuadra> cuadras;
 
+	public Mapa(){
+	}
+	
 	public Mapa(int filas, int columnas){
 		this.filas = filas;
 		this.columnas = columnas;
@@ -26,14 +37,14 @@ public class Mapa {
 		this.generarSorpresas(this.cantidadDeImprevistosSorpresaAColocar());
 	}
 	
-	private void setLargada() {
+	public void setLargada() {
 		int columnaLargada = 1;
 		int filaLargada = this.filas / 2;
 		Esquina esquinaLargada = new Esquina(new Posicion(filaLargada, columnaLargada));
 		setEsquinaLargada(esquinaLargada);
 	}
 	
-	private void setMeta() {
+	public void setMeta() {
 		int columnaMeta = this.columnas;
 		int filaMeta = (1 + (int)(Math.random() * ((this.filas - 1) + 1)));
 		Esquina esquinaMeta = new Esquina(new Posicion(filaMeta, columnaMeta));
@@ -47,6 +58,10 @@ public class Mapa {
 	public void setEsquinaMeta(Esquina esquina){
 		this.meta = esquina;
 	
+	}
+	
+	public void agregarCuadra(Cuadra cuadra){
+		this.cuadras.add(cuadra);
 	}
 	
 	public Esquina getEsquinaMeta(){
@@ -67,6 +82,14 @@ public class Mapa {
 	
 	public int getColumnas(){
 		return this.columnas;
+	}
+	
+	public void setFilas(int filas){
+		this.filas = filas;
+	}
+	
+	public void setColumnas(int columnas){
+		this.columnas = columnas;
 	}
 
 	public void agregarVehiculo(Vehiculo vehiculo){
@@ -243,4 +266,5 @@ public class Mapa {
 		}
 		return movimientoPermitido;
 	}
+
 }

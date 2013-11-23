@@ -10,6 +10,10 @@ public class Esquina {
 		this.posicion = posicion;
 	}
 
+	public Esquina() {
+		// TODO Auto-generated constructor stub
+	}
+
 	public Posicion getPosicion() {
 		return this.posicion;
 	}
