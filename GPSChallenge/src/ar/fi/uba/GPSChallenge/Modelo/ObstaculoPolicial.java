@@ -2,8 +2,6 @@ package ar.fi.uba.GPSChallenge.Modelo;
 
 public class ObstaculoPolicial extends Obstaculo {
 	
-	private int movimientosDePenalizacion = 3;	
-	
 	public ObstaculoPolicial(){
 		this.permitirMovimiento = true;
 	}
@@ -15,7 +13,7 @@ public class ObstaculoPolicial extends Obstaculo {
 		if (sorteoProbabilidad <= (vehiculo.getProbabilidadDePenalizacion())){
 		
 			int movimientosDelVehiculo = vehiculo.getCantidadDeMovimientos();
-			movimientosDelVehiculo = movimientosDelVehiculo + this.movimientosDePenalizacion;
+			movimientosDelVehiculo = movimientosDelVehiculo + vehiculo.getEstado().devolverPenalizacionPorPasarPorControlPolicial();
 			vehiculo.setCantidadDeMovimientos(movimientosDelVehiculo);		
 		}
 	}
@@ -27,7 +25,7 @@ public class ObstaculoPolicial extends Obstaculo {
 		if (probabilidadEstatica <= (vehiculo.getProbabilidadDePenalizacion())){
 		
 			int movimientosDelVehiculo = vehiculo.getCantidadDeMovimientos();
-			movimientosDelVehiculo = movimientosDelVehiculo + this.movimientosDePenalizacion;
+			movimientosDelVehiculo = movimientosDelVehiculo + vehiculo.getEstado().devolverPenalizacionPorPasarPorControlPolicial();
 			vehiculo.setCantidadDeMovimientos(movimientosDelVehiculo);		
 		}
 	}

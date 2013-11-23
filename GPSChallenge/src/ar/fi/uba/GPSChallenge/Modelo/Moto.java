@@ -32,5 +32,10 @@ public class Moto implements Estado{
 		return movimientos;
 	}
 
+	public int devolverPenalizacionPorPasarPorControlPolicial(){
+		int movimientos = 3;
+		return movimientos;
+	}
+	
 }
 

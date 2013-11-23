@@ -31,5 +31,9 @@ public class Auto implements Estado{
 		int movimientos = 0;
 		return movimientos;
 	}
-
+	
+	public int devolverPenalizacionPorPasarPorControlPolicial(){
+		int movimientos = 3;
+		return movimientos;
+	}
 }

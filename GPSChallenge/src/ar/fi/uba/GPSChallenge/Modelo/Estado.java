@@ -12,5 +12,7 @@ public interface Estado {
 	
 	public abstract int devolverPenalizacionPorPasarPorPiquete();
 	
+	public abstract int devolverPenalizacionPorPasarPorControlPolicial();
+	
 	public abstract boolean puedeMoverse();
 }
