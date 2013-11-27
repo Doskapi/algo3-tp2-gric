@@ -45,7 +45,6 @@ public class PersistidorMapa {
 			m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
 			File XMLfile = new File(XML_MAPA);
 			m.marshal(mapa, XMLfile);
-			m.marshal(mapa, System.out);
 		}
 		catch(JAXBException e){
 			e.printStackTrace();

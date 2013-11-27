@@ -18,7 +18,6 @@ public class PersistidorVehiculo {
 			m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
 			File XMLfile = new File(XML_VEHICULO);
 			m.marshal(auto, XMLfile);
-			m.marshal(auto, System.out);
 		}
 		catch(JAXBException e){
 			e.printStackTrace();

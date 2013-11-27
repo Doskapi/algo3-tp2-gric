@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<jugador>
+    <nombre>Martin</nombre>
+    <puntaje>0</puntaje>
+    <partidaGuardada>/home/sebas/workspace/GPSChallenge/Martin/PartidaDeMartin.xml</partidaGuardada>
+</jugador>

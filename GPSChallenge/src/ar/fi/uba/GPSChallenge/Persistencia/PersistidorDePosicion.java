@@ -21,7 +21,6 @@ public class PersistidorDePosicion {
 			m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
 			File XMLfile = new File(XML_POSICION);
 			m.marshal(posicion, XMLfile);
-			m.marshal(posicion, System.out);
 		}
 		catch(JAXBException e){
 			e.printStackTrace();

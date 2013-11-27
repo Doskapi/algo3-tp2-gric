@@ -22,7 +22,6 @@ public class PersistidorCuadra {
 			m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
 			File XMLfile = new File(XML_CUADRA);
 			m.marshal(cuadra, XMLfile);
-			m.marshal(cuadra, System.out);
 		}
 		catch(JAXBException e){
 			e.printStackTrace();

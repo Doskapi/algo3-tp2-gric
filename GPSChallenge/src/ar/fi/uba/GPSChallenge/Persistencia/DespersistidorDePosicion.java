@@ -16,8 +16,6 @@ public class DespersistidorDePosicion {
 			Unmarshaller m = context.createUnmarshaller();
 			File XMLfile = new File(XML_POSICION);
 			posicion = (Posicion) m.unmarshal(XMLfile);
-			System.out.println(posicion.getFila());
-			System.out.println(posicion.getColumna());
 		}
 		catch(JAXBException e){
 			e.printStackTrace();

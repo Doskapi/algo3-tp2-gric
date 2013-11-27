@@ -19,7 +19,6 @@ public class PersistidorEsquina {
 			m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
 			File XMLfile = new File(XML_ESQUINA);
 			m.marshal(esquina, XMLfile);
-			m.marshal(esquina, System.out);
 		}
 		catch(JAXBException e){
 			e.printStackTrace();
