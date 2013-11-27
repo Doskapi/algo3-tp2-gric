@@ -1,7 +1,11 @@
 package ar.fi.uba.GPSChallenge.Modelo;
 
-public interface Nivel {
+public abstract class Nivel {
 
-	public abstract Mapa pedirUnMapa();
+	protected String rutaALaCarpetaMapas = System.getProperty("user.dir") + System.getProperty("file.separator") + "Mapas" + System.getProperty("file.separator");
+	
+	public Mapa pedirUnMapa(){	
+		return new Mapa(1,1);
+	} 
 
 }

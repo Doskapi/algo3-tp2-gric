@@ -8,14 +8,13 @@ import javax.xml.bind.Unmarshaller;
 import ar.fi.uba.GPSChallenge.Modelo.*;
 
 public class DespersistidorMapa {
-private static String XML_MAPA = System.getProperty("user.home") + System.getProperty("file.separator") + "Mapa.xml";
 	
-	public Mapa despersistirMapa(){
+	public Mapa despersistirMapa(String rutaDeArchivo){
 		Mapa mapa = new Mapa();
 		try{
 			JAXBContext context = JAXBContext.newInstance(Posicion.class);
 			Unmarshaller m = context.createUnmarshaller();
-			File XMLfile = new File(XML_MAPA);
+			File XMLfile = new File(rutaDeArchivo);
 			mapa = (Mapa) m.unmarshal(XMLfile);
 			Vehiculo vehiculo = mapa.getVehiculo();
 			String tipoEstado = vehiculo.getEstado().getTipoEstado();
