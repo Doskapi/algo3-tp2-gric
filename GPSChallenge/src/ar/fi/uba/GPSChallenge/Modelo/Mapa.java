@@ -147,4 +147,5 @@ public class Mapa implements Serializable{
 		return (this.getFilas() == mapa.getFilas() && this.getColumnas() == mapa.getColumnas()
 				&& this.getVehiculo().equals(mapa.getVehiculo()) && this.getCuadras().equals(mapa.getCuadras()));
 	}
+	
 }

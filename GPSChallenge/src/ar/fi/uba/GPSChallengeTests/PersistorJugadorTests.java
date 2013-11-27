@@ -1,14 +1,10 @@
 package ar.fi.uba.GPSChallengeTests;
 
 import junit.framework.TestCase;
-
 import org.junit.Test;
-
 import java.io.File;
 import java.io.IOException;
-
 import javax.xml.bind.JAXBException;
-
 import ar.fi.uba.GPSChallenge.Modelo.*;
 import ar.fi.uba.GPSChallenge.Persistencia.DespersistidorJugador;
 import ar.fi.uba.GPSChallenge.Persistencia.PersistidorJugador;
@@ -20,23 +16,20 @@ public class PersistorJugadorTests extends TestCase {
 		Jugador jugador = new Jugador("Martin");
 		PersistidorJugador persistidor = new PersistidorJugador();
 		persistidor.persistirJugador(jugador);
-		File archivoParaObtenerLaDireccion = new File("Martin");
-		String ruta = archivoParaObtenerLaDireccion.getAbsolutePath();		
-		archivoParaObtenerLaDireccion = new File( ruta + System.getProperty("file.separator") + "PartidaDeMartin.xml");
+		File archivoParaObtenerLaDireccion = new File("Martin");	
+		archivoParaObtenerLaDireccion = new File(System.getProperty("user.dir") + System.getProperty("file.separator") + "Jugadores" + System.getProperty("file.separator") + jugador.getNombre() + System.getProperty("file.separator") + "PartidaGuardada.xml");
 		assertTrue(archivoParaObtenerLaDireccion.exists());
 	}
 	
 	@Test
 	public void testDespersistorDeUnJugador(){
 		DespersistidorJugador despersistidor = new DespersistidorJugador();
-		Jugador jugador = despersistidor.despersistirJugador();
+		Jugador jugador = despersistidor.despersistirJugador(System.getProperty("user.dir") + System.getProperty("file.separator") + "Jugadores" + System.getProperty("file.separator") + "Martin" + System.getProperty("file.separator") + "PartidaGuardada.xml");
 		Jugador otroJugador = new Jugador();
 		otroJugador.setNombre("Martin");
 		otroJugador.setPuntaje(0);
-		File archivoParaObtenerLaDireccion = new File("Martin");
-		otroJugador.setPartidaGuardada(archivoParaObtenerLaDireccion.getAbsolutePath() + System.getProperty("file.separator") + "PartidaDeMartin.xml");
+		otroJugador.setPartidaGuardada(System.getProperty("user.dir") + System.getProperty("file.separator") + "Jugadores" + System.getProperty("file.separator") + "Martin" + System.getProperty("file.separator") + "PartidaGuardada.xml");
 		assertEquals(jugador.getNombre(), otroJugador.getNombre());
 		assertEquals(jugador.getPuntaje(), otroJugador.getPuntaje());
-		assertEquals(jugador.getPartidaGuardada(), otroJugador.getPartidaGuardada());
 	}
 }

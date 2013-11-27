@@ -1,6 +1,8 @@
 package ar.fi.uba.GPSChallengeTests;
 
 import junit.framework.TestCase;
+
+import java.io.File;
 import java.io.IOException;
 import java.util.*;
 
@@ -31,7 +33,10 @@ public class PersistidorMapaTests extends TestCase {
 		Vehiculo auto = new Vehiculo (new Auto());
 		mapa.setVehiculo(auto);
 		PersistidorMapa persistidor = new PersistidorMapa();
-		persistidor.persistirMapa(mapa);
+		String rutaMapa = System.getProperty("user.dir") + System.getProperty("file.separator") + "Mapa.xml";
+		persistidor.persistirMapa(mapa, rutaMapa);
+		File verificadorDeMapa = new File(rutaMapa); 
+		assertTrue(verificadorDeMapa.exists());
 	}
 	
 	@Test

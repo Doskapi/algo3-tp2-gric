@@ -8,13 +8,8 @@ import ar.fi.uba.GPSChallenge.Modelo.Jugador;
 
 public class DespersistidorJugador {
 
-	public Jugador despersistirJugador(){
+	public Jugador despersistirJugador(String rutaDelArchivo){
 		Jugador jugador = new Jugador();		
-		
-		//el string deberia llegarle al metodo para que juego pueda persistir o despersistir al jugador
-		File archivoParaObtenerLaDireccion = new File("Martin");
-		String rutaDelArchivo = archivoParaObtenerLaDireccion.getAbsolutePath() + "/PartidaDeMartin.xml";
-
 		try{
 			JAXBContext context = JAXBContext.newInstance(Jugador.class);
 			Unmarshaller m = context.createUnmarshaller();

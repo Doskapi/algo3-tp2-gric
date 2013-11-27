@@ -1,26 +1,30 @@
 package ar.fi.uba.GPSChallenge.Modelo;
 
 import java.io.File;
-
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
+import ar.fi.uba.GPSChallenge.Persistencia.PersistidorPartida;
 
 @XmlRootElement
-@XmlType(propOrder = {"nombre","puntaje","partidaGuardada"})
+@XmlType(propOrder = {"nombre","puntaje","partidaGuardada","rutaASuCarpeta"})
 public class Jugador {
 	
 	private String nombre;
 	private int puntaje;
 	private Partida partidaActual;
 	private String partidaGuardada;
+	private String rutaASuCarpeta;
 	
 	public Jugador(){
 	}
 	
 	public Jugador(String nombre){
-		this.nombre = nombre;
-		this.puntaje = 0;
+		this.setNombre(nombre);
+		this.setPuntaje(0);
+		this.generarRutaASuCarpeta();
+		File creadorDeCarpeta = new File(this.rutaASuCarpeta);
+		creadorDeCarpeta.mkdir();
 	}
 	
 	public String getNombre(){
@@ -57,7 +61,20 @@ public class Jugador {
 	public void setPartidaGuardada(String partidaGuardada){
 		this.partidaGuardada = partidaGuardada;
 	}
+	
+	public String getRutaASuCarpeta (){
+		return this.rutaASuCarpeta;
+	}
 
+	@XmlElement
+	public void setRutaASuCarpeta (String rutaASuCarpeta){
+		this.rutaASuCarpeta = rutaASuCarpeta;
+	}
+	
+	private void generarRutaASuCarpeta(){
+		this.rutaASuCarpeta = System.getProperty("user.dir") + System.getProperty("file.separator") + "Jugadores" + System.getProperty("file.separator") + this.getNombre() + System.getProperty("file.separator");
+	}
+	
 	public void elegirVehiculo(Vehiculo vehiculo) {
 		this.partidaActual.agregarVehiculo(vehiculo);	
 	}
@@ -76,4 +93,12 @@ public class Jugador {
 			this.puntaje = puntajeActual;
 		}	
 	}
+	
+	public void persistirPartida(){
+		PersistidorPartida persistidor = new PersistidorPartida();
+		persistidor.persistirPartida(this.partidaActual,this.rutaASuCarpeta);
+		this.partidaGuardada = rutaASuCarpeta + System.getProperty("file.separator") + "PartidaGuardada.xml";
+		
+	}
+	
 }

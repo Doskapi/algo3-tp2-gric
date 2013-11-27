@@ -10,9 +10,7 @@ import ar.fi.uba.GPSChallenge.Modelo.Jugador;
 public class PersistidorJugador {
 	
 	public void persistirJugador(Jugador jugador) {
-
-		//el string deberia llegarle al metodo para que juego pueda persistir o despersistir al jugador
-		String rutaDelArchivo = (System.getProperty("user.dir") + System.getProperty("file.separator") + "Jugadores" + System.getProperty("file.separator") + jugador.getNombre());
+		String rutaDelArchivo = (System.getProperty("user.dir") + System.getProperty("file.separator") + "Jugadores" + System.getProperty("file.separator") + jugador.getNombre() + System.getProperty("file.separator") + "PartidaGuardada.xml");
 		try{
 			JAXBContext context = JAXBContext.newInstance(Jugador.class);
 			Marshaller m = context.createMarshaller();
@@ -22,6 +20,6 @@ public class PersistidorJugador {
 		}
 		catch(JAXBException e){
 			e.printStackTrace();
-		}		
+		}
 	}
 }

@@ -18,15 +18,13 @@ import ar.fi.uba.GPSChallenge.Modelo.SorpresaFavorable;
 import ar.fi.uba.GPSChallenge.Modelo.Vehiculo;
 
 public class PersistidorMapa {
-	
-	private static String XML_MAPA = System.getProperty("user.dir") + System.getProperty("file.separator") + "Mapa.xml";
-	
-	public void persistirMapa(Mapa mapa){	
+		
+	public void persistirMapa(Mapa mapa, String rutaDelArchivo){	
 		try{
 			JAXBContext context = JAXBContext.newInstance(Posicion.class);
 			Marshaller m = context.createMarshaller();
 			m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
-			File XMLfile = new File(XML_MAPA);
+			File XMLfile = new File(rutaDelArchivo);
 			m.marshal(mapa, XMLfile);
 		}
 		catch(JAXBException e){
