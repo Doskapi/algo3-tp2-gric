@@ -48,4 +48,16 @@ public class JugadorTests extends TestCase {
 		Posicion posicion = jugador.pedirPosicionDelVehiculo();
 		assertNotNull(posicion);
 	}
+	
+	@Test
+	public void testUnJugadorPuedeMoverElVehiculo(){
+		Jugador jugador = new Jugador("Diego");
+		jugador.comenzarPartida(new Facil());
+		jugador.elegirVehiculo(new Vehiculo(new Auto()));
+		Posicion posicionInicial = jugador.pedirPosicionDelVehiculo();
+		jugador.moverVehiculo(new Norte());
+		Posicion posicionFinal = jugador.pedirPosicionDelVehiculo();
+		
+		assertFalse(posicionInicial == posicionFinal);
+	}
 }
