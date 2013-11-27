@@ -8,7 +8,8 @@ public class Moderado extends Nivel {
 	final int MAX_CANTIDAD_MAPAS = 3;
 	
 	public Moderado(){
-		
+		this.movimientosLimite = 50;
+		this.multiplicadorDePuntaje = 2;
 	}
 	
 	public Mapa pedirUnMapa(){

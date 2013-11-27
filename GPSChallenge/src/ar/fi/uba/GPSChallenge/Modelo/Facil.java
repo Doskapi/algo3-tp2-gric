@@ -8,7 +8,8 @@ public class Facil extends Nivel {
 	final int MAX_CANTIDAD_MAPAS = 3;
 	
 	public Facil(){
-		
+		this.movimientosLimite = 70;
+		this.multiplicadorDePuntaje = 1;
 	}
 	
 	public Mapa pedirUnMapa(){
