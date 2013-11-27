@@ -19,7 +19,7 @@ public class JugadorTests extends TestCase {
 	public void testVerificacionDeRutaDeArchivoDentroDeCarpeta(){
 		Jugador jugador = new Jugador("Juan");
 		File direccion = new File("Juan");
-		String direccionAProbar = direccion.getAbsolutePath() + "/PartidaDeJuan.xml";
+		String direccionAProbar = direccion.getAbsolutePath() + System.getProperty("file.separator") + "PartidaDeJuan.xml";
 		assertEquals(jugador.getPartidaGuardada(), direccionAProbar );
 	}
 	
