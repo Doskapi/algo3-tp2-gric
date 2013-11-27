@@ -11,13 +11,13 @@ public class JugadorTests extends TestCase {
 	
 	@Test
 	public void testSeCreaElJugador(){
-		Jugador jugador = new Jugador("Julian");
+		Jugador jugador = new Jugador("JulianTest");
 		assertNotNull(jugador);
 	}
 	
 	@Test
 	public void testSeVerificaQueElJugadorComiencePartida(){
-		Jugador jugador = new Jugador("Diego");
+		Jugador jugador = new Jugador("DiegoTest");
 		Nivel facil = new Facil();
 		jugador.comenzarPartida(facil);
 		assertNotNull(jugador.getPartida());
@@ -25,7 +25,7 @@ public class JugadorTests extends TestCase {
 
 	@Test
 	public void testUnJugadorPuedeElegirUnVehiculo(){
-		Jugador jugador = new Jugador("Diego");
+		Jugador jugador = new Jugador("DiegoTest");
 		jugador.comenzarPartida(new Facil());
 		jugador.elegirVehiculo(new Vehiculo(new Auto()));
 		assertNotNull(jugador.getPartida().getMapa().getVehiculo());
@@ -33,7 +33,7 @@ public class JugadorTests extends TestCase {
 	
 	@Test
 	public void testUnJugadorPuedeSaberDondeEstaSuVehiculo(){
-		Jugador jugador = new Jugador("Diego");
+		Jugador jugador = new Jugador("DiegoTest");
 		jugador.comenzarPartida(new Facil());
 		jugador.elegirVehiculo(new Vehiculo(new Auto()));
 		Posicion posicion = jugador.pedirPosicionDelVehiculo();
@@ -42,7 +42,7 @@ public class JugadorTests extends TestCase {
 	
 	@Test
 	public void testUnJugadorPuedeMoverElVehiculo(){
-		Jugador jugador = new Jugador("Diego");
+		Jugador jugador = new Jugador("DiegoTest");
 		jugador.comenzarPartida(new Facil());
 		jugador.elegirVehiculo(new Vehiculo(new Auto()));
 		Posicion posicionInicial = jugador.pedirPosicionDelVehiculo();
@@ -53,7 +53,7 @@ public class JugadorTests extends TestCase {
 	
 	@Test
 	public void testUnJugadorCalculaSuPuntajeEnNivelFacil(){
-		Jugador jugador = new Jugador("Diego");
+		Jugador jugador = new Jugador("DiegoTest");
 		jugador.comenzarPartida(new Facil());
 		jugador.elegirVehiculo(new Vehiculo(new Auto()));
 		Posicion posicionInicial = jugador.pedirPosicionDelVehiculo();
@@ -66,7 +66,7 @@ public class JugadorTests extends TestCase {
 	
 	@Test
 	public void testUnJugadorCalculaSuPuntajeEnNivelModerado(){
-		Jugador jugador = new Jugador("Diego");
+		Jugador jugador = new Jugador("DiegoTest");
 		jugador.comenzarPartida(new Moderado());
 		jugador.elegirVehiculo(new Vehiculo(new Auto()));
 		Posicion posicionInicial = jugador.pedirPosicionDelVehiculo();
@@ -79,7 +79,7 @@ public class JugadorTests extends TestCase {
 	
 	@Test
 	public void testUnJugadorCalculaSuPuntajeEnNivelDificil(){
-		Jugador jugador = new Jugador("Diego");
+		Jugador jugador = new Jugador("DiegoTest");
 		jugador.comenzarPartida(new Dificil());
 		jugador.elegirVehiculo(new Vehiculo(new Auto()));
 		Posicion posicionInicial = jugador.pedirPosicionDelVehiculo();

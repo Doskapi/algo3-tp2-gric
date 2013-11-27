@@ -13,10 +13,10 @@ public class PersistorJugadorTests extends TestCase {
 
 	@Test
 	public void testPersistorDeUnJugador() throws JAXBException, IOException{
-		Jugador jugador = new Jugador("Martin");
+		Jugador jugador = new Jugador("MartinTest");
 		PersistidorJugador persistidor = new PersistidorJugador();
 		persistidor.persistirJugador(jugador);
-		File archivoParaObtenerLaDireccion = new File("Martin");	
+		File archivoParaObtenerLaDireccion = new File("MartinTest");	
 		archivoParaObtenerLaDireccion = new File(System.getProperty("user.dir") + System.getProperty("file.separator") + "Jugadores" + System.getProperty("file.separator") + jugador.getNombre() + System.getProperty("file.separator") + "PartidaGuardada.xml");
 		assertTrue(archivoParaObtenerLaDireccion.exists());
 	}
@@ -24,11 +24,11 @@ public class PersistorJugadorTests extends TestCase {
 	@Test
 	public void testDespersistorDeUnJugador(){
 		DespersistidorJugador despersistidor = new DespersistidorJugador();
-		Jugador jugador = despersistidor.despersistirJugador(System.getProperty("user.dir") + System.getProperty("file.separator") + "Jugadores" + System.getProperty("file.separator") + "Martin" + System.getProperty("file.separator") + "PartidaGuardada.xml");
+		Jugador jugador = despersistidor.despersistirJugador(System.getProperty("user.dir") + System.getProperty("file.separator") + "Jugadores" + System.getProperty("file.separator") + "MartinTest" + System.getProperty("file.separator") + "PartidaGuardada.xml");
 		Jugador otroJugador = new Jugador();
-		otroJugador.setNombre("Martin");
+		otroJugador.setNombre("MartinTest");
 		otroJugador.setPuntaje(0);
-		otroJugador.setPartidaGuardada(System.getProperty("user.dir") + System.getProperty("file.separator") + "Jugadores" + System.getProperty("file.separator") + "Martin" + System.getProperty("file.separator") + "PartidaGuardada.xml");
+		otroJugador.setPartidaGuardada(System.getProperty("user.dir") + System.getProperty("file.separator") + "Jugadores" + System.getProperty("file.separator") + "MartinTest" + System.getProperty("file.separator") + "PartidaGuardada.xml");
 		assertEquals(jugador.getNombre(), otroJugador.getNombre());
 		assertEquals(jugador.getPuntaje(), otroJugador.getPuntaje());
 	}
