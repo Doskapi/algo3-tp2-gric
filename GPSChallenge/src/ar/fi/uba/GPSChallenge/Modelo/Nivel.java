@@ -7,5 +7,9 @@ public abstract class Nivel {
 	public Mapa pedirUnMapa(){	
 		return new Mapa(1,1);
 	} 
+	
+	public Mapa pedirUnMapaParaTest(){
+		return new Mapa(1,1);
+	}
 
 }

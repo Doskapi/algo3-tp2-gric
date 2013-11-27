@@ -107,6 +107,7 @@ public class Mapa implements Serializable{
 	
 	public void agregarVehiculo(Vehiculo vehiculo){
 		this.vehiculo = vehiculo;
+		this.vehiculo.setEsquina(this.esquinaLargada);
 	}
 	
 	public Vehiculo getVehiculo(){

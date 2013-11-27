@@ -12,6 +12,7 @@ public class Jugador {
 	
 	private String nombre;
 	private int puntaje;
+	private Partida partidaActual;
 	private String partidaGuardada;
 	
 	public Jugador(){
@@ -29,6 +30,14 @@ public class Jugador {
 	
 	public String getNombre(){
 		return this.nombre;
+	}
+	
+	public Partida getPartida(){
+		return this.partidaActual;
+	}
+	
+	public void comenzarPartida(Nivel nivel){
+		this.partidaActual = new Partida(nivel);
 	}
 	
 	@XmlElement
@@ -53,5 +62,16 @@ public class Jugador {
 	public void setPartidaGuardada(String partidaGuardada){
 		this.partidaGuardada = partidaGuardada;
 	}
+
+	public void elegirVehiculo(Vehiculo vehiculo) {
+		this.partidaActual.agregarVehiculo(vehiculo);	
+	}
 	
+	public void moverVehiculo(Rumbo rumbo){
+		this.partidaActual.moverVehiculo(rumbo);
+	}
+	
+	public Posicion pedirPosicionDelVehiculo(){
+		return (this.partidaActual.getMapa().getVehiculo().getEsquina().getPosicion());
+	}
 }

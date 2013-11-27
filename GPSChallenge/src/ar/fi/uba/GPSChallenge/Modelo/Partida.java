@@ -7,19 +7,31 @@ public class Partida {
 	
 	public Partida(Nivel nivel) {
 		this.setNivel(nivel);
-		this.nivel.pedirUnMapa();
+		this.setMapa(this.nivel.pedirUnMapa());
 	}
 
 	private void setNivel(Nivel nivel) {
 		this.nivel = nivel;
 	}
 
+	public void setMapa(Mapa mapa){
+		this.mapa= mapa;
+	}
+	
 	public Nivel getNivel() {
 		return this.nivel;
 	}
 
 	public Mapa getMapa() {
 		return this.mapa;
+	}
+	
+	public void agregarVehiculo(Vehiculo vehiculo){
+		this.mapa.agregarVehiculo(vehiculo);
+	}
+
+	public void moverVehiculo(Rumbo rumbo) {
+		this.mapa.moverVehiculo(rumbo);	
 	}
 
 }

@@ -3,7 +3,8 @@ package ar.fi.uba.GPSChallengeTests;
 import junit.framework.TestCase;
 import org.junit.Test;
 import java.io.File;
-import ar.fi.uba.GPSChallenge.Modelo.Jugador;
+
+import ar.fi.uba.GPSChallenge.Modelo.*;
 
 
 public class JugadorTests extends TestCase {
@@ -21,5 +22,30 @@ public class JugadorTests extends TestCase {
 		String direccionAProbar = direccion.getAbsolutePath() + "/PartidaDeJuan.xml";
 		assertEquals(jugador.getPartidaGuardada(), direccionAProbar );
 	}
+	
+	@Test
+	public void testSeVerificaQueElJugadorComiencePartida(){
+		Jugador jugador = new Jugador("Diego");
+		Nivel facil = new Facil();
+		jugador.comenzarPartida(facil);
+		assertNotNull(jugador.getPartida());
+	}
 
+	@Test
+	public void testUnJugadorPuedeElegirUnVehiculo(){
+		Jugador jugador = new Jugador("Diego");
+		jugador.comenzarPartida(new Facil());
+		jugador.elegirVehiculo(new Vehiculo(new Auto()));
+
+		assertNotNull(jugador.getPartida().getMapa().getVehiculo());
+	}
+	
+	@Test
+	public void testUnJugadorPuedeSaberDondeEstaSuVehiculo(){
+		Jugador jugador = new Jugador("Diego");
+		jugador.comenzarPartida(new Facil());
+		jugador.elegirVehiculo(new Vehiculo(new Auto()));
+		Posicion posicion = jugador.pedirPosicionDelVehiculo();
+		assertNotNull(posicion);
+	}
 }
