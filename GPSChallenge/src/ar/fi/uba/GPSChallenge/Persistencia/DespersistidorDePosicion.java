@@ -7,14 +7,13 @@ import javax.xml.bind.Unmarshaller;
 import ar.fi.uba.GPSChallenge.Modelo.Posicion;
 
 public class DespersistidorDePosicion {
-	private static String XML_POSICION = System.getProperty("user.home") + System.getProperty("file.separator") + "Posicion.xml";
 	
-	public Posicion despersistirPosicion(){
+	public Posicion despersistirPosicion(String rutaDelArchivo){
 		Posicion posicion = new Posicion();
 		try{
 			JAXBContext context = JAXBContext.newInstance(Posicion.class);
 			Unmarshaller m = context.createUnmarshaller();
-			File XMLfile = new File(XML_POSICION);
+			File XMLfile = new File(rutaDelArchivo);
 			posicion = (Posicion) m.unmarshal(XMLfile);
 		}
 		catch(JAXBException e){

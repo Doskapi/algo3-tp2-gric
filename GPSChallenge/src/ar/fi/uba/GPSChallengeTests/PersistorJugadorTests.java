@@ -17,8 +17,9 @@ public class PersistorJugadorTests extends TestCase {
 
 	@Test
 	public void testPersistorDeUnJugador() throws JAXBException, IOException{
+		Jugador jugador = new Jugador("Martin");
 		PersistidorJugador persistidor = new PersistidorJugador();
-		persistidor.persistirJugador();
+		persistidor.persistirJugador(jugador);
 		File archivoParaObtenerLaDireccion = new File("Martin");
 		String ruta = archivoParaObtenerLaDireccion.getAbsolutePath();		
 		archivoParaObtenerLaDireccion = new File( ruta + System.getProperty("file.separator") + "PartidaDeMartin.xml");

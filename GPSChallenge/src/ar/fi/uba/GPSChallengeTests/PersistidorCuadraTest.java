@@ -12,16 +12,22 @@ public class PersistidorCuadraTest extends TestCase {
 
 	@Test
 	public void testPersistoUnaCuadra() throws JAXBException, IOException{
+		Esquina esquinaInicial = new Esquina(new Posicion(1,3));
+		Esquina esquinaFinal = new Esquina(new Posicion(1,4));
+		Cuadra cuadra = new Cuadra(esquinaInicial, esquinaFinal);
+		cuadra.agregarImprevisto(new ObstaculoPolicial());
+		cuadra.agregarImprevisto(new SorpresaFavorable());
 		PersistidorCuadra persistidor = new PersistidorCuadra();
-		persistidor.persistirCuadra();
+		persistidor.persistirCuadra(cuadra);
 	}
 	
 	@Test
 	public void testDespersistoUnaPosicion(){
+		String XML_CUADRA = System.getProperty("user.home") + System.getProperty("file.separator") + "Cuadra.xml";
 		List<Imprevisto> imprevistosCuadra1 = new ArrayList<Imprevisto>();
 		List<Imprevisto> imprevistosCuadra2 = new ArrayList<Imprevisto>();
 		DespersistidorCuadra despersistidor = new DespersistidorCuadra();
-		Cuadra cuadra = despersistidor.despersistirCuadra();
+		Cuadra cuadra = despersistidor.despersistirCuadra(XML_CUADRA);
 		Cuadra otraCuadra = new Cuadra(new Esquina(new Posicion(1,3)), new Esquina(new Posicion(1,4)));
 		otraCuadra.agregarImprevisto(new ObstaculoPolicial());
 		otraCuadra.agregarImprevisto(new SorpresaFavorable());

@@ -9,14 +9,13 @@ import javax.xml.bind.Unmarshaller;
 import ar.fi.uba.GPSChallenge.Modelo.*;
 
 public class DespersistidorVehiculo {
-private static String XML_VEHICULO = System.getProperty("user.home") + System.getProperty("file.separator") + "Vehiculo.xml";
 	
-	public Vehiculo despersistirVehiculo(){
+	public Vehiculo despersistirVehiculo(String rutaDelArchivo){
 		Vehiculo vehiculo = new Vehiculo();
 		try{
 			JAXBContext context = JAXBContext.newInstance(Posicion.class);
 			Unmarshaller m = context.createUnmarshaller();
-			File XMLfile = new File(XML_VEHICULO);
+			File XMLfile = new File(rutaDelArchivo);
 			vehiculo = (Vehiculo) m.unmarshal(XMLfile);
 			String tipoEstado = vehiculo.getEstado().getTipoEstado();
 			switch (tipoEstado){

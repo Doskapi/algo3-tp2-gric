@@ -9,13 +9,8 @@ import ar.fi.uba.GPSChallenge.Modelo.*;
 public class PersistidorCuadra {
 	
 	private static String XML_CUADRA = System.getProperty("user.home") + System.getProperty("file.separator") + "Cuadra.xml";
-	
-	public void persistirCuadra(){	
-		Esquina esquinaInicial = new Esquina(new Posicion(1,3));
-		Esquina esquinaFinal = new Esquina(new Posicion(1,4));
-		Cuadra cuadra = new Cuadra(esquinaInicial, esquinaFinal);
-		cuadra.agregarImprevisto(new ObstaculoPolicial());
-		cuadra.agregarImprevisto(new SorpresaFavorable());
+
+	public void persistirCuadra(Cuadra cuadra){	
 		try{
 			JAXBContext context = JAXBContext.newInstance(Posicion.class);
 			Marshaller m = context.createMarshaller();

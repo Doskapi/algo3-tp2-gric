@@ -8,13 +8,13 @@ import ar.fi.uba.GPSChallenge.Modelo.Esquina;
 import ar.fi.uba.GPSChallenge.Modelo.Posicion;
 
 public class DespersistidorEsquina {
-private static String XML_ESQUINA = System.getProperty("user.home") + System.getProperty("file.separator") + "Esquina.xml";
-	public Esquina despersistirEsquina(){
+
+	public Esquina despersistirEsquina(String rutaDelArchivo){
 		Esquina esquina = new Esquina();
 		try{
 			JAXBContext context = JAXBContext.newInstance(Posicion.class);
 			Unmarshaller m = context.createUnmarshaller();
-			File XMLfile = new File(XML_ESQUINA);
+			File XMLfile = new File(rutaDelArchivo);
 			esquina = (Esquina) m.unmarshal(XMLfile);
 		}
 		catch(JAXBException e){

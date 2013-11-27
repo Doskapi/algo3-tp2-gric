@@ -11,8 +11,7 @@ public class PersistidorEsquina {
 	
 	private static String XML_ESQUINA = System.getProperty("user.home") + System.getProperty("file.separator") + "Esquina.xml";
 	
-	public void persistirEsquina(){	
-		Esquina esquina = new Esquina(new Posicion(1,8));
+	public void persistirEsquina(Esquina esquina){	
 		try{
 			JAXBContext context = JAXBContext.newInstance(Posicion.class);
 			Marshaller m = context.createMarshaller();

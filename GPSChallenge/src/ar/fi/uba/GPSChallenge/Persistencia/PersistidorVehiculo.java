@@ -10,14 +10,13 @@ public class PersistidorVehiculo {
 	
 	private static String XML_VEHICULO = System.getProperty("user.home") + System.getProperty("file.separator") + "Vehiculo.xml";
 	
-	public void persistirVehiculo(){	
-		Vehiculo auto = new Vehiculo(new Auto());
+	public void persistirVehiculo(Vehiculo vehiculo){	
 		try{
 			JAXBContext context = JAXBContext.newInstance(Vehiculo.class);
 			Marshaller m = context.createMarshaller();
 			m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
 			File XMLfile = new File(XML_VEHICULO);
-			m.marshal(auto, XMLfile);
+			m.marshal(vehiculo, XMLfile);
 		}
 		catch(JAXBException e){
 			e.printStackTrace();

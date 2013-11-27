@@ -11,14 +11,12 @@ import ar.fi.uba.GPSChallenge.Modelo.*;
 
 public class DespersistidorCuadra {
 	
-	private static String XML_CUADRA = System.getProperty("user.home") + System.getProperty("file.separator") + "Cuadra.xml";
-	
-	public Cuadra despersistirCuadra(){
+	public Cuadra despersistirCuadra(String rutaDelArchivo){
 		Cuadra cuadra = new Cuadra();
 		try{
 			JAXBContext context = JAXBContext.newInstance(Posicion.class);
 			Unmarshaller m = context.createUnmarshaller();
-			File XMLfile = new File(XML_CUADRA);
+			File XMLfile = new File(rutaDelArchivo);
 			cuadra = (Cuadra) m.unmarshal(XMLfile);
 			ArrayList<Imprevisto> listaImprevistosACastear = new ArrayList<Imprevisto>();
 			listaImprevistosACastear = cuadra.getImprevistos();

@@ -12,14 +12,16 @@ public class PersistidorEsquinaTests extends TestCase {
 
 	@Test
 	public void testPersistoUnaEsquina() throws JAXBException, IOException{
+		Esquina esquina = new Esquina(new Posicion(1,8));
 		PersistidorEsquina persistidor = new PersistidorEsquina();
-		persistidor.persistirEsquina();
+		persistidor.persistirEsquina(esquina);
 	}
 	
 	@Test
 	public void testDespersistoUnaEsquina(){
+		String XML_ESQUINA = System.getProperty("user.home") + System.getProperty("file.separator") + "Esquina.xml";
 		DespersistidorEsquina despersistidor = new DespersistidorEsquina();
-		Esquina esquina = despersistidor.despersistirEsquina();
+		Esquina esquina = despersistidor.despersistirEsquina(XML_ESQUINA);
 		assertEquals(esquina, new Esquina(new Posicion(1,8)));
 	}
 }

@@ -13,8 +13,7 @@ public class PersistidorDePosicion {
 	
 	private static String XML_POSICION = System.getProperty("user.home") + System.getProperty("file.separator") + "Posicion.xml";
 	
-	public void persistirPosicion() throws JAXBException, IOException{
-		Posicion posicion = new Posicion(1,5);
+	public void persistirPosicion(Posicion posicion) throws JAXBException, IOException{
 		try{
 			JAXBContext context = JAXBContext.newInstance(Posicion.class);
 			Marshaller m = context.createMarshaller();

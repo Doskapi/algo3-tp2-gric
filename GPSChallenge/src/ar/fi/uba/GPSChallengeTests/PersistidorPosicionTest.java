@@ -13,14 +13,16 @@ public class PersistidorPosicionTest extends TestCase {
 	
 	@Test
 	public void testPersistoUnaPosicion() throws JAXBException, IOException{
+		Posicion posicion = new Posicion(1,5);
 		PersistidorDePosicion persistidor = new PersistidorDePosicion();
-		persistidor.persistirPosicion();
+		persistidor.persistirPosicion(posicion);
 	}
 	
 	@Test
 	public void testDespersistoUnaPosicion(){
+		String XML_POSICION = System.getProperty("user.home") + System.getProperty("file.separator") + "Posicion.xml";
 		DespersistidorDePosicion despersistidor = new DespersistidorDePosicion();
-		Posicion posicion = despersistidor.despersistirPosicion();
+		Posicion posicion = despersistidor.despersistirPosicion(XML_POSICION);
 		assertEquals(posicion, new Posicion(1,5));
 	}
 }
