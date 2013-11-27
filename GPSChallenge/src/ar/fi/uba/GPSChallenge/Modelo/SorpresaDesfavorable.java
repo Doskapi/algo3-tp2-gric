@@ -4,6 +4,7 @@ public class SorpresaDesfavorable extends Sorpresa {
 		
 		public SorpresaDesfavorable(){
 			this.permitirMovimiento = true;
+			this.tipoDeImprevisto = "SorpresaDesfavorable";
 		}
 	
 		public void aplicarImprevisto(Vehiculo vehiculo){

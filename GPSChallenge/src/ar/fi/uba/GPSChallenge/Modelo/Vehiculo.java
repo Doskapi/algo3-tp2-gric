@@ -1,34 +1,50 @@
 package ar.fi.uba.GPSChallenge.Modelo;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+
+@XmlRootElement
+@XmlType(propOrder = {"estado", "esquina", "cantidadDeMovimientos"})
 public class Vehiculo {
        
 	private Estado estado;
     private Esquina esquina;
-    private int movimientos;
+    private int cantidadDeMovimientos;
        
     public Vehiculo(Estado estado){
     	this.estado = estado;
-        this.movimientos = 0;
+        this.cantidadDeMovimientos = 0;
     }
        
-    public Estado getEstado(){
+    public Vehiculo() {
+	}
+
+	public Estado getEstado(){
     	return this.estado;    
     }
-    
+	
+	@XmlElement
     public void setEstado(Estado estado){
     	this.estado = estado;
     }
        
     public int getCantidadDeMovimientos(){
-    	return movimientos;
+    	return this.cantidadDeMovimientos;
     }
          
     private void sumarMovimientos(){
-    	movimientos = (movimientos + 1);     
+    	cantidadDeMovimientos = (cantidadDeMovimientos + 1);     
     }
-       
+      
+    @XmlElement
     public void setCantidadDeMovimientos(int movimientos){
-    	this.movimientos = movimientos;
+    	this.cantidadDeMovimientos = movimientos;
+    }
+    
+    @XmlElement
+    public void setEsquina(Esquina esquina){
+    	this.esquina = esquina;
     }
     
     public void colocarEnEsquina(Esquina esquina) {
@@ -47,14 +63,14 @@ public class Vehiculo {
 	public Estado getNuevoEstado(){
 		return this.estado.nuevoEstado();
 	}
-
+	
 	public String getNombreEstado(){
-		return this.estado.getEstado();
+		return this.estado.getTipoEstado();
 	}
 
 	public void agarrarPozos(){
 		int movimientosAAgregar = this.estado.agarrarPozos();
-		this.movimientos = this.movimientos + movimientosAAgregar;
+		this.cantidadDeMovimientos = this.cantidadDeMovimientos + movimientosAAgregar;
 	}
 	
 	public double getProbabilidadDePenalizacion(){
@@ -63,7 +79,12 @@ public class Vehiculo {
 	
 	public void agarrarPiquete(){
 		int movimientosAAgregar = this.estado.devolverPenalizacionPorPasarPorPiquete();
-		this.movimientos = this.movimientos + movimientosAAgregar;
+		this.cantidadDeMovimientos = this.cantidadDeMovimientos + movimientosAAgregar;
 		}		
+	
+	public boolean equals(Object otroVehiculo){
+		Vehiculo v = (Vehiculo)otroVehiculo;
+		return (this.getEstado().getTipoEstado() == v.getEstado().getTipoEstado());
+	}
 }
 

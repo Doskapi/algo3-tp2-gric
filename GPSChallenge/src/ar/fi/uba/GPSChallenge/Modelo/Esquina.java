@@ -1,7 +1,15 @@
 package ar.fi.uba.GPSChallenge.Modelo;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlElementRef;
+import javax.xml.bind.annotation.XmlElementWrapper;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlSeeAlso;
+import javax.xml.bind.annotation.XmlType;
 import ar.fi.uba.GPSChallenge.Modelo.Posicion;
 
+@XmlRootElement
+@XmlSeeAlso({Cuadra.class, Vehiculo.class})
 public class Esquina {
 	
 	private Posicion posicion;
@@ -11,13 +19,13 @@ public class Esquina {
 	}
 
 	public Esquina() {
-		// TODO Auto-generated constructor stub
 	}
-
+	
 	public Posicion getPosicion() {
 		return this.posicion;
 	}
 	
+	@XmlElement
 	public void setPosicion(Posicion posicion) {
 		this.posicion = posicion;
 	}

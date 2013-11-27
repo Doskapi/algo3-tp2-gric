@@ -4,6 +4,7 @@ public class ObstaculoPozos extends Obstaculo {
 
 	public ObstaculoPozos(){
 		this.permitirMovimiento = true;
+		this.tipoDeImprevisto = "ObstaculoPozos";
 	}
 	
 	public void aplicarImprevisto(Vehiculo vehiculo){

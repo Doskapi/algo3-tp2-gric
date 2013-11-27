@@ -4,6 +4,7 @@ public class ObstaculoPiquete extends Obstaculo {
 
 	public ObstaculoPiquete(){
 		this.permitirMovimiento = true;
+		this.tipoDeImprevisto = "ObstaculoPiquete";
 	}
 	
 	public void aplicarImprevisto(Vehiculo vehiculo){
@@ -12,5 +13,10 @@ public class ObstaculoPiquete extends Obstaculo {
 		if (!(vehiculo.getEstado().puedeMoverse())) {
 			this.permitirMovimiento = false;
 		}
+	}
+	
+	public String getTipoImprevistoComoString(){
+		String tipoImprevisto = "ObstaculoPiquete";
+		return tipoImprevisto;
 	}
 }

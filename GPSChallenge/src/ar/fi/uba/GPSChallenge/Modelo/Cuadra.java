@@ -2,7 +2,18 @@ package ar.fi.uba.GPSChallenge.Modelo;
 
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlElementRef;
+import javax.xml.bind.annotation.XmlElementWrapper;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlSeeAlso;
+import javax.xml.bind.annotation.XmlType;
+
+@XmlRootElement
+@XmlType(propOrder = {"imprevistos", "esquinaInicial", "esquinaFinal"})
+@XmlSeeAlso({Mapa.class})
 public class Cuadra {
 
 	private ArrayList<Imprevisto> imprevistos;
@@ -14,18 +25,34 @@ public class Cuadra {
 	
 	public Cuadra(Esquina esquinaInicial, Esquina esquinaFinal){
 		this.imprevistos = new ArrayList<Imprevisto>();
-		this.esquinaInicial = esquinaInicial;
-		this.esquinaFinal = esquinaFinal;
+		this.setEsquinaInicial(esquinaInicial);
+		this.setEsquinaFinal(esquinaFinal);
 	}
-
+	
 	public ArrayList<Imprevisto> getImprevistos() {
 		return this.imprevistos;
 	}
-
-
+	
+	@XmlElementWrapper
+	@XmlElement(name = "imprevisto")
+	public void setImprevistos(ArrayList<Imprevisto> imprevistos){
+		this.imprevistos = imprevistos;
+	}
+	
+	
 	public void agregarImprevisto(Imprevisto imprevisto) {
 		this.imprevistos.add(imprevisto);
-		
+	}
+	
+	
+	@XmlElement (name = "esquinaInicial")
+	public void setEsquinaInicial(Esquina esquinaInicial){
+		this.esquinaInicial = esquinaInicial;
+	}
+	
+	@XmlElement (name = "esquinaFinal")
+	public void setEsquinaFinal(Esquina esquinaFinal){
+		this.esquinaFinal = esquinaFinal;
 	}
 	
 	public void aplicarImprevistos(Vehiculo vehiculo, Esquina esquinaInicial, Esquina esquinaFinal) {

@@ -2,9 +2,13 @@ package ar.fi.uba.GPSChallenge.Modelo;
 
 import ar.fi.uba.GPSChallenge.Modelo.Estado;
 
-public class CuatroPorCuatro implements Estado{
+public class CuatroPorCuatro extends Estado{
 	
 	private double probabilidadDePenalizacion = 0.3;
+	
+	public CuatroPorCuatro(){
+		this.tipoEstado = "CuatroPorCuatro";
+	}
 	
 	public String getEstado(){
 		return "CuatroPorCuatro";

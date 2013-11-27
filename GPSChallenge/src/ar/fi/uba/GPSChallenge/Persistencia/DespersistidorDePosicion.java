@@ -1,0 +1,27 @@
+package ar.fi.uba.GPSChallenge.Persistencia;
+
+import java.io.File;
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.JAXBException;
+import javax.xml.bind.Unmarshaller;
+import ar.fi.uba.GPSChallenge.Modelo.Posicion;
+
+public class DespersistidorDePosicion {
+	private static String XML_POSICION = System.getProperty("user.home") + System.getProperty("file.separator") + "Posicion.xml";
+	
+	public Posicion despersistirPosicion(){
+		Posicion posicion = new Posicion();
+		try{
+			JAXBContext context = JAXBContext.newInstance(Posicion.class);
+			Unmarshaller m = context.createUnmarshaller();
+			File XMLfile = new File(XML_POSICION);
+			posicion = (Posicion) m.unmarshal(XMLfile);
+			System.out.println(posicion.getFila());
+			System.out.println(posicion.getColumna());
+		}
+		catch(JAXBException e){
+			e.printStackTrace();
+		}
+		return posicion;
+	}
+}

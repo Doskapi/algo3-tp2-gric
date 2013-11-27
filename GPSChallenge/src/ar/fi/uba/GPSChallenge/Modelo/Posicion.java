@@ -1,5 +1,12 @@
 package ar.fi.uba.GPSChallenge.Modelo;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlSeeAlso;
+import javax.xml.bind.annotation.XmlType;
+
+@XmlRootElement
+@XmlSeeAlso({Esquina.class})
 public class Posicion {
 
 	private int fila;
@@ -22,6 +29,7 @@ public class Posicion {
 		return this.fila;
 	}
 	
+	@XmlElement
 	public void setFila(int fila){
 		this.fila = fila;
 	}
@@ -29,7 +37,8 @@ public class Posicion {
 	public int getColumna(){
 		return this.columna;
 	}
-
+	
+	@XmlElement
 	public void setColumna(int columna){
 		this.columna = columna;
 	}

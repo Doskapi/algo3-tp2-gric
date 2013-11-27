@@ -1,18 +1,50 @@
 package ar.fi.uba.GPSChallenge.Modelo;
 
-public interface Estado {
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlSeeAlso;
 
-	public abstract String getEstado();
-	
-	public abstract Estado nuevoEstado();
+@XmlRootElement(name = "tipoEstado")
+@XmlSeeAlso({Vehiculo.class})
+public class Estado {
 
-	public abstract int agarrarPozos();
+	protected String tipoEstado;
+	
+	public Estado(){
+		this.tipoEstado = "Estado";
+	}
 
-	public abstract double getProbabilidadDePenalizacion();
+	public String getTipoEstado(){
+		return tipoEstado;
+	}
 	
-	public abstract int devolverPenalizacionPorPasarPorPiquete();
+	@XmlElement 
+	public void setTipoEstado(String tipoEstado){
+		this.tipoEstado = tipoEstado;
+	}
 	
-	public abstract int devolverPenalizacionPorPasarPorControlPolicial();
+	public Estado nuevoEstado(){
+		Estado estado = new Estado();
+		return estado;
+	}
+
+	public int agarrarPozos(){
+		return 0;
+	}
+
+	public double getProbabilidadDePenalizacion(){
+		return 0;
+	}
 	
-	public abstract boolean puedeMoverse();
+	public int devolverPenalizacionPorPasarPorPiquete(){
+		return 0;
+	}
+	
+	public  int devolverPenalizacionPorPasarPorControlPolicial(){
+		return 0;
+	}
+	
+	public boolean puedeMoverse(){
+		return false;
+	}
 }

@@ -4,6 +4,7 @@ public class ObstaculoPolicial extends Obstaculo {
 	
 	public ObstaculoPolicial(){
 		this.permitirMovimiento = true;
+		this.tipoDeImprevisto = "ObstaculoPolicial";
 	}
 	
 	public void aplicarImprevisto(Vehiculo vehiculo){

@@ -2,7 +2,11 @@ package ar.fi.uba.GPSChallenge.Modelo;
 
 import ar.fi.uba.GPSChallenge.Modelo.Estado;
 
-public class Auto implements Estado{
+public class Auto extends Estado{
+	
+	public Auto(){
+		tipoEstado = "Auto";
+	}
 	
 	public String getEstado(){
 		return "Auto";
