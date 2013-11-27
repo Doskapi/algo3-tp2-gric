@@ -15,5 +15,15 @@ public abstract class Nivel {
 	public Mapa pedirUnMapaParaTest(){
 		return new Mapa(1,1);
 	}
-
+	
+	public int calcularPuntaje(int cantidadDeMovimientos){
+		int puntaje;
+		puntaje = ((this.movimientosLimite - cantidadDeMovimientos) * multiplicadorDePuntaje);
+		if (puntaje <= 0){
+			return 0;
+		}
+		else{
+			return puntaje;
+		}
+	}
 }

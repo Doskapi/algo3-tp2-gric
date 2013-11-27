@@ -33,5 +33,12 @@ public class Partida {
 	public void moverVehiculo(Rumbo rumbo) {
 		this.mapa.moverVehiculo(rumbo);	
 	}
-
+	
+	public int calcularPuntaje(){
+		int cantidadDeMovimientos;
+		int puntaje;
+		cantidadDeMovimientos = this.mapa.getVehiculo().getCantidadDeMovimientos();
+		puntaje = this.nivel.calcularPuntaje(cantidadDeMovimientos);
+		return puntaje;
+	}
 }

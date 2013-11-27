@@ -30,4 +30,15 @@ public class Facil extends Nivel {
 		int sorteo = ( 1 + (int)(Math.random() * ((MAX_CANTIDAD_MAPAS -1) + 1) ));
 		return sorteo;
 	}
+	
+	public int calcularPuntaje(int cantidadDeMovimientos){
+		int puntaje;
+		puntaje = ((this.movimientosLimite - cantidadDeMovimientos) * multiplicadorDePuntaje);
+		if (puntaje <= 0){
+			return 0;
+		}
+		else{
+			return puntaje;
+		}
+	}
 }

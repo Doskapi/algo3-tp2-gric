@@ -21,11 +21,6 @@ public class Jugador {
 	public Jugador(String nombre){
 		this.nombre = nombre;
 		this.puntaje = 0;
-		File carpetaDelJugador = new File(nombre);
-		carpetaDelJugador.mkdir();
-		String direccionDeLaCarpeta = carpetaDelJugador.getAbsolutePath();
-		File archivoDelJugador = new File( direccionDeLaCarpeta + "/PartidaDe" + nombre + ".xml");
-		this.partidaGuardada = archivoDelJugador.getAbsolutePath();
 	}
 	
 	public String getNombre(){
@@ -73,5 +68,12 @@ public class Jugador {
 	
 	public Posicion pedirPosicionDelVehiculo(){
 		return (this.partidaActual.getMapa().getVehiculo().getEsquina().getPosicion());
+	}
+	
+	public void calcularPuntaje(){
+		int puntajeActual = (this.partidaActual.calcularPuntaje());
+		if (puntajeActual > this.puntaje){
+			this.puntaje = puntajeActual;
+		}	
 	}
 }
