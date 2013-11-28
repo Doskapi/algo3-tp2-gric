@@ -3,11 +3,19 @@ package ar.fi.uba.GPSChallenge.Persistencia;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Iterator;
-import java.util.List;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Unmarshaller;
 import ar.fi.uba.GPSChallenge.Modelo.*;
+import ar.fi.uba.GPSChallenge.Modelo.Imprevistos.Imprevisto;
+import ar.fi.uba.GPSChallenge.Modelo.Imprevistos.ObstaculoPiquete;
+import ar.fi.uba.GPSChallenge.Modelo.Imprevistos.ObstaculoPolicial;
+import ar.fi.uba.GPSChallenge.Modelo.Imprevistos.ObstaculoPozos;
+import ar.fi.uba.GPSChallenge.Modelo.Imprevistos.SorpresaCambioDeVehiculo;
+import ar.fi.uba.GPSChallenge.Modelo.Imprevistos.SorpresaDesfavorable;
+import ar.fi.uba.GPSChallenge.Modelo.Imprevistos.SorpresaFavorable;
+import ar.fi.uba.GPSChallenge.Modelo.Mapa.Cuadra;
+import ar.fi.uba.GPSChallenge.Modelo.Mapa.Posicion;
 
 public class DespersistidorCuadra {
 	

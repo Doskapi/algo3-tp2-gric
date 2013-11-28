@@ -4,7 +4,8 @@ import java.io.File;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Unmarshaller;
-import ar.fi.uba.GPSChallenge.Modelo.Posicion;
+
+import ar.fi.uba.GPSChallenge.Modelo.Mapa.Posicion;
 
 public class DespersistidorDePosicion {
 	

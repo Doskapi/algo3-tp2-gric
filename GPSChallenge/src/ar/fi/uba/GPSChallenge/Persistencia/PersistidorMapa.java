@@ -1,21 +1,12 @@
 package ar.fi.uba.GPSChallenge.Persistencia;
 
 import java.io.File;
-import java.util.ArrayList;
-import java.util.List;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
-import ar.fi.uba.GPSChallenge.Modelo.Auto;
-import ar.fi.uba.GPSChallenge.Modelo.Cuadra;
-import ar.fi.uba.GPSChallenge.Modelo.Esquina;
-import ar.fi.uba.GPSChallenge.Modelo.Mapa;
-import ar.fi.uba.GPSChallenge.Modelo.ObstaculoPiquete;
-import ar.fi.uba.GPSChallenge.Modelo.ObstaculoPolicial;
-import ar.fi.uba.GPSChallenge.Modelo.Posicion;
-import ar.fi.uba.GPSChallenge.Modelo.SorpresaCambioDeVehiculo;
-import ar.fi.uba.GPSChallenge.Modelo.SorpresaFavorable;
-import ar.fi.uba.GPSChallenge.Modelo.Vehiculo;
+import ar.fi.uba.GPSChallenge.Modelo.*;
+import ar.fi.uba.GPSChallenge.Modelo.Mapa.Mapa;
+import ar.fi.uba.GPSChallenge.Modelo.Mapa.Posicion;
 
 public class PersistidorMapa {
 		

@@ -3,6 +3,11 @@ package ar.fi.uba.GPSChallengeTests;
 import org.junit.Test;
 
 import ar.fi.uba.GPSChallenge.Modelo.*;
+import ar.fi.uba.GPSChallenge.Modelo.Mapa.Dificil;
+import ar.fi.uba.GPSChallenge.Modelo.Mapa.Facil;
+import ar.fi.uba.GPSChallenge.Modelo.Mapa.Mapa;
+import ar.fi.uba.GPSChallenge.Modelo.Mapa.Moderado;
+import ar.fi.uba.GPSChallenge.Modelo.Mapa.Nivel;
 
 import junit.framework.TestCase;
 

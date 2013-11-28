@@ -6,6 +6,20 @@ import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Unmarshaller;
 import ar.fi.uba.GPSChallenge.Modelo.*;
+import ar.fi.uba.GPSChallenge.Modelo.Imprevistos.Imprevisto;
+import ar.fi.uba.GPSChallenge.Modelo.Imprevistos.ObstaculoPiquete;
+import ar.fi.uba.GPSChallenge.Modelo.Imprevistos.ObstaculoPolicial;
+import ar.fi.uba.GPSChallenge.Modelo.Imprevistos.ObstaculoPozos;
+import ar.fi.uba.GPSChallenge.Modelo.Imprevistos.SorpresaCambioDeVehiculo;
+import ar.fi.uba.GPSChallenge.Modelo.Imprevistos.SorpresaDesfavorable;
+import ar.fi.uba.GPSChallenge.Modelo.Imprevistos.SorpresaFavorable;
+import ar.fi.uba.GPSChallenge.Modelo.Mapa.Cuadra;
+import ar.fi.uba.GPSChallenge.Modelo.Mapa.Mapa;
+import ar.fi.uba.GPSChallenge.Modelo.Mapa.Posicion;
+import ar.fi.uba.GPSChallenge.Modelo.Vehiculo.Auto;
+import ar.fi.uba.GPSChallenge.Modelo.Vehiculo.CuatroPorCuatro;
+import ar.fi.uba.GPSChallenge.Modelo.Vehiculo.Moto;
+import ar.fi.uba.GPSChallenge.Modelo.Vehiculo.Vehiculo;
 
 public class DespersistidorMapa {
 	
@@ -36,7 +50,6 @@ public class DespersistidorMapa {
 			Cuadra cuadraActual;
 			ArrayList<Imprevisto> listaImprevistos = new ArrayList<Imprevisto>();
 			ArrayList<Imprevisto> listaImprevistosCasteados = new ArrayList<Imprevisto>();
-			Imprevisto imprevistoActual;
 			Iterator<Cuadra> iteradorCuadras = listaCuadras.iterator();
 			while (iteradorCuadras.hasNext()){
 				cuadraActual = iteradorCuadras.next();

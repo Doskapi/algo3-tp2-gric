@@ -1,0 +1,45 @@
+package ar.fi.uba.GPSChallenge.Modelo.Vehiculo;
+
+import ar.fi.uba.GPSChallenge.Modelo.Vehiculo.Estado;
+
+public class Moto extends Estado{
+	
+	public Moto(){
+		this.tipoEstado = "Moto";
+	}
+	
+	public String getEstado(){
+		return "Moto";
+	}
+	
+	public Estado nuevoEstado(){
+		Auto auto = new Auto();
+		return auto;
+	}
+	
+	public int agarrarPozos(){
+		int movimientos = 3;
+		return movimientos;
+	}
+
+	public double getProbabilidadDePenalizacion(){
+		double probabilidadDePenalizacion = 0.8;
+		return probabilidadDePenalizacion;
+	}
+	
+	public boolean puedeMoverse(){
+		return true;
+	}
+	
+	public int devolverPenalizacionPorPasarPorPiquete(){
+		int movimientos = 2;
+		return movimientos;
+	}
+
+	public int devolverPenalizacionPorPasarPorControlPolicial(){
+		int movimientos = 3;
+		return movimientos;
+	}
+	
+}
+

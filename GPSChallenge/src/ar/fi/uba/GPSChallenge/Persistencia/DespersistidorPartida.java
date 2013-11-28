@@ -7,6 +7,10 @@ import javax.xml.bind.JAXBException;
 import javax.xml.bind.Unmarshaller;
 
 import ar.fi.uba.GPSChallenge.Modelo.*;
+import ar.fi.uba.GPSChallenge.Modelo.Mapa.Dificil;
+import ar.fi.uba.GPSChallenge.Modelo.Mapa.Facil;
+import ar.fi.uba.GPSChallenge.Modelo.Mapa.Mapa;
+import ar.fi.uba.GPSChallenge.Modelo.Mapa.Moderado;
 
 public class DespersistidorPartida {
 

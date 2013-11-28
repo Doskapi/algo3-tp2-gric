@@ -1,13 +1,12 @@
 package ar.fi.uba.GPSChallenge.Persistencia;
 
 import java.io.File;
-import java.io.FileWriter;
 import java.io.IOException;
-import java.io.Writer;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
 import ar.fi.uba.GPSChallenge.Modelo.*;
+import ar.fi.uba.GPSChallenge.Modelo.Mapa.Posicion;
 
 public class PersistidorDePosicion {
 	

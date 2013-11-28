@@ -7,6 +7,11 @@ import javax.xml.bind.JAXBException;
 import javax.xml.bind.Unmarshaller;
 
 import ar.fi.uba.GPSChallenge.Modelo.*;
+import ar.fi.uba.GPSChallenge.Modelo.Mapa.Posicion;
+import ar.fi.uba.GPSChallenge.Modelo.Vehiculo.Auto;
+import ar.fi.uba.GPSChallenge.Modelo.Vehiculo.CuatroPorCuatro;
+import ar.fi.uba.GPSChallenge.Modelo.Vehiculo.Moto;
+import ar.fi.uba.GPSChallenge.Modelo.Vehiculo.Vehiculo;
 
 public class DespersistidorVehiculo {
 	

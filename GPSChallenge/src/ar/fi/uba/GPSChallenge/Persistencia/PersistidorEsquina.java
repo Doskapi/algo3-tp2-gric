@@ -4,8 +4,9 @@ import java.io.File;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
-import ar.fi.uba.GPSChallenge.Modelo.Esquina;
-import ar.fi.uba.GPSChallenge.Modelo.Posicion;
+
+import ar.fi.uba.GPSChallenge.Modelo.Mapa.Esquina;
+import ar.fi.uba.GPSChallenge.Modelo.Mapa.Posicion;
 
 public class PersistidorEsquina {
 	

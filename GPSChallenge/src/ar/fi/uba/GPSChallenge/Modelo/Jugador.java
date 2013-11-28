@@ -4,6 +4,11 @@ import java.io.File;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
+
+import ar.fi.uba.GPSChallenge.Modelo.Mapa.Nivel;
+import ar.fi.uba.GPSChallenge.Modelo.Mapa.Posicion;
+import ar.fi.uba.GPSChallenge.Modelo.Vehiculo.Rumbo;
+import ar.fi.uba.GPSChallenge.Modelo.Vehiculo.Vehiculo;
 import ar.fi.uba.GPSChallenge.Persistencia.PersistidorPartida;
 
 @XmlRootElement

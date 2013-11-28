@@ -5,6 +5,8 @@ import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
 import ar.fi.uba.GPSChallenge.Modelo.*;
+import ar.fi.uba.GPSChallenge.Modelo.Mapa.Cuadra;
+import ar.fi.uba.GPSChallenge.Modelo.Mapa.Posicion;
 
 public class PersistidorCuadra {
 	
