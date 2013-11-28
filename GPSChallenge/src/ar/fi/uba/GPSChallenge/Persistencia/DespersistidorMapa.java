@@ -12,7 +12,7 @@ public class DespersistidorMapa {
 	public Mapa despersistirMapa(String rutaDeArchivo){
 		Mapa mapa = new Mapa();
 		try{
-			JAXBContext context = JAXBContext.newInstance(Mapa.class);
+			JAXBContext context = JAXBContext.newInstance(Posicion.class);
 			Unmarshaller m = context.createUnmarshaller();
 			File XMLfile = new File(rutaDeArchivo);
 			mapa = (Mapa) m.unmarshal(XMLfile);
@@ -36,15 +36,7 @@ public class DespersistidorMapa {
 			Cuadra cuadraActual;
 			ArrayList<Imprevisto> listaImprevistos = new ArrayList<Imprevisto>();
 			ArrayList<Imprevisto> listaImprevistosCasteados = new ArrayList<Imprevisto>();
-			
-			
-			
-			
-//			Imprevisto imprevistoActual;
-			
-			
-			
-			
+			Imprevisto imprevistoActual;
 			Iterator<Cuadra> iteradorCuadras = listaCuadras.iterator();
 			while (iteradorCuadras.hasNext()){
 				cuadraActual = iteradorCuadras.next();

@@ -1,7 +1,9 @@
 package ar.fi.uba.GPSChallengeTests;
 
 import junit.framework.TestCase;
+
 import java.io.IOException;
+import java.util.*;
 import javax.xml.bind.JAXBException;
 import org.junit.Test;
 import ar.fi.uba.GPSChallenge.Modelo.Posicion;

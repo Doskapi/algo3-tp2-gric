@@ -57,4 +57,13 @@ public class PartidaTests extends TestCase{
 		
 		assertEquals(partida.getMapa() , mapa);
 	}
+	
+	@Test
+	public void testDosPartidasSonIguales(){
+		Partida partida = new Partida(new Moderado());
+		Partida otraPartida = new Partida();
+		otraPartida.setNivel(new Moderado());
+		otraPartida.setMapa(partida.getMapa());
+		assertEquals(partida, otraPartida);
+	}
 }

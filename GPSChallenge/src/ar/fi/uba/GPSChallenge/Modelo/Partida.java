@@ -74,5 +74,12 @@ public class Partida {
 		persistidor.persistirMapa(this.mapa,this.rutaMapa);
 	}
 	
+	public boolean equals(Object otraPartida){
+		Partida partida = (Partida)otraPartida;
+		Boolean sonIguales = false;
+		sonIguales = ((this.getMapa().equals(partida.getMapa())) && (this.getNivel().getTipoNivel() == partida.getNivel().getTipoNivel()));
+		return (sonIguales);
+	}
+	
 	
 }

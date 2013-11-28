@@ -13,7 +13,7 @@ public class DespersistidorVehiculo {
 	public Vehiculo despersistirVehiculo(String rutaDelArchivo){
 		Vehiculo vehiculo = new Vehiculo();
 		try{
-			JAXBContext context = JAXBContext.newInstance(Vehiculo.class);
+			JAXBContext context = JAXBContext.newInstance(Posicion.class);
 			Unmarshaller m = context.createUnmarshaller();
 			File XMLfile = new File(rutaDelArchivo);
 			vehiculo = (Vehiculo) m.unmarshal(XMLfile);

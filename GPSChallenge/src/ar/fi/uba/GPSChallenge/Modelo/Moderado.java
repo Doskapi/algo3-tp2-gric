@@ -10,6 +10,7 @@ public class Moderado extends Nivel {
 	public Moderado(){
 		this.movimientosLimite = 50;
 		this.multiplicadorDePuntaje = 2;
+		this.tipoNivel = "Moderado";
 	}
 	
 	public Mapa pedirUnMapa(){

@@ -1,7 +1,11 @@
 package ar.fi.uba.GPSChallengeTests;
 
 import junit.framework.TestCase;
+
 import org.junit.Test;
+
+import java.io.File;
+
 import ar.fi.uba.GPSChallenge.Modelo.*;
 
 
@@ -54,6 +58,7 @@ public class JugadorTests extends TestCase {
 		Jugador jugador = new Jugador("DiegoTest");
 		jugador.comenzarPartida(new Facil());
 		jugador.elegirVehiculo(new Vehiculo(new Auto()));
+		Posicion posicionInicial = jugador.pedirPosicionDelVehiculo();
 		jugador.moverVehiculo(new Norte());
 		jugador.moverVehiculo(new Norte());
 		jugador.moverVehiculo(new Norte());
@@ -66,6 +71,7 @@ public class JugadorTests extends TestCase {
 		Jugador jugador = new Jugador("DiegoTest");
 		jugador.comenzarPartida(new Moderado());
 		jugador.elegirVehiculo(new Vehiculo(new Auto()));
+		Posicion posicionInicial = jugador.pedirPosicionDelVehiculo();
 		jugador.moverVehiculo(new Norte());
 		jugador.moverVehiculo(new Norte());
 		jugador.moverVehiculo(new Norte());
@@ -83,5 +89,19 @@ public class JugadorTests extends TestCase {
 		jugador.moverVehiculo(new Norte());
 		jugador.calcularPuntaje();
 		assertEquals(jugador.getPuntaje(), 81);
-	}	
+	}
+	
+	@Test
+	
+	public void testUnJugadorGuardaSuPartida(){
+		Jugador jugador = new Jugador("JuanaTest");
+		jugador.comenzarPartida(new Facil());
+		jugador.elegirVehiculo(new Vehiculo(new Auto()));
+		jugador.persistirPartida();
+		String rutaArchivos = System.getProperty("user.dir") + System.getProperty("file.separator") + "Jugadores" +  System.getProperty("file.separator") + jugador.getNombre() + System.getProperty("file.separator");
+		File archivoPartida = new File(rutaArchivos + "PartidaGuardada.xml");
+		File archivoMapa = new File(rutaArchivos + "Mapa.xml");
+		assertTrue(archivoPartida.exists());
+		assertTrue(archivoMapa.exists());
+	}
 }

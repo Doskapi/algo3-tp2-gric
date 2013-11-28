@@ -18,7 +18,7 @@ public class Estado {
 		return tipoEstado;
 	}
 	
-	@XmlElement 
+	@XmlElement
 	public void setTipoEstado(String tipoEstado){
 		this.tipoEstado = tipoEstado;
 	}

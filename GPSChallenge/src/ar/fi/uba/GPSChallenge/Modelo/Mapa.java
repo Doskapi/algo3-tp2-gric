@@ -1,15 +1,21 @@
 package ar.fi.uba.GPSChallenge.Modelo;
 
 import java.util.*;
+import java.io.Serializable;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlElementWrapper;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
+import javax.xml.soap.Node;
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.NodeList;
 
 @XmlRootElement
 @XmlType(propOrder = {"filas","columnas","esquinaLargada","esquinaMeta","vehiculo","cuadras"})
-public class Mapa {
+public class Mapa{
 
+	
 	private int filas;
 	private int columnas;
 	Esquina esquinaLargada;

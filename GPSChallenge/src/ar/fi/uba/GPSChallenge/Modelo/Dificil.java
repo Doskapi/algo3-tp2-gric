@@ -9,6 +9,7 @@ public class Dificil extends Nivel {
 	public Dificil(){
 		this.movimientosLimite = 30;
 		this.multiplicadorDePuntaje = 3;
+		this.tipoNivel = "Dificil";
 	}
 	
 	public Mapa pedirUnMapa(){

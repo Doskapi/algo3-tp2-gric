@@ -7,7 +7,7 @@ import javax.xml.bind.annotation.XmlSeeAlso;
 
 @XmlRootElement
 @XmlSeeAlso({Partida.class})
-public abstract class Nivel {
+public class Nivel {
 
 	protected String rutaALaCarpetaMapas = System.getProperty("user.dir") + System.getProperty("file.separator") + "Mapas" + System.getProperty("file.separator");
 	

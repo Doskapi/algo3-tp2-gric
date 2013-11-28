@@ -1,5 +1,6 @@
 package ar.fi.uba.GPSChallenge.Modelo;
 
+import java.io.File;
 import ar.fi.uba.GPSChallenge.Persistencia.DespersistidorMapa;
 
 public class Facil extends Nivel {
@@ -9,6 +10,7 @@ public class Facil extends Nivel {
 	public Facil(){
 		this.movimientosLimite = 70;
 		this.multiplicadorDePuntaje = 1;
+		this.tipoNivel = "Facil";
 	}
 	
 	public Mapa pedirUnMapa(){

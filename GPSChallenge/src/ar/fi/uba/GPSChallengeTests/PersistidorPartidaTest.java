@@ -26,4 +26,18 @@ public class PersistidorPartidaTest extends TestCase {
 		assertTrue (archivo.exists());
 	}
 	
+	@Test
+	public void testDespersistoUnaPartida(){
+		Jugador jugador = new Jugador("DiegoTest");
+		String carpetaArchivos = System.getProperty("user.dir") + System.getProperty("file.separator") + "Jugadores" +  System.getProperty("file.separator") + jugador.getNombre() + System.getProperty("file.separator");
+		DespersistidorPartida despersistidorPartida = new DespersistidorPartida();
+		Partida partidaDespersistida = despersistidorPartida.despersistirPartida(carpetaArchivos  + "PartidaGuardada.xml");
+		Partida partida = new Partida();
+		DespersistidorMapa despersistidorMapa = new DespersistidorMapa();
+		Mapa mapa = despersistidorMapa.despersistirMapa(carpetaArchivos + "Mapa.xml");
+		partida.setMapa(mapa);
+		partida.setNivel(new Facil());
+		assertEquals(partidaDespersistida, partida);
+	}
+	
 }

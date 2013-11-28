@@ -1,6 +1,7 @@
 package ar.fi.uba.GPSChallengeTests;
 
 import junit.framework.TestCase;
+import java.util.*;
 import org.junit.Test;
 import ar.fi.uba.GPSChallenge.Modelo.*;
 
@@ -48,6 +49,7 @@ public class MapaTests extends TestCase {
 	@Test
 	public void testCreoUnMapaDe10x12YLaLargadaSeColocaAleatoriamente(){
 		Mapa mapa = new Mapa(10,12);
+		Esquina esquina = new Esquina(new Posicion(5,1));
 		assertEquals(mapa.cantidadDeElementos(),120);
 		assertEquals(mapa.getEsquinaLargada().getPosicion().getColumna(), 1);
 	}
@@ -55,6 +57,7 @@ public class MapaTests extends TestCase {
 	@Test
 	public void testCreoUnMapaDe11x12YLaLargadaSeColocaAleatoriamente(){
 		Mapa mapa = new Mapa(11,12);
+		Esquina esquina = new Esquina(new Posicion(5,1));
 		assertEquals(mapa.cantidadDeElementos(),132);
 		assertEquals(mapa.getEsquinaLargada().getPosicion().getColumna(), 1);
 	}
@@ -62,6 +65,7 @@ public class MapaTests extends TestCase {
 	@Test
 	public void testCreoUnMapaDe15x10YLaLargadaSeColocaAleatoriamente(){
 		Mapa mapa = new Mapa(15,10);
+		Esquina esquina = new Esquina(new Posicion(7,1));
 		assertEquals(mapa.cantidadDeElementos(),150);
 		assertEquals(mapa.getEsquinaLargada().getPosicion().getColumna(),1);
 	}
