@@ -2,8 +2,6 @@ package ar.fi.uba.GPSChallengeTests;
 
 import junit.framework.TestCase;
 import org.junit.Test;
-import java.io.File;
-
 import ar.fi.uba.GPSChallenge.Modelo.*;
 
 
@@ -56,7 +54,6 @@ public class JugadorTests extends TestCase {
 		Jugador jugador = new Jugador("DiegoTest");
 		jugador.comenzarPartida(new Facil());
 		jugador.elegirVehiculo(new Vehiculo(new Auto()));
-		Posicion posicionInicial = jugador.pedirPosicionDelVehiculo();
 		jugador.moverVehiculo(new Norte());
 		jugador.moverVehiculo(new Norte());
 		jugador.moverVehiculo(new Norte());
@@ -69,7 +66,6 @@ public class JugadorTests extends TestCase {
 		Jugador jugador = new Jugador("DiegoTest");
 		jugador.comenzarPartida(new Moderado());
 		jugador.elegirVehiculo(new Vehiculo(new Auto()));
-		Posicion posicionInicial = jugador.pedirPosicionDelVehiculo();
 		jugador.moverVehiculo(new Norte());
 		jugador.moverVehiculo(new Norte());
 		jugador.moverVehiculo(new Norte());
@@ -82,7 +78,6 @@ public class JugadorTests extends TestCase {
 		Jugador jugador = new Jugador("DiegoTest");
 		jugador.comenzarPartida(new Dificil());
 		jugador.elegirVehiculo(new Vehiculo(new Auto()));
-		Posicion posicionInicial = jugador.pedirPosicionDelVehiculo();
 		jugador.moverVehiculo(new Norte());
 		jugador.moverVehiculo(new Norte());
 		jugador.moverVehiculo(new Norte());

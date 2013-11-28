@@ -1,6 +1,5 @@
 package ar.fi.uba.GPSChallenge.Modelo;
 
-import java.io.File;
 import ar.fi.uba.GPSChallenge.Persistencia.DespersistidorMapa;
 
 public class Facil extends Nivel {

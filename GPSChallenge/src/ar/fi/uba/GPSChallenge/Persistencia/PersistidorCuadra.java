@@ -12,7 +12,7 @@ public class PersistidorCuadra {
 
 	public void persistirCuadra(Cuadra cuadra){	
 		try{
-			JAXBContext context = JAXBContext.newInstance(Posicion.class);
+			JAXBContext context = JAXBContext.newInstance(Cuadra.class);
 			Marshaller m = context.createMarshaller();
 			m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
 			File XMLfile = new File(XML_CUADRA);

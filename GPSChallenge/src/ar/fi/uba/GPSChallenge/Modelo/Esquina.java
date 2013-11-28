@@ -1,11 +1,8 @@
 package ar.fi.uba.GPSChallenge.Modelo;
 
 import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlElementRef;
-import javax.xml.bind.annotation.XmlElementWrapper;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlSeeAlso;
-import javax.xml.bind.annotation.XmlType;
 import ar.fi.uba.GPSChallenge.Modelo.Posicion;
 
 @XmlRootElement

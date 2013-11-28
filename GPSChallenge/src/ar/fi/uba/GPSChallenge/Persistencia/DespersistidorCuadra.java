@@ -3,7 +3,6 @@ package ar.fi.uba.GPSChallenge.Persistencia;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Iterator;
-import java.util.List;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Unmarshaller;
@@ -14,7 +13,7 @@ public class DespersistidorCuadra {
 	public Cuadra despersistirCuadra(String rutaDelArchivo){
 		Cuadra cuadra = new Cuadra();
 		try{
-			JAXBContext context = JAXBContext.newInstance(Posicion.class);
+			JAXBContext context = JAXBContext.newInstance(Cuadra.class);
 			Unmarshaller m = context.createUnmarshaller();
 			File XMLfile = new File(rutaDelArchivo);
 			cuadra = (Cuadra) m.unmarshal(XMLfile);
