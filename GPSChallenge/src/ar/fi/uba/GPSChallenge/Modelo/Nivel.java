@@ -1,5 +1,12 @@
 package ar.fi.uba.GPSChallenge.Modelo;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlSeeAlso;
+
+
+@XmlRootElement
+@XmlSeeAlso({Partida.class})
 public abstract class Nivel {
 
 	protected String rutaALaCarpetaMapas = System.getProperty("user.dir") + System.getProperty("file.separator") + "Mapas" + System.getProperty("file.separator");
@@ -8,12 +15,23 @@ public abstract class Nivel {
 	
 	protected int multiplicadorDePuntaje;
 	
+	protected String tipoNivel;
+	
 	public Mapa pedirUnMapa(){	
 		return new Mapa(1,1);
 	} 
 	
 	public Mapa pedirUnMapaParaTest(){
 		return new Mapa(1,1);
+	}
+	
+	@XmlElement
+	public void setTipoNivel(String tipoNivel){
+		this.tipoNivel = tipoNivel;
+	}
+	
+	public String getTipoNivel(){
+		return this.tipoNivel;
 	}
 	
 	public int calcularPuntaje(int cantidadDeMovimientos){

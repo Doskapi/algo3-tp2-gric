@@ -1,10 +1,14 @@
 package ar.fi.uba.GPSChallenge.Persistencia;
 
 import java.io.File;
+
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
+
+import ar.fi.uba.GPSChallenge.Modelo.Esquina;
 import ar.fi.uba.GPSChallenge.Modelo.Partida;
+import ar.fi.uba.GPSChallenge.Modelo.Posicion;
 
 public class PersistidorPartida {
 	

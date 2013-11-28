@@ -1,19 +1,32 @@
 package ar.fi.uba.GPSChallenge.Modelo;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
+import javax.xml.bind.annotation.XmlType;
+
 import ar.fi.uba.GPSChallenge.Persistencia.PersistidorMapa;
 
+@XmlRootElement
+@XmlType(propOrder = {"rutaMapa", "nivel"})
 public class Partida {
 
 	private Mapa mapa;
 	private String rutaMapa;
 	private Nivel nivel;
 	
+	
+	public Partida(){
+		
+	}
+	
 	public Partida(Nivel nivel) {
 		this.setNivel(nivel);
 		this.setMapa(this.nivel.pedirUnMapa());
 	}
-
-	private void setNivel(Nivel nivel) {
+	
+	@XmlElement
+	public void setNivel(Nivel nivel) {
 		this.nivel = nivel;
 	}
 
@@ -21,6 +34,7 @@ public class Partida {
 		this.mapa= mapa;
 	}
 	
+	@XmlElement
 	public void setRutaMapa(String rutaMapa){
 		this.rutaMapa = rutaMapa;
 	}
@@ -28,7 +42,8 @@ public class Partida {
 	public Nivel getNivel() {
 		return this.nivel;
 	}
-
+	
+	@XmlTransient
 	public Mapa getMapa() {
 		return this.mapa;
 	}
