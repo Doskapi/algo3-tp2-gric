@@ -8,17 +8,9 @@ import java.util.*;
 
 import javax.xml.bind.JAXBException;
 import org.junit.Test;
-import ar.fi.uba.GPSChallenge.Modelo.*;
-import ar.fi.uba.GPSChallenge.Modelo.Imprevistos.ObstaculoPiquete;
-import ar.fi.uba.GPSChallenge.Modelo.Imprevistos.ObstaculoPolicial;
-import ar.fi.uba.GPSChallenge.Modelo.Imprevistos.SorpresaCambioDeVehiculo;
-import ar.fi.uba.GPSChallenge.Modelo.Imprevistos.SorpresaFavorable;
-import ar.fi.uba.GPSChallenge.Modelo.Mapa.Cuadra;
-import ar.fi.uba.GPSChallenge.Modelo.Mapa.Esquina;
-import ar.fi.uba.GPSChallenge.Modelo.Mapa.Mapa;
-import ar.fi.uba.GPSChallenge.Modelo.Mapa.Posicion;
-import ar.fi.uba.GPSChallenge.Modelo.Vehiculo.Auto;
-import ar.fi.uba.GPSChallenge.Modelo.Vehiculo.Vehiculo;
+import ar.fi.uba.GPSChallenge.Modelo.Imprevistos.*;
+import ar.fi.uba.GPSChallenge.Modelo.Mapa.*;
+import ar.fi.uba.GPSChallenge.Modelo.Vehiculo.*;
 import ar.fi.uba.GPSChallenge.Persistencia.*;
 
 public class PersistidorMapaTests extends TestCase {

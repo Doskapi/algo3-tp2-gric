@@ -12,6 +12,8 @@ import ar.fi.uba.GPSChallenge.Persistencia.*;
 
 public class PersistidorPartidaTest extends TestCase {
 	
+	
+	
 	@Test
 	public void testPersistoUnaPartida() throws JAXBException, IOException{
 		Partida partida = new Partida(new Facil());
@@ -23,18 +25,23 @@ public class PersistidorPartidaTest extends TestCase {
 		assertTrue (archivo.exists());
 	}
 	
+	
 	@Test
-	public void testDespersistoUnaPartida(){
+	public void testDespersistoUnaPartida() throws JAXBException, IOException{
+		Partida partida = new Partida(new Facil());
+		PersistidorPartida persistidor = new PersistidorPartida();
 		Jugador jugador = new Jugador("DiegoTest");
-		String carpetaArchivos = System.getProperty("user.dir") + System.getProperty("file.separator") + "Jugadores" +  System.getProperty("file.separator") + jugador.getNombre() + System.getProperty("file.separator");
+		String rutaPrueba = System.getProperty("user.dir") + System.getProperty("file.separator") + "Jugadores" +  System.getProperty("file.separator") + jugador.getNombre();
+		persistidor.persistirPartida(partida, rutaPrueba);
 		DespersistidorPartida despersistidorPartida = new DespersistidorPartida();
-		Partida partidaDespersistida = despersistidorPartida.despersistirPartida(carpetaArchivos  + "PartidaGuardada.xml");
-		Partida partida = new Partida();
+		Partida partidaDespersistida = despersistidorPartida.despersistirPartida(jugador.getRutaASuCarpeta()  + "PartidaGuardada.xml");
 		DespersistidorMapa despersistidorMapa = new DespersistidorMapa();
-		Mapa mapa = despersistidorMapa.despersistirMapa(carpetaArchivos + "Mapa.xml");
+		Mapa mapa = despersistidorMapa.despersistirMapa(jugador.getRutaASuCarpeta() + "Mapa.xml");
 		partida.setMapa(mapa);
 		partida.setNivel(new Facil());
 		assertEquals(partidaDespersistida, partida);
 	}
+	
+	
 	
 }

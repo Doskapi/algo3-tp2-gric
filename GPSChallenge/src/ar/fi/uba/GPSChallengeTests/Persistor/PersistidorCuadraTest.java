@@ -5,13 +5,8 @@ import java.io.IOException;
 import java.util.*;
 import javax.xml.bind.JAXBException;
 import org.junit.Test;
-import ar.fi.uba.GPSChallenge.Modelo.*;
-import ar.fi.uba.GPSChallenge.Modelo.Imprevistos.Imprevisto;
-import ar.fi.uba.GPSChallenge.Modelo.Imprevistos.ObstaculoPolicial;
-import ar.fi.uba.GPSChallenge.Modelo.Imprevistos.SorpresaFavorable;
-import ar.fi.uba.GPSChallenge.Modelo.Mapa.Cuadra;
-import ar.fi.uba.GPSChallenge.Modelo.Mapa.Esquina;
-import ar.fi.uba.GPSChallenge.Modelo.Mapa.Posicion;
+import ar.fi.uba.GPSChallenge.Modelo.Imprevistos.*;
+import ar.fi.uba.GPSChallenge.Modelo.Mapa.*;
 import ar.fi.uba.GPSChallenge.Persistencia.*;
 
 public class PersistidorCuadraTest extends TestCase {

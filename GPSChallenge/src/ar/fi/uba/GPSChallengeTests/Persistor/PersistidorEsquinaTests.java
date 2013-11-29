@@ -4,7 +4,6 @@ import junit.framework.TestCase;
 import java.io.IOException;
 import javax.xml.bind.JAXBException;
 import org.junit.Test;
-import ar.fi.uba.GPSChallenge.Modelo.*;
 import ar.fi.uba.GPSChallenge.Modelo.Mapa.Esquina;
 import ar.fi.uba.GPSChallenge.Modelo.Mapa.Posicion;
 import ar.fi.uba.GPSChallenge.Persistencia.*;
