@@ -5,9 +5,7 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlElementWrapper;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
-
-import ar.fi.uba.GPSChallenge.Modelo.Vehiculo.Rumbo;
-import ar.fi.uba.GPSChallenge.Modelo.Vehiculo.Vehiculo;
+import ar.fi.uba.GPSChallenge.Modelo.Vehiculo.*;
 
 @XmlRootElement
 @XmlType(propOrder = {"filas","columnas","esquinaLargada","esquinaMeta","vehiculo","cuadras"})
@@ -116,12 +114,25 @@ public class Mapa{
 		return this.cuadras;
 	}
 
-	public void moverVehiculo(Rumbo rumbo){
-		boolean movimientoPermitido = true;
-		movimientoPermitido = pasarPorCuadra(rumbo);
-		if (movimientoPermitido){
-			this.vehiculo.mover(rumbo);
+	public void moverVehiculo(Rumbo rumbo) throws Exception{
+		if(vehiculoFueraDeRango(rumbo)){
+			Exception excepcionFueraDeRango = new ExcepcionFueraDeRango();
+			throw excepcionFueraDeRango;
 		}
+		else{
+			boolean movimientoPermitido = true;
+			movimientoPermitido = pasarPorCuadra(rumbo);
+			if (movimientoPermitido){
+				this.vehiculo.mover(rumbo);
+			}	
+		}
+	}
+	
+	public boolean vehiculoFueraDeRango(Rumbo rumbo){
+		boolean fueraDeRango = false;
+		//VERIFICAR LA CONDICION DE EXCEPCION
+		Posicion posicionDestino = this.vehiculo.getEsquina().getPosicion().moverAlNorte();
+		return fueraDeRango;
 	}
 	
 	public boolean pasarPorCuadra(Rumbo rumbo){

@@ -50,7 +50,7 @@ public class JugadorTests extends TestCase {
 	}
 	
 	@Test
-	public void testUnJugadorPuedeMoverElVehiculo(){
+	public void testUnJugadorPuedeMoverElVehiculo() throws Exception{
 		Jugador jugador = new Jugador("DiegoTest");
 		jugador.comenzarPartida(new Facil());
 		jugador.elegirVehiculo(new Vehiculo(new Auto()));
@@ -61,7 +61,7 @@ public class JugadorTests extends TestCase {
 	}
 	
 	@Test
-	public void testUnJugadorCalculaSuPuntajeEnNivelFacil(){
+	public void testUnJugadorCalculaSuPuntajeEnNivelFacil() throws Exception{
 		Jugador jugador = new Jugador("DiegoTest");
 		jugador.comenzarPartida(new Facil());
 		jugador.elegirVehiculo(new Vehiculo(new Auto()));
@@ -73,7 +73,7 @@ public class JugadorTests extends TestCase {
 	}
 	
 	@Test
-	public void testUnJugadorCalculaSuPuntajeEnNivelModerado(){
+	public void testUnJugadorCalculaSuPuntajeEnNivelModerado() throws Exception{
 		Jugador jugador = new Jugador("DiegoTest");
 		jugador.comenzarPartida(new Moderado());
 		jugador.elegirVehiculo(new Vehiculo(new Auto()));
@@ -85,7 +85,7 @@ public class JugadorTests extends TestCase {
 	}
 	
 	@Test
-	public void testUnJugadorCalculaSuPuntajeEnNivelDificil(){
+	public void testUnJugadorCalculaSuPuntajeEnNivelDificil() throws Exception{
 		Jugador jugador = new Jugador("DiegoTest");
 		jugador.comenzarPartida(new Dificil());
 		jugador.elegirVehiculo(new Vehiculo(new Auto()));

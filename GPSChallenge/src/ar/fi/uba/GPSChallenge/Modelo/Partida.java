@@ -60,7 +60,7 @@ public class Partida {
 		this.mapa.agregarVehiculo(vehiculo);
 	}
 
-	public void moverVehiculo(Rumbo rumbo) {
+	public void moverVehiculo(Rumbo rumbo) throws Exception {
 		this.mapa.moverVehiculo(rumbo);	
 	}
 	

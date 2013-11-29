@@ -84,7 +84,7 @@ public class Jugador {
 		this.partidaActual.agregarVehiculo(vehiculo);	
 	}
 	
-	public void moverVehiculo(Rumbo rumbo){
+	public void moverVehiculo(Rumbo rumbo) throws Exception{
 		this.partidaActual.moverVehiculo(rumbo);
 	}
 	
