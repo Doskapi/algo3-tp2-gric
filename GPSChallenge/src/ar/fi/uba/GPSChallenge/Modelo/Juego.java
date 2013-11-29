@@ -2,15 +2,14 @@ package ar.fi.uba.GPSChallenge.Modelo;
 
 import java.io.File;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
-
+import java.util.Observable;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlElementWrapper;
 import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement
-public class Juego {
+public class Juego extends Observable {
 	
 	private List<Jugador> jugadores;
 	
@@ -42,5 +41,10 @@ public class Juego {
 		boolean sonIguales = true;
 		sonIguales = this.getJugadores().size() == juego.getJugadores().size();
 		return (sonIguales);
+	}
+	
+	public void actualizarObservadores(){
+		setChanged();
+		notifyObservers();
 	}
 }
