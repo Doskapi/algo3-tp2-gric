@@ -4,20 +4,17 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import java.awt.GridBagLayout;
-import java.awt.GridLayout;
+import java.awt.BorderLayout;
+import javax.swing.JLabel;
+import javax.swing.JButton;
+import javax.swing.SwingConstants;
+import java.awt.Font;
 import javax.swing.JPanel;
 import java.awt.GridBagConstraints;
-import java.awt.BorderLayout;
-import javax.swing.JButton;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-import javax.swing.JLabel;
-import java.awt.Color;
-import java.awt.Font;
 
 public class VistaPrincipal {
 
-	private JFrame frame;
+	private JFrame frmGpsChallenge;
 
 	/**
 	 * Launch the application.
@@ -27,7 +24,7 @@ public class VistaPrincipal {
 			public void run() {
 				try {
 					VistaPrincipal window = new VistaPrincipal();
-					window.frame.setVisible(true);
+					window.frmGpsChallenge.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -46,21 +43,23 @@ public class VistaPrincipal {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		frame = new JFrame();
-		frame.setBounds(100, 100, 735, 468);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.getContentPane().setLayout(null);
+		frmGpsChallenge = new JFrame();
+		frmGpsChallenge.setTitle("GPS Challenge");
+		frmGpsChallenge.setBounds(100, 100, 800, 500);
+		frmGpsChallenge.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frmGpsChallenge.getContentPane().setLayout(null);
 		
-		JPanel panelConFondo = new PanelConFondo("Estadio40.jpg");
+		JLabel lblBienvenido = new JLabel("Bienvenido");
+		lblBienvenido.setBounds(232, 12, 324, 59);
+		lblBienvenido.setFont(new Font("Dialog", Font.BOLD, 50));
+		frmGpsChallenge.getContentPane().add(lblBienvenido);
 		
-		panelConFondo.setBounds(111, 72, 505, 341);
-		frame.getContentPane().add(panelConFondo);
+		JButton btnUsuarioNuevo = new JButton("Usuario Nuevo");
+		btnUsuarioNuevo.setBounds(165, 214, 151, 64);
+		frmGpsChallenge.getContentPane().add(btnUsuarioNuevo);
 		
-		JLabel lblRojoPutoSos = new JLabel("ROJO PUTO SOS DE LA B");
-		lblRojoPutoSos.setFont(new Font("Dialog", Font.BOLD, 18));
-		lblRojoPutoSos.setForeground(new Color(0, 0, 255));
-		lblRojoPutoSos.setToolTipText("");
-		lblRojoPutoSos.setBounds(234, 26, 338, 22);
-		frame.getContentPane().add(lblRojoPutoSos);
+		JButton btnYaSoyUsuario = new JButton("Ya Soy Usuario");
+		btnYaSoyUsuario.setBounds(418, 214, 151, 64);
+		frmGpsChallenge.getContentPane().add(btnYaSoyUsuario);
 	}
 }
