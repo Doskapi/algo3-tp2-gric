@@ -21,6 +21,7 @@ public class ElegirUsuario extends JPanel {
 
 	public ElegirUsuario(final VistaPrincipal vistaPrincipal, Juego referenciaAlJuego, Controlador controlador) {
 		setLayout(null);
+		setBounds(10, 10, 1180, 680);
 		
 		JLabel lblElijaSuUsuario = new JLabel("Elija su usuario");
 		lblElijaSuUsuario.setBounds(144, 24, 156, 15);
@@ -54,5 +55,10 @@ public class ElegirUsuario extends JPanel {
 		JButton btnSeleccionarUsuario = new JButton("Seleccionar Usuario");
 		btnSeleccionarUsuario.setBounds(39, 230, 175, 25);
 		add(btnSeleccionarUsuario);
+		btnVolver.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent event) {
+//				vistaPrincipal.cambiarPanel("pMenuPartida");
+			}
+		});
 	}
 }

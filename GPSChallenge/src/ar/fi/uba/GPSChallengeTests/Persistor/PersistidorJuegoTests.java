@@ -31,10 +31,14 @@ public class PersistidorJuegoTests extends TestCase{
 	
 	@Test
 	public void testDespersistoUnJuego(){
-		DespersistidorDeJuego despersistidor = new DespersistidorDeJuego();
+		Juego juego = new Juego();
 		Jugador unJugador = new Jugador("JuanTest");
 		Jugador otroJugador = new Jugador("PedroTest");
-		
+		juego.agregarJugador(unJugador);
+		juego.agregarJugador(otroJugador);
+		PersistidorDeJuego persistidor = new PersistidorDeJuego();
+		persistidor.persistirJuego(juego);
+		DespersistidorDeJuego despersistidor = new DespersistidorDeJuego();
 		Juego unJuego = despersistidor.despersistirJuego(System.getProperty("user.dir") + System.getProperty("file.separator") + "Juego.xml");
 		Juego otroJuego = new Juego();
 		otroJuego.agregarJugador(unJugador);

@@ -22,7 +22,7 @@ public class VistaPrincipal implements Observer{
 	Bienvenida pBienvenida;
 	NuevoUsuario pNuevoUsuario;
 	ElegirUsuario pElegirUsuario;
-	
+	MenuPartida pMenuPartida;
 	
 	public VistaPrincipal(Juego referenciaAlJuego, Controlador controlador) {
 		this.referenciaAlJuego = referenciaAlJuego;
@@ -38,30 +38,26 @@ public class VistaPrincipal implements Observer{
 		Dimension size = toolkit.getScreenSize();
 		frmGpsChallenge.setLocation(size.width/2 - frmGpsChallenge.getWidth()/2,size.height/2 - frmGpsChallenge.getHeight()/2);
 		contenedor = frmGpsChallenge.getContentPane();
-		contenedor.setBounds(10, 10, 1180, 680);
+		contenedor.setBounds(10, 10, 1200, 700);
 		
 		pBienvenida = new Bienvenida(this, this.referenciaAlJuego,this.controlador);
-		pBienvenida.setBounds(10, 10, 1180, 680);
-		
 		pNuevoUsuario = new NuevoUsuario(this, this.referenciaAlJuego,this.controlador);
-		pNuevoUsuario.setBounds(10, 10, 1180, 680);
-
-		this.pElegirUsuario = new ElegirUsuario(this, this.referenciaAlJuego,this.controlador);
-		pElegirUsuario.setBounds(10, 10, 1180, 680);
+		pElegirUsuario = new ElegirUsuario(this, this.referenciaAlJuego,this.controlador);
+		pMenuPartida = new MenuPartida(this, this.referenciaAlJuego,this.controlador);
 		
 		card.addLayoutComponent(pBienvenida, "pBienvenida");
 		card.addLayoutComponent(pNuevoUsuario, "pNuevoUsuario");
 		card.addLayoutComponent(pElegirUsuario, "pElegirUsuario");
+		card.addLayoutComponent(pMenuPartida, "pMenuPartida");
+		
 		contenedor.add(pBienvenida);
 		contenedor.add(pNuevoUsuario);
 		contenedor.add(pElegirUsuario);
+		contenedor.add(pMenuPartida);
+		
 		contenedor.setLayout(card);
-		
         card.show(contenedor, "pBienvenida");
-        
-		
 	}
-
 
 	public void cambiarPanel(String panelAColocar){
 		if (panelAColocar == "pBienvenida"){
@@ -72,6 +68,9 @@ public class VistaPrincipal implements Observer{
 		}
 		if (panelAColocar == "pElegirUsuario"){
 			card.show(contenedor, "pElegirUsuario");
+		}
+		if (panelAColocar == "pMenuPartida"){
+			card.show(contenedor, "pMenuPartida");
 		}
 	}
 

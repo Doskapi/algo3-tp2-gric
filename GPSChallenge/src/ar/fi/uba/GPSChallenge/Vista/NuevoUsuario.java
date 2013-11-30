@@ -18,7 +18,7 @@ public class NuevoUsuario extends JPanel {
 	
 	public NuevoUsuario(final VistaPrincipal vistaPrincipal, Juego referenciaAlJuego, final Controlador controlador){
 		setLayout(null);
-		setVisible(false);
+		setBounds(10, 10, 1200, 700);
 
 		this.referenciaAlJuego = referenciaAlJuego;
 		this.controlador = controlador;
@@ -37,7 +37,7 @@ public class NuevoUsuario extends JPanel {
 				String usuarioNuevo;
 				usuarioNuevo = textNuevoUsuario.getText();
 				controlador.crearNuevoJugador(usuarioNuevo);
-				vistaPrincipal.cambiarPanel("MenuPartida");
+				vistaPrincipal.cambiarPanel("pMenuPartida");
 			}
 		});
 
