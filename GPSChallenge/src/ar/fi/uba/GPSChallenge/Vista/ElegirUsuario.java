@@ -1,5 +1,10 @@
 package ar.fi.uba.GPSChallenge.Vista;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -7,6 +12,7 @@ import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import ar.fi.uba.GPSChallenge.Controlador.Controlador;
 import ar.fi.uba.GPSChallenge.Modelo.Juego;
+import ar.fi.uba.GPSChallenge.Modelo.Jugador;
 
 public class ElegirUsuario extends JPanel {
 	
@@ -16,30 +22,37 @@ public class ElegirUsuario extends JPanel {
 	public ElegirUsuario(final VistaPrincipal vistaPrincipal, Juego referenciaAlJuego, Controlador controlador) {
 		setLayout(null);
 		
-		JButton btnSeleccionarUsuario = new JButton("Seleccionar Usuario");
-		btnSeleccionarUsuario.setBounds(144, 212, 175, 25);
-		add(btnSeleccionarUsuario);
-		
 		JLabel lblElijaSuUsuario = new JLabel("Elija su usuario");
 		lblElijaSuUsuario.setBounds(144, 24, 156, 15);
 		add(lblElijaSuUsuario);
 		
+		JRadioButton rdbtnNewRadioButton;
 		ButtonGroup botoneraDeUsuarios = new ButtonGroup();
-				
-		JRadioButton rdbtnNewRadioButton = new JRadioButton("New radio button");
-		rdbtnNewRadioButton.setBounds(134, 70, 149, 23);
-		botoneraDeUsuarios.add(rdbtnNewRadioButton);
-		add(rdbtnNewRadioButton);
+		List<Jugador> jugadores = new ArrayList<Jugador>();
+		jugadores = controlador.pedirJugadoresExistentes();
+		String nombreJugador;
+		Iterator<Jugador> iterador = jugadores.iterator();
+		int numeroDePosicion = 70;
+		while(iterador.hasNext()){
+			numeroDePosicion = numeroDePosicion + 24;
+			nombreJugador = iterador.next().getNombre();
+			rdbtnNewRadioButton = new JRadioButton(nombreJugador);
+			rdbtnNewRadioButton.setBounds(134, numeroDePosicion, 149, 23);
+			botoneraDeUsuarios.add(rdbtnNewRadioButton);
+			add(rdbtnNewRadioButton);
+		}
 		
-		JRadioButton rdbtnNewRadioButton_1 = new JRadioButton("New radio button");
-		rdbtnNewRadioButton_1.setBounds(134, 108, 149, 23);
-		botoneraDeUsuarios.add(rdbtnNewRadioButton_1);
-		add(rdbtnNewRadioButton_1);
-		
-		JRadioButton rdbtnNewRadioButton_2 = new JRadioButton("New radio button");
-		rdbtnNewRadioButton_2.setBounds(134, 149, 149, 23);
-		botoneraDeUsuarios.add(rdbtnNewRadioButton_2);
-		add(rdbtnNewRadioButton_2);
+		JButton btnVolver = new JButton("Volver");
+		btnVolver.setBounds(244, 230, 175, 25);
+		add(btnVolver);
+		btnVolver.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent event) {
+				vistaPrincipal.cambiarPanel("pBienvenida");
+			}
+		});
 
+		JButton btnSeleccionarUsuario = new JButton("Seleccionar Usuario");
+		btnSeleccionarUsuario.setBounds(39, 230, 175, 25);
+		add(btnSeleccionarUsuario);
 	}
 }

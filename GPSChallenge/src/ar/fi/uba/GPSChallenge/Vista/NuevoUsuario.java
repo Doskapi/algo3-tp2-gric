@@ -14,8 +14,9 @@ public class NuevoUsuario extends JPanel {
 
 	private Juego referenciaAlJuego;
 	private Controlador controlador;
+	private JTextPane textNuevoUsuario;
 	
-	public NuevoUsuario(final VistaPrincipal vistaPrincipal, Juego referenciaAlJuego, Controlador controlador){
+	public NuevoUsuario(final VistaPrincipal vistaPrincipal, Juego referenciaAlJuego, final Controlador controlador){
 		setLayout(null);
 		setVisible(false);
 
@@ -33,7 +34,10 @@ public class NuevoUsuario extends JPanel {
 		add(btnGuardar);
 		btnGuardar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent event) {
-			
+				String usuarioNuevo;
+				usuarioNuevo = textNuevoUsuario.getText();
+				controlador.crearNuevoJugador(usuarioNuevo);
+				vistaPrincipal.cambiarPanel("MenuPartida");
 			}
 		});
 
@@ -46,7 +50,7 @@ public class NuevoUsuario extends JPanel {
 			}
 		});
 
-		JTextPane textNuevoUsuario = new JTextPane();
+		textNuevoUsuario = new JTextPane();
 		textNuevoUsuario.setFont(new Font("Dialog", Font.ITALIC, 12));
 		textNuevoUsuario.setText("Su nombre");
 		textNuevoUsuario.setBounds(204, 128, 137, 25);

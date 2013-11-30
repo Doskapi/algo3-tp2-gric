@@ -16,7 +16,7 @@ public class Main{
 		VistaPrincipal vistaPrincipal;
 		DespersistidorDeJuego despersistidorJuego = new DespersistidorDeJuego();
 		juego = despersistidorJuego.despersistirJuego(rutaAlJuego);
-		controlador = new Controlador();
+		controlador = new Controlador(juego);
 		vistaPrincipal = new VistaPrincipal(juego, controlador);
 		}
 }

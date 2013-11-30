@@ -40,6 +40,11 @@ public class Bienvenida extends JPanel {
 		JButton btnYaSoyUsuario = new JButton("Ya Soy Usuario");
 		btnYaSoyUsuario.setBounds(242, 161, 140, 25);
 		add(btnYaSoyUsuario);
+		btnYaSoyUsuario.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent event) {
+				vistaPrincipal.cambiarPanel("pElegirUsuario");
+			}
+		});
 		
 		JButton btnSalir = new JButton("Salir");
 		btnSalir.setBounds(166, 199, 117, 25);
