@@ -1,5 +1,6 @@
 package ar.fi.uba.GPSChallenge.Vista;
 
+import java.awt.CardLayout;
 import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.EventQueue;
@@ -20,25 +21,10 @@ public class VistaPrincipal implements Observer{
 	private JFrame frmGpsChallenge;
 	private Controlador controlador;
 	private Juego referenciaAlJuego;
-	private Container contenedor;
 	private Bienvenida pBienvenida;
 	private NuevoUsuario pNuevoUsuario;
-	
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					Juego juego = new Juego();
-					Controlador controlador = new Controlador();
-					VistaPrincipal window = new VistaPrincipal(juego,controlador);
-					window.frmGpsChallenge.setVisible(true);
-//					window.escucharBotonNuevoUsuario();
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+	public static CardLayout card = new CardLayout();
+	public static Container contenedor;
 
 	public VistaPrincipal(Juego referenciaAlJuego, Controlador controlador) {
 		initialize();
