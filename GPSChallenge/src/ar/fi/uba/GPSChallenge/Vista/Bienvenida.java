@@ -18,7 +18,6 @@ public class Bienvenida extends JPanel {
 
 	public Bienvenida(final VistaPrincipal vistaPrincipal, Juego referenciaAlJuego, Controlador controlador) {
 		setLayout(null);
-		setVisible(true);
 		
 		this.vistaPrincipal = vistaPrincipal;
 		this.referenciaAlJuego = referenciaAlJuego;

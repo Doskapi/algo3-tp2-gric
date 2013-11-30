@@ -19,9 +19,9 @@ public class VistaPrincipal implements Observer{
 	private Juego referenciaAlJuego;
 	public static  CardLayout card = new CardLayout();
 	public static  Container contenedor;
-	private Bienvenida pBienvenida;
-	private NuevoUsuario pNuevoUsuario;
-	private ElegirUsuario pElegirUsuario;
+	Bienvenida pBienvenida;
+	NuevoUsuario pNuevoUsuario;
+	ElegirUsuario pElegirUsuario;
 	
 	
 	public VistaPrincipal(Juego referenciaAlJuego, Controlador controlador) {
@@ -33,17 +33,17 @@ public class VistaPrincipal implements Observer{
 		frmGpsChallenge.setSize(1200, 700);
 		frmGpsChallenge.setVisible(true);
 		frmGpsChallenge.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);	
-		// Para Abrir la Ventana centrada en la pantalla
+		//Para Abrir la Ventana centrada en la pantalla
 		Toolkit toolkit = frmGpsChallenge.getToolkit();
 		Dimension size = toolkit.getScreenSize();
 		frmGpsChallenge.setLocation(size.width/2 - frmGpsChallenge.getWidth()/2,size.height/2 - frmGpsChallenge.getHeight()/2);
 		contenedor = frmGpsChallenge.getContentPane();
 		contenedor.setBounds(10, 10, 1180, 680);
 		
-		this.pBienvenida = new Bienvenida(this, this.referenciaAlJuego,this.controlador);
+		pBienvenida = new Bienvenida(this, this.referenciaAlJuego,this.controlador);
 		pBienvenida.setBounds(10, 10, 1180, 680);
 		
-		this.pNuevoUsuario = new NuevoUsuario(this, this.referenciaAlJuego,this.controlador);
+		pNuevoUsuario = new NuevoUsuario(this, this.referenciaAlJuego,this.controlador);
 		pNuevoUsuario.setBounds(10, 10, 1180, 680);
 
 		this.pElegirUsuario = new ElegirUsuario(this, this.referenciaAlJuego,this.controlador);
@@ -52,7 +52,9 @@ public class VistaPrincipal implements Observer{
 		card.addLayoutComponent(pBienvenida, "pBienvenida");
 		card.addLayoutComponent(pNuevoUsuario, "pNuevoUsuario");
 		card.addLayoutComponent(pElegirUsuario, "pElegirUsuario");
-		
+		contenedor.add(pBienvenida);
+		contenedor.add(pNuevoUsuario);
+		contenedor.add(pElegirUsuario);
 		contenedor.setLayout(card);
 		
         card.show(contenedor, "pBienvenida");
@@ -65,7 +67,7 @@ public class VistaPrincipal implements Observer{
 		if (panelAColocar == "pBienvenida"){
 			 card.show(contenedor, "pBienvenida");
 		}
-		if (panelAColocar == "pBienvenida"){
+		if (panelAColocar == "pNuevoUsuario"){
 			card.show(contenedor, "pNuevoUsuario");
 		}
 		if (panelAColocar == "pElegirUsuario"){
