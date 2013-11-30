@@ -42,7 +42,7 @@ public class NuevoUsuario extends JPanel {
 		add(btnVolver);
 		btnVolver.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent event) {
-				System.exit(0);
+				vistaPrincipal.cambiarPanel("pBienvenida");
 			}
 		});
 
