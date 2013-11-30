@@ -12,16 +12,15 @@ import ar.fi.uba.GPSChallenge.Modelo.Juego;
 
 public class Bienvenida extends JPanel {
 
-	private static final long serialVersionUID = 1L;
 	private Juego referenciaAlJuego;
 	private Controlador controlador;
-	private JPanel referenciaAlNuevoPanelDeUsuario;
-	private boolean esVisible;
+	private VistaPrincipal vistaPrincipal;
 
 	public Bienvenida(final VistaPrincipal vistaPrincipal, Juego referenciaAlJuego, Controlador controlador) {
 		setLayout(null);
-		this.setVisibilidad(true);
+		setVisible(true);
 		
+		this.vistaPrincipal = vistaPrincipal;
 		this.referenciaAlJuego = referenciaAlJuego;
 		this.controlador = controlador;
 		
@@ -35,7 +34,7 @@ public class Bienvenida extends JPanel {
 		add(btnUsuarioNuevo);
 		btnUsuarioNuevo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent event) {
-				setVisibilidad(false);				
+				vistaPrincipal.cambiarPanel("pNuevoUsuario");
 			}
 		});
 
@@ -53,14 +52,5 @@ public class Bienvenida extends JPanel {
 		});
 
 	}
-	
-	public void setVisibilidad(boolean esVisible){
-		setVisible(esVisible);
-		this.esVisible = esVisible;
-	}
-	public boolean getVisibilidad(){
-		return esVisible;
-	}
-	
 	
 }

@@ -7,8 +7,10 @@ import ar.fi.uba.GPSChallenge.Vista.VistaPrincipal;
 
 public class Main{
 	
+	private static String rutaAlJuego;
+	
 	public static void main(String[] args) {
-		String rutaAlJuego = System.getProperty("user.dir") + System.getProperty("file.separator") + "Juego.xml";
+		rutaAlJuego = System.getProperty("user.dir") + System.getProperty("file.separator") + "Juego.xml";
 		Juego juego;
 		Controlador controlador;
 		VistaPrincipal vistaPrincipal;
