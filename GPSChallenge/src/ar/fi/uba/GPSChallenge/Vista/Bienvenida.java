@@ -1,5 +1,6 @@
 package ar.fi.uba.GPSChallenge.Vista;
 
+import java.awt.Container;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -8,24 +9,18 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import ar.fi.uba.GPSChallenge.Modelo.Juego;
 import ar.fi.uba.GPSChallenge.Controlador.Controlador;
+import ar.fi.uba.GPSChallenge.Modelo.Juego;
 
 public class Bienvenida extends JPanel {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	private Juego referenciaAlJuego;
 	private Controlador controlador;
 	private JPanel referenciaAlNuevoPanelDeUsuario;
 	private boolean esVisible;
 
-	/**
-	 * Create the panel.
-	 */
-	public Bienvenida(Juego referenciaAlJuego, Controlador controlador) {
+	public Bienvenida(Juego referenciaAlJuego, Controlador controlador, /*final NuevoUsuario pNuevoUsuario*/ final Container contenedor) {
 		setLayout(null);
 		this.setVisibilidad(true);
 		
@@ -42,11 +37,10 @@ public class Bienvenida extends JPanel {
 		add(btnUsuarioNuevo);
 		btnUsuarioNuevo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent event) {
-				setVisibilidad(false);
+				setVisibilidad(false);				
 			}
 		});
 
-		
 		JButton btnYaSoyUsuario = new JButton("Ya Soy Usuario");
 		btnYaSoyUsuario.setBounds(242, 161, 140, 25);
 		add(btnYaSoyUsuario);

@@ -1,7 +1,9 @@
 package ar.fi.uba.GPSChallenge.Vista;
 
 import java.awt.Container;
+import java.awt.Dimension;
 import java.awt.EventQueue;
+import java.awt.Toolkit;
 import java.util.Observable;
 import java.util.Observer;
 
@@ -20,10 +22,8 @@ public class VistaPrincipal implements Observer{
 	private Juego referenciaAlJuego;
 	private Container contenedor;
 	private Bienvenida pBienvenida;
+	private NuevoUsuario pNuevoUsuario;
 	
-	/**
-	 * Launch the application.
-	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -32,7 +32,7 @@ public class VistaPrincipal implements Observer{
 					Controlador controlador = new Controlador();
 					VistaPrincipal window = new VistaPrincipal(juego,controlador);
 					window.frmGpsChallenge.setVisible(true);
-					window.escucharBotonNuevoUsuario();
+//					window.escucharBotonNuevoUsuario();
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -40,44 +40,53 @@ public class VistaPrincipal implements Observer{
 		});
 	}
 
-	/**
-	 * Create the application.
-	 */
 	public VistaPrincipal(Juego referenciaAlJuego, Controlador controlador) {
 		initialize();
 		this.referenciaAlJuego = referenciaAlJuego;
 		this.controlador = controlador;
 	}
 
-	/**
-	 * Initialize the contents of the frame.
-	 */
 	private void initialize() {
 		frmGpsChallenge = new JFrame();
 		frmGpsChallenge.setTitle("GPS Challenge");
-		frmGpsChallenge.setBounds(100, 100, 800, 500);
-		frmGpsChallenge.getContentPane().setLayout(new BorderLayout(0, 0));
+		frmGpsChallenge.setSize(1200, 700);
 		frmGpsChallenge.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);	
+		// Para Abrir la Ventana centrada en la pantalla
+		Toolkit toolkit = frmGpsChallenge.getToolkit();
+		Dimension size = toolkit.getScreenSize();
+		frmGpsChallenge.setLocation(size.width/2 - frmGpsChallenge.getWidth()/2,size.height/2 - frmGpsChallenge.getHeight()/2);
+		
 		contenedor 	= new Container();
 		contenedor.setLayout(new BorderLayout());
 		contenedor.setVisible(true);
 		frmGpsChallenge.getContentPane().add(contenedor);
-		this.pBienvenida = new Bienvenida(this.referenciaAlJuego, this.controlador);
-		pBienvenida.setBounds(0, 0, 0, 0);
+		
+		
+		this.pNuevoUsuario = new NuevoUsuario(this.referenciaAlJuego, this.controlador);
+		pNuevoUsuario.setBounds(100, 100, 800, 500);
+		contenedor.add(pNuevoUsuario);
+		
+		
+		this.pBienvenida = new Bienvenida(this.referenciaAlJuego, this.controlador, pNuevoUsuario);
+		pBienvenida.setBounds(100, 100, 800, 500);
 		contenedor.add(pBienvenida);
 	}
 
-	public void escucharBotonNuevoUsuario(){
-		
-		NuevoUsuario pNuevoUsuario = new NuevoUsuario(this.referenciaAlJuego, this.controlador);
-		
-		if(!pBienvenida.getVisibilidad()){
-			System.out.println("aaaa");
-			pNuevoUsuario.setBounds(0, 0, 0, 0);
-			contenedor.add(pNuevoUsuario);
-		}
-		
-	}
+	
+//	public void escucharBotonNuevoUsuario(){
+//		
+//		NuevoUsuario pNuevoUsuario = new NuevoUsuario(this.referenciaAlJuego, this.controlador);
+//		
+//		if(!pBienvenida.getVisibilidad()){
+//			pBienvenida.setVisible(false);
+//			pNuevoUsuario.setVisible(true);
+//			pNuevoUsuario.setBounds(0, 0, 500, 300);
+//			contenedor.add(pNuevoUsuario);
+//		}
+//		
+//	}
+	
+	
 	@Override
 	public void update(Observable arg0, Object arg1) {
 		

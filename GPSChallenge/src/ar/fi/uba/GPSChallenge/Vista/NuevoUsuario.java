@@ -19,7 +19,7 @@ public class NuevoUsuario extends JPanel {
 	
 	public NuevoUsuario(Juego referenciaAlJuego, Controlador controlador){
 		setLayout(null);
-		setVisible(true);
+		setVisible(false);
 
 		this.referenciaAlJuego = referenciaAlJuego;
 		this.controlador = controlador;
