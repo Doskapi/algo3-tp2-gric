@@ -5,10 +5,15 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
+import ar.fi.uba.GPSChallenge.Controlador.Controlador;
+import ar.fi.uba.GPSChallenge.Modelo.Juego;
 
 public class ElegirUsuario extends JPanel {
+	
+	private Juego referenciaAlJuego;
+	private Controlador controlador;
 
-	public ElegirUsuario() {
+	public ElegirUsuario(final VistaPrincipal vistaPrincipal, Juego referenciaAlJuego, Controlador controlador) {
 		setLayout(null);
 		
 		JButton btnSeleccionarUsuario = new JButton("Seleccionar Usuario");

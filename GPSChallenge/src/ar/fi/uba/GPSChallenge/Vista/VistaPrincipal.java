@@ -1,17 +1,12 @@
 package ar.fi.uba.GPSChallenge.Vista;
 
-import java.awt.CardLayout;
 import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.EventQueue;
 import java.awt.Toolkit;
 import java.util.Observable;
 import java.util.Observer;
-
 import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.JTabbedPane;
-
 import ar.fi.uba.GPSChallenge.Controlador.Controlador;
 import ar.fi.uba.GPSChallenge.Modelo.Juego;
 import java.awt.BorderLayout;
@@ -21,10 +16,26 @@ public class VistaPrincipal implements Observer{
 	private JFrame frmGpsChallenge;
 	private Controlador controlador;
 	private Juego referenciaAlJuego;
+	private Container contenedor;
 	private Bienvenida pBienvenida;
 	private NuevoUsuario pNuevoUsuario;
-	public static CardLayout card = new CardLayout();
-	public static Container contenedor;
+	private ElegirUsuario pElegirUsuario;
+	
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					Juego juego = new Juego();
+					Controlador controlador = new Controlador();
+					VistaPrincipal window = new VistaPrincipal(juego,controlador);
+					window.frmGpsChallenge.setVisible(true);
+//					window.escucharBotonNuevoUsuario();
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
 
 	public VistaPrincipal(Juego referenciaAlJuego, Controlador controlador) {
 		initialize();
@@ -46,32 +57,21 @@ public class VistaPrincipal implements Observer{
 		contenedor.setLayout(new BorderLayout());
 		contenedor.setVisible(true);
 		frmGpsChallenge.getContentPane().add(contenedor);
+
+		this.pBienvenida = new Bienvenida(this, this.referenciaAlJuego,this.controlador);
+		pBienvenida.setBounds(10, 10, 1180, 680);
+		contenedor.add(pBienvenida);
 		
-		
-		this.pNuevoUsuario = new NuevoUsuario(this.referenciaAlJuego, this.controlador);
-		pNuevoUsuario.setBounds(100, 100, 800, 500);
+		this.pNuevoUsuario = new NuevoUsuario(this, this.referenciaAlJuego,this.controlador);
+		pNuevoUsuario.setBounds(10, 10, 1180, 680);
+		pNuevoUsuario.setVisible(false);
 		contenedor.add(pNuevoUsuario);
 		
-		
-		this.pBienvenida = new Bienvenida(this.referenciaAlJuego, this.controlador, pNuevoUsuario);
-		pBienvenida.setBounds(100, 100, 800, 500);
-		contenedor.add(pBienvenida);
+		this.pElegirUsuario = new ElegirUsuario(this, this.referenciaAlJuego,this.controlador);
+		pElegirUsuario.setBounds(10, 10, 1180, 680);
+		pElegirUsuario.setVisible(false);
+		contenedor.add(pElegirUsuario);
 	}
-
-	
-//	public void escucharBotonNuevoUsuario(){
-//		
-//		NuevoUsuario pNuevoUsuario = new NuevoUsuario(this.referenciaAlJuego, this.controlador);
-//		
-//		if(!pBienvenida.getVisibilidad()){
-//			pBienvenida.setVisible(false);
-//			pNuevoUsuario.setVisible(true);
-//			pNuevoUsuario.setBounds(0, 0, 500, 300);
-//			contenedor.add(pNuevoUsuario);
-//		}
-//		
-//	}
-	
 	
 	@Override
 	public void update(Observable arg0, Object arg1) {

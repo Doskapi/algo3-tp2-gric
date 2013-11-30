@@ -1,14 +1,12 @@
 package ar.fi.uba.GPSChallenge.Vista;
 
-import java.awt.Container;
+import ar.fi.uba.GPSChallenge.Vista.VistaPrincipal;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-
 import ar.fi.uba.GPSChallenge.Controlador.Controlador;
 import ar.fi.uba.GPSChallenge.Modelo.Juego;
 
@@ -20,7 +18,7 @@ public class Bienvenida extends JPanel {
 	private JPanel referenciaAlNuevoPanelDeUsuario;
 	private boolean esVisible;
 
-	public Bienvenida(Juego referenciaAlJuego, Controlador controlador, /*final NuevoUsuario pNuevoUsuario*/ final Container contenedor) {
+	public Bienvenida(final VistaPrincipal vistaPrincipal, Juego referenciaAlJuego, Controlador controlador) {
 		setLayout(null);
 		this.setVisibilidad(true);
 		

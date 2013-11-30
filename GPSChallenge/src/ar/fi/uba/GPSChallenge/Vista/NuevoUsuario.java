@@ -3,11 +3,9 @@ package ar.fi.uba.GPSChallenge.Vista;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-
 import ar.fi.uba.GPSChallenge.Controlador.Controlador;
 import ar.fi.uba.GPSChallenge.Modelo.Juego;
 import javax.swing.JTextPane;
@@ -17,7 +15,7 @@ public class NuevoUsuario extends JPanel {
 	private Juego referenciaAlJuego;
 	private Controlador controlador;
 	
-	public NuevoUsuario(Juego referenciaAlJuego, Controlador controlador){
+	public NuevoUsuario(final VistaPrincipal vistaPrincipal, Juego referenciaAlJuego, Controlador controlador){
 		setLayout(null);
 		setVisible(false);
 
