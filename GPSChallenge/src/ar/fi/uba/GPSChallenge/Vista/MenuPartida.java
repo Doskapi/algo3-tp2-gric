@@ -27,9 +27,6 @@ public class MenuPartida extends JPanel {
 		panelCabecera.setLayout(null);
 		
 		String nombreDelJugador = this.controlador.pedirNombreDelJugadorActual();
-		JLabel labelNombreDelUsuario = new JLabel(nombreDelJugador);
-		labelNombreDelUsuario.setBounds(12, 12, 92, 35);
-		panelCabecera.add(labelNombreDelUsuario);
 		
 		JLabel labelGpsChallenge = new JLabel("GPS Challenge");
 		labelGpsChallenge.setFont(new Font("DejaVu Serif", Font.BOLD, 20));
@@ -66,6 +63,9 @@ public class MenuPartida extends JPanel {
 		JButton btnVerPuntajes = new JButton("Ver Puntajes");
 		btnVerPuntajes.setBounds(445, 260, 310, 55);
 		add(btnVerPuntajes);
+		JLabel labelNombreDelUsuario = new JLabel(nombreDelJugador);
+		labelNombreDelUsuario.setBounds(36, 112, 92, 35);
+		add(labelNombreDelUsuario);
 		btnVerPuntajes.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent event) {
 				vistaPrincipal.cambiarPanel("pPuntajes");

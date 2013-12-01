@@ -48,7 +48,7 @@ public class Controlador {
 		while(iterador.hasNext()){
 			jugadorParaRecorrer = iterador.next();
 			nombreJugador = jugadorParaRecorrer.getNombre();
-			if (nombreJugador == jugadorSeleccionado){
+			if (nombreJugador.equals(jugadorSeleccionado)){
 				jugadorEncontrado = jugadorParaRecorrer;
 			}
 		}

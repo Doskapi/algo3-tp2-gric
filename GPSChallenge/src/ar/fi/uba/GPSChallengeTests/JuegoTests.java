@@ -1,13 +1,11 @@
 package ar.fi.uba.GPSChallengeTests;
 
-import static org.junit.Assert.*;
-
 import java.io.File;
-
+import junit.framework.TestCase;
 import org.junit.Test;
 import ar.fi.uba.GPSChallenge.Modelo.Juego;
 
-public class JuegoTests {
+public class JuegoTests extends TestCase {
 	
 	@Test
 	public void testCreoElJuego(){
