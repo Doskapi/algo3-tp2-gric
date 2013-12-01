@@ -22,9 +22,11 @@ public class Jugador {
 	private String rutaASuCarpeta;
 	
 	public Jugador(){
+		this.partidaActual = new Partida();
 	}
 	
 	public Jugador(String nombre){
+		this.partidaActual = new Partida();
 		this.setNombre(nombre);
 		this.setPuntaje(0);
 		this.generarRutaASuCarpeta();

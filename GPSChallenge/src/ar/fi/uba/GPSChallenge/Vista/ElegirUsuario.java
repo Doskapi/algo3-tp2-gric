@@ -49,7 +49,7 @@ public class ElegirUsuario extends JPanel {
 		add(btnSeleccionarUsuario);
 		btnSeleccionarUsuario.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent event) {
-				String jugadorSeleccionado = getTextDelBtnSeleccionadp(botoneraDeUsuarios);
+				String jugadorSeleccionado = getTextDelBtnSeleccionado(botoneraDeUsuarios);
 				controlador.elegirUsuarioSeleccionado(jugadorSeleccionado);
 				vistaPrincipal.cambiarPanel("pMenuPartida");
 			}
@@ -65,7 +65,7 @@ public class ElegirUsuario extends JPanel {
 		});
 	}
 	
-	public String getTextDelBtnSeleccionadp(ButtonGroup bGroup) {
+	public String getTextDelBtnSeleccionado(ButtonGroup bGroup) {
         for (Enumeration<AbstractButton> todosLosBotones = bGroup.getElements(); todosLosBotones.hasMoreElements();) {
             AbstractButton boton = todosLosBotones.nextElement();
             if (boton.isSelected()) {

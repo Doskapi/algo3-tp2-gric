@@ -21,7 +21,7 @@ public class Partida {
 	
 	
 	public Partida(){
-		
+		this.mapa = new Mapa(1,1);
 	}
 	
 	public Partida(Nivel nivel) {
@@ -84,6 +84,8 @@ public class Partida {
 		sonIguales = ((this.getMapa().equals(partida.getMapa())) && (this.getNivel().getTipoNivel() == partida.getNivel().getTipoNivel()));
 		return (sonIguales);
 	}
-	
-	
+
+	public Nivel getDificultad() {
+		return this.nivel;
+	}
 }

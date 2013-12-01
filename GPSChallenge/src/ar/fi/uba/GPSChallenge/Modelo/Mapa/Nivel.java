@@ -46,4 +46,9 @@ public class Nivel {
 			return puntaje;
 		}
 	}
+	
+	public boolean equals(Object otroNivel){
+		Nivel n = (Nivel)otroNivel;
+		return (this.tipoNivel.equals(n.tipoNivel));
+	}
 }

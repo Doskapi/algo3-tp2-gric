@@ -1,5 +1,6 @@
 package ar.fi.uba.GPSChallenge.Vista;
 
+import javax.swing.AbstractButton;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.ButtonGroup;
@@ -12,13 +13,14 @@ import ar.fi.uba.GPSChallenge.Controlador.Controlador;
 import java.awt.Font;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.util.Enumeration;
 
 public class PartidaNueva extends JPanel {
 
 	private VistaPrincipal vistaPrincipal;
 	private Controlador controlador;
 
-	public PartidaNueva(final VistaPrincipal vistaPrincipal, Controlador controlador) {
+	public PartidaNueva(final VistaPrincipal vistaPrincipal, final Controlador controlador) {
 		
 		this.vistaPrincipal = vistaPrincipal;
 		this.controlador = controlador;
@@ -38,7 +40,7 @@ public class PartidaNueva extends JPanel {
 		labelSeleccioneDificultad.setLabelFor(panelDeDificultad);
 		panelDeDificultad.setLayout(null);
 		
-		ButtonGroup botoneraDificultad = new ButtonGroup();
+		final ButtonGroup botoneraDificultad = new ButtonGroup();
 		
 		JRadioButton botonFacil = new JRadioButton("Fácil");
 		botonFacil.setBounds(8, 8, 149, 23);
@@ -62,7 +64,7 @@ public class PartidaNueva extends JPanel {
 		labelSeleccioneVehculo.setLabelFor(panelDeVehiculo);
 		panelDeVehiculo.setLayout(null);
 
-		ButtonGroup botoneraVehiculo = new ButtonGroup();
+		final ButtonGroup botoneraVehiculo = new ButtonGroup();
 		
 		JRadioButton botonMoto = new JRadioButton("Moto");
 		botonMoto.setBounds(8, 8, 149, 23);
@@ -87,8 +89,11 @@ public class PartidaNueva extends JPanel {
 		add(botonJugar);
 		botonJugar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				String dificultadSeleccionada = getTextDelBtnSeleccionado(botoneraDificultad);
+				controlador.elegirDificultadSeleccionada(dificultadSeleccionada);
+				String vehiculoSeleccionado = getTextDelBtnSeleccionado(botoneraVehiculo);
+				controlador.elegirVehiculoSeleccionado(vehiculoSeleccionado);
 				vistaPrincipal.cambiarPanel("pEscenario");
-				
 			}
 		});
 		
@@ -116,7 +121,15 @@ public class PartidaNueva extends JPanel {
 				vistaPrincipal.cambiarPanel("pMenuPartida");
 			}
 		});
-		
-
+	}
+	
+	public String getTextDelBtnSeleccionado(ButtonGroup bGroup) {
+        for (Enumeration<AbstractButton> todosLosBotones = bGroup.getElements(); todosLosBotones.hasMoreElements();) {
+            AbstractButton boton = todosLosBotones.nextElement();
+            if (boton.isSelected()) {
+                return boton.getText();
+            }
+        }
+        return null;
 	}
 }
