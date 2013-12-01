@@ -4,12 +4,17 @@
         <jugador>
             <nombre>JuanTest</nombre>
             <puntaje>0</puntaje>
-            <rutaASuCarpeta>/home/sebas/workspace/GPSChallenge/Jugadores/JuanTest/</rutaASuCarpeta>
+            <rutaASuCarpeta>C:\Users\Leonardo\workspace\GPSChallenge\Jugadores\JuanTest\</rutaASuCarpeta>
         </jugador>
         <jugador>
             <nombre>PedroTest</nombre>
             <puntaje>0</puntaje>
-            <rutaASuCarpeta>/home/sebas/workspace/GPSChallenge/Jugadores/PedroTest/</rutaASuCarpeta>
+            <rutaASuCarpeta>C:\Users\Leonardo\workspace\GPSChallenge\Jugadores\PedroTest\</rutaASuCarpeta>
+        </jugador>
+        <jugador>
+            <nombre>fdfd</nombre>
+            <puntaje>0</puntaje>
+            <rutaASuCarpeta>C:\Users\Leonardo\workspace\GPSChallenge\Jugadores\fdfd\</rutaASuCarpeta>
         </jugador>
     </listajugadores>
 </juego>
