@@ -7,23 +7,17 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import ar.fi.uba.GPSChallenge.Controlador.Controlador;
-import ar.fi.uba.GPSChallenge.Modelo.Juego;
 import javax.swing.JTextPane;
 
 public class NuevoUsuario extends JPanel {
 
-	private Juego referenciaAlJuego;
-	private Controlador controlador;
+	private static final long serialVersionUID = 1L;
 	private JTextPane textNuevoUsuario;
 	
-	public NuevoUsuario(final VistaPrincipal vistaPrincipal, Juego referenciaAlJuego, final Controlador controlador){
+	public NuevoUsuario(final VistaPrincipal vistaPrincipal, final Controlador controlador){
 		setLayout(null);
 		setBounds(10, 10, 1200, 700);
-
-		this.referenciaAlJuego = referenciaAlJuego;
-		this.controlador = controlador;
-
-
+	
 		JLabel lblPorFavorElija = new JLabel("Por favor elija un nombre");
 		lblPorFavorElija.setBounds(67, 35, 465, 61);
 		lblPorFavorElija.setFont(new Font("Dialog", Font.BOLD, 26));

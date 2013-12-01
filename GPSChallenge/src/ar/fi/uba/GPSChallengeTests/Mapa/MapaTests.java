@@ -2,7 +2,6 @@ package ar.fi.uba.GPSChallengeTests.Mapa;
 
 import junit.framework.TestCase;
 import org.junit.Test;
-import ar.fi.uba.GPSChallenge.Modelo.*;
 import ar.fi.uba.GPSChallenge.Modelo.Mapa.Esquina;
 import ar.fi.uba.GPSChallenge.Modelo.Mapa.Mapa;
 import ar.fi.uba.GPSChallenge.Modelo.Mapa.Posicion;

@@ -2,17 +2,15 @@ package ar.fi.uba.GPSChallenge.Vista;
 
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
-import java.awt.GridLayout;
 import javax.swing.ButtonGroup;
-import javax.swing.JTextField;
 import javax.swing.JLabel;
 import javax.swing.JButton;
 import javax.swing.UIManager;
 import java.awt.Font;
-import javax.swing.GroupLayout;
-import javax.swing.GroupLayout.Alignment;
-import javax.swing.JRadioButtonMenuItem;
+
 public class PartidaNueva extends JPanel {
+
+	private static final long serialVersionUID = 1L;
 
 	public PartidaNueva() {
 		setLayout(null);

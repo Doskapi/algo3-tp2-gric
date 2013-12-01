@@ -3,28 +3,21 @@ package ar.fi.uba.GPSChallenge.Vista;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
-import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JRadioButton;
-import javax.swing.JTextPane;
 import javax.swing.UIManager;
-
 import ar.fi.uba.GPSChallenge.Controlador.Controlador;
-import ar.fi.uba.GPSChallenge.Modelo.Juego;
 
 public class MenuPartida extends JPanel {
 
-	private Juego referenciaAlJuego;
+	private static final long serialVersionUID = 1L;
 	private Controlador controlador;
 	
-	public MenuPartida(final VistaPrincipal vistaPrincipal, Juego referenciaAlJuego,Controlador controlador) {
+	public MenuPartida(final VistaPrincipal vistaPrincipal, Controlador controlador) {
 		setLayout(null);
 		setBounds(10, 10, 1200, 700);
 		
-		this.referenciaAlJuego = referenciaAlJuego;
 		this.controlador = controlador;
 		
 		JPanel panelCabecera = new JPanel();
@@ -33,7 +26,7 @@ public class MenuPartida extends JPanel {
 		add(panelCabecera);
 		panelCabecera.setLayout(null);
 		
-		String nombreDelJugador = this.controlador.pedirNombreDeJugadorActual();
+		String nombreDelJugador = this.controlador.pedirNombreDelJugadorActual();
 		JLabel labelNombreDelUsuario = new JLabel(nombreDelJugador);
 		labelNombreDelUsuario.setBounds(12, 12, 92, 35);
 		panelCabecera.add(labelNombreDelUsuario);

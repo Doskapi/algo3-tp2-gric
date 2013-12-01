@@ -3,7 +3,6 @@ package ar.fi.uba.GPSChallenge.Controlador;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-import javax.swing.JRadioButton;
 import ar.fi.uba.GPSChallenge.Modelo.*;
 import ar.fi.uba.GPSChallenge.Persistencia.PersistidorDeJuego;
 import ar.fi.uba.GPSChallenge.Persistencia.PersistidorJugador;
@@ -56,7 +55,7 @@ public class Controlador {
 		referenciaAlJuego.setJugador(jugadorEncontrado);
 	}
 
-	public String pedirNombreDeJugadorActual() {
+	public String pedirNombreDelJugadorActual() {
 		return this.referenciaAlJuego.getJugador().getNombre();
 	}
 }

@@ -1,8 +1,6 @@
 package ar.fi.uba.GPSChallengeTests.Imprevistos;
 
 import org.junit.Test;
-
-import ar.fi.uba.GPSChallenge.Modelo.*;
 import ar.fi.uba.GPSChallenge.Modelo.Imprevistos.ObstaculoPozos;
 import ar.fi.uba.GPSChallenge.Modelo.Vehiculo.Auto;
 import ar.fi.uba.GPSChallenge.Modelo.Vehiculo.CuatroPorCuatro;

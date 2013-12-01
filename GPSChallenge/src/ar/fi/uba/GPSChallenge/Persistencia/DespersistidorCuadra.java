@@ -6,7 +6,6 @@ import java.util.Iterator;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Unmarshaller;
-import ar.fi.uba.GPSChallenge.Modelo.*;
 import ar.fi.uba.GPSChallenge.Modelo.Imprevistos.Imprevisto;
 import ar.fi.uba.GPSChallenge.Modelo.Imprevistos.ObstaculoPiquete;
 import ar.fi.uba.GPSChallenge.Modelo.Imprevistos.ObstaculoPolicial;

@@ -1,7 +1,6 @@
 package ar.fi.uba.GPSChallengeTests.Mapa;
 
 import org.junit.Test;
-import ar.fi.uba.GPSChallenge.Modelo.*;
 import ar.fi.uba.GPSChallenge.Modelo.Imprevistos.ObstaculoPozos;
 import ar.fi.uba.GPSChallenge.Modelo.Imprevistos.SorpresaFavorable;
 import ar.fi.uba.GPSChallenge.Modelo.Mapa.Cuadra;

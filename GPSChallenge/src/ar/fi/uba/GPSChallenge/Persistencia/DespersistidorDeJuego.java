@@ -1,15 +1,12 @@
 package ar.fi.uba.GPSChallenge.Persistencia;
 
 import java.io.File;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Unmarshaller;
-
 import ar.fi.uba.GPSChallenge.Modelo.Juego;
 import ar.fi.uba.GPSChallenge.Modelo.Jugador;
 

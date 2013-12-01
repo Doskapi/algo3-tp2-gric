@@ -6,8 +6,9 @@ import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
 public class PanelConFondo extends JPanel {
-	 
-    private Image imagen;
+
+	private static final long serialVersionUID = 1L;
+	private Image imagen;
  
     public PanelConFondo() {
     	imagen = null;

@@ -6,28 +6,22 @@ import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.Iterator;
 import java.util.List;
-
 import javax.swing.AbstractButton;
 import javax.swing.ButtonGroup;
-import javax.swing.ButtonModel;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
-import javax.swing.event.ChangeEvent;
-
 import ar.fi.uba.GPSChallenge.Controlador.Controlador;
-import ar.fi.uba.GPSChallenge.Modelo.Juego;
 import ar.fi.uba.GPSChallenge.Modelo.Jugador;
 
 public class ElegirUsuario extends JPanel {
-	
-	private Juego referenciaAlJuego;
-	private Controlador controlador;
+
+	private static final long serialVersionUID = 1L;
 	private JRadioButton rdbtnNewRadioButton;
 	private ButtonGroup botoneraDeUsuarios;
 
-	public ElegirUsuario(final VistaPrincipal vistaPrincipal, Juego referenciaAlJuego, final Controlador controlador) {
+	public ElegirUsuario(final VistaPrincipal vistaPrincipal, final Controlador controlador) {
 		setLayout(null);
 		setBounds(10, 10, 1180, 680);
 		

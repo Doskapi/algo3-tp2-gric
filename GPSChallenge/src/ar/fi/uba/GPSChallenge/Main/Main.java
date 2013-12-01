@@ -13,10 +13,9 @@ public class Main{
 		rutaAlJuego = System.getProperty("user.dir") + System.getProperty("file.separator") + "Juego.xml";
 		Juego juego;
 		Controlador controlador;
-		VistaPrincipal vistaPrincipal;
 		DespersistidorDeJuego despersistidorJuego = new DespersistidorDeJuego();
 		juego = despersistidorJuego.despersistirJuego(rutaAlJuego);
 		controlador = new Controlador(juego);
-		vistaPrincipal = new VistaPrincipal(juego, controlador);
+		VistaPrincipal vistaPrincipal = new VistaPrincipal(juego, controlador);
 		}
 }

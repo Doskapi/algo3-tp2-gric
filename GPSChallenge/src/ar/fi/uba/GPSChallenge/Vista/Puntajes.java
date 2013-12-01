@@ -6,30 +6,21 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-
 import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.JLabel;
 import javax.swing.UIManager;
-
 import ar.fi.uba.GPSChallenge.Controlador.Controlador;
-import ar.fi.uba.GPSChallenge.Modelo.Juego;
 import ar.fi.uba.GPSChallenge.Modelo.Jugador;
-
-import javax.swing.JList;
 import javax.swing.JTextArea;
 
 public class Puntajes extends JPanel {
-	
-	private Juego referenciaAlJuego;
-	private Controlador controlador;
 
-	public Puntajes(final VistaPrincipal vistaPrincipal, Juego referenciaAlJuego,Controlador controlador) {
+	private static final long serialVersionUID = 1L;
+
+	public Puntajes(final VistaPrincipal vistaPrincipal, Controlador controlador) {
 		setLayout(null);
 		setBounds(10, 10, 1200, 700);
-		
-		this.referenciaAlJuego = referenciaAlJuego;
-		this.controlador = controlador;
 		
 		JPanel panelCabecera = new JPanel();
 		panelCabecera.setBackground(UIManager.getColor("Button.focus"));
