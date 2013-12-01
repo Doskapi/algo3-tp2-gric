@@ -33,7 +33,8 @@ public class MenuPartida extends JPanel {
 		add(panelCabecera);
 		panelCabecera.setLayout(null);
 		
-		JLabel labelNombreDelUsuario = new JLabel("");
+		String nombreDelJugador = this.controlador.pedirNombreDeJugadorActual();
+		JLabel labelNombreDelUsuario = new JLabel(nombreDelJugador);
 		labelNombreDelUsuario.setBounds(12, 12, 92, 35);
 		panelCabecera.add(labelNombreDelUsuario);
 		
@@ -65,7 +66,7 @@ public class MenuPartida extends JPanel {
 		add(btnContinuarConSuPartida);
 		btnContinuarConSuPartida.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent event) {
-				vistaPrincipal.cambiarPanel("pContinuarPartida");
+				vistaPrincipal.cambiarPanel("pPartida");
 			}
 		});
 		

@@ -2,5 +2,5 @@
 <jugador>
     <nombre>DiegoTest</nombre>
     <puntaje>0</puntaje>
-    <rutaASuCarpeta>C:\Users\Leonardo\workspace\GPSChallenge\Jugadores\DiegoTest\</rutaASuCarpeta>
+    <rutaASuCarpeta>/home/sebas/workspace/GPSChallenge/Jugadores/DiegoTest/</rutaASuCarpeta>
 </jugador>

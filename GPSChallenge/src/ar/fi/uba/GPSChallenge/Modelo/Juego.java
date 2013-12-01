@@ -7,15 +7,17 @@ import java.util.Observable;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlElementWrapper;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 @XmlRootElement
 public class Juego extends Observable {
 	
 	private List<Jugador> jugadores;
+	private Jugador jugadorActual;
 	
 	public Juego(){
+		this.jugadorActual = new Jugador();
 		this.jugadores = new ArrayList<Jugador>();
-
 		String rutaDeCarpetaJugadores = System.getProperty("user.dir") + System.getProperty("file.separator") + "Jugadores";
 		File creadorDeCarpeta = new File(rutaDeCarpetaJugadores);
 		creadorDeCarpeta.mkdir();	
@@ -23,7 +25,6 @@ public class Juego extends Observable {
 	
 	@XmlElementWrapper(name = "listajugadores")
 	@XmlElement(name = "jugador")
-
 	public void setJugadores(List<Jugador> jugadores){
 		this.jugadores = jugadores;
 	}
@@ -34,6 +35,15 @@ public class Juego extends Observable {
 	
 	public List<Jugador> getJugadores(){
 		return this.jugadores;
+	}
+	
+	@XmlTransient
+	public void setJugador(Jugador jugador){
+		this.jugadorActual = jugador;
+	}
+	
+	public Jugador getJugador(){
+		return this.jugadorActual;
 	}
 	
 	public boolean equals(Object otroJuego){

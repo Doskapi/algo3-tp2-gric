@@ -1,9 +1,10 @@
 package ar.fi.uba.GPSChallenge.Controlador;
 
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
-
-import ar.fi.uba.GPSChallenge.Modelo.Juego;
-import ar.fi.uba.GPSChallenge.Modelo.Jugador;
+import javax.swing.JRadioButton;
+import ar.fi.uba.GPSChallenge.Modelo.*;
 import ar.fi.uba.GPSChallenge.Persistencia.PersistidorDeJuego;
 import ar.fi.uba.GPSChallenge.Persistencia.PersistidorJugador;
 
@@ -36,5 +37,26 @@ public class Controlador {
 
 	public List<Jugador> pedirJugadoresExistentes() {
 		return(this.referenciaAlJuego.getJugadores());
+	}
+
+	public void elegirUsuarioSeleccionado(String jugadorSeleccionado) {
+		List<Jugador> jugadores = new ArrayList<Jugador>();
+		jugadores = this.pedirJugadoresExistentes();
+		String nombreJugador;
+		Jugador jugadorEncontrado = new Jugador();
+		Jugador jugadorParaRecorrer = new Jugador();
+		Iterator<Jugador> iterador = jugadores.iterator();
+		while(iterador.hasNext()){
+			jugadorParaRecorrer = iterador.next();
+			nombreJugador = jugadorParaRecorrer.getNombre();
+			if (nombreJugador == jugadorSeleccionado){
+				jugadorEncontrado = jugadorParaRecorrer;
+			}
+		}
+		referenciaAlJuego.setJugador(jugadorEncontrado);
+	}
+
+	public String pedirNombreDeJugadorActual() {
+		return this.referenciaAlJuego.getJugador().getNombre();
 	}
 }

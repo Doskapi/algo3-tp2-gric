@@ -3,13 +3,19 @@ package ar.fi.uba.GPSChallenge.Vista;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.util.Enumeration;
 import java.util.Iterator;
 import java.util.List;
+
+import javax.swing.AbstractButton;
 import javax.swing.ButtonGroup;
+import javax.swing.ButtonModel;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
+import javax.swing.event.ChangeEvent;
+
 import ar.fi.uba.GPSChallenge.Controlador.Controlador;
 import ar.fi.uba.GPSChallenge.Modelo.Juego;
 import ar.fi.uba.GPSChallenge.Modelo.Jugador;
@@ -18,8 +24,10 @@ public class ElegirUsuario extends JPanel {
 	
 	private Juego referenciaAlJuego;
 	private Controlador controlador;
+	private JRadioButton rdbtnNewRadioButton;
+	private ButtonGroup botoneraDeUsuarios;
 
-	public ElegirUsuario(final VistaPrincipal vistaPrincipal, Juego referenciaAlJuego, Controlador controlador) {
+	public ElegirUsuario(final VistaPrincipal vistaPrincipal, Juego referenciaAlJuego, final Controlador controlador) {
 		setLayout(null);
 		setBounds(10, 10, 1180, 680);
 		
@@ -27,8 +35,7 @@ public class ElegirUsuario extends JPanel {
 		lblElijaSuUsuario.setBounds(144, 24, 156, 15);
 		add(lblElijaSuUsuario);
 		
-		JRadioButton rdbtnNewRadioButton;
-		ButtonGroup botoneraDeUsuarios = new ButtonGroup();
+		botoneraDeUsuarios = new ButtonGroup();
 		List<Jugador> jugadores = new ArrayList<Jugador>();
 		jugadores = controlador.pedirJugadoresExistentes();
 		String nombreJugador;
@@ -43,6 +50,17 @@ public class ElegirUsuario extends JPanel {
 			add(rdbtnNewRadioButton);
 		}
 		
+		JButton btnSeleccionarUsuario = new JButton("Seleccionar Usuario");
+		btnSeleccionarUsuario.setBounds(39, 230, 175, 25);
+		add(btnSeleccionarUsuario);
+		btnSeleccionarUsuario.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent event) {
+				String jugadorSeleccionado = getTextDelBtnSeleccionadp(botoneraDeUsuarios);
+				controlador.elegirUsuarioSeleccionado(jugadorSeleccionado);
+				vistaPrincipal.cambiarPanel("pMenuPartida");
+			}
+		});
+		
 		JButton btnVolver = new JButton("Volver");
 		btnVolver.setBounds(244, 230, 175, 25);
 		add(btnVolver);
@@ -51,14 +69,15 @@ public class ElegirUsuario extends JPanel {
 				vistaPrincipal.cambiarPanel("pBienvenida");
 			}
 		});
-
-		JButton btnSeleccionarUsuario = new JButton("Seleccionar Usuario");
-		btnSeleccionarUsuario.setBounds(39, 230, 175, 25);
-		add(btnSeleccionarUsuario);
-		btnVolver.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent event) {
-//				vistaPrincipal.cambiarPanel("pMenuPartida");
-			}
-		});
+	}
+	
+	public String getTextDelBtnSeleccionadp(ButtonGroup bGroup) {
+        for (Enumeration<AbstractButton> todosLosBotones = bGroup.getElements(); todosLosBotones.hasMoreElements();) {
+            AbstractButton boton = todosLosBotones.nextElement();
+            if (boton.isSelected()) {
+                return boton.getText();
+            }
+        }
+        return null;
 	}
 }
