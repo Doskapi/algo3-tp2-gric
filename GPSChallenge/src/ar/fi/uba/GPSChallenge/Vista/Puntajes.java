@@ -47,15 +47,19 @@ public class Puntajes extends JPanel {
 		});	
 		
 		JTextArea textArea = new JTextArea();
-		textArea.setBounds(50, 98, 658, 416);
+		textArea.setBackground(UIManager.getColor("Button.background"));
+		textArea.setBounds(293, 168, 585, 391);
 		add(textArea);
 		List<Jugador> jugadores = new ArrayList<Jugador>();
 		jugadores = controlador.pedirJugadoresExistentes();
 		Iterator<Jugador> iterador = jugadores.iterator();
 		Jugador jugadorAMostrar;
+		String puntajesAMostrar = "";
 		while(iterador.hasNext()){
 			jugadorAMostrar = iterador.next();
-			textArea.setText(jugadorAMostrar.getNombre() + "             " + "/n");
+			puntajesAMostrar = puntajesAMostrar + jugadorAMostrar.getNombre() + ".................." + jugadorAMostrar.getPuntaje() + "\n";
 		}		
+		textArea.setText(puntajesAMostrar);
+		
 	}
 }

@@ -68,7 +68,7 @@ public class MenuPartida extends JPanel {
 		add(btnVerPuntajes);
 		btnVerPuntajes.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent event) {
-				vistaPrincipal.cambiarPanel("pVerPuntajes");
+				vistaPrincipal.cambiarPanel("pPuntajes");
 			}
 		});
 		
