@@ -6,13 +6,23 @@ import javax.swing.ButtonGroup;
 import javax.swing.JLabel;
 import javax.swing.JButton;
 import javax.swing.UIManager;
+
+import ar.fi.uba.GPSChallenge.Controlador.Controlador;
+
 import java.awt.Font;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class PartidaNueva extends JPanel {
 
-	private static final long serialVersionUID = 1L;
+	private VistaPrincipal vistaPrincipal;
+	private Controlador controlador;
 
-	public PartidaNueva() {
+	public PartidaNueva(final VistaPrincipal vistaPrincipal, Controlador controlador) {
+		
+		this.vistaPrincipal = vistaPrincipal;
+		this.controlador = controlador;
+		
 		setLayout(null);
 		setBounds(10, 10, 1200, 700);
 		
@@ -75,6 +85,12 @@ public class PartidaNueva extends JPanel {
 		JButton botonJugar = new JButton("Jugar");
 		botonJugar.setBounds(166, 230, 117, 25);
 		add(botonJugar);
+		botonJugar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				vistaPrincipal.cambiarPanel("pEscenario");
+				
+			}
+		});
 		
 		JPanel panelCabecera = new JPanel();
 		panelCabecera.setBorder(null);
@@ -95,6 +111,12 @@ public class PartidaNueva extends JPanel {
 		JButton botonVolver = new JButton("Volver");
 		botonVolver.setBounds(360, 12, 78, 25);
 		panelCabecera.add(botonVolver);
+		botonVolver.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				vistaPrincipal.cambiarPanel("pMenuPartida");
+			}
+		});
+		
 
 	}
 }
