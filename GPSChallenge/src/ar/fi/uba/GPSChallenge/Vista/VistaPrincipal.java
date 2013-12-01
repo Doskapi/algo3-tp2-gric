@@ -23,6 +23,7 @@ public class VistaPrincipal implements Observer{
 	NuevoUsuario pNuevoUsuario;
 	ElegirUsuario pElegirUsuario;
 	MenuPartida pMenuPartida;
+	Puntajes pPuntajes;
 	
 	public VistaPrincipal(Juego referenciaAlJuego, Controlador controlador) {
 		this.referenciaAlJuego = referenciaAlJuego;
@@ -44,16 +45,19 @@ public class VistaPrincipal implements Observer{
 		pNuevoUsuario = new NuevoUsuario(this, this.referenciaAlJuego,this.controlador);
 		pElegirUsuario = new ElegirUsuario(this, this.referenciaAlJuego,this.controlador);
 		pMenuPartida = new MenuPartida(this, this.referenciaAlJuego,this.controlador);
+		pPuntajes = new Puntajes(this, this.referenciaAlJuego,this.controlador);
 		
 		card.addLayoutComponent(pBienvenida, "pBienvenida");
 		card.addLayoutComponent(pNuevoUsuario, "pNuevoUsuario");
 		card.addLayoutComponent(pElegirUsuario, "pElegirUsuario");
 		card.addLayoutComponent(pMenuPartida, "pMenuPartida");
+		card.addLayoutComponent(pPuntajes, "pPuntajes");
 		
 		contenedor.add(pBienvenida);
 		contenedor.add(pNuevoUsuario);
 		contenedor.add(pElegirUsuario);
 		contenedor.add(pMenuPartida);
+		contenedor.add(pPuntajes);
 		
 		contenedor.setLayout(card);
         card.show(contenedor, "pBienvenida");
@@ -72,7 +76,10 @@ public class VistaPrincipal implements Observer{
 				break;
 			case("pMenuPartida"):
 				card.show(contenedor, "pMenuPartida");
-				break;				
+				break;	
+			case("pPuntajes"):
+				card.show(contenedor, "pPuntajes");
+				break;
 		}
 	}
 
