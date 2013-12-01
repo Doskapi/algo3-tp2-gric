@@ -60,17 +60,19 @@ public class VistaPrincipal implements Observer{
 	}
 
 	public void cambiarPanel(String panelAColocar){
-		if (panelAColocar == "pBienvenida"){
-			 card.show(contenedor, "pBienvenida");
-		}
-		if (panelAColocar == "pNuevoUsuario"){
-			card.show(contenedor, "pNuevoUsuario");
-		}
-		if (panelAColocar == "pElegirUsuario"){
-			card.show(contenedor, "pElegirUsuario");
-		}
-		if (panelAColocar == "pMenuPartida"){
-			card.show(contenedor, "pMenuPartida");
+		switch(panelAColocar){
+			case("pBienvenida"):
+				card.show(contenedor, "pBienvenida");
+				break;
+			case("pNuevoUsuario"):
+				card.show(contenedor, "pNuevoUsuario");
+				break;
+			case("pElegirUsuario"):
+				card.show(contenedor, "pElegirUsuario");
+				break;
+			case("pMenuPartida"):
+				card.show(contenedor, "pMenuPartida");
+				break;				
 		}
 	}
 
