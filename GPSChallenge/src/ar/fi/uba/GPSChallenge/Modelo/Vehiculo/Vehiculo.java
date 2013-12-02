@@ -5,6 +5,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
 import ar.fi.uba.GPSChallenge.Modelo.Mapa.Esquina;
+import ar.fi.uba.GPSChallenge.Modelo.Mapa.Posicion;
 
 @XmlRootElement
 @XmlType(propOrder = {"estado", "esquina", "cantidadDeMovimientos"})
@@ -17,6 +18,7 @@ public class Vehiculo {
     public Vehiculo(Estado estado){
     	this.estado = estado;
         this.cantidadDeMovimientos = 0;
+        this.esquina = new Esquina(new Posicion(0,0));
     }
        
     public Vehiculo() {

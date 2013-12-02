@@ -21,6 +21,7 @@ public class Mapa{
 
 	public Mapa(){
 		this.cuadras = new ArrayList<Cuadra>();
+		this.vehiculo = new Vehiculo(new Auto());
 	}
 	
 	public Mapa(int filas, int columnas){
@@ -29,6 +30,7 @@ public class Mapa{
 		this.setLargada();
 		this.setMeta();
 		this.cuadras = new ArrayList<Cuadra>();	
+		this.vehiculo = new Vehiculo(new Auto());
 	}
 	
 	public void setLargada() {

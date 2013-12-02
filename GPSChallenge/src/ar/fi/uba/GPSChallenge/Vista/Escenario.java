@@ -21,9 +21,8 @@ public class Escenario extends JPanel {
 	
 	PanelConFondo celdas[][] = new PanelConFondo[28][28];
 	Image imagenCiudad = new ImageIcon(getClass().getResource("MapaGrande.png")).getImage();
-//	Image imagenAuto = new ImageIcon(getClass().getResource("Auto.png")).getImage();
-//	Image imagenCuatroPorCuatro = new ImageIcon(getClass().getResource("CuatroPorCuatroOriginal.png")).getImage();
 	Image imagenTransparente = new ImageIcon(getClass().getResource("ImagenTransparente.png")).getImage();
+	Image imagenVehiculo;
 	PanelConFondo grilla;
 	JPanel informacion;
 	
@@ -54,14 +53,17 @@ public class Escenario extends JPanel {
 		lblNewLabel.setBackground(UIManager.getColor("Button.focus"));
 		lblNewLabel.setBounds(730, 12, 202, 25);
 		add(lblNewLabel);
-		
-        for (int i = 0; i < 28; i++) {
+		inicializarTablero();
+        dibujarVehiculo();
+	}
+	
+	public void inicializarTablero(){
+		for (int i = 0; i < 28; i++) {
         	for (int j = 0; j < 28; j++) {
         		celdas[i][j] = new PanelConFondo();
                 grilla.add(celdas[i][j]);
             }
         }         
-     
         for (int i = 0; i < 28; i++) {
         	for (int j = 0 ; j < 28; j++) {
         		celdas[i][j].setImagen(imagenTransparente);
@@ -69,27 +71,34 @@ public class Escenario extends JPanel {
         }
 	}
 	
-	public void update(Observable t, Object o) {
-        Posicion posicionVehiculo;
-        Image imagenVehiculo;
-        String tipoVehiculo;
-        List<Posicion> posicionesARecorrer = new ArrayList<Posicion>();
-        for (int i = 1; i < 11; i++){
-        	for (int j = 1; j< 11; j++){
-        		posicionesARecorrer.add(new Posicion(i,j));
-            }
-        }
-        Mapa mapa = controlador.obtenerMapa();
-        posicionVehiculo = mapa.getVehiculo().getEsquina().getPosicion();
-        tipoVehiculo = mapa.getVehiculo().getNombreEstado();
-        imagenVehiculo = new ImageIcon(getClass().getResource(tipoVehiculo + ".png")).getImage();
-        setVehiculoEnPosicion(posicionVehiculo, imagenVehiculo);
-        }
-
-	private void setVehiculoEnPosicion(Posicion posicionVehiculo, Image imagenVehiculo) {
+	private void dibujarVehiculo() {
+		Posicion posicionVehiculo;
+		String tipoVehiculo;
+		Mapa mapa = controlador.obtenerMapa();
+		tipoVehiculo = mapa.getVehiculo().getNombreEstado();
+		posicionVehiculo = mapa.getVehiculo().getEsquina().getPosicion();
+		imagenVehiculo = new ImageIcon(getClass().getResource(tipoVehiculo + ".png")).getImage();
 		int fila = posicionVehiculo.getFila();
 		int columna = posicionVehiculo.getColumna();
 		celdas[fila][columna].setImagen(imagenVehiculo);
 	}  
+	
+	public void update(Observable t, Object o) {
+	    Posicion posicionVehiculo;
+	    Image imagenVehiculo;
+	    String tipoVehiculo;
+	    List<Posicion> posicionesARecorrer = new ArrayList<Posicion>();
+	    for (int i = 1; i < 11; i++){
+	    	for (int j = 1; j< 11; j++){
+	    		posicionesARecorrer.add(new Posicion(i,j));
+	        }
+	    }
+	    Mapa mapa = controlador.obtenerMapa();
+	    posicionVehiculo = mapa.getVehiculo().getEsquina().getPosicion();
+	    tipoVehiculo = mapa.getVehiculo().getNombreEstado();
+	    dibujarVehiculo();
+	}
+	
+	
 }
 	
