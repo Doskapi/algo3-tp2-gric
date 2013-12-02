@@ -34,14 +34,14 @@ public class Mapa{
 	}
 	
 	public void setLargada() {
-		int columnaLargada = 1;
+		int columnaLargada = 0;
 		int filaLargada = (1 + (int)(Math.random() * ((this.filas - 1) + 1)));
 		Esquina esquinaLargada = new Esquina(new Posicion(filaLargada, columnaLargada));
 		setEsquinaLargada(esquinaLargada);
 	}
 	
 	public void setMeta() {
-		int columnaMeta = this.columnas;
+		int columnaMeta = (this.columnas - 1);
 		int filaMeta = (1 + (int)(Math.random() * ((this.filas - 1) + 1)));
 		Esquina esquinaMeta = new Esquina(new Posicion(filaMeta, columnaMeta));
 		setEsquinaMeta(esquinaMeta);

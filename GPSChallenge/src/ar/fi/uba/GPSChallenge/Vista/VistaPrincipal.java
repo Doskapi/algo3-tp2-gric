@@ -45,7 +45,6 @@ public class VistaPrincipal implements Observer{
 		pMenuPartida = new MenuPartida(this, this.controlador);
 		pPuntajes = new Puntajes(this, this.controlador);
 		pPartidaNueva = new PartidaNueva(this, this.controlador);
-		pEscenario = new Escenario(this, this.controlador);
 		
 		card.addLayoutComponent(pBienvenida, "pBienvenida");
 		card.addLayoutComponent(pNuevoUsuario, "pNuevoUsuario");
@@ -53,7 +52,6 @@ public class VistaPrincipal implements Observer{
 		card.addLayoutComponent(pMenuPartida, "pMenuPartida");
 		card.addLayoutComponent(pPuntajes, "pPuntajes");
 		card.addLayoutComponent(pPartidaNueva, "pPartidaNueva");
-		card.addLayoutComponent(pEscenario, "pEscenario");
 		
 		contenedor.add(pBienvenida);
 		contenedor.add(pNuevoUsuario);
@@ -61,7 +59,6 @@ public class VistaPrincipal implements Observer{
 		contenedor.add(pMenuPartida);
 		contenedor.add(pPuntajes);
 		contenedor.add(pPartidaNueva);
-		contenedor.add(pEscenario);
 		
 		contenedor.setLayout(card);
         card.show(contenedor, "pBienvenida");
@@ -88,6 +85,9 @@ public class VistaPrincipal implements Observer{
 				card.show(contenedor, "pPartidaNueva");
 				break;
 			case("pEscenario"):
+				pEscenario = new Escenario(this, this.controlador);
+				card.addLayoutComponent(pEscenario, "pEscenario");
+				contenedor.add(pEscenario);
 				card.show(contenedor, "pEscenario");
 				break;
 		}

@@ -18,6 +18,12 @@
         <estado>
             <tipoEstado>Auto</tipoEstado>
         </estado>
+        <esquina>
+            <posicion>
+                <columna>0</columna>
+                <fila>0</fila>
+            </posicion>
+        </esquina>
         <cantidadDeMovimientos>0</cantidadDeMovimientos>
     </vehiculo>
     <cuadras>

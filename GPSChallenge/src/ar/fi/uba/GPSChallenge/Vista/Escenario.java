@@ -20,7 +20,7 @@ import ar.fi.uba.GPSChallenge.Modelo.Mapa.Posicion;
 public class Escenario extends JPanel {
 	
 	PanelConFondo celdas[][] = new PanelConFondo[28][28];
-	Image imagenCiudad = new ImageIcon(getClass().getResource("MapaGrande.png")).getImage();
+	Image imagenCiudad = new ImageIcon(getClass().getResource("Mapa.png")).getImage();
 	Image imagenTransparente = new ImageIcon(getClass().getResource("ImagenTransparente.png")).getImage();
 	Image imagenVehiculo;
 	PanelConFondo grilla;
