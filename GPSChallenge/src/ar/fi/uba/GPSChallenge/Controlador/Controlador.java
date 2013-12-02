@@ -8,6 +8,7 @@ import ar.fi.uba.GPSChallenge.Modelo.Juego;
 import ar.fi.uba.GPSChallenge.Modelo.Jugador;
 import ar.fi.uba.GPSChallenge.Modelo.Mapa.Dificil;
 import ar.fi.uba.GPSChallenge.Modelo.Mapa.Facil;
+import ar.fi.uba.GPSChallenge.Modelo.Mapa.Mapa;
 import ar.fi.uba.GPSChallenge.Modelo.Mapa.Moderado;
 import ar.fi.uba.GPSChallenge.Modelo.Vehiculo.Auto;
 import ar.fi.uba.GPSChallenge.Modelo.Vehiculo.CuatroPorCuatro;
@@ -97,5 +98,9 @@ public class Controlador {
 				this.referenciaAlJuego.getJugador().elegirVehiculo(new Vehiculo(new Moto()));
 				break;
 		}
+	}
+
+	public Mapa obtenerMapa() {
+		return(referenciaAlJuego.getJugador().getPartida().getMapa());
 	}
 }
