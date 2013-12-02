@@ -5,39 +5,102 @@
     <esquinaLargada>
         <posicion>
             <columna>0</columna>
-            <fila>7</fila>
+            <fila>1</fila>
         </posicion>
     </esquinaLargada>
     <esquinaMeta>
         <posicion>
             <columna>9</columna>
-            <fila>6</fila>
+            <fila>1</fila>
         </posicion>
     </esquinaMeta>
     <cuadras>
         <cuadras>
             <imprevistos>
                 <imprevisto>
-                    <tipoDeImprevisto>ObstaculoPiquete</tipoDeImprevisto>
+                    <tipoDeImprevisto>ObstaculoPozos</tipoDeImprevisto>
                 </imprevisto>
             </imprevistos>
             <esquinaInicial>
                 <posicion>
                     <columna>4</columna>
-                    <fila>2</fila>
+                    <fila>6</fila>
                 </posicion>
             </esquinaInicial>
             <esquinaFinal>
                 <posicion>
-                    <columna>5</columna>
-                    <fila>2</fila>
+                    <columna>3</columna>
+                    <fila>6</fila>
                 </posicion>
             </esquinaFinal>
         </cuadras>
         <cuadras>
             <imprevistos>
                 <imprevisto>
+                    <tipoDeImprevisto>ObstaculoPolicial</tipoDeImprevisto>
+                </imprevisto>
+            </imprevistos>
+            <esquinaInicial>
+                <posicion>
+                    <columna>8</columna>
+                    <fila>6</fila>
+                </posicion>
+            </esquinaInicial>
+            <esquinaFinal>
+                <posicion>
+                    <columna>8</columna>
+                    <fila>5</fila>
+                </posicion>
+            </esquinaFinal>
+        </cuadras>
+        <cuadras>
+            <imprevistos>
+                <imprevisto>
+                    <tipoDeImprevisto>SorpresaDesfavorable</tipoDeImprevisto>
+                </imprevisto>
+                <imprevisto>
+                    <tipoDeImprevisto>ObstaculoPiquete</tipoDeImprevisto>
+                </imprevisto>
+            </imprevistos>
+            <esquinaInicial>
+                <posicion>
+                    <columna>10</columna>
+                    <fila>6</fila>
+                </posicion>
+            </esquinaInicial>
+            <esquinaFinal>
+                <posicion>
+                    <columna>10</columna>
+                    <fila>7</fila>
+                </posicion>
+            </esquinaFinal>
+        </cuadras>
+        <cuadras>
+            <imprevistos>
+                <imprevisto>
+                    <tipoDeImprevisto>SorpresaDesfavorable</tipoDeImprevisto>
+                </imprevisto>
+                <imprevisto>
                     <tipoDeImprevisto>ObstaculoPozos</tipoDeImprevisto>
+                </imprevisto>
+            </imprevistos>
+            <esquinaInicial>
+                <posicion>
+                    <columna>4</columna>
+                    <fila>5</fila>
+                </posicion>
+            </esquinaInicial>
+            <esquinaFinal>
+                <posicion>
+                    <columna>5</columna>
+                    <fila>5</fila>
+                </posicion>
+            </esquinaFinal>
+        </cuadras>
+        <cuadras>
+            <imprevistos>
+                <imprevisto>
+                    <tipoDeImprevisto>ObstaculoPolicial</tipoDeImprevisto>
                 </imprevisto>
                 <imprevisto>
                     <tipoDeImprevisto>SorpresaDesfavorable</tipoDeImprevisto>
@@ -45,14 +108,33 @@
             </imprevistos>
             <esquinaInicial>
                 <posicion>
-                    <columna>2</columna>
-                    <fila>2</fila>
+                    <columna>10</columna>
+                    <fila>10</fila>
                 </posicion>
             </esquinaInicial>
             <esquinaFinal>
                 <posicion>
-                    <columna>2</columna>
-                    <fila>1</fila>
+                    <columna>9</columna>
+                    <fila>10</fila>
+                </posicion>
+            </esquinaFinal>
+        </cuadras>
+        <cuadras>
+            <imprevistos>
+                <imprevisto>
+                    <tipoDeImprevisto>ObstaculoPolicial</tipoDeImprevisto>
+                </imprevisto>
+            </imprevistos>
+            <esquinaInicial>
+                <posicion>
+                    <columna>5</columna>
+                    <fila>9</fila>
+                </posicion>
+            </esquinaInicial>
+            <esquinaFinal>
+                <posicion>
+                    <columna>6</columna>
+                    <fila>9</fila>
                 </posicion>
             </esquinaFinal>
         </cuadras>
@@ -64,33 +146,14 @@
             </imprevistos>
             <esquinaInicial>
                 <posicion>
-                    <columna>4</columna>
-                    <fila>8</fila>
+                    <columna>10</columna>
+                    <fila>5</fila>
                 </posicion>
             </esquinaInicial>
             <esquinaFinal>
                 <posicion>
-                    <columna>4</columna>
-                    <fila>9</fila>
-                </posicion>
-            </esquinaFinal>
-        </cuadras>
-        <cuadras>
-            <imprevistos>
-                <imprevisto>
-                    <tipoDeImprevisto>SorpresaDesfavorable</tipoDeImprevisto>
-                </imprevisto>
-            </imprevistos>
-            <esquinaInicial>
-                <posicion>
-                    <columna>7</columna>
-                    <fila>4</fila>
-                </posicion>
-            </esquinaInicial>
-            <esquinaFinal>
-                <posicion>
-                    <columna>8</columna>
-                    <fila>4</fila>
+                    <columna>10</columna>
+                    <fila>6</fila>
                 </posicion>
             </esquinaFinal>
         </cuadras>
@@ -108,8 +171,8 @@
             </esquinaInicial>
             <esquinaFinal>
                 <posicion>
-                    <columna>5</columna>
-                    <fila>9</fila>
+                    <columna>4</columna>
+                    <fila>10</fila>
                 </posicion>
             </esquinaFinal>
         </cuadras>
@@ -119,18 +182,18 @@
                     <tipoDeImprevisto>SorpresaFavorable</tipoDeImprevisto>
                 </imprevisto>
                 <imprevisto>
-                    <tipoDeImprevisto>ObstaculoPolicial</tipoDeImprevisto>
+                    <tipoDeImprevisto>ObstaculoPozos</tipoDeImprevisto>
                 </imprevisto>
             </imprevistos>
             <esquinaInicial>
                 <posicion>
-                    <columna>9</columna>
+                    <columna>10</columna>
                     <fila>1</fila>
                 </posicion>
             </esquinaInicial>
             <esquinaFinal>
                 <posicion>
-                    <columna>10</columna>
+                    <columna>9</columna>
                     <fila>1</fila>
                 </posicion>
             </esquinaFinal>
@@ -144,13 +207,117 @@
             <esquinaInicial>
                 <posicion>
                     <columna>8</columna>
-                    <fila>8</fila>
+                    <fila>3</fila>
                 </posicion>
             </esquinaInicial>
             <esquinaFinal>
                 <posicion>
                     <columna>8</columna>
-                    <fila>9</fila>
+                    <fila>4</fila>
+                </posicion>
+            </esquinaFinal>
+        </cuadras>
+        <cuadras>
+            <imprevistos>
+                <imprevisto>
+                    <tipoDeImprevisto>SorpresaFavorable</tipoDeImprevisto>
+                </imprevisto>
+                <imprevisto>
+                    <tipoDeImprevisto>ObstaculoPozos</tipoDeImprevisto>
+                </imprevisto>
+            </imprevistos>
+            <esquinaInicial>
+                <posicion>
+                    <columna>3</columna>
+                    <fila>7</fila>
+                </posicion>
+            </esquinaInicial>
+            <esquinaFinal>
+                <posicion>
+                    <columna>3</columna>
+                    <fila>8</fila>
+                </posicion>
+            </esquinaFinal>
+        </cuadras>
+        <cuadras>
+            <imprevistos>
+                <imprevisto>
+                    <tipoDeImprevisto>ObstaculoPozos</tipoDeImprevisto>
+                </imprevisto>
+            </imprevistos>
+            <esquinaInicial>
+                <posicion>
+                    <columna>3</columna>
+                    <fila>4</fila>
+                </posicion>
+            </esquinaInicial>
+            <esquinaFinal>
+                <posicion>
+                    <columna>3</columna>
+                    <fila>3</fila>
+                </posicion>
+            </esquinaFinal>
+        </cuadras>
+        <cuadras>
+            <imprevistos>
+                <imprevisto>
+                    <tipoDeImprevisto>SopresaCambioDeVehiculo</tipoDeImprevisto>
+                </imprevisto>
+                <imprevisto>
+                    <tipoDeImprevisto>ObstaculoPiquete</tipoDeImprevisto>
+                </imprevisto>
+            </imprevistos>
+            <esquinaInicial>
+                <posicion>
+                    <columna>9</columna>
+                    <fila>3</fila>
+                </posicion>
+            </esquinaInicial>
+            <esquinaFinal>
+                <posicion>
+                    <columna>8</columna>
+                    <fila>3</fila>
+                </posicion>
+            </esquinaFinal>
+        </cuadras>
+        <cuadras>
+            <imprevistos>
+                <imprevisto>
+                    <tipoDeImprevisto>ObstaculoPozos</tipoDeImprevisto>
+                </imprevisto>
+                <imprevisto>
+                    <tipoDeImprevisto>SopresaCambioDeVehiculo</tipoDeImprevisto>
+                </imprevisto>
+            </imprevistos>
+            <esquinaInicial>
+                <posicion>
+                    <columna>8</columna>
+                    <fila>3</fila>
+                </posicion>
+            </esquinaInicial>
+            <esquinaFinal>
+                <posicion>
+                    <columna>8</columna>
+                    <fila>2</fila>
+                </posicion>
+            </esquinaFinal>
+        </cuadras>
+        <cuadras>
+            <imprevistos>
+                <imprevisto>
+                    <tipoDeImprevisto>SorpresaFavorable</tipoDeImprevisto>
+                </imprevisto>
+            </imprevistos>
+            <esquinaInicial>
+                <posicion>
+                    <columna>3</columna>
+                    <fila>7</fila>
+                </posicion>
+            </esquinaInicial>
+            <esquinaFinal>
+                <posicion>
+                    <columna>3</columna>
+                    <fila>6</fila>
                 </posicion>
             </esquinaFinal>
         </cuadras>
@@ -163,52 +330,33 @@
             <esquinaInicial>
                 <posicion>
                     <columna>4</columna>
-                    <fila>5</fila>
-                </posicion>
-            </esquinaInicial>
-            <esquinaFinal>
-                <posicion>
-                    <columna>3</columna>
-                    <fila>5</fila>
-                </posicion>
-            </esquinaFinal>
-        </cuadras>
-        <cuadras>
-            <imprevistos>
-                <imprevisto>
-                    <tipoDeImprevisto>SorpresaFavorable</tipoDeImprevisto>
-                </imprevisto>
-            </imprevistos>
-            <esquinaInicial>
-                <posicion>
-                    <columna>9</columna>
-                    <fila>9</fila>
-                </posicion>
-            </esquinaInicial>
-            <esquinaFinal>
-                <posicion>
-                    <columna>9</columna>
-                    <fila>8</fila>
-                </posicion>
-            </esquinaFinal>
-        </cuadras>
-        <cuadras>
-            <imprevistos>
-                <imprevisto>
-                    <tipoDeImprevisto>SorpresaFavorable</tipoDeImprevisto>
-                </imprevisto>
-            </imprevistos>
-            <esquinaInicial>
-                <posicion>
-                    <columna>10</columna>
-                    <fila>4</fila>
-                </posicion>
-            </esquinaInicial>
-            <esquinaFinal>
-                <posicion>
-                    <columna>10</columna>
                     <fila>3</fila>
                 </posicion>
+            </esquinaInicial>
+            <esquinaFinal>
+                <posicion>
+                    <columna>4</columna>
+                    <fila>2</fila>
+                </posicion>
+            </esquinaFinal>
+        </cuadras>
+        <cuadras>
+            <imprevistos>
+                <imprevisto>
+                    <tipoDeImprevisto>ObstaculoPolicial</tipoDeImprevisto>
+                </imprevisto>
+            </imprevistos>
+            <esquinaInicial>
+                <posicion>
+                    <columna>4</columna>
+                    <fila>1</fila>
+                </posicion>
+            </esquinaInicial>
+            <esquinaFinal>
+                <posicion>
+                    <columna>5</columna>
+                    <fila>1</fila>
+                </posicion>
             </esquinaFinal>
         </cuadras>
         <cuadras>
@@ -216,20 +364,17 @@
                 <imprevisto>
                     <tipoDeImprevisto>SorpresaFavorable</tipoDeImprevisto>
                 </imprevisto>
-                <imprevisto>
-                    <tipoDeImprevisto>ObstaculoPiquete</tipoDeImprevisto>
-                </imprevisto>
             </imprevistos>
             <esquinaInicial>
                 <posicion>
-                    <columna>7</columna>
-                    <fila>7</fila>
+                    <columna>5</columna>
+                    <fila>6</fila>
                 </posicion>
             </esquinaInicial>
             <esquinaFinal>
                 <posicion>
-                    <columna>7</columna>
-                    <fila>6</fila>
+                    <columna>5</columna>
+                    <fila>7</fila>
                 </posicion>
             </esquinaFinal>
         </cuadras>
@@ -238,20 +383,39 @@
                 <imprevisto>
                     <tipoDeImprevisto>SopresaCambioDeVehiculo</tipoDeImprevisto>
                 </imprevisto>
-                <imprevisto>
-                    <tipoDeImprevisto>ObstaculoPiquete</tipoDeImprevisto>
-                </imprevisto>
             </imprevistos>
             <esquinaInicial>
                 <posicion>
-                    <columna>2</columna>
-                    <fila>7</fila>
+                    <columna>7</columna>
+                    <fila>1</fila>
                 </posicion>
             </esquinaInicial>
             <esquinaFinal>
                 <posicion>
-                    <columna>1</columna>
-                    <fila>7</fila>
+                    <columna>8</columna>
+                    <fila>1</fila>
+                </posicion>
+            </esquinaFinal>
+        </cuadras>
+        <cuadras>
+            <imprevistos>
+                <imprevisto>
+                    <tipoDeImprevisto>ObstaculoPiquete</tipoDeImprevisto>
+                </imprevisto>
+                <imprevisto>
+                    <tipoDeImprevisto>SorpresaFavorable</tipoDeImprevisto>
+                </imprevisto>
+            </imprevistos>
+            <esquinaInicial>
+                <posicion>
+                    <columna>4</columna>
+                    <fila>9</fila>
+                </posicion>
+            </esquinaInicial>
+            <esquinaFinal>
+                <posicion>
+                    <columna>5</columna>
+                    <fila>9</fila>
                 </posicion>
             </esquinaFinal>
         </cuadras>
@@ -263,70 +427,32 @@
             </imprevistos>
             <esquinaInicial>
                 <posicion>
+                    <columna>5</columna>
+                    <fila>4</fila>
+                </posicion>
+            </esquinaInicial>
+            <esquinaFinal>
+                <posicion>
+                    <columna>5</columna>
+                    <fila>3</fila>
+                </posicion>
+            </esquinaFinal>
+        </cuadras>
+        <cuadras>
+            <imprevistos>
+                <imprevisto>
+                    <tipoDeImprevisto>SorpresaDesfavorable</tipoDeImprevisto>
+                </imprevisto>
+            </imprevistos>
+            <esquinaInicial>
+                <posicion>
                     <columna>2</columna>
-                    <fila>9</fila>
+                    <fila>2</fila>
                 </posicion>
             </esquinaInicial>
             <esquinaFinal>
                 <posicion>
-                    <columna>1</columna>
-                    <fila>9</fila>
-                </posicion>
-            </esquinaFinal>
-        </cuadras>
-        <cuadras>
-            <imprevistos>
-                <imprevisto>
-                    <tipoDeImprevisto>ObstaculoPolicial</tipoDeImprevisto>
-                </imprevisto>
-            </imprevistos>
-            <esquinaInicial>
-                <posicion>
-                    <columna>10</columna>
-                    <fila>5</fila>
-                </posicion>
-            </esquinaInicial>
-            <esquinaFinal>
-                <posicion>
-                    <columna>9</columna>
-                    <fila>5</fila>
-                </posicion>
-            </esquinaFinal>
-        </cuadras>
-        <cuadras>
-            <imprevistos>
-                <imprevisto>
-                    <tipoDeImprevisto>ObstaculoPolicial</tipoDeImprevisto>
-                </imprevisto>
-            </imprevistos>
-            <esquinaInicial>
-                <posicion>
-                    <columna>6</columna>
-                    <fila>6</fila>
-                </posicion>
-            </esquinaInicial>
-            <esquinaFinal>
-                <posicion>
-                    <columna>6</columna>
-                    <fila>7</fila>
-                </posicion>
-            </esquinaFinal>
-        </cuadras>
-        <cuadras>
-            <imprevistos>
-                <imprevisto>
-                    <tipoDeImprevisto>ObstaculoPolicial</tipoDeImprevisto>
-                </imprevisto>
-            </imprevistos>
-            <esquinaInicial>
-                <posicion>
-                    <columna>9</columna>
-                    <fila>1</fila>
-                </posicion>
-            </esquinaInicial>
-            <esquinaFinal>
-                <posicion>
-                    <columna>8</columna>
+                    <columna>2</columna>
                     <fila>1</fila>
                 </posicion>
             </esquinaFinal>

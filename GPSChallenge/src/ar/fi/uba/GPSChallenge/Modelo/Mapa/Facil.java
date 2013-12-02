@@ -4,7 +4,7 @@ import ar.fi.uba.GPSChallenge.Persistencia.DespersistidorMapa;
 
 public class Facil extends Nivel {
 	
-	final int MAX_CANTIDAD_MAPAS = 3;
+	final int MAX_CANTIDAD_MAPAS = 10;
 	
 	public Facil(){
 		this.movimientosLimite = 70;
@@ -27,7 +27,7 @@ public class Facil extends Nivel {
 	}
 	
 	private int pedirNumeroDeMapaAleatorio(){
-		int sorteo = ( 1 + (int)(Math.random() * ((MAX_CANTIDAD_MAPAS -1) + 1) ));
+		int sorteo = ((int)(Math.random() * MAX_CANTIDAD_MAPAS + 1));
 		return sorteo;
 	}
 	

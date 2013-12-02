@@ -4,6 +4,7 @@ import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.Image;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Observable;
 
@@ -13,6 +14,8 @@ import javax.swing.JPanel;
 import javax.swing.UIManager;
 
 import ar.fi.uba.GPSChallenge.Controlador.Controlador;
+import ar.fi.uba.GPSChallenge.Modelo.Imprevistos.Imprevisto;
+import ar.fi.uba.GPSChallenge.Modelo.Mapa.Cuadra;
 import ar.fi.uba.GPSChallenge.Modelo.Mapa.Mapa;
 import ar.fi.uba.GPSChallenge.Modelo.Mapa.Posicion;
 
@@ -23,6 +26,7 @@ public class Escenario extends JPanel {
 	Image imagenCiudad = new ImageIcon(getClass().getResource("Mapa.png")).getImage();
 	Image imagenTransparente = new ImageIcon(getClass().getResource("ImagenTransparente.png")).getImage();
 	Image imagenVehiculo;
+	Image imagenImprevisto;
 	PanelConFondo grilla;
 	JPanel informacion;
 	
@@ -36,7 +40,7 @@ public class Escenario extends JPanel {
 		setLayout(null);
 		
 		grilla = new PanelConFondo();
-		grilla.setBounds(12, 12, 700, 700);
+		grilla.setBounds(12, 12, 650, 650);
 		grilla.setImagen(imagenCiudad);
 		
 		informacion = new JPanel();
@@ -55,6 +59,10 @@ public class Escenario extends JPanel {
 		add(lblNewLabel);
 		inicializarTablero();
         dibujarVehiculo();
+        
+        
+//        dibujarImprevistos();
+        
 	}
 	
 	public void inicializarTablero(){
@@ -78,10 +86,87 @@ public class Escenario extends JPanel {
 		tipoVehiculo = mapa.getVehiculo().getNombreEstado();
 		posicionVehiculo = mapa.getVehiculo().getEsquina().getPosicion();
 		imagenVehiculo = new ImageIcon(getClass().getResource(tipoVehiculo + ".png")).getImage();
-		int fila = posicionVehiculo.getFila();
-		int columna = posicionVehiculo.getColumna();
+		int fila = posicionVehiculo.getFila()*3;
+		int columna = posicionVehiculo.getColumna()*3;
 		celdas[fila][columna].setImagen(imagenVehiculo);
 	}  
+
+
+
+
+
+
+
+	private void dibujarImprevistos() {
+		List<Cuadra> cuadrasDelMapa;
+		Mapa mapa = controlador.obtenerMapa();
+		cuadrasDelMapa = mapa.getCuadras();
+		
+		Iterator<Cuadra> iteradorDeCuadras = cuadrasDelMapa.iterator();
+		while(iteradorDeCuadras.hasNext()){
+			Cuadra cuadraActual = iteradorDeCuadras.next();
+			List<Imprevisto> ImptrvistosDeLaCuadraActual;
+			ImptrvistosDeLaCuadraActual = cuadraActual.getImprevistos();
+			
+			Posicion posInicial = cuadraActual.getEsquinaInicial().getPosicion();
+			Posicion posFinal = cuadraActual.getEsquinaFinal().getPosicion();
+			
+			Iterator<Imprevisto> iteradorDeImprevistos = ImptrvistosDeLaCuadraActual.iterator();
+
+			if (posInicial.getFila() == posFinal.getFila()){
+				if(posInicial.getColumna() < posFinal.getColumna()){
+					
+					int posicionAdicionalPorLaVista = 1;
+					while(iteradorDeImprevistos.hasNext()){
+						Imprevisto imprvistoActual = iteradorDeImprevistos.next();
+						String tipoDeImprevisto = imprvistoActual.getTipoDeImprevisto();
+						imagenImprevisto = new ImageIcon(getClass().getResource(tipoDeImprevisto + ".png")).getImage();
+						celdas[posInicial.getFila()][posInicial.getColumna() + posicionAdicionalPorLaVista].setImagen(imagenImprevisto);
+						++posicionAdicionalPorLaVista;
+					}
+					
+				}else{ // si la columna inicial es mayor
+					
+					int posicionAdicionalPorLaVista = 1;
+					while(iteradorDeImprevistos.hasNext()){
+						Imprevisto imprvistoActual = iteradorDeImprevistos.next();
+						String tipoDeImprevisto = imprvistoActual.getTipoDeImprevisto();
+						imagenImprevisto = new ImageIcon(getClass().getResource(tipoDeImprevisto + ".png")).getImage();
+						celdas[posInicial.getFila()][posInicial.getColumna() - posicionAdicionalPorLaVista].setImagen(imagenImprevisto);
+						++posicionAdicionalPorLaVista;
+					}
+				}
+			}else { // si las columnas son iguales
+				if(posInicial.getFila() < posFinal.getFila()){
+					
+					int posicionAdicionalPorLaVista = 1;
+					while(iteradorDeImprevistos.hasNext()){
+						Imprevisto imprvistoActual = iteradorDeImprevistos.next();
+						String tipoDeImprevisto = imprvistoActual.getTipoDeImprevisto();
+						imagenImprevisto = new ImageIcon(getClass().getResource(tipoDeImprevisto + ".png")).getImage();
+						celdas[posInicial.getFila() + posicionAdicionalPorLaVista][posInicial.getColumna()].setImagen(imagenImprevisto);
+						++posicionAdicionalPorLaVista;
+					}
+					
+				}else{ // si la columna inicial es mayor
+					
+					int posicionAdicionalPorLaVista = 1;
+					while(iteradorDeImprevistos.hasNext()){
+						Imprevisto imprvistoActual = iteradorDeImprevistos.next();
+						String tipoDeImprevisto = imprvistoActual.getTipoDeImprevisto();
+						imagenImprevisto = new ImageIcon(getClass().getResource(tipoDeImprevisto + ".png")).getImage();
+						celdas[posInicial.getFila() - posicionAdicionalPorLaVista][posInicial.getColumna()].setImagen(imagenImprevisto);
+						++posicionAdicionalPorLaVista;
+					}
+				}
+			}	
+		}
+	}
+	
+	
+	
+	
+	
 	
 	public void update(Observable t, Object o) {
 	    Posicion posicionVehiculo;
@@ -98,6 +183,8 @@ public class Escenario extends JPanel {
 	    tipoVehiculo = mapa.getVehiculo().getNombreEstado();
 	    dibujarVehiculo();
 	}
+
+
 	
 	
 }

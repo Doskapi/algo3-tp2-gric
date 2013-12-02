@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<juego>
+    <listajugadores>
+        <jugador>
+            <nombre>JuanTest</nombre>
+            <puntaje>0</puntaje>
+            <rutaASuCarpeta>/home/sebas/workspace/GPSChallenge/Jugadores/JuanTest/</rutaASuCarpeta>
+        </jugador>
+        <jugador>
+            <nombre>PedroTest</nombre>
+            <puntaje>0</puntaje>
+            <rutaASuCarpeta>/home/sebas/workspace/GPSChallenge/Jugadores/PedroTest/</rutaASuCarpeta>
+        </jugador>
+    </listajugadores>
+</juego>
