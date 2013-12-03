@@ -34,15 +34,15 @@ public class Mapa{
 	}
 	
 	public void setLargada() {
-		int columnaLargada = 0;
-		int filaLargada = ((int)(Math.random() * (this.filas)));
+		int columnaLargada = 1;
+		int filaLargada = (1 + (int)(Math.random() * ((this.filas - 1) + 1)));
 		Esquina esquinaLargada = new Esquina(new Posicion(filaLargada, columnaLargada));
 		setEsquinaLargada(esquinaLargada);
 	}
 	
 	public void setMeta() {
-		int columnaMeta = (this.columnas - 1);
-		int filaMeta = ((int)(Math.random() * (this.filas - 1)));
+		int columnaMeta = this.columnas;
+		int filaMeta = (1 + (int)(Math.random() * ((this.filas - 1) + 1)));
 		Esquina esquinaMeta = new Esquina(new Posicion(filaMeta, columnaMeta));
 		setEsquinaMeta(esquinaMeta);
 	}
@@ -132,8 +132,38 @@ public class Mapa{
 	
 	public boolean vehiculoFueraDeRango(Rumbo rumbo){
 		boolean fueraDeRango = false;
-		//VERIFICAR LA CONDICION DE EXCEPCION
-		Posicion posicionDestino = this.vehiculo.getEsquina().getPosicion().moverAlNorte();
+		Posicion posicionOriginal = this.getVehiculo().getEsquina().getPosicion();
+		Posicion posicionDestino;
+		
+		if(rumbo.getNombre() == "Norte"){
+			posicionDestino = posicionOriginal.moverAlNorte();
+			if(posicionDestino.getFila() < 1){
+				fueraDeRango = true;
+				return fueraDeRango;
+			}
+		}
+		if(rumbo.getNombre() == "Sur"){
+			posicionDestino = posicionOriginal.moverAlSur();
+			if(posicionDestino.getFila() > this.getFilas()){
+				fueraDeRango = true;
+				return fueraDeRango;
+			}			
+		}
+		
+		if(rumbo.getNombre() == "Este"){
+			posicionDestino = posicionOriginal.moverAlEste();
+			if(posicionDestino.getColumna() > this.getColumnas()){
+				fueraDeRango = true;
+				return fueraDeRango;
+			}			
+		}
+		if(rumbo.getNombre() == "Oeste"){
+			posicionDestino = posicionOriginal.moverAlOeste();
+			if(posicionDestino.getColumna() < 1){
+				fueraDeRango = true;
+				return fueraDeRango;
+			}
+		}
 		return fueraDeRango;
 	}
 	

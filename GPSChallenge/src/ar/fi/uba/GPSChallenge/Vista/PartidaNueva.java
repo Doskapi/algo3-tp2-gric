@@ -42,7 +42,7 @@ public class PartidaNueva extends JPanel {
 		
 		final ButtonGroup botoneraDificultad = new ButtonGroup();
 		
-		JRadioButton botonFacil = new JRadioButton("Facil");
+		JRadioButton botonFacil = new JRadioButton("Fácil");
 		botonFacil.setBounds(8, 8, 149, 23);
 		panelDeDificultad.add(botonFacil);
 		botoneraDificultad.add(botonFacil);
@@ -60,7 +60,7 @@ public class PartidaNueva extends JPanel {
 		labelSeleccioneDificultad.setBounds(45, 71, 163, 22);
 		add(labelSeleccioneDificultad);
 		
-		JLabel labelSeleccioneVehculo = new JLabel("Seleccione vehiculo:");
+		JLabel labelSeleccioneVehculo = new JLabel("Seleccione vehículo:");
 		labelSeleccioneVehculo.setLabelFor(panelDeVehiculo);
 		panelDeVehiculo.setLayout(null);
 

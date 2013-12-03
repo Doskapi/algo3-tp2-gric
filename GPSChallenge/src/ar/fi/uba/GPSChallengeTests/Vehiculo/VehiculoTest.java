@@ -3,6 +3,7 @@ package ar.fi.uba.GPSChallengeTests.Vehiculo;
 import org.junit.Test;
 import junit.framework.TestCase;
 import ar.fi.uba.GPSChallenge.Modelo.Mapa.Esquina;
+import ar.fi.uba.GPSChallenge.Modelo.Mapa.Mapa;
 import ar.fi.uba.GPSChallenge.Modelo.Mapa.Posicion;
 import ar.fi.uba.GPSChallenge.Modelo.Vehiculo.Auto;
 import ar.fi.uba.GPSChallenge.Modelo.Vehiculo.CuatroPorCuatro;

@@ -13,6 +13,7 @@ import ar.fi.uba.GPSChallenge.Modelo.Mapa.Moderado;
 import ar.fi.uba.GPSChallenge.Modelo.Mapa.Nivel;
 import ar.fi.uba.GPSChallenge.Modelo.Mapa.Posicion;
 import ar.fi.uba.GPSChallenge.Modelo.Vehiculo.Auto;
+import ar.fi.uba.GPSChallenge.Modelo.Vehiculo.Este;
 import ar.fi.uba.GPSChallenge.Modelo.Vehiculo.Norte;
 import ar.fi.uba.GPSChallenge.Modelo.Vehiculo.Vehiculo;
 
@@ -65,9 +66,9 @@ public class JugadorTests extends TestCase {
 		Jugador jugador = new Jugador("DiegoTest");
 		jugador.comenzarPartida(new Facil());
 		jugador.elegirVehiculo(new Vehiculo(new Auto()));
-		jugador.moverVehiculo(new Norte());
-		jugador.moverVehiculo(new Norte());
-		jugador.moverVehiculo(new Norte());
+		jugador.moverVehiculo(new Este());
+		jugador.moverVehiculo(new Este());
+		jugador.moverVehiculo(new Este());
 		jugador.calcularPuntaje();
 		assertEquals(jugador.getPuntaje(), 67);
 	}
@@ -77,9 +78,9 @@ public class JugadorTests extends TestCase {
 		Jugador jugador = new Jugador("DiegoTest");
 		jugador.comenzarPartida(new Moderado());
 		jugador.elegirVehiculo(new Vehiculo(new Auto()));
-		jugador.moverVehiculo(new Norte());
-		jugador.moverVehiculo(new Norte());
-		jugador.moverVehiculo(new Norte());
+		jugador.moverVehiculo(new Este());
+		jugador.moverVehiculo(new Este());
+		jugador.moverVehiculo(new Este());
 		jugador.calcularPuntaje();
 		assertEquals(jugador.getPuntaje(), 94);
 	}
@@ -89,9 +90,9 @@ public class JugadorTests extends TestCase {
 		Jugador jugador = new Jugador("DiegoTest");
 		jugador.comenzarPartida(new Dificil());
 		jugador.elegirVehiculo(new Vehiculo(new Auto()));
-		jugador.moverVehiculo(new Norte());
-		jugador.moverVehiculo(new Norte());
-		jugador.moverVehiculo(new Norte());
+		jugador.moverVehiculo(new Este());
+		jugador.moverVehiculo(new Este());
+		jugador.moverVehiculo(new Este());
 		jugador.calcularPuntaje();
 		assertEquals(jugador.getPuntaje(), 81);
 	}

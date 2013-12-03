@@ -38,7 +38,7 @@ public class VistaPrincipal implements Observer, KeyListener{
 		frmGpsChallenge.setSize(1200, 700);
 		frmGpsChallenge.setVisible(true);
 		frmGpsChallenge.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);	
-
+		
 		frmGpsChallenge.addKeyListener(this);
 		frmGpsChallenge.setFocusable(true);
 		
@@ -55,6 +55,7 @@ public class VistaPrincipal implements Observer, KeyListener{
 		pMenuPartida = new MenuPartida(this, this.controlador);
 		pPuntajes = new Puntajes(this, this.controlador);
 		pPartidaNueva = new PartidaNueva(this, this.controlador);
+		//pEscenario = new Escenario(this, this.controlador);
 		
 		card.addLayoutComponent(pBienvenida, "pBienvenida");
 		card.addLayoutComponent(pNuevoUsuario, "pNuevoUsuario");
@@ -62,6 +63,7 @@ public class VistaPrincipal implements Observer, KeyListener{
 		card.addLayoutComponent(pMenuPartida, "pMenuPartida");
 		card.addLayoutComponent(pPuntajes, "pPuntajes");
 		card.addLayoutComponent(pPartidaNueva, "pPartidaNueva");
+		//card.addLayoutComponent(pEscenario, "pEscenario");
 		
 		contenedor.add(pBienvenida);
 		contenedor.add(pNuevoUsuario);
@@ -69,6 +71,7 @@ public class VistaPrincipal implements Observer, KeyListener{
 		contenedor.add(pMenuPartida);
 		contenedor.add(pPuntajes);
 		contenedor.add(pPartidaNueva);
+		//contenedor.add(pEscenario);
 		
 		contenedor.setLayout(card);
         card.show(contenedor, "pBienvenida");
@@ -102,28 +105,36 @@ public class VistaPrincipal implements Observer, KeyListener{
 				break;
 		}
 	}
-
-	@Override
-	public void update(Observable arg0, Object arg1) {		
-	}
 	
-		@Override
+	@Override
 	public void keyPressed(KeyEvent evento) {
 		switch(evento.getKeyCode()){
 		case(KeyEvent.VK_UP):
-			controlador.moverVehiculo(new Norte());
+			try {
+				controlador.moverVehiculo(new Norte());
+			} catch (Exception e) {
+			}
 			pEscenario.update();
 			break;
 		case(KeyEvent.VK_DOWN):
-			controlador.moverVehiculo(new Sur());				
+			try {
+				controlador.moverVehiculo(new Sur());
+			} catch (Exception e) {
+			}				
 			pEscenario.update();
 			break;
 		case(KeyEvent.VK_RIGHT):
-			controlador.moverVehiculo(new Este());
+			try {
+				controlador.moverVehiculo(new Este());
+			} catch (Exception e) {
+			}
 			pEscenario.update();
 			break;
 		case(KeyEvent.VK_LEFT):
-			controlador.moverVehiculo(new Oeste());	
+			try {
+				controlador.moverVehiculo(new Oeste());
+			} catch (Exception e) {
+			}	
 			pEscenario.update();
 			break;
 		}
@@ -136,4 +147,10 @@ public class VistaPrincipal implements Observer, KeyListener{
 		@Override
 		public void keyTyped(KeyEvent evento) {
 	}
+
+		@Override
+		public void update(Observable o, Object arg) {
+			// TODO Auto-generated method stub
+		}
+
 }

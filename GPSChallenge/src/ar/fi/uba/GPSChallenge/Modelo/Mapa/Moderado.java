@@ -5,7 +5,7 @@ import ar.fi.uba.GPSChallenge.Persistencia.DespersistidorMapa;
 public class Moderado extends Nivel {
 
 	
-	final int MAX_CANTIDAD_MAPAS = 10;
+	final int MAX_CANTIDAD_MAPAS = 3;
 	
 	public Moderado(){
 		this.movimientosLimite = 50;

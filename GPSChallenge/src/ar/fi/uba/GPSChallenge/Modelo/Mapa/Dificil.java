@@ -4,7 +4,7 @@ import ar.fi.uba.GPSChallenge.Persistencia.DespersistidorMapa;
 
 public class Dificil extends Nivel {
 
-	final int MAX_CANTIDAD_MAPAS = 10;
+	final int MAX_CANTIDAD_MAPAS = 3;
 	
 	public Dificil(){
 		this.movimientosLimite = 30;

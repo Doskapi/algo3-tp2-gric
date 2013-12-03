@@ -10,7 +10,6 @@ import ar.fi.uba.GPSChallenge.Modelo.Jugador;
 public class PersistidorJugador {
 	
 	public void persistirJugador(Jugador jugador) {
-		jugador.persistirPartida();
 		String rutaDelArchivo = (System.getProperty("user.dir") + System.getProperty("file.separator") + "Jugadores" + System.getProperty("file.separator") + jugador.getNombre() + System.getProperty("file.separator") + jugador.getNombre() +  ".xml");
 		try{
 			JAXBContext context = JAXBContext.newInstance(Jugador.class);

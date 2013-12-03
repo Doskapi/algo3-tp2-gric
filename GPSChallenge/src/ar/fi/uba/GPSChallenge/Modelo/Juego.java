@@ -31,7 +31,6 @@ public class Juego extends Observable {
 	
 	public void agregarJugador(Jugador jugador){
 		this.jugadores.add(jugador);
-		this.jugadorActual = jugador;
 	}
 	
 	public List<Jugador> getJugadores(){
@@ -43,7 +42,7 @@ public class Juego extends Observable {
 		this.jugadorActual = jugador;
 	}
 	
-	public Jugador getJugadorActual(){
+	public Jugador getJugador(){
 		return this.jugadorActual;
 	}
 	

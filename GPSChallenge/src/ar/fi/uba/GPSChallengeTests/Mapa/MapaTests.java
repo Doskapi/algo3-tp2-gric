@@ -53,28 +53,28 @@ public class MapaTests extends TestCase {
 	public void testCreoUnMapaDe10x12YLaLargadaSeColocaAleatoriamente(){
 		Mapa mapa = new Mapa(10,12);
 		assertEquals(mapa.cantidadDeElementos(),120);
-		assertEquals(mapa.getEsquinaLargada().getPosicion().getColumna(), 0);
+		assertEquals(mapa.getEsquinaLargada().getPosicion().getColumna(), 1);
 	}
 	
 	@Test
 	public void testCreoUnMapaDe11x12YLaLargadaSeColocaAleatoriamente(){
 		Mapa mapa = new Mapa(11,12);
 		assertEquals(mapa.cantidadDeElementos(),132);
-		assertEquals(mapa.getEsquinaLargada().getPosicion().getColumna(), 0);
+		assertEquals(mapa.getEsquinaLargada().getPosicion().getColumna(), 1);
 	}
 	
 	@Test
 	public void testCreoUnMapaDe15x10YLaLargadaSeColocaAleatoriamente(){
 		Mapa mapa = new Mapa(15,10);
 		assertEquals(mapa.cantidadDeElementos(),150);
-		assertEquals(mapa.getEsquinaLargada().getPosicion().getColumna(),0);
+		assertEquals(mapa.getEsquinaLargada().getPosicion().getColumna(),1);
 	}
 	
 	@Test
 	public void testCreoUnMapaDe10x12YLaMetaSeColocaEnFormaAleatoria(){
 		Mapa mapa = new Mapa(10,12);
 		assertEquals(mapa.cantidadDeElementos(),120);
-		assertTrue(mapa.getEsquinaMeta().getPosicion().getColumna() == 11);
+		assertTrue(mapa.getEsquinaMeta().getPosicion().getColumna() == 12);
 	}	
 }
 	

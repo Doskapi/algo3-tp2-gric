@@ -22,7 +22,7 @@ public class ControladorTests extends TestCase {
 		juego = despersistidorJuego.despersistirJuego(System.getProperty("user.dir") + System.getProperty("file.separator") + "Juego.xml");
 		Controlador controlador = new Controlador(juego);
 		controlador.elegirUsuarioSeleccionado("PedroTest");
-		assertEquals(juego.getJugadorActual().getNombre(), "PedroTest");
+		assertEquals(juego.getJugador().getNombre(), "PedroTest");
 	}
 	
 	@Test
@@ -33,7 +33,7 @@ public class ControladorTests extends TestCase {
 		Controlador controlador = new Controlador(juego);
 		controlador.elegirUsuarioSeleccionado("PedroTest");
 		controlador.elegirDificultadSeleccionada("Facil");
-		assertEquals(juego.getJugadorActual().getPartida().getDificultad(), new Facil());
+		assertEquals(juego.getJugador().getPartida().getDificultad(), new Facil());
 	}
 	
 	@Test
@@ -44,7 +44,7 @@ public class ControladorTests extends TestCase {
 		Controlador controlador = new Controlador(juego);
 		controlador.elegirUsuarioSeleccionado("PedroTest");
 		controlador.elegirDificultadSeleccionada("Moderado");
-		assertEquals(juego.getJugadorActual().getPartida().getDificultad(), new Moderado());
+		assertEquals(juego.getJugador().getPartida().getDificultad(), new Moderado());
 	}
 	
 	@Test
@@ -55,7 +55,7 @@ public class ControladorTests extends TestCase {
 		Controlador controlador = new Controlador(juego);
 		controlador.elegirUsuarioSeleccionado("PedroTest");
 		controlador.elegirDificultadSeleccionada("Dificil");
-		assertEquals(juego.getJugadorActual().getPartida().getDificultad(), new Dificil());
+		assertEquals(juego.getJugador().getPartida().getDificultad(), new Dificil());
 	}
 	
 	@Test
@@ -66,7 +66,7 @@ public class ControladorTests extends TestCase {
 		Controlador controlador = new Controlador(juego);
 		controlador.elegirUsuarioSeleccionado("PedroTest");
 		controlador.elegirDificultadSeleccionada("Dificil");
-		assertNotNull(juego.getJugadorActual().getPartida().getMapa());
+		assertNotNull(juego.getJugador().getPartida().getMapa());
 	}
 	
 	@Test
@@ -78,7 +78,7 @@ public class ControladorTests extends TestCase {
 		controlador.elegirUsuarioSeleccionado("PedroTest");
 		controlador.elegirDificultadSeleccionada("Dificil");
 		controlador.elegirVehiculoSeleccionado("Auto");
-		assertEquals(juego.getJugadorActual().getPartida().getMapa().getVehiculo(), new Vehiculo(new Auto()));
+		assertEquals(juego.getJugador().getPartida().getMapa().getVehiculo(), new Vehiculo(new Auto()));
 	}
 	
 	@Test
@@ -90,7 +90,7 @@ public class ControladorTests extends TestCase {
 		controlador.elegirUsuarioSeleccionado("PedroTest");
 		controlador.elegirDificultadSeleccionada("Dificil");
 		controlador.elegirVehiculoSeleccionado("4X4");
-		assertEquals(juego.getJugadorActual().getPartida().getMapa().getVehiculo(), new Vehiculo(new CuatroPorCuatro()));
+		assertEquals(juego.getJugador().getPartida().getMapa().getVehiculo(), new Vehiculo(new CuatroPorCuatro()));
 	}
 	
 	@Test
@@ -102,6 +102,6 @@ public class ControladorTests extends TestCase {
 		controlador.elegirUsuarioSeleccionado("PedroTest");
 		controlador.elegirDificultadSeleccionada("Dificil");
 		controlador.elegirVehiculoSeleccionado("Moto");
-		assertEquals(juego.getJugadorActual().getPartida().getMapa().getVehiculo(), new Vehiculo(new Moto()));
+		assertEquals(juego.getJugador().getPartida().getMapa().getVehiculo(), new Vehiculo(new Moto()));
 	}
 }
