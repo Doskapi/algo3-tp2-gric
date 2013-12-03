@@ -33,7 +33,7 @@
                     <tipoDeImprevisto>ObstaculoPiquete</tipoDeImprevisto>
                 </imprevisto>
                 <imprevisto>
-                    <tipoDeImprevisto>SopresaCambioDeVehiculo</tipoDeImprevisto>
+                    <tipoDeImprevisto>SorpresaCambioDeVehiculo</tipoDeImprevisto>
                 </imprevisto>
             </imprevistos>
             <esquinaInicial>

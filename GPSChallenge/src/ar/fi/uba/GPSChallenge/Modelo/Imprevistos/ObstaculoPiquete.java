@@ -16,9 +16,4 @@ public class ObstaculoPiquete extends Obstaculo {
 			this.permitirMovimiento = false;
 		}
 	}
-	
-	public String getTipoImprevistoComoString(){
-		String tipoImprevisto = "ObstaculoPiquete";
-		return tipoImprevisto;
-	}
 }

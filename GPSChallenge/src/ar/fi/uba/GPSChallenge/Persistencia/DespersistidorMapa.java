@@ -43,45 +43,42 @@ public class DespersistidorMapa {
 					break;
 			}
 			mapa.setVehiculo(vehiculo);
-			List<Cuadra> listaCuadras = new ArrayList<Cuadra>();
-			List<Cuadra> listaCuadrasCasteadas = new ArrayList<Cuadra>();
-			listaCuadras = mapa.getCuadras();
-			Cuadra cuadraActual;
-			ArrayList<Imprevisto> listaImprevistos = new ArrayList<Imprevisto>();
-			ArrayList<Imprevisto> listaImprevistosCasteados = new ArrayList<Imprevisto>();
-			Iterator<Cuadra> iteradorCuadras = listaCuadras.iterator();
-			while (iteradorCuadras.hasNext()){
-				cuadraActual = iteradorCuadras.next();
-				listaImprevistos = cuadraActual.getImprevistos();
-				Iterator<Imprevisto> iteradorImprevistos = listaImprevistos.iterator();
-				while (iteradorImprevistos.hasNext()){
-					Imprevisto imprevisto = (Imprevisto)iteradorImprevistos.next();
-					String tipoDeImprevisto = imprevisto.getTipoDeImprevisto();
-					switch (tipoDeImprevisto){
-						case "ObstaculoPozos":
-							listaImprevistosCasteados.add(new ObstaculoPozos());
-							break;
-						case "ObstaculoPolicial":
-							listaImprevistosCasteados.add(new ObstaculoPolicial());
-							break;
-						case "ObstaculoPiquete":
-							listaImprevistosCasteados.add(new ObstaculoPiquete());
-							break;
-						case "SorpresaFavorable":
-							listaImprevistosCasteados.add(new SorpresaFavorable());
-							break;
-						case "SorpresaDesfavorable":
-							listaImprevistosCasteados.add(new SorpresaDesfavorable());
-							break;
-						case "SorpresaCambioDeVehiculo":
-							listaImprevistosCasteados.add(new SorpresaCambioDeVehiculo());
-							break;
+			List<Cuadra> cuadras = new ArrayList<Cuadra>();
+			List<Cuadra> cuadrasCasteadas = new ArrayList<Cuadra>();
+			cuadras = mapa.getCuadras();
+			Iterator<Cuadra> iteradorCuadras = cuadras.iterator();
+			while(iteradorCuadras.hasNext()){
+				Cuadra cuadraActual = iteradorCuadras.next();
+				List<Imprevisto> imprevistos = new ArrayList<Imprevisto>();
+				ArrayList<Imprevisto> imprevistosCasteados = new ArrayList<Imprevisto>();
+				Iterator<Imprevisto> iteradorImprevistos = imprevistos.iterator();
+				while(iteradorImprevistos.hasNext()){
+					String tipoImprevisto = iteradorImprevistos.next().getTipoDeImprevisto();
+					switch(tipoImprevisto){
+					case("SorpresaFavorable"):
+						imprevistosCasteados.add(new SorpresaFavorable());
+						break;
+					case("SorpresaCambioDeVehiculo"):
+						imprevistosCasteados.add(new SorpresaCambioDeVehiculo());
+						break;
+					case("SorpresaDesfavorable"):
+						imprevistosCasteados.add(new SorpresaDesfavorable());
+						break;
+					case("ObstaculoPozos"):
+						imprevistosCasteados.add(new ObstaculoPozos());
+						break;
+					case("ObstaculoPiquete"):
+						imprevistosCasteados.add(new ObstaculoPiquete());
+						break;
+					case("ObstaculoPolicial"):
+						imprevistosCasteados.add(new ObstaculoPolicial());
+						break;	
 					}
-					cuadraActual.setImprevistos(listaImprevistosCasteados);
+					cuadraActual.setImprevistos(imprevistosCasteados);
 				}
-				listaCuadrasCasteadas.add(cuadraActual);				
+				cuadrasCasteadas.add(cuadraActual);
 			}
-			mapa.setCuadras(listaCuadrasCasteadas);
+			mapa.setCuadras(cuadrasCasteadas);
 		}
 		catch(JAXBException e){
 			e.printStackTrace();

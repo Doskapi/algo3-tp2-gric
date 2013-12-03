@@ -8,7 +8,7 @@ public class SorpresaCambioDeVehiculo extends Sorpresa {
 	
 	public SorpresaCambioDeVehiculo(){
 		this.permitirMovimiento = true;
-		this.tipoDeImprevisto = "SopresaCambioDeVehiculo";
+		this.tipoDeImprevisto = "SorpresaCambioDeVehiculo";
 	}
 	
 	public void aplicarImprevisto(Vehiculo vehiculo){
