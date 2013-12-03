@@ -2,5 +2,6 @@
 <jugador>
     <nombre>PedroTest</nombre>
     <puntaje>0</puntaje>
-    <rutaASuCarpeta>/home/sebas/workspace/GPSChallenge/Jugadores/PedroTest/</rutaASuCarpeta>
+    <partidaGuardada>C:\Users\Leonardo\workspace\GPSChallenge\Jugadores\PedroTest\\PartidaGuardada.xml</partidaGuardada>
+    <rutaASuCarpeta>C:\Users\Leonardo\workspace\GPSChallenge\Jugadores\PedroTest\</rutaASuCarpeta>
 </jugador>

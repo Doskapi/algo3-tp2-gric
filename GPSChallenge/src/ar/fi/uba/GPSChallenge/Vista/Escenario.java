@@ -3,15 +3,19 @@ package ar.fi.uba.GPSChallenge.Vista;
 import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.Image;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.UIManager;
+
 import ar.fi.uba.GPSChallenge.Controlador.Controlador;
-import ar.fi.uba.GPSChallenge.Modelo.Imprevistos.Imprevisto;
-import ar.fi.uba.GPSChallenge.Modelo.Mapa.Cuadra;
 import ar.fi.uba.GPSChallenge.Modelo.Mapa.Mapa;
 import ar.fi.uba.GPSChallenge.Modelo.Mapa.Posicion;
+import ar.fi.uba.GPSChallenge.Persistencia.PersistidorJugador;
 
 @SuppressWarnings("serial")
 public class Escenario extends JPanel {
@@ -25,10 +29,13 @@ public class Escenario extends JPanel {
 	JPanel informacion;
 	
 	private VistaPrincipal vistaPrincipal;
-	private Controlador controlador;
+	final private Controlador controlador;
 	private JLabel lblNewLabel;
+	private JLabel nombreJugador;
+	private JLabel puntajeActual;
+	private JButton botonGuardar;
 	
-	public Escenario(VistaPrincipal vistaPrincipal, final Controlador controlador) {
+	public Escenario(final VistaPrincipal vistaPrincipal, final Controlador controlador) {
 		this.vistaPrincipal = vistaPrincipal;
 		this.controlador = controlador;
 		setLayout(null);
@@ -54,9 +61,31 @@ public class Escenario extends JPanel {
 		lblNewLabel.setBounds(730, 12, 202, 25);
 		add(lblNewLabel);
 		
+		nombreJugador = new JLabel(this.controlador.pedirNombreDelJugadorActual());
+		nombreJugador.setFont(new Font("Dialog", Font.BOLD, 18));
+		nombreJugador.setBackground(UIManager.getColor("Button.focus"));
+		nombreJugador.setBounds(730, 50, 202, 25);
+		add(nombreJugador);
+		
+		puntajeActual = new JLabel(this.controlador.pedirPuntajeActualComoString());
+		puntajeActual.setFont(new Font("Dialog", Font.BOLD, 18));
+		puntajeActual.setBackground(UIManager.getColor("Button.focus"));
+		puntajeActual.setBounds(730, 80, 202, 25);
+		add(puntajeActual);
+		
+		botonGuardar = new JButton("Guardar");
+		botonGuardar.setBounds(730, 100, 202, 25);
+		add(botonGuardar);
+		botonGuardar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent event) {
+				controlador.persistirJuegoActual();
+				vistaPrincipal.cambiarPanel("pMenuPartida");
+			}
+		});
+		
 		inicializarTablero();
         dibujarVehiculo();
-//        dibujarImprevistos();       
+//      dibujarImprevistos();       
 	}
 	
 	public void inicializarTablero(){

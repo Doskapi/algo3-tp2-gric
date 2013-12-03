@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <partida>
-    <rutaMapa>/home/sebas/workspace/GPSChallenge/Jugadores/JuanaTest//Mapa.xml</rutaMapa>
+    <rutaMapa>C:\Users\Leonardo\workspace\GPSChallenge\Jugadores\JuanaTest\\Mapa.xml</rutaMapa>
     <nivel>
         <tipoNivel>Facil</tipoNivel>
     </nivel>
