@@ -41,7 +41,4 @@ public class PersistidorPartidaTest extends TestCase {
 		partida.setNivel(new Facil());
 		assertEquals(partidaDespersistida, partida);
 	}
-	
-	
-	
 }

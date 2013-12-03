@@ -95,6 +95,7 @@ public class Partida {
 		return this.puntajeActual;
 	}
 	
+	@XmlTransient
 	public void setPuntajeActual(int puntajeActual){
 		this.puntajeActual = puntajeActual;
 	}
