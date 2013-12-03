@@ -4,13 +4,19 @@ import java.awt.CardLayout;
 import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.Toolkit;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.util.Observable;
 import java.util.Observer;
 import javax.swing.JFrame;
 import ar.fi.uba.GPSChallenge.Controlador.Controlador;
 import ar.fi.uba.GPSChallenge.Modelo.Juego;
+import ar.fi.uba.GPSChallenge.Modelo.Vehiculo.Este;
+import ar.fi.uba.GPSChallenge.Modelo.Vehiculo.Norte;
+import ar.fi.uba.GPSChallenge.Modelo.Vehiculo.Oeste;
+import ar.fi.uba.GPSChallenge.Modelo.Vehiculo.Sur;
 
-public class VistaPrincipal implements Observer{
+public class VistaPrincipal implements Observer, KeyListener{
 
 	private JFrame frmGpsChallenge;
 	private Controlador controlador;
@@ -32,6 +38,10 @@ public class VistaPrincipal implements Observer{
 		frmGpsChallenge.setSize(1200, 700);
 		frmGpsChallenge.setVisible(true);
 		frmGpsChallenge.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);	
+
+		frmGpsChallenge.addKeyListener(this);
+		frmGpsChallenge.setFocusable(true);
+		
 		//Para Abrir la Ventana centrada en la pantalla
 		Toolkit toolkit = frmGpsChallenge.getToolkit();
 		Dimension size = toolkit.getScreenSize();
@@ -94,8 +104,36 @@ public class VistaPrincipal implements Observer{
 	}
 
 	@Override
-	public void update(Observable arg0, Object arg1) {
-		
-		
+	public void update(Observable arg0, Object arg1) {		
+	}
+	
+		@Override
+	public void keyPressed(KeyEvent evento) {
+		switch(evento.getKeyCode()){
+		case(KeyEvent.VK_UP):
+			controlador.moverVehiculo(new Norte());
+			pEscenario.update();
+			break;
+		case(KeyEvent.VK_DOWN):
+			controlador.moverVehiculo(new Sur());				
+			pEscenario.update();
+			break;
+		case(KeyEvent.VK_RIGHT):
+			controlador.moverVehiculo(new Este());
+			pEscenario.update();
+			break;
+		case(KeyEvent.VK_LEFT):
+			controlador.moverVehiculo(new Oeste());	
+			pEscenario.update();
+			break;
+		}
+	}
+	
+		@Override
+		public void keyReleased(KeyEvent evento) {
+	}
+
+		@Override
+		public void keyTyped(KeyEvent evento) {
 	}
 }
