@@ -108,4 +108,12 @@ public class Controlador {
 	public void moverVehiculo(Rumbo rumbo) throws Exception {
 		this.referenciaAlJuego.getJugador().moverVehiculo(rumbo);
 	}
+	
+	public String pedirPuntajeActualComoString(){
+		return (Integer.toString(this.referenciaAlJuego.getJugador().getPartida().getPuntajeActual()));
+	}
+
+	public String pedirMovimientosSobrantes() {
+		return (Integer.toString(this.referenciaAlJuego.getJugador().getPartida().calcularPuntaje()));
+	}
 }

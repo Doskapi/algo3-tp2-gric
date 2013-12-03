@@ -32,6 +32,9 @@ public class MenuPartida extends JPanel {
 		labelGpsChallenge.setFont(new Font("DejaVu Serif", Font.BOLD, 20));
 		labelGpsChallenge.setBounds(251, 12, 169, 35);
 		panelCabecera.add(labelGpsChallenge);
+		JLabel labelNombreDelUsuario = new JLabel(nombreDelJugador);
+		labelNombreDelUsuario.setBounds(28, 14, 92, 35);
+		panelCabecera.add(labelNombreDelUsuario);
 		
 		JButton btnSalir = new JButton("Salir");
 		btnSalir.setBounds(572, 19, 78, 25);
@@ -63,9 +66,6 @@ public class MenuPartida extends JPanel {
 		JButton btnVerPuntajes = new JButton("Ver Puntajes");
 		btnVerPuntajes.setBounds(445, 260, 310, 55);
 		add(btnVerPuntajes);
-		JLabel labelNombreDelUsuario = new JLabel(nombreDelJugador);
-		labelNombreDelUsuario.setBounds(36, 112, 92, 35);
-		add(labelNombreDelUsuario);
 		btnVerPuntajes.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent event) {
 				vistaPrincipal.cambiarPanel("pPuntajes");

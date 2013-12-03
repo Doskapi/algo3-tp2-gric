@@ -29,6 +29,8 @@ public class VistaPrincipal implements Observer, KeyListener{
 	Puntajes pPuntajes;
 	Escenario pEscenario;
 	PartidaNueva pPartidaNueva;
+	Perdiste pPerdiste;
+	Ganaste pGanaste;
 	
 	public VistaPrincipal(Juego referenciaAlJuego, Controlador controlador) {
 		this.controlador = controlador;
@@ -55,8 +57,7 @@ public class VistaPrincipal implements Observer, KeyListener{
 		pMenuPartida = new MenuPartida(this, this.controlador);
 		pPuntajes = new Puntajes(this, this.controlador);
 		pPartidaNueva = new PartidaNueva(this, this.controlador);
-		//pEscenario = new Escenario(this, this.controlador);
-		
+
 		card.addLayoutComponent(pBienvenida, "pBienvenida");
 		card.addLayoutComponent(pNuevoUsuario, "pNuevoUsuario");
 		card.addLayoutComponent(pElegirUsuario, "pElegirUsuario");
@@ -103,6 +104,17 @@ public class VistaPrincipal implements Observer, KeyListener{
 				contenedor.add(pEscenario);
 				card.show(contenedor, "pEscenario");
 				break;
+			case("pPerdiste"):
+				pPerdiste = new Perdiste(this, this.controlador);
+				card.addLayoutComponent(pPerdiste, "pPerdiste");
+				contenedor.add(pPerdiste);
+				card.show(contenedor, "pPerdiste");
+				break;
+			case("pGanaste"):
+				pGanaste = new Ganaste(this, this.controlador);
+				card.addLayoutComponent(pGanaste, "pGanaste");
+				contenedor.add(pGanaste);
+				card.show(contenedor, "pGanaste");
 		}
 	}
 	

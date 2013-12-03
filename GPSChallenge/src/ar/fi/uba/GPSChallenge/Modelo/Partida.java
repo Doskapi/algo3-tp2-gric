@@ -18,15 +18,17 @@ public class Partida {
 	private Mapa mapa;
 	private String rutaMapa;
 	private Nivel nivel;
-	
+	private int puntajeActual;
 	
 	public Partida(){
 		this.mapa = new Mapa(1,1);
+		this.puntajeActual = 0;
 	}
 	
 	public Partida(Nivel nivel) {
 		this.setNivel(nivel);
 		this.setMapa(this.nivel.pedirUnMapa());
+		this.puntajeActual = 0;
 	}
 	
 	@XmlElement
@@ -87,5 +89,13 @@ public class Partida {
 
 	public Nivel getDificultad() {
 		return this.nivel;
+	}
+
+	public int getPuntajeActual() {
+		return this.puntajeActual;
+	}
+	
+	public void setPuntajeActual(int puntajeActual){
+		this.puntajeActual = puntajeActual;
 	}
 }
