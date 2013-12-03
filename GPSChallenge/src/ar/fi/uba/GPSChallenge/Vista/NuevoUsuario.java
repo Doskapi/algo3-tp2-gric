@@ -30,7 +30,7 @@ public class NuevoUsuario extends JPanel {
 			public void actionPerformed(ActionEvent event) {
 				String usuarioNuevo;
 				usuarioNuevo = textNuevoUsuario.getText();
-				controlador.crearNuevoJugador(usuarioNuevo);
+				controlador.crearNuevoJugadorYAsignarloComoActual(usuarioNuevo);
 				vistaPrincipal.cambiarPanel("pMenuPartida");
 			}
 		});

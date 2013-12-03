@@ -38,11 +38,11 @@ public class Juego extends Observable {
 	}
 	
 	@XmlTransient
-	public void setJugador(Jugador jugador){
+	public void setJugadorActual(Jugador jugador){
 		this.jugadorActual = jugador;
 	}
 	
-	public Jugador getJugador(){
+	public Jugador getJugadorActual(){
 		return this.jugadorActual;
 	}
 	

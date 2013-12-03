@@ -26,9 +26,10 @@ public class Controlador {
 		this.referenciaAlJuego = referenciaAlJuego;
 	}
 	
-	public void crearNuevoJugador(String usuarioNuevo) {
+	public void crearNuevoJugadorYAsignarloComoActual(String usuarioNuevo) {
 		Jugador jugador = new Jugador(usuarioNuevo);
 		this.referenciaAlJuego.agregarJugador(jugador);
+		this.referenciaAlJuego.setJugadorActual(jugador);
 		this.persistirJuego();
 		this.persistirJugador(jugador);
 	}
@@ -43,6 +44,11 @@ public class Controlador {
 		PersistidorDeJuego persistidorJuego = new PersistidorDeJuego();
 		persistidorJuego.persistirJuego(this.referenciaAlJuego);
 		
+	}
+	
+	public void persistirJuegoActual(){
+		this.persistirJugador(this.referenciaAlJuego.getJugadorActual());
+		this.persistirJuego();
 	}
 
 	public List<Jugador> pedirJugadoresExistentes() {
@@ -63,26 +69,26 @@ public class Controlador {
 				jugadorEncontrado = jugadorParaRecorrer;
 			}
 		}
-		referenciaAlJuego.setJugador(jugadorEncontrado);
+		referenciaAlJuego.setJugadorActual(jugadorEncontrado);
 	}
 
 	public String pedirNombreDelJugadorActual() {
-		return this.referenciaAlJuego.getJugador().getNombre();
+		return this.referenciaAlJuego.getJugadorActual().getNombre();
 	}
 
 	public void elegirDificultadSeleccionada(String dificultadSeleccionada) {
 		switch(dificultadSeleccionada){
 			case("Facil"):
-				this.referenciaAlJuego.getJugador().comenzarPartida(new Facil());
-				this.referenciaAlJuego.getJugador().getPartida().setMapa(this.referenciaAlJuego.getJugador().getPartida().getNivel().pedirUnMapa());
+				this.referenciaAlJuego.getJugadorActual().comenzarPartida(new Facil());
+				this.referenciaAlJuego.getJugadorActual().getPartida().setMapa(this.referenciaAlJuego.getJugadorActual().getPartida().getNivel().pedirUnMapa());
 				break;
 			case("Moderado"):
-				this.referenciaAlJuego.getJugador().comenzarPartida(new Moderado());
-				this.referenciaAlJuego.getJugador().getPartida().setMapa(this.referenciaAlJuego.getJugador().getPartida().getNivel().pedirUnMapa());
+				this.referenciaAlJuego.getJugadorActual().comenzarPartida(new Moderado());
+				this.referenciaAlJuego.getJugadorActual().getPartida().setMapa(this.referenciaAlJuego.getJugadorActual().getPartida().getNivel().pedirUnMapa());
 				break;
 			case("Dificil"):
-				this.referenciaAlJuego.getJugador().comenzarPartida(new Dificil());
-				this.referenciaAlJuego.getJugador().getPartida().setMapa(this.referenciaAlJuego.getJugador().getPartida().getNivel().pedirUnMapa());
+				this.referenciaAlJuego.getJugadorActual().comenzarPartida(new Dificil());
+				this.referenciaAlJuego.getJugadorActual().getPartida().setMapa(this.referenciaAlJuego.getJugadorActual().getPartida().getNivel().pedirUnMapa());
 				break;
 		}
 	}
@@ -90,30 +96,40 @@ public class Controlador {
 	public void elegirVehiculoSeleccionado(String vehiculoSeleccionado) {
 		switch(vehiculoSeleccionado){
 			case("Auto"):
-				this.referenciaAlJuego.getJugador().elegirVehiculo(new Vehiculo(new Auto()));
+				this.referenciaAlJuego.getJugadorActual().elegirVehiculo(new Vehiculo(new Auto()));
 				break;
 			case("4X4"):
-				this.referenciaAlJuego.getJugador().elegirVehiculo(new Vehiculo(new CuatroPorCuatro()));
+				this.referenciaAlJuego.getJugadorActual().elegirVehiculo(new Vehiculo(new CuatroPorCuatro()));
 				break;
 			case("Moto"):
-				this.referenciaAlJuego.getJugador().elegirVehiculo(new Vehiculo(new Moto()));
+				this.referenciaAlJuego.getJugadorActual().elegirVehiculo(new Vehiculo(new Moto()));
 				break;
 		}
 	}
 
 	public Mapa obtenerMapa() {
-		return(referenciaAlJuego.getJugador().getPartida().getMapa());
+		return(referenciaAlJuego.getJugadorActual().getPartida().getMapa());
 	}
 	
 	public void moverVehiculo(Rumbo rumbo) throws Exception {
-		this.referenciaAlJuego.getJugador().moverVehiculo(rumbo);
+		this.referenciaAlJuego.getJugadorActual().moverVehiculo(rumbo);
+	}
+	
+	public String pedirMovimientosLimitesDelNivel() {
+		return Integer.toString(this.referenciaAlJuego.getJugadorActual().getPartida().getNivel().getCantidadDeMovimientosLimite());
+	}
+	
+	public String pedirMovimientosRealizados() {
+		return Integer.toString(this.referenciaAlJuego.getJugadorActual().getPartida().getMapa().getVehiculo().getCantidadDeMovimientos());
 	}
 	
 	public String pedirPuntajeActualComoString(){
-		return (Integer.toString(this.referenciaAlJuego.getJugador().getPartida().getPuntajeActual()));
+		return (Integer.toString(this.referenciaAlJuego.getJugadorActual().getPartida().getPuntajeActual()));
 	}
 
 	public String pedirMovimientosSobrantes() {
-		return (Integer.toString(this.referenciaAlJuego.getJugador().getPartida().calcularPuntaje()));
+		return (Integer.toString(this.referenciaAlJuego.getJugadorActual().getPartida().calcularPuntaje()));
 	}
+
+
 }

@@ -38,7 +38,7 @@ public class Vehiculo {
     }
          
     private void sumarMovimientos(){
-    	cantidadDeMovimientos = (cantidadDeMovimientos + 1);     
+    	this.cantidadDeMovimientos = (this.cantidadDeMovimientos + 1);     
     }
       
     @XmlElement

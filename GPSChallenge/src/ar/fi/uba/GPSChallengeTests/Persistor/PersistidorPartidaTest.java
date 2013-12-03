@@ -31,7 +31,7 @@ public class PersistidorPartidaTest extends TestCase {
 		Partida partida = new Partida(new Facil());
 		PersistidorPartida persistidor = new PersistidorPartida();
 		Jugador jugador = new Jugador("DiegoTest");
-		String rutaPrueba = System.getProperty("user.dir") + System.getProperty("file.separator") + "Jugadores" +  System.getProperty("file.separator") + jugador.getNombre();
+		String rutaPrueba = System.getProperty("user.dir") + System.getProperty("file.separator") + "Jugadores" +  System.getProperty("file.separator") + jugador.getNombre() + System.getProperty("file.separator");
 		persistidor.persistirPartida(partida, rutaPrueba);
 		DespersistidorPartida despersistidorPartida = new DespersistidorPartida();
 		Partida partidaDespersistida = despersistidorPartida.despersistirPartida(jugador.getRutaASuCarpeta()  + "PartidaGuardada.xml");

@@ -75,7 +75,7 @@ public class Partida {
 	}
 
 	public void persistirMapa(String rutaASuCarpeta) {
-		this.rutaMapa = rutaASuCarpeta + System.getProperty("file.separator") + "Mapa.xml";
+		this.rutaMapa = rutaASuCarpeta + "Mapa.xml";
 		PersistidorMapa persistidor = new PersistidorMapa();
 		persistidor.persistirMapa(this.mapa,this.rutaMapa);
 	}

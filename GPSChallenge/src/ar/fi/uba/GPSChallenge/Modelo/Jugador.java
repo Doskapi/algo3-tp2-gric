@@ -30,7 +30,7 @@ public class Jugador {
 		this.setNombre(nombre);
 		this.setPuntaje(0);
 		this.generarRutaASuCarpeta();
-		File creadorDeCarpeta = new File(this.rutaASuCarpeta);
+		File creadorDeCarpeta = new File( System.getProperty("user.dir") + System.getProperty("file.separator") + "Jugadores" + System.getProperty("file.separator") + this.getNombre());
 		creadorDeCarpeta.mkdir();
 	}
 	
@@ -104,8 +104,7 @@ public class Jugador {
 	public void persistirPartida(){
 		PersistidorPartida persistidor = new PersistidorPartida();
 		persistidor.persistirPartida(this.partidaActual,this.rutaASuCarpeta);
-		this.partidaGuardada = rutaASuCarpeta + System.getProperty("file.separator") + "PartidaGuardada.xml";
-		
+		this.partidaGuardada = rutaASuCarpeta + "PartidaGuardada.xml";
 	}
 	
 }

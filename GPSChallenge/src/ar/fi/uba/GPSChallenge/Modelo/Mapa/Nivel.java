@@ -51,4 +51,8 @@ public class Nivel {
 		Nivel n = (Nivel)otroNivel;
 		return (this.tipoNivel.equals(n.tipoNivel));
 	}
+
+	public int getCantidadDeMovimientosLimite() {
+		return this.movimientosLimite;
+	}
 }

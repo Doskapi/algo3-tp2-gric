@@ -39,7 +39,7 @@ public class Escenario extends JPanel {
 	private Controlador controlador;
 	private JLabel lblNewLabel;
 	
-	public Escenario(VistaPrincipal vistaPrincipal, final Controlador controlador) {
+	public Escenario(final VistaPrincipal vistaPrincipal, final Controlador controlador) {
 		this.vistaPrincipal = vistaPrincipal;
 		this.controlador = controlador;
 		setLayout(null);
@@ -51,9 +51,6 @@ public class Escenario extends JPanel {
 		informacion = new JPanel();
 		add(informacion);
 		
-		JLabel lblHola = new JLabel("HOLA");
-		informacion.add(lblHola);
-		
 		grilla.setLayout(new GridLayout(28, 28, 0, 0));
 		add(grilla);
 		
@@ -64,7 +61,7 @@ public class Escenario extends JPanel {
 		add(lblNewLabel);
 		
 		JButton btnUp = new JButton("UP");
-		btnUp.setBounds(730, 301, 117, 25);
+		btnUp.setBounds(800, 301, 117, 25);
 		add(btnUp);
 		btnUp.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -78,7 +75,7 @@ public class Escenario extends JPanel {
 		
 		
 		JButton btnDown = new JButton("Down");
-		btnDown.setBounds(730, 378, 117, 25);
+		btnDown.setBounds(800, 380, 117, 25);
 		add(btnDown);
 		btnDown.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -92,7 +89,7 @@ public class Escenario extends JPanel {
 		
 		
 		JButton btnLeft = new JButton("Left");
-		btnLeft.setBounds(670, 338, 117, 25);
+		btnLeft.setBounds(730, 338, 117, 25);
 		add(btnLeft);
 		btnLeft.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -106,7 +103,7 @@ public class Escenario extends JPanel {
 		
 		
 		JButton btnRight = new JButton("Right");
-		btnRight.setBounds(799, 338, 117, 25);
+		btnRight.setBounds(867, 338, 117, 25);
 		add(btnRight);
 		btnRight.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -117,11 +114,31 @@ public class Escenario extends JPanel {
 				} catch (Exception e1) {
 				}
 			}
+		});	
+		
+		JButton botonGuardar = new JButton("Guardar");
+		botonGuardar.setBounds(800, 565, 117, 25);
+		add(botonGuardar);
+		botonGuardar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent event) {
+				controlador.persistirJuegoActual();
+				vistaPrincipal.cambiarPanel("pMenuPartida");
+			}
 		});
 		
+		JButton btnSalir = new JButton("Salir");
+		btnSalir.setBounds(800, 600, 117, 25);
+		add(btnSalir);
+		btnSalir.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				System.exit(0);
+			}
+		});
+		
+		escribirDatosDelJugador();
 		inicializarTablero();
         dibujarVehiculo();
-        dibujarImprevistos();
+//        dibujarImprevistos();
 	}
 	
 	public void inicializarTablero(){
@@ -140,6 +157,39 @@ public class Escenario extends JPanel {
         		celdas[i][j].setImagen(imagenTransparente);
             }
         }
+	}
+	
+	public void escribirDatosDelJugador(){
+	
+		JLabel nombreJugador = new JLabel("Jugador:       " + this.controlador.pedirNombreDelJugadorActual());
+		nombreJugador.setFont(new Font("Dialog", Font.BOLD, 18));
+		nombreJugador.setBackground(UIManager.getColor("Button.focus"));
+		nombreJugador.setBounds(700, 50, 450, 25);
+		add(nombreJugador);
+		
+		JLabel puntajeActual = new JLabel("Su Puntaje es: " + this.controlador.pedirPuntajeActualComoString());
+		puntajeActual.setFont(new Font("Dialog", Font.BOLD, 18));
+		puntajeActual.setBackground(UIManager.getColor("Button.focus"));
+		puntajeActual.setBounds(700, 80, 450, 25);
+		add(puntajeActual);
+		
+		JLabel lblMovimientoslimite = new JLabel("Movimientos limite: " + this.controlador.pedirMovimientosLimitesDelNivel());
+		lblMovimientoslimite.setFont(new Font("Dialog", Font.BOLD, 18));
+		lblMovimientoslimite.setBounds(700, 110, 450, 25);
+		add(lblMovimientoslimite);
+		
+		
+		JLabel lblMovimientosrealizados = new JLabel("Movimientos realizados: ");
+		lblMovimientosrealizados.setFont(new Font("Dialog", Font.BOLD, 18));
+		lblMovimientosrealizados.setBounds(700, 140, 450, 25);
+		add(lblMovimientosrealizados);
+		
+		
+		JLabel lblMovRealizados = new JLabel(this.controlador.pedirMovimientosRealizados());
+		lblMovRealizados.setBounds(730, 197, 70, 15);
+		add(lblMovRealizados);
+	
+	
 	}
 	
 	private void dibujarVehiculo() {
@@ -258,8 +308,9 @@ public class Escenario extends JPanel {
 	    Mapa mapa = controlador.obtenerMapa();
 	    posicionVehiculo = mapa.getVehiculo().getEsquina().getPosicion();
 	    tipoVehiculo = mapa.getVehiculo().getNombreEstado();
+	    escribirDatosDelJugador();
 	    dibujarVehiculo();
-	    dibujarImprevistos();
+//	    dibujarImprevistos();
 	}
 }
 	
