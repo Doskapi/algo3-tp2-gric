@@ -38,6 +38,12 @@ public class Escenario extends JPanel {
 	private VistaPrincipal vistaPrincipal;
 	private Controlador controlador;
 	private JLabel lblNewLabel;
+	JLabel nombreJugador;
+	JLabel lblSuPuntajeEs;
+	JLabel lblPuntaje;
+	JLabel lblMovimientosLimite;
+	JLabel lblMovimientosRealizados;
+	JLabel lblCantMovRealizados;
 	
 	public Escenario(final VistaPrincipal vistaPrincipal, final Controlador controlador) {
 		this.vistaPrincipal = vistaPrincipal;
@@ -54,11 +60,41 @@ public class Escenario extends JPanel {
 		grilla.setLayout(new GridLayout(28, 28, 0, 0));
 		add(grilla);
 		
-		lblNewLabel = new JLabel("GPSChallenge\n      ");
+		lblNewLabel = new JLabel("GPSChallenge\n");
 		lblNewLabel.setFont(new Font("Dialog", Font.BOLD, 18));
 		lblNewLabel.setBackground(UIManager.getColor("Button.focus"));
 		lblNewLabel.setBounds(730, 12, 202, 25);
 		add(lblNewLabel);
+		
+		nombreJugador = new JLabel("Jugador: " + this.controlador.pedirNombreDelJugadorActual());
+		nombreJugador.setFont(new Font("Dialog", Font.BOLD, 18));
+		nombreJugador.setBackground(UIManager.getColor("Button.focus"));
+		nombreJugador.setBounds(700, 50, 450, 25);
+		add(nombreJugador);
+		
+		lblSuPuntajeEs = new JLabel("Su Puntaje es: ");
+		lblSuPuntajeEs.setFont(new Font("Dialog", Font.BOLD, 18));
+		lblSuPuntajeEs.setBackground(UIManager.getColor("Button.focus"));
+		lblSuPuntajeEs.setBounds(700, 80, 152, 25);
+		add(lblSuPuntajeEs);
+
+		lblPuntaje = new JLabel(this.controlador.pedirPuntajeActualComoString());
+		lblPuntaje.setBounds(867, 83, 70, 15);
+		add(lblPuntaje);
+		
+		lblMovimientosLimite = new JLabel("Movimientos limite: " + this.controlador.pedirMovimientosLimitesDelNivel());
+		lblMovimientosLimite.setFont(new Font("Dialog", Font.BOLD, 18));
+		lblMovimientosLimite.setBounds(700, 110, 450, 25);
+		add(lblMovimientosLimite);
+		
+		lblMovimientosRealizados = new JLabel("Movimientos realizados: ");
+		lblMovimientosRealizados.setFont(new Font("Dialog", Font.BOLD, 18));
+		lblMovimientosRealizados.setBounds(700, 140, 251, 25);
+		add(lblMovimientosRealizados);
+		
+		lblCantMovRealizados = new JLabel(this.controlador.pedirMovimientosRealizados());
+		lblCantMovRealizados.setBounds(963, 146, 70, 15);
+		add(lblCantMovRealizados);
 		
 		JButton btnUp = new JButton("UP");
 		btnUp.setBounds(800, 301, 117, 25);
@@ -160,36 +196,8 @@ public class Escenario extends JPanel {
 	}
 	
 	public void escribirDatosDelJugador(){
-	
-		JLabel nombreJugador = new JLabel("Jugador:       " + this.controlador.pedirNombreDelJugadorActual());
-		nombreJugador.setFont(new Font("Dialog", Font.BOLD, 18));
-		nombreJugador.setBackground(UIManager.getColor("Button.focus"));
-		nombreJugador.setBounds(700, 50, 450, 25);
-		add(nombreJugador);
-		
-		JLabel puntajeActual = new JLabel("Su Puntaje es: " + this.controlador.pedirPuntajeActualComoString());
-		puntajeActual.setFont(new Font("Dialog", Font.BOLD, 18));
-		puntajeActual.setBackground(UIManager.getColor("Button.focus"));
-		puntajeActual.setBounds(700, 80, 450, 25);
-		add(puntajeActual);
-		
-		JLabel lblMovimientoslimite = new JLabel("Movimientos limite: " + this.controlador.pedirMovimientosLimitesDelNivel());
-		lblMovimientoslimite.setFont(new Font("Dialog", Font.BOLD, 18));
-		lblMovimientoslimite.setBounds(700, 110, 450, 25);
-		add(lblMovimientoslimite);
-		
-		
-		JLabel lblMovimientosrealizados = new JLabel("Movimientos realizados: ");
-		lblMovimientosrealizados.setFont(new Font("Dialog", Font.BOLD, 18));
-		lblMovimientosrealizados.setBounds(700, 140, 450, 25);
-		add(lblMovimientosrealizados);
-		
-		
-		JLabel lblMovRealizados = new JLabel(this.controlador.pedirMovimientosRealizados());
-		lblMovRealizados.setBounds(730, 197, 70, 15);
-		add(lblMovRealizados);
-	
-	
+		lblPuntaje.setText(this.controlador.pedirPuntajeActualComoString());
+		lblCantMovRealizados.setText(this.controlador.pedirMovimientosRealizados());
 	}
 	
 	private void dibujarVehiculo() {

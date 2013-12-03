@@ -6,6 +6,7 @@ import java.util.List;
 
 import ar.fi.uba.GPSChallenge.Modelo.Juego;
 import ar.fi.uba.GPSChallenge.Modelo.Jugador;
+import ar.fi.uba.GPSChallenge.Modelo.Partida;
 import ar.fi.uba.GPSChallenge.Modelo.Mapa.Dificil;
 import ar.fi.uba.GPSChallenge.Modelo.Mapa.Facil;
 import ar.fi.uba.GPSChallenge.Modelo.Mapa.Mapa;
@@ -15,6 +16,8 @@ import ar.fi.uba.GPSChallenge.Modelo.Vehiculo.CuatroPorCuatro;
 import ar.fi.uba.GPSChallenge.Modelo.Vehiculo.Moto;
 import ar.fi.uba.GPSChallenge.Modelo.Vehiculo.Rumbo;
 import ar.fi.uba.GPSChallenge.Modelo.Vehiculo.Vehiculo;
+import ar.fi.uba.GPSChallenge.Persistencia.DespersistidorMapa;
+import ar.fi.uba.GPSChallenge.Persistencia.DespersistidorPartida;
 import ar.fi.uba.GPSChallenge.Persistencia.PersistidorDeJuego;
 import ar.fi.uba.GPSChallenge.Persistencia.PersistidorJugador;
 
@@ -30,8 +33,8 @@ public class Controlador {
 		Jugador jugador = new Jugador(usuarioNuevo);
 		this.referenciaAlJuego.agregarJugador(jugador);
 		this.referenciaAlJuego.setJugadorActual(jugador);
-		this.persistirJuego();
 		this.persistirJugador(jugador);
+		this.persistirJuego();
 	}
 
 	private void persistirJugador(Jugador jugador) {
@@ -124,11 +127,21 @@ public class Controlador {
 	}
 	
 	public String pedirPuntajeActualComoString(){
-		return (Integer.toString(this.referenciaAlJuego.getJugadorActual().getPartida().getPuntajeActual()));
+		return (Integer.toString(this.referenciaAlJuego.getJugadorActual().getPartida().calcularPuntaje()));
 	}
 
 	public String pedirMovimientosSobrantes() {
 		return (Integer.toString(this.referenciaAlJuego.getJugadorActual().getPartida().calcularPuntaje()));
+	}
+
+	public void continuarPartidaGuardada() {
+		Partida partida;
+		String laPartidaGuardada = this.referenciaAlJuego.getJugadorActual().getPartidaGuardada();
+		DespersistidorPartida despersistidorPartida = new DespersistidorPartida();
+		partida = despersistidorPartida.despersistirPartida(laPartidaGuardada);
+		this.referenciaAlJuego.getJugadorActual().setPartidaActual(partida);
+		
+		
 	}
 
 

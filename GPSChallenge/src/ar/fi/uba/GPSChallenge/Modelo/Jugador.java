@@ -106,5 +106,10 @@ public class Jugador {
 		persistidor.persistirPartida(this.partidaActual,this.rutaASuCarpeta);
 		this.partidaGuardada = rutaASuCarpeta + "PartidaGuardada.xml";
 	}
+
+	public void setPartidaActual(Partida partida) {
+			this.partidaActual = partida;
+		
+	}
 	
 }

@@ -64,7 +64,6 @@ public class VistaPrincipal implements Observer, KeyListener{
 		card.addLayoutComponent(pMenuPartida, "pMenuPartida");
 		card.addLayoutComponent(pPuntajes, "pPuntajes");
 		card.addLayoutComponent(pPartidaNueva, "pPartidaNueva");
-		//card.addLayoutComponent(pEscenario, "pEscenario");
 		
 		contenedor.add(pBienvenida);
 		contenedor.add(pNuevoUsuario);
@@ -72,7 +71,6 @@ public class VistaPrincipal implements Observer, KeyListener{
 		contenedor.add(pMenuPartida);
 		contenedor.add(pPuntajes);
 		contenedor.add(pPartidaNueva);
-		//contenedor.add(pEscenario);
 		
 		contenedor.setLayout(card);
         card.show(contenedor, "pBienvenida");

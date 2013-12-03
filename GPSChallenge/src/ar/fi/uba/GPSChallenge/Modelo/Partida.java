@@ -5,7 +5,10 @@ import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 import javax.xml.bind.annotation.XmlType;
 
+import ar.fi.uba.GPSChallenge.Modelo.Mapa.Dificil;
+import ar.fi.uba.GPSChallenge.Modelo.Mapa.Facil;
 import ar.fi.uba.GPSChallenge.Modelo.Mapa.Mapa;
+import ar.fi.uba.GPSChallenge.Modelo.Mapa.Moderado;
 import ar.fi.uba.GPSChallenge.Modelo.Mapa.Nivel;
 import ar.fi.uba.GPSChallenge.Modelo.Vehiculo.Rumbo;
 import ar.fi.uba.GPSChallenge.Modelo.Vehiculo.Vehiculo;

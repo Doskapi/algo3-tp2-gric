@@ -14,7 +14,7 @@ public class MenuPartida extends JPanel {
 	private static final long serialVersionUID = 1L;
 	private Controlador controlador;
 	
-	public MenuPartida(final VistaPrincipal vistaPrincipal, Controlador controlador) {
+	public MenuPartida(final VistaPrincipal vistaPrincipal, final Controlador controlador) {
 		setLayout(null);
 		setBounds(10, 10, 1200, 700);
 		
@@ -59,7 +59,8 @@ public class MenuPartida extends JPanel {
 		add(btnContinuarConSuPartida);
 		btnContinuarConSuPartida.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent event) {
-				vistaPrincipal.cambiarPanel("pPartida");
+				controlador.continuarPartidaGuardada();
+				vistaPrincipal.cambiarPanel("pEsenario");
 			}
 		});
 		
