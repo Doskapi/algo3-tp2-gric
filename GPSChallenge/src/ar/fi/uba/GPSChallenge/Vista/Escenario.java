@@ -7,17 +7,23 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Observable;
-
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.UIManager;
-
 import ar.fi.uba.GPSChallenge.Controlador.Controlador;
 import ar.fi.uba.GPSChallenge.Modelo.Imprevistos.Imprevisto;
 import ar.fi.uba.GPSChallenge.Modelo.Mapa.Cuadra;
 import ar.fi.uba.GPSChallenge.Modelo.Mapa.Mapa;
 import ar.fi.uba.GPSChallenge.Modelo.Mapa.Posicion;
+import ar.fi.uba.GPSChallenge.Modelo.Vehiculo.Este;
+import ar.fi.uba.GPSChallenge.Modelo.Vehiculo.Norte;
+import ar.fi.uba.GPSChallenge.Modelo.Vehiculo.Oeste;
+import ar.fi.uba.GPSChallenge.Modelo.Vehiculo.Sur;
+
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 
 public class Escenario extends JPanel {
@@ -34,7 +40,7 @@ public class Escenario extends JPanel {
 	private Controlador controlador;
 	private JLabel lblNewLabel;
 	
-	public Escenario(VistaPrincipal vistaPrincipal, Controlador controlador) {
+	public Escenario(VistaPrincipal vistaPrincipal, final Controlador controlador) {
 		this.vistaPrincipal = vistaPrincipal;
 		this.controlador = controlador;
 		setLayout(null);
@@ -57,11 +63,54 @@ public class Escenario extends JPanel {
 		lblNewLabel.setBackground(UIManager.getColor("Button.focus"));
 		lblNewLabel.setBounds(730, 12, 202, 25);
 		add(lblNewLabel);
+		
+		JButton btnUp = new JButton("UP");
+		btnUp.setBounds(730, 301, 117, 25);
+		add(btnUp);
+		btnUp.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				controlador.moverVehiculo(new Norte());
+				update();
+			}
+		});
+		
+		
+		JButton btnDown = new JButton("Down");
+		btnDown.setBounds(730, 378, 117, 25);
+		add(btnDown);
+		btnDown.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				controlador.moverVehiculo(new Sur());
+				update();
+			}
+		});
+		
+		
+		JButton btnLeft = new JButton("Left");
+		btnLeft.setBounds(670, 338, 117, 25);
+		add(btnLeft);
+		btnLeft.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				controlador.moverVehiculo(new Oeste());
+				update();
+			}
+		});
+		
+		
+		JButton btnRight = new JButton("Right");
+		btnRight.setBounds(799, 338, 117, 25);
+		add(btnRight);
+		btnRight.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				controlador.moverVehiculo(new Este());
+				update();
+			}
+		});
+		
+		
 		inicializarTablero();
         dibujarVehiculo();
-        
-        
-//        dibujarImprevistos();
+        dibujarImprevistos();
         
 	}
 	
@@ -72,7 +121,11 @@ public class Escenario extends JPanel {
                 grilla.add(celdas[i][j]);
             }
         }         
-        for (int i = 0; i < 28; i++) {
+        limpiarTablero();
+	}
+	
+	public void limpiarTablero(){
+		for (int i = 0; i < 28; i++) {
         	for (int j = 0 ; j < 28; j++) {
         		celdas[i][j].setImagen(imagenTransparente);
             }
@@ -91,12 +144,7 @@ public class Escenario extends JPanel {
 		celdas[fila][columna].setImagen(imagenVehiculo);
 	}  
 
-
-
-
-
-
-
+	
 	private void dibujarImprevistos() {
 		List<Cuadra> cuadrasDelMapa;
 		Mapa mapa = controlador.obtenerMapa();
@@ -163,29 +211,15 @@ public class Escenario extends JPanel {
 		}
 	}
 	
-	
-	
-	
-	
-	
-	public void update(Observable t, Object o) {
+	public void update() {
 	    Posicion posicionVehiculo;
 	    Image imagenVehiculo;
 	    String tipoVehiculo;
-	    List<Posicion> posicionesARecorrer = new ArrayList<Posicion>();
-	    for (int i = 1; i < 11; i++){
-	    	for (int j = 1; j< 11; j++){
-	    		posicionesARecorrer.add(new Posicion(i,j));
-	        }
-	    }
+	    limpiarTablero();
 	    Mapa mapa = controlador.obtenerMapa();
 	    posicionVehiculo = mapa.getVehiculo().getEsquina().getPosicion();
 	    tipoVehiculo = mapa.getVehiculo().getNombreEstado();
 	    dibujarVehiculo();
 	}
-
-
-	
-	
 }
 	

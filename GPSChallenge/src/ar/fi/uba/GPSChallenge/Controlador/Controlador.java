@@ -13,6 +13,8 @@ import ar.fi.uba.GPSChallenge.Modelo.Mapa.Moderado;
 import ar.fi.uba.GPSChallenge.Modelo.Vehiculo.Auto;
 import ar.fi.uba.GPSChallenge.Modelo.Vehiculo.CuatroPorCuatro;
 import ar.fi.uba.GPSChallenge.Modelo.Vehiculo.Moto;
+import ar.fi.uba.GPSChallenge.Modelo.Vehiculo.Norte;
+import ar.fi.uba.GPSChallenge.Modelo.Vehiculo.Rumbo;
 import ar.fi.uba.GPSChallenge.Modelo.Vehiculo.Vehiculo;
 import ar.fi.uba.GPSChallenge.Persistencia.PersistidorDeJuego;
 import ar.fi.uba.GPSChallenge.Persistencia.PersistidorJugador;
@@ -102,5 +104,9 @@ public class Controlador {
 
 	public Mapa obtenerMapa() {
 		return(referenciaAlJuego.getJugador().getPartida().getMapa());
+	}
+
+	public void moverVehiculo(Rumbo rumbo) {
+		this.referenciaAlJuego.getJugador().getPartida().getMapa().getVehiculo().mover(rumbo);
 	}
 }
