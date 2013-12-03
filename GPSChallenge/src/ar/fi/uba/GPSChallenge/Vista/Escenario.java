@@ -165,15 +165,15 @@ public class Escenario extends JPanel {
 		
 		while(iteradorDeCuadras.hasNext()){
 			Cuadra cuadraActual = iteradorDeCuadras.next();
-			List<Imprevisto> ImptrvistosDeLaCuadraActual;
-			ImptrvistosDeLaCuadraActual = cuadraActual.getImprevistos();
+			List<Imprevisto> ImprevistosDeLaCuadraActual;
+			ImprevistosDeLaCuadraActual = cuadraActual.getImprevistos();
 			
 			Posicion posInicial = cuadraActual.getEsquinaInicial().getPosicion();
 			Posicion posFinal = cuadraActual.getEsquinaFinal().getPosicion();
 			
-			System.out.println("cantidad de imprevistos en la cuadra es " + ImptrvistosDeLaCuadraActual.size());
+			System.out.println("cantidad de imprevistos en la cuadra es " + ImprevistosDeLaCuadraActual.size());
 
-			Iterator<Imprevisto> iteradorDeImprevistos = ImptrvistosDeLaCuadraActual.iterator();
+			Iterator<Imprevisto> iteradorDeImprevistos = ImprevistosDeLaCuadraActual.iterator();
 
 			if (posInicial.getFila() == posFinal.getFila()){
 				if(posInicial.getColumna() < posFinal.getColumna()){

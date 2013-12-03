@@ -49,9 +49,11 @@ public class ElegirUsuario extends JPanel {
 		add(btnSeleccionarUsuario);
 		btnSeleccionarUsuario.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent event) {
+				if (botoneraDeUsuarios.getSelection() != null){
 				String jugadorSeleccionado = getTextDelBtnSeleccionado(botoneraDeUsuarios);
 				controlador.elegirUsuarioSeleccionado(jugadorSeleccionado);
 				vistaPrincipal.cambiarPanel("pMenuPartida");
+				}
 			}
 		});
 		
