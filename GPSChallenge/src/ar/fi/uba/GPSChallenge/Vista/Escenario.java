@@ -79,6 +79,7 @@ public class Escenario extends JPanel {
 		add(lblSuPuntajeEs);
 
 		lblPuntaje = new JLabel(this.controlador.pedirPuntajeActualComoString());
+		lblPuntaje.setFont(new Font("Dialog", Font.BOLD, 18));
 		lblPuntaje.setBounds(867, 83, 70, 15);
 		add(lblPuntaje);
 		
@@ -93,6 +94,7 @@ public class Escenario extends JPanel {
 		add(lblMovimientosRealizados);
 		
 		lblCantMovRealizados = new JLabel(this.controlador.pedirMovimientosRealizados());
+		lblCantMovRealizados.setFont(new Font("Dialog", Font.BOLD, 18));
 		lblCantMovRealizados.setBounds(963, 146, 70, 15);
 		add(lblCantMovRealizados);
 		
@@ -122,7 +124,6 @@ public class Escenario extends JPanel {
 				}
 			}
 		});
-		
 		
 		JButton btnLeft = new JButton("Left");
 		btnLeft.setBounds(730, 338, 117, 25);
@@ -173,7 +174,9 @@ public class Escenario extends JPanel {
 		
 		escribirDatosDelJugador();
 		inicializarTablero();
-        dibujarVehiculo();
+		mostrarMeta();
+        dibujarVehiculo();//no deberia ir es tapado por el prox metodo
+        mostrarLargada();
 //        dibujarImprevistos();
 	}
 	
@@ -193,6 +196,45 @@ public class Escenario extends JPanel {
         		celdas[i][j].setImagen(imagenTransparente);
             }
         }
+	}
+
+	public void mostrarLargada(){
+		Posicion posLargada = this.controlador.obtenerMapa().getEsquinaLargada().getPosicion();
+		if ((this.controlador.obtenerMapa().getVehiculo().getCantidadDeMovimientos() < 1)){
+			switch(this.controlador.obtenerMapa().getVehiculo().getNombreEstado()){
+				case "Auto":
+					celdas[(posLargada.getFila()-1)*3][(posLargada.getColumna()-1)*3].setImagen("LargadaAuto.png");
+					break;
+				case "CuatroPorCuatro":
+					celdas[(posLargada.getFila()-1)*3][(posLargada.getColumna()-1)*3].setImagen("LargadaCuatroPorCuatro.png");
+					break;
+				case "Moto":
+					celdas[(posLargada.getFila()-1)*3][(posLargada.getColumna()-1)*3].setImagen("LargadaMoto.png");
+					break;	
+			}
+		}else{
+			celdas[(posLargada.getFila()-1)*3][(posLargada.getColumna()-1)*3].setImagen("Largada.png");
+		}
+	}
+	
+	public void mostrarMeta(){
+		Posicion posMeta = this.controlador.obtenerMapa().getEsquinaMeta().getPosicion();
+		
+		if (this.controlador.obtenerMapa().getVehiculo().getEsquina().getPosicion().equals(posMeta)){
+			switch(this.controlador.obtenerMapa().getVehiculo().getNombreEstado()){
+				case "Auto":
+					celdas[(posMeta.getFila()-1)*3][(posMeta.getColumna()-1)*3].setImagen("MetaAuto.png");
+					break;
+				case "CuatroPorCuatro":
+					celdas[(posMeta.getFila()-1)*3][(posMeta.getColumna()-1)*3].setImagen("MetaCuatroPorCuatro.png");
+					break;
+				case "Moto":
+					celdas[(posMeta.getFila()-1)*3][(posMeta.getColumna()-1)*3].setImagen("MetaMoto.png");
+					break;	
+			}
+		}else{
+			celdas[(posMeta.getFila()-1)*3][(posMeta.getColumna()-1)*3].setImagen("Meta.png");
+		}
 	}
 	
 	public void escribirDatosDelJugador(){
@@ -317,6 +359,8 @@ public class Escenario extends JPanel {
 	    posicionVehiculo = mapa.getVehiculo().getEsquina().getPosicion();
 	    tipoVehiculo = mapa.getVehiculo().getNombreEstado();
 	    escribirDatosDelJugador();
+	    mostrarLargada();
+	    mostrarMeta();
 	    dibujarVehiculo();
 //	    dibujarImprevistos();
 	}

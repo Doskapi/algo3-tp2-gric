@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<mapa>
+    <filas>1</filas>
+    <columnas>1</columnas>
+    <esquinaLargada>
+        <posicion>
+            <columna>1</columna>
+            <fila>1</fila>
+        </posicion>
+    </esquinaLargada>
+    <esquinaMeta>
+        <posicion>
+            <columna>1</columna>
+            <fila>1</fila>
+        </posicion>
+    </esquinaMeta>
+    <vehiculo>
+        <estado>
+            <tipoEstado>Auto</tipoEstado>
+        </estado>
+        <esquina>
+            <posicion>
+                <columna>0</columna>
+                <fila>0</fila>
+            </posicion>
+        </esquina>
+        <cantidadDeMovimientos>0</cantidadDeMovimientos>
+    </vehiculo>
+    <cuadras/>
+</mapa>

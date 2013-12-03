@@ -4,31 +4,12 @@
         <jugador>
             <nombre>JuanTest</nombre>
             <puntaje>0</puntaje>
-            <partidaGuardada>C:\Users\Leonardo\workspace\GPSChallenge\Jugadores\JuanTest\\PartidaGuardada.xml</partidaGuardada>
-            <rutaASuCarpeta>C:\Users\Leonardo\workspace\GPSChallenge\Jugadores\JuanTest\</rutaASuCarpeta>
+            <rutaASuCarpeta>/home/sebas/workspace/GPSChallenge/Jugadores/JuanTest/</rutaASuCarpeta>
         </jugador>
         <jugador>
             <nombre>PedroTest</nombre>
             <puntaje>0</puntaje>
-            <partidaGuardada>C:\Users\Leonardo\workspace\GPSChallenge\Jugadores\PedroTest\\PartidaGuardada.xml</partidaGuardada>
-            <rutaASuCarpeta>C:\Users\Leonardo\workspace\GPSChallenge\Jugadores\PedroTest\</rutaASuCarpeta>
-        </jugador>
-        <jugador>
-            <nombre>dfdf</nombre>
-            <puntaje>0</puntaje>
-            <partidaGuardada>C:\Users\Leonardo\workspace\GPSChallenge\Jugadores\dfdf\\PartidaGuardada.xml</partidaGuardada>
-            <rutaASuCarpeta>C:\Users\Leonardo\workspace\GPSChallenge\Jugadores\dfdf\</rutaASuCarpeta>
-        </jugador>
-        <jugador>
-            <nombre>Hola</nombre>
-            <puntaje>0</puntaje>
-            <partidaGuardada>C:\Users\Leonardo\workspace\GPSChallenge\Jugadores\Hola\\PartidaGuardada.xml</partidaGuardada>
-            <rutaASuCarpeta>C:\Users\Leonardo\workspace\GPSChallenge\Jugadores\Hola\</rutaASuCarpeta>
-        </jugador>
-        <jugador>
-            <nombre>lalal</nombre>
-            <puntaje>0</puntaje>
-            <rutaASuCarpeta>C:\Users\Leonardo\workspace\GPSChallenge\Jugadores\lalal\</rutaASuCarpeta>
+            <rutaASuCarpeta>/home/sebas/workspace/GPSChallenge/Jugadores/PedroTest/</rutaASuCarpeta>
         </jugador>
     </listajugadores>
 </juego>
