@@ -1,171 +1,64 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <mapa>
     <filas>10</filas>
-    <columnas>10</columnas>
+    <columnas>11</columnas>
     <esquinaLargada>
         <posicion>
             <columna>1</columna>
-            <fila>8</fila>
+            <fila>3</fila>
         </posicion>
     </esquinaLargada>
     <esquinaMeta>
         <posicion>
-            <columna>10</columna>
-            <fila>8</fila>
+            <columna>11</columna>
+            <fila>5</fila>
         </posicion>
     </esquinaMeta>
     <vehiculo>
         <estado>
             <tipoEstado>Auto</tipoEstado>
         </estado>
-        <esquina>
-            <posicion>
-                <columna>0</columna>
-                <fila>0</fila>
-            </posicion>
-        </esquina>
         <cantidadDeMovimientos>0</cantidadDeMovimientos>
     </vehiculo>
     <cuadras>
         <cuadras>
             <imprevistos>
                 <imprevisto>
-                    <tipoDeImprevisto>ObstaculoPozos</tipoDeImprevisto>
-                </imprevisto>
-                <imprevisto>
-                    <tipoDeImprevisto>SorpresaDesfavorable</tipoDeImprevisto>
+                    <tipoDeImprevisto>ObstaculoPiquete</tipoDeImprevisto>
                 </imprevisto>
             </imprevistos>
             <esquinaInicial>
                 <posicion>
-                    <columna>8</columna>
-                    <fila>7</fila>
+                    <columna>6</columna>
+                    <fila>5</fila>
+                </posicion>
+            </esquinaInicial>
+            <esquinaFinal>
+                <posicion>
+                    <columna>7</columna>
+                    <fila>5</fila>
+                </posicion>
+            </esquinaFinal>
+        </cuadras>
+        <cuadras>
+            <imprevistos>
+                <imprevisto>
+                    <tipoDeImprevisto>SorpresaFavorable</tipoDeImprevisto>
+                </imprevisto>
+                <imprevisto>
+                    <tipoDeImprevisto>ObstaculoPolicial</tipoDeImprevisto>
+                </imprevisto>
+            </imprevistos>
+            <esquinaInicial>
+                <posicion>
+                    <columna>9</columna>
+                    <fila>8</fila>
                 </posicion>
             </esquinaInicial>
             <esquinaFinal>
                 <posicion>
                     <columna>8</columna>
                     <fila>8</fila>
-                </posicion>
-            </esquinaFinal>
-        </cuadras>
-        <cuadras>
-            <imprevistos>
-                <imprevisto>
-                    <tipoDeImprevisto>ObstaculoPolicial</tipoDeImprevisto>
-                </imprevisto>
-                <imprevisto>
-                    <tipoDeImprevisto>SorpresaCambioDeVehiculo</tipoDeImprevisto>
-                </imprevisto>
-            </imprevistos>
-            <esquinaInicial>
-                <posicion>
-                    <columna>9</columna>
-                    <fila>5</fila>
-                </posicion>
-            </esquinaInicial>
-            <esquinaFinal>
-                <posicion>
-                    <columna>10</columna>
-                    <fila>5</fila>
-                </posicion>
-            </esquinaFinal>
-        </cuadras>
-        <cuadras>
-            <imprevistos>
-                <imprevisto>
-                    <tipoDeImprevisto>SorpresaDesfavorable</tipoDeImprevisto>
-                </imprevisto>
-                <imprevisto>
-                    <tipoDeImprevisto>ObstaculoPiquete</tipoDeImprevisto>
-                </imprevisto>
-            </imprevistos>
-            <esquinaInicial>
-                <posicion>
-                    <columna>7</columna>
-                    <fila>5</fila>
-                </posicion>
-            </esquinaInicial>
-            <esquinaFinal>
-                <posicion>
-                    <columna>7</columna>
-                    <fila>4</fila>
-                </posicion>
-            </esquinaFinal>
-        </cuadras>
-        <cuadras>
-            <imprevistos>
-                <imprevisto>
-                    <tipoDeImprevisto>SorpresaCambioDeVehiculo</tipoDeImprevisto>
-                </imprevisto>
-            </imprevistos>
-            <esquinaInicial>
-                <posicion>
-                    <columna>9</columna>
-                    <fila>1</fila>
-                </posicion>
-            </esquinaInicial>
-            <esquinaFinal>
-                <posicion>
-                    <columna>10</columna>
-                    <fila>1</fila>
-                </posicion>
-            </esquinaFinal>
-        </cuadras>
-        <cuadras>
-            <imprevistos>
-                <imprevisto>
-                    <tipoDeImprevisto>SorpresaDesfavorable</tipoDeImprevisto>
-                </imprevisto>
-            </imprevistos>
-            <esquinaInicial>
-                <posicion>
-                    <columna>7</columna>
-                    <fila>9</fila>
-                </posicion>
-            </esquinaInicial>
-            <esquinaFinal>
-                <posicion>
-                    <columna>6</columna>
-                    <fila>9</fila>
-                </posicion>
-            </esquinaFinal>
-        </cuadras>
-        <cuadras>
-            <imprevistos>
-                <imprevisto>
-                    <tipoDeImprevisto>ObstaculoPozos</tipoDeImprevisto>
-                </imprevisto>
-            </imprevistos>
-            <esquinaInicial>
-                <posicion>
-                    <columna>5</columna>
-                    <fila>1</fila>
-                </posicion>
-            </esquinaInicial>
-            <esquinaFinal>
-                <posicion>
-                    <columna>5</columna>
-                    <fila>2</fila>
-                </posicion>
-            </esquinaFinal>
-        </cuadras>
-        <cuadras>
-            <imprevistos>
-                <imprevisto>
-                    <tipoDeImprevisto>ObstaculoPiquete</tipoDeImprevisto>
-                </imprevisto>
-            </imprevistos>
-            <esquinaInicial>
-                <posicion>
-                    <columna>8</columna>
-                    <fila>5</fila>
-                </posicion>
-            </esquinaInicial>
-            <esquinaFinal>
-                <posicion>
-                    <columna>7</columna>
-                    <fila>5</fila>
                 </posicion>
             </esquinaFinal>
         </cuadras>

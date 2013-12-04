@@ -40,7 +40,6 @@ public class SorpresaCambioDeVehiculoTests extends TestCase{
 		SorpresaCambioDeVehiculo sorpresaCambioDeVehiculo = new SorpresaCambioDeVehiculo();
 		CuatroPorCuatro cuatroPorCuatro = new CuatroPorCuatro();
 		Vehiculo vehiculo = new Vehiculo(cuatroPorCuatro);
-		
 		sorpresaCambioDeVehiculo.aplicarImprevisto(vehiculo);	
 		assertEquals(vehiculo.getNombreEstado(),"Moto");
 	}	
@@ -51,7 +50,6 @@ public class SorpresaCambioDeVehiculoTests extends TestCase{
 		SorpresaCambioDeVehiculo otraSorpresaCambioDeVehiculo = new SorpresaCambioDeVehiculo();
 		Moto moto = new Moto();
 		Vehiculo vehiculo = new Vehiculo(moto);
-		
 		unaSorpresaCambioDeVehiculo.aplicarImprevisto(vehiculo);
 		assertEquals(vehiculo.getNombreEstado(),"Auto");
 		otraSorpresaCambioDeVehiculo.aplicarImprevisto(vehiculo);
@@ -66,7 +64,6 @@ public class SorpresaCambioDeVehiculoTests extends TestCase{
 		SorpresaCambioDeVehiculo sorpresaCambioDeVehiculo = new SorpresaCambioDeVehiculo();
 		Moto moto = new Moto();
 		Vehiculo vehiculo = new Vehiculo(moto);
-		
 		unaSorpresaCambioDeVehiculo.aplicarImprevisto(vehiculo);
 		assertEquals(vehiculo.getNombreEstado(),"Auto");
 		otraSorpresaCambioDeVehiculo.aplicarImprevisto(vehiculo);

@@ -3,9 +3,15 @@ package ar.fi.uba.GPSChallengeTests.Mapa;
 import junit.framework.TestCase;
 import org.junit.Test;
 import ar.fi.uba.GPSChallenge.Modelo.Mapa.Esquina;
+import ar.fi.uba.GPSChallenge.Modelo.Mapa.ExcepcionFueraDeRango;
 import ar.fi.uba.GPSChallenge.Modelo.Mapa.Mapa;
 import ar.fi.uba.GPSChallenge.Modelo.Mapa.Posicion;
 import ar.fi.uba.GPSChallenge.Modelo.Vehiculo.Auto;
+import ar.fi.uba.GPSChallenge.Modelo.Vehiculo.Este;
+import ar.fi.uba.GPSChallenge.Modelo.Vehiculo.Moto;
+import ar.fi.uba.GPSChallenge.Modelo.Vehiculo.Norte;
+import ar.fi.uba.GPSChallenge.Modelo.Vehiculo.Oeste;
+import ar.fi.uba.GPSChallenge.Modelo.Vehiculo.Sur;
 import ar.fi.uba.GPSChallenge.Modelo.Vehiculo.Vehiculo;
 
 public class MapaTests extends TestCase {
@@ -76,6 +82,62 @@ public class MapaTests extends TestCase {
 		assertEquals(mapa.cantidadDeElementos(),120);
 		assertTrue(mapa.getEsquinaMeta().getPosicion().getColumna() == 12);
 	}	
+	
+	@Test
+	public void testUnVehiculoSeVaDeRangoAlNorteYSeLanzaExcepcion(){
+		Moto moto = new Moto();
+		Vehiculo vehiculo = new Vehiculo(moto);
+		Mapa mapa = new Mapa(10,10);
+		mapa.setEsquinaLargada(new Esquina(new Posicion(1,1)));
+		mapa.agregarVehiculo(vehiculo);
+		try {
+			mapa.moverVehiculo(new Norte());
+		} catch (Exception e) {
+			assertNotNull(e);
+		}
+	}
+	
+	@Test
+	public void testUnVehiculoSeVaDeRangoAlSurYSeLanzaExcepcion(){
+		Moto moto = new Moto();
+		Vehiculo vehiculo = new Vehiculo(moto);
+		Mapa mapa = new Mapa(10,10);
+		mapa.setEsquinaLargada(new Esquina(new Posicion(10,1)));
+		mapa.agregarVehiculo(vehiculo);
+		try {
+			mapa.moverVehiculo(new Sur());
+		} catch (Exception e) {
+			assertNotNull(e);
+		}
+	}
+	
+	@Test
+	public void testUnVehiculoSeVaDeRangoAlEsteYYSeLanzaExcepcion(){
+		Moto moto = new Moto();
+		Vehiculo vehiculo = new Vehiculo(moto);
+		Mapa mapa = new Mapa(10,10);
+		mapa.setEsquinaLargada(new Esquina(new Posicion(1,10)));
+		mapa.agregarVehiculo(vehiculo);
+		try {
+			mapa.moverVehiculo(new Este());
+		} catch (Exception e) {
+			assertNotNull(e);
+		}
+	}
+	
+	@Test
+	public void testUnVehiculoSeVaDeRangoAlOesteYSeLanzaExcepcion(){
+		Moto moto = new Moto();
+		Vehiculo vehiculo = new Vehiculo(moto);
+		Mapa mapa = new Mapa(10,10);
+		mapa.setEsquinaLargada(new Esquina(new Posicion(1,1)));
+		mapa.agregarVehiculo(vehiculo);
+		try {
+			mapa.moverVehiculo(new Oeste());
+		} catch (Exception e) {
+			assertNotNull(e);
+		}
+	}
 }
 	
 

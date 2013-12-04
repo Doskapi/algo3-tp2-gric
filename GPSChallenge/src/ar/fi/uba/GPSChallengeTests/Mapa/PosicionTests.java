@@ -2,7 +2,6 @@ package ar.fi.uba.GPSChallengeTests.Mapa;
 
 import junit.framework.TestCase;
 import org.junit.Test;
-
 import ar.fi.uba.GPSChallenge.Modelo.Mapa.Mapa;
 import ar.fi.uba.GPSChallenge.Modelo.Mapa.Posicion;
 
@@ -41,5 +40,12 @@ public class PosicionTests extends TestCase {
 		assertTrue(posicion2.getColumna() <= 50);
 		assertTrue(posicion2.getFila() > 0);
 		assertTrue(posicion2.getColumna() > 0);
+	}
+	
+	@Test
+	public void testDosPosicionesSonIgualesCuandoCoincidenSusFilasYSusColumnas(){
+		Posicion posicion1 = new Posicion(1,2);
+		Posicion posicion2 = new Posicion(1,2);
+		assertEquals(posicion1, posicion2);
 	}
 }

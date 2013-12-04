@@ -46,4 +46,14 @@ public class ObstaculoPozosTest extends TestCase {
 		assertEquals(vehiculo.getCantidadDeMovimientos(), 0);
 	}
 	
+	@Test
+	public void testObstaculoPozosSumaMovimientosAAutoCuandoPasaDosVeces(){
+		ObstaculoPozos obstaculoPozos = new ObstaculoPozos();
+		Auto auto = new Auto();
+		Vehiculo vehiculo = new Vehiculo(auto);
+		assertEquals(vehiculo.getCantidadDeMovimientos(), 0);
+		obstaculoPozos.aplicarImprevisto(vehiculo);
+		obstaculoPozos.aplicarImprevisto(vehiculo);
+		assertEquals(vehiculo.getCantidadDeMovimientos(), 6);
+	}
 }

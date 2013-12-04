@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <jugador>
     <nombre>PedroTest</nombre>
-    <puntaje>18</puntaje>
-    <partidaGuardada>/home/sebas/workspace/GPSChallenge/Jugadores/PedroTest/PartidaGuardada.xml</partidaGuardada>
-    <rutaASuCarpeta>/home/sebas/workspace/GPSChallenge/Jugadores/PedroTest/</rutaASuCarpeta>
+    <puntaje>0</puntaje>
+    <partidaGuardada>/home/nacho/workspace/GPSChallenge/Jugadores/PedroTest/PartidaGuardada.xml</partidaGuardada>
+    <rutaASuCarpeta>/home/nacho/workspace/GPSChallenge/Jugadores/PedroTest/</rutaASuCarpeta>
 </jugador>

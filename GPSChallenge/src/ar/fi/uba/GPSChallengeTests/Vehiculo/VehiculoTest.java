@@ -1,9 +1,7 @@
 package ar.fi.uba.GPSChallengeTests.Vehiculo;
 
 import junit.framework.TestCase;
-
 import org.junit.Test;
-
 import ar.fi.uba.GPSChallenge.Modelo.Imprevistos.ObstaculoPiquete;
 import ar.fi.uba.GPSChallenge.Modelo.Imprevistos.ObstaculoPolicial;
 import ar.fi.uba.GPSChallenge.Modelo.Imprevistos.ObstaculoPozos;
@@ -382,6 +380,62 @@ public class VehiculoTest extends TestCase {
 		mapa.moverVehiculo(new Este());
 		mapa.moverVehiculo(new Este());
 		assertEquals(mapa.getVehiculo().getEsquina(), new Esquina(new Posicion(2,3)));
+	}
+	
+	@Test
+	public void testUnVehiculoSeVaDeRangoAlNorteYSeQuedaEnElLugar(){
+		Moto moto = new Moto();
+		Vehiculo vehiculo = new Vehiculo(moto);
+		Mapa mapa = new Mapa(10,10);
+		mapa.setEsquinaLargada(new Esquina(new Posicion(1,1)));
+		mapa.agregarVehiculo(vehiculo);
+		try {
+			mapa.moverVehiculo(new Norte());
+		} catch (Exception e) {
+		}
+		assertEquals(mapa.getVehiculo().getEsquina(), new Esquina(new Posicion(1,1)));
+	}
+	
+	@Test
+	public void testUnVehiculoSeVaDeRangoAlSurYSeQuedaEnElLugar(){
+		Moto moto = new Moto();
+		Vehiculo vehiculo = new Vehiculo(moto);
+		Mapa mapa = new Mapa(10,10);
+		mapa.setEsquinaLargada(new Esquina(new Posicion(10,1)));
+		mapa.agregarVehiculo(vehiculo);
+		try {
+			mapa.moverVehiculo(new Sur());
+		} catch (Exception e) {
+		}
+		assertEquals(mapa.getVehiculo().getEsquina(), new Esquina(new Posicion(10,1)));
+	}
+	
+	@Test
+	public void testUnVehiculoSeVaDeRangoAlEsteYSeQuedaEnElLugar(){
+		Moto moto = new Moto();
+		Vehiculo vehiculo = new Vehiculo(moto);
+		Mapa mapa = new Mapa(10,10);
+		mapa.setEsquinaLargada(new Esquina(new Posicion(1,10)));
+		mapa.agregarVehiculo(vehiculo);
+		try {
+			mapa.moverVehiculo(new Este());
+		} catch (Exception e) {
+		}
+		assertEquals(mapa.getVehiculo().getEsquina(), new Esquina(new Posicion(1,10)));
+	}
+	
+	@Test
+	public void testUnVehiculoSeVaDeRangoAlOesteYSeQuedaEnElLugar(){
+		Moto moto = new Moto();
+		Vehiculo vehiculo = new Vehiculo(moto);
+		Mapa mapa = new Mapa(10,10);
+		mapa.setEsquinaLargada(new Esquina(new Posicion(1,1)));
+		mapa.agregarVehiculo(vehiculo);
+		try {
+			mapa.moverVehiculo(new Oeste());
+		} catch (Exception e) {
+		}
+		assertEquals(mapa.getVehiculo().getEsquina(), new Esquina(new Posicion(1,1)));
 	}
 }
 
