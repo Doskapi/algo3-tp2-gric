@@ -174,8 +174,7 @@ public class Escenario extends JPanel {
 		
 		escribirDatosDelJugador();
 		inicializarTablero();
-		mostrarMeta();
-        dibujarVehiculo();//no deberia ir es tapado por el prox metodo
+        mostrarMeta();
         mostrarLargada();
         dibujarImprevistos();
 	}

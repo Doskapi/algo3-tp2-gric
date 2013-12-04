@@ -131,7 +131,7 @@ public class Controlador {
 	}
 
 	public String pedirMovimientosSobrantes() {
-		return (Integer.toString(this.referenciaAlJuego.getJugadorActual().getPartida().calcularPuntaje()));
+		return (Integer.toString(this.referenciaAlJuego.getJugadorActual().getPartida().getMapa().getVehiculo().getCantidadDeMovimientos()));
 	}
 
 	public void continuarPartidaGuardada() {
