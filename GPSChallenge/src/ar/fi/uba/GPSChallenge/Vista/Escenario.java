@@ -174,6 +174,7 @@ public class Escenario extends JPanel {
 		
 		escribirDatosDelJugador();
 		inicializarTablero();
+		dibujarVehiculo();
         mostrarMeta();
         mostrarLargada();
         dibujarImprevistos();
@@ -280,16 +281,12 @@ public class Escenario extends JPanel {
 					int posicionAdicionalPorLaVista = 1;
 					while(iteradorDeImprevistos.hasNext()){
 						Imprevisto imprevistoActual	 = iteradorDeImprevistos.next();
-						String tipoDeImprevisto = imprevistoActual	.getTipoDeImprevisto();
-						imagenImprevisto = new ImageIcon(getClass().getResource(tipoDeImprevisto + ".png")).getImage();
-						celdas[(posInicial.getFila()-1)*3][(posInicial.getColumna()-1)*3 + posicionAdicionalPorLaVista].setImagen(imagenImprevisto);
-						System.out.println(imprevistoActual.getTipoDeImprevisto());
-						System.out.println("vista:(" + ((posInicial.getFila()-1)*3) + "," + ((posInicial.getColumna()-1)*3 + posicionAdicionalPorLaVista) + ")");
-						System.out.println("Vista esquina inicial:(" + ((posInicial.getFila()-1)*3) + "," + ((posInicial.getColumna()-1)*3) + ")");
-						System.out.println("modelo esquina inicial:(" + (posInicial.getFila()) + "," + (posInicial.getColumna()) + ")");
-						System.out.println("Vista esquina inicial:(" + ((posFinal.getFila()-1)*3) + "," + ((posFinal.getColumna()-1)*3) + ")");
-						System.out.println("modelo esquina final:(" + (posFinal.getFila()) + "," + (posFinal.getColumna()) + ")");
-						++posicionAdicionalPorLaVista;
+						if(!imprevistoActual.getUsada()){
+							String tipoDeImprevisto = imprevistoActual	.getTipoDeImprevisto();
+							imagenImprevisto = new ImageIcon(getClass().getResource(tipoDeImprevisto + ".png")).getImage();
+							celdas[(posInicial.getFila()-1)*3][(posInicial.getColumna()-1)*3 + posicionAdicionalPorLaVista].setImagen(imagenImprevisto);
+							++posicionAdicionalPorLaVista;
+						}
 					}
 					
 				}else{ // si la columna inicial es mayor
@@ -297,16 +294,12 @@ public class Escenario extends JPanel {
 					int posicionAdicionalPorLaVista = 1;
 					while(iteradorDeImprevistos.hasNext()){
 						Imprevisto imprevistoActual	 = iteradorDeImprevistos.next();
-						String tipoDeImprevisto = imprevistoActual	.getTipoDeImprevisto();
-						imagenImprevisto = new ImageIcon(getClass().getResource(tipoDeImprevisto + ".png")).getImage();
-						celdas[posInicial.getFila()*3][posInicial.getColumna()*3 - posicionAdicionalPorLaVista].setImagen(imagenImprevisto);
-						System.out.println(imprevistoActual.getTipoDeImprevisto());
-						System.out.println("vista:(" + ((posInicial.getFila()-1)*3) + "," + ((posInicial.getColumna()-1)*3 - posicionAdicionalPorLaVista) + ")");
-						System.out.println("Vista esquina inicial:(" + ((posInicial.getFila()-1)*3) + "," + ((posInicial.getColumna()-1)*3) + ")");
-						System.out.println("modelo esquina inicial:(" + (posInicial.getFila()) + "," + (posInicial.getColumna()) + ")");
-						System.out.println("Vista esquina inicial:(" + ((posFinal.getFila()-1)*3) + "," + ((posFinal.getColumna()-1)*3) + ")");
-						System.out.println("modelo esquina final:(" + (posFinal.getFila()) + "," + (posFinal.getColumna()) + ")");
-						++posicionAdicionalPorLaVista;
+						if(!imprevistoActual.getUsada()){
+							String tipoDeImprevisto = imprevistoActual	.getTipoDeImprevisto();
+							imagenImprevisto = new ImageIcon(getClass().getResource(tipoDeImprevisto + ".png")).getImage();
+							celdas[posInicial.getFila()*3][posInicial.getColumna()*3 - posicionAdicionalPorLaVista].setImagen(imagenImprevisto);
+							++posicionAdicionalPorLaVista;
+						}
 					}
 				}
 				
@@ -316,16 +309,12 @@ public class Escenario extends JPanel {
 					int posicionAdicionalPorLaVista = 1;
 					while(iteradorDeImprevistos.hasNext()){
 						Imprevisto imprevistoActual	 = iteradorDeImprevistos.next();
-						String tipoDeImprevisto = imprevistoActual	.getTipoDeImprevisto();
-						imagenImprevisto = new ImageIcon(getClass().getResource(tipoDeImprevisto + ".png")).getImage();
-						celdas[((posInicial.getFila()-1)*3) + posicionAdicionalPorLaVista][((posInicial.getColumna()-1)*3)].setImagen(imagenImprevisto);
-						System.out.println(imprevistoActual.getTipoDeImprevisto());
-						System.out.println("vista:(" + (((posInicial.getFila()-1)*3) + posicionAdicionalPorLaVista) + "," + ((posInicial.getColumna()-1)*3) + ")");
-						System.out.println("Vista esquina inicial:(" + ((posInicial.getFila()-1)*3) + "," + ((posInicial.getColumna()-1)*3) + ")");
-						System.out.println("modelo esquina inicial:(" + (posInicial.getFila()) + "," + (posInicial.getColumna()) + ")");
-						System.out.println("Vista esquina inicial:(" + ((posFinal.getFila()-1)*3) + "," + ((posFinal.getColumna()-1)*3) + ")");
-						System.out.println("modelo esquina final:(" + (posFinal.getFila()) + "," + (posFinal.getColumna()) + ")");
-						++posicionAdicionalPorLaVista;
+						if(!imprevistoActual.getUsada()){
+							String tipoDeImprevisto = imprevistoActual	.getTipoDeImprevisto();
+							imagenImprevisto = new ImageIcon(getClass().getResource(tipoDeImprevisto + ".png")).getImage();
+							celdas[((posInicial.getFila()-1)*3) + posicionAdicionalPorLaVista][((posInicial.getColumna()-1)*3)].setImagen(imagenImprevisto);
+							++posicionAdicionalPorLaVista;
+						}
 					}
 					
 				}else{ // si la columna inicial es mayor
@@ -333,16 +322,12 @@ public class Escenario extends JPanel {
 					int posicionAdicionalPorLaVista = 1;
 					while(iteradorDeImprevistos.hasNext()){
 						Imprevisto imprevistoActual	 = iteradorDeImprevistos.next();
-						String tipoDeImprevisto = imprevistoActual	.getTipoDeImprevisto();
-						imagenImprevisto = new ImageIcon(getClass().getResource(tipoDeImprevisto + ".png")).getImage();
-						celdas[((posInicial.getFila()-1)*3) - posicionAdicionalPorLaVista][((posInicial.getColumna()-1)*3)].setImagen(imagenImprevisto);
-						System.out.println(imprevistoActual.getTipoDeImprevisto());
-						System.out.println("vista:(" + (((posInicial.getFila()-1)*3) - posicionAdicionalPorLaVista) + "," + ((posInicial.getColumna()-1)*3) + ")");
-						System.out.println("Vista esquina inicial:(" + ((posInicial.getFila()-1)*3) + "," + ((posInicial.getColumna()-1)*3) + ")");
-						System.out.println("modelo esquina inicial:(" + (posInicial.getFila()) + "," + (posInicial.getColumna()) + ")");
-						System.out.println("Vista esquina inicial:(" + ((posFinal.getFila()-1)*3) + "," + ((posFinal.getColumna()-1)*3) + ")");
-						System.out.println("modelo esquina final:(" + (posFinal.getFila()) + "," + (posFinal.getColumna()) + ")");
-						++posicionAdicionalPorLaVista;
+						if(!imprevistoActual.getUsada()){
+							String tipoDeImprevisto = imprevistoActual	.getTipoDeImprevisto();
+							imagenImprevisto = new ImageIcon(getClass().getResource(tipoDeImprevisto + ".png")).getImage();
+							celdas[((posInicial.getFila()-1)*3) - posicionAdicionalPorLaVista][((posInicial.getColumna()-1)*3)].setImagen(imagenImprevisto);
+							++posicionAdicionalPorLaVista;
+						}
 					}
 				}
 			}	

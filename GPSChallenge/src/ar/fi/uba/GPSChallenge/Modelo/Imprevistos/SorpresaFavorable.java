@@ -9,8 +9,11 @@ public class SorpresaFavorable extends Sorpresa {
 		this.tipoDeImprevisto = "SorpresaFavorable";
 	}
 	
+	public boolean getUsada() {
+		return this.usada;
+	}
+	
 	public void aplicarImprevisto(Vehiculo vehiculo){
-		
 		if(!(usada)){
 			int movimientos = vehiculo.getCantidadDeMovimientos();
 			vehiculo.setCantidadDeMovimientos(movimientos-(movimientos*20/100));

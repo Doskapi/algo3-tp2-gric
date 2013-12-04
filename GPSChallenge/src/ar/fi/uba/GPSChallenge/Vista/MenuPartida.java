@@ -60,7 +60,7 @@ public class MenuPartida extends JPanel {
 		btnContinuarConSuPartida.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent event) {
 				controlador.continuarPartidaGuardada();
-				vistaPrincipal.cambiarPanel("pEsenario");
+				vistaPrincipal.cambiarPanel("pEscenario");
 			}
 		});
 		

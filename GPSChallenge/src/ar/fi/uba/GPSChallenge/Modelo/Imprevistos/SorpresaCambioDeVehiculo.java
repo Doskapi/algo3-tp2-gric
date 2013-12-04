@@ -11,12 +11,14 @@ public class SorpresaCambioDeVehiculo extends Sorpresa {
 		this.tipoDeImprevisto = "SorpresaCambioDeVehiculo";
 	}
 	
-	public void aplicarImprevisto(Vehiculo vehiculo){
-		
+	public boolean getUsada() {
+		return this.usada;
+	}
+	
+	public void aplicarImprevisto(Vehiculo vehiculo){	
 		if(!(usada)){
 			Estado estadoModificado = vehiculo.getNuevoEstado();
 			vehiculo.setEstado(estadoModificado);
-			
 		}
 		this.usada = true;
 	}

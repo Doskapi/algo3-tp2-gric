@@ -29,4 +29,8 @@ public class Imprevisto {
 	public void setTipoDeImprevisto(String tipo){
 		this.tipoDeImprevisto = tipo;
 	}
+
+	public boolean getUsada() {
+		return false;
+	}
 }
