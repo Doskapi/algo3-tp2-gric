@@ -44,7 +44,7 @@ public class MenuPartida extends JPanel {
 			}
 		});
 		
-		JButton btnContinuarConSuPartida = new JButton("Continuar con su Partida Guardada");
+		JButton btnContinuarConSuPartida = new JButton("Continuar Partida Guardada");
 		btnContinuarConSuPartida.setBounds(500, 300, 200, 70);
 		add(btnContinuarConSuPartida);
 		btnContinuarConSuPartida.addActionListener(new ActionListener() {
