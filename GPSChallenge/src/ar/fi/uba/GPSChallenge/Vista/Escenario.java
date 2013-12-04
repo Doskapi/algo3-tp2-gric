@@ -30,6 +30,7 @@ public class Escenario extends JPanel {
 	PanelConFondo celdas[][] = new PanelConFondo[28][28];
 	Image imagenCiudad = new ImageIcon(getClass().getResource("Mapa.png")).getImage();
 	Image imagenTransparente = new ImageIcon(getClass().getResource("ImagenTransparente.png")).getImage();
+	Image imagen;
 	Image imagenVehiculo;
 	Image imagenImprevisto;
 	PanelConFondo grilla;
@@ -44,6 +45,7 @@ public class Escenario extends JPanel {
 	JLabel lblMovimientosLimite;
 	JLabel lblMovimientosRealizados;
 	JLabel lblCantMovRealizados;
+	PanelConFondo pImgDeMuestra;
 	
 	public Escenario(final VistaPrincipal vistaPrincipal, final Controlador controlador) {
 		this.vistaPrincipal = vistaPrincipal;
@@ -172,6 +174,11 @@ public class Escenario extends JPanel {
 			}
 		});
 		
+		pImgDeMuestra = new PanelConFondo();
+		pImgDeMuestra.setBounds(765, 177, 186, 101);
+		pImgDeMuestra.setImagen(imagen);
+		add(pImgDeMuestra);
+		
 		escribirDatosDelJugador();
 		inicializarTablero();
 		dibujarVehiculo();
@@ -204,6 +211,7 @@ public class Escenario extends JPanel {
 			switch(this.controlador.obtenerMapa().getVehiculo().getNombreEstado()){
 				case "Auto":
 					celdas[(posLargada.getFila()-1)*3][(posLargada.getColumna()-1)*3].setImagen("LargadaAuto.png");
+					
 					break;
 				case "CuatroPorCuatro":
 					celdas[(posLargada.getFila()-1)*3][(posLargada.getColumna()-1)*3].setImagen("LargadaCuatroPorCuatro.png");
@@ -249,6 +257,7 @@ public class Escenario extends JPanel {
 		tipoVehiculo = mapa.getVehiculo().getNombreEstado();
 		posicionVehiculo = mapa.getVehiculo().getEsquina().getPosicion();
 		imagenVehiculo = new ImageIcon(getClass().getResource(tipoVehiculo + ".png")).getImage();
+		pImgDeMuestra.setImagen(tipoVehiculo + ".png");
 		int fila = (posicionVehiculo.getFila()-1)*3;
 		int columna = (posicionVehiculo.getColumna()-1)*3;
 		celdas[fila][columna].setImagen(imagenVehiculo);
@@ -285,8 +294,8 @@ public class Escenario extends JPanel {
 							String tipoDeImprevisto = imprevistoActual	.getTipoDeImprevisto();
 							imagenImprevisto = new ImageIcon(getClass().getResource(tipoDeImprevisto + ".png")).getImage();
 							celdas[(posInicial.getFila()-1)*3][(posInicial.getColumna()-1)*3 + posicionAdicionalPorLaVista].setImagen(imagenImprevisto);
-							++posicionAdicionalPorLaVista;
 						}
+						++posicionAdicionalPorLaVista;
 					}
 					
 				}else{ // si la columna inicial es mayor
@@ -298,8 +307,8 @@ public class Escenario extends JPanel {
 							String tipoDeImprevisto = imprevistoActual	.getTipoDeImprevisto();
 							imagenImprevisto = new ImageIcon(getClass().getResource(tipoDeImprevisto + ".png")).getImage();
 							celdas[posInicial.getFila()*3][posInicial.getColumna()*3 - posicionAdicionalPorLaVista].setImagen(imagenImprevisto);
-							++posicionAdicionalPorLaVista;
 						}
+						++posicionAdicionalPorLaVista;
 					}
 				}
 				
@@ -313,8 +322,8 @@ public class Escenario extends JPanel {
 							String tipoDeImprevisto = imprevistoActual	.getTipoDeImprevisto();
 							imagenImprevisto = new ImageIcon(getClass().getResource(tipoDeImprevisto + ".png")).getImage();
 							celdas[((posInicial.getFila()-1)*3) + posicionAdicionalPorLaVista][((posInicial.getColumna()-1)*3)].setImagen(imagenImprevisto);
-							++posicionAdicionalPorLaVista;
 						}
+						++posicionAdicionalPorLaVista;
 					}
 					
 				}else{ // si la columna inicial es mayor
@@ -326,8 +335,8 @@ public class Escenario extends JPanel {
 							String tipoDeImprevisto = imprevistoActual	.getTipoDeImprevisto();
 							imagenImprevisto = new ImageIcon(getClass().getResource(tipoDeImprevisto + ".png")).getImage();
 							celdas[((posInicial.getFila()-1)*3) - posicionAdicionalPorLaVista][((posInicial.getColumna()-1)*3)].setImagen(imagenImprevisto);
-							++posicionAdicionalPorLaVista;
 						}
+						++posicionAdicionalPorLaVista;
 					}
 				}
 			}	
