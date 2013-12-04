@@ -151,4 +151,10 @@ public class Controlador {
 	public int pedirPuntajeActual() {
 		return (this.referenciaAlJuego.getJugadorActual().getPartida().calcularPuntaje());
 	}
+
+	public void persistirJugadorActual() {
+		PersistidorJugador persistidor = new PersistidorJugador();
+		persistidor.persistirJugador(this.referenciaAlJuego.getJugadorActual());
+		System.out.println("ESTA TRATANDO DE PERSISTIR");
+	}
 }

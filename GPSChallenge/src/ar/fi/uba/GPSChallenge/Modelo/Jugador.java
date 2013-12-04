@@ -88,6 +88,12 @@ public class Jugador {
 	
 	public void moverVehiculo(Rumbo rumbo) throws Exception{
 		this.partidaActual.moverVehiculo(rumbo);
+		if(!this.partidaActual.getEstaEnJuego()){
+			int puntajeDeLaPartidaActual = this.partidaActual.getPuntajeActual();
+			if(puntajeDeLaPartidaActual > this.puntaje){
+				this.puntaje = puntajeDeLaPartidaActual;
+			}
+		}
 	}
 	
 	public Posicion pedirPosicionDelVehiculo(){

@@ -267,26 +267,16 @@ public class Escenario extends JPanel {
 		List<Cuadra> cuadrasDelMapa;
 		Mapa mapa = controlador.obtenerMapa();
 		cuadrasDelMapa = mapa.getCuadras();
-		
-		System.out.println("cant de cuadras:" + cuadrasDelMapa.size());
-		
 		Iterator<Cuadra> iteradorDeCuadras = cuadrasDelMapa.iterator();
-		
 		while(iteradorDeCuadras.hasNext()){
 			Cuadra cuadraActual = iteradorDeCuadras.next();
 			List<Imprevisto> ImprevistosDeLaCuadraActual;
 			ImprevistosDeLaCuadraActual = cuadraActual.getImprevistos();
-			
 			Posicion posInicial = cuadraActual.getEsquinaInicial().getPosicion();
 			Posicion posFinal = cuadraActual.getEsquinaFinal().getPosicion();
-			
-			System.out.println("cantidad de imprevistos en la cuadra es " + ImprevistosDeLaCuadraActual.size());
-
 			Iterator<Imprevisto> iteradorDeImprevistos = ImprevistosDeLaCuadraActual.iterator();
-
 			if (posInicial.getFila() == posFinal.getFila()){
 				if(posInicial.getColumna() < posFinal.getColumna()){
-					
 					int posicionAdicionalPorLaVista = 1;
 					while(iteradorDeImprevistos.hasNext()){
 						Imprevisto imprevistoActual	 = iteradorDeImprevistos.next();
@@ -297,9 +287,7 @@ public class Escenario extends JPanel {
 						}
 						++posicionAdicionalPorLaVista;
 					}
-					
 				}else{ // si la columna inicial es mayor
-					
 					int posicionAdicionalPorLaVista = 1;
 					while(iteradorDeImprevistos.hasNext()){
 						Imprevisto imprevistoActual	 = iteradorDeImprevistos.next();
@@ -314,7 +302,6 @@ public class Escenario extends JPanel {
 				
 			}else { // si las columnas son iguales
 				if(posInicial.getFila() < posFinal.getFila()){
-					
 					int posicionAdicionalPorLaVista = 1;
 					while(iteradorDeImprevistos.hasNext()){
 						Imprevisto imprevistoActual	 = iteradorDeImprevistos.next();
@@ -325,9 +312,7 @@ public class Escenario extends JPanel {
 						}
 						++posicionAdicionalPorLaVista;
 					}
-					
 				}else{ // si la columna inicial es mayor
-					
 					int posicionAdicionalPorLaVista = 1;
 					while(iteradorDeImprevistos.hasNext()){
 						Imprevisto imprevistoActual	 = iteradorDeImprevistos.next();

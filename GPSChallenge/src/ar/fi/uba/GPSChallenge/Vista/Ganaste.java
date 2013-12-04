@@ -23,6 +23,8 @@ public class Ganaste extends JPanel {
 		this.vistaPrincipal = vistaPrincipal;
 		this.controlador = controlador;
 		
+		this.controlador.persistirJugadorActual();
+		
 		JPanel panel = new JPanel();
 		panel.setLayout(null);
 		panel.setBorder(null);
