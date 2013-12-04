@@ -82,6 +82,7 @@ public class Partida {
 		int puntaje;
 		cantidadDeMovimientos = this.mapa.getVehiculo().getCantidadDeMovimientos();
 		puntaje = this.nivel.calcularPuntaje(cantidadDeMovimientos);
+		this.puntajeActual = puntaje;
 		return puntaje;
 	}
 

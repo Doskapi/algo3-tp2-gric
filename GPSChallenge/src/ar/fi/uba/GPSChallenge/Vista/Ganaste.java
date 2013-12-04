@@ -41,7 +41,7 @@ public class Ganaste extends JPanel {
 		lblGpschallenge.setBounds(147, 12, 169, 35);
 		panel.add(lblGpschallenge);
 		
-		JLabel lblganaste = new JLabel("Â¡Ganaste!");
+		JLabel lblganaste = new JLabel("¡Ganaste!");
 		lblganaste.setFont(new Font("Dialog", Font.BOLD, 20));
 		lblganaste.setHorizontalAlignment(SwingConstants.CENTER);
 		lblganaste.setForeground(new Color(0, 255, 0));
@@ -62,6 +62,7 @@ public class Ganaste extends JPanel {
 		add(btnVolver);
 		btnVolver.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
 				vistaPrincipal.cambiarPanel("pMenuPartida");
 			}
 		});
