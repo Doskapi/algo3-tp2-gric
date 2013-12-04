@@ -16,8 +16,8 @@ public class Bienvenida extends JPanel {
 	private static final long serialVersionUID = 1L;
 
 	public Bienvenida(final VistaPrincipal vistaPrincipal) {
-		this.setLayout(null);
-		this.setBounds(10, 10, 1200, 700);
+		setLayout(null);
+		setBounds(10, 10, 1200, 700);
 		
 		PanelConFondo pLogo = new PanelConFondo();
 		Image imagenLogo = new ImageIcon(getClass().getResource("gpschallenge.gif")).getImage();
@@ -26,7 +26,7 @@ public class Bienvenida extends JPanel {
 //		add(pLogo);
 		
 		JButton btnUsuarioNuevo = new JButton("Usuario Nuevo");
-		btnUsuarioNuevo.setBounds(360, 493, 200, 70);
+		btnUsuarioNuevo.setBounds(350, 490, 200, 70);
 //		add(btnUsuarioNuevo);
 		btnUsuarioNuevo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent event) {
@@ -35,7 +35,7 @@ public class Bienvenida extends JPanel {
 		});
 
 		JButton btnYaSoyUsuario = new JButton("Ya Soy Usuario");
-		btnYaSoyUsuario.setBounds(619, 493, 200, 70);
+		btnYaSoyUsuario.setBounds(650, 490, 200, 70);
 //		add(btnYaSoyUsuario);
 		btnYaSoyUsuario.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent event) {
@@ -44,16 +44,13 @@ public class Bienvenida extends JPanel {
 		});
 		
 		JButton btnSalir = new JButton("Salir");
-		btnSalir.setBounds(486, 588, 200, 70);
+		btnSalir.setBounds(500, 580, 200, 70);
 //		add(btnSalir);
 		btnSalir.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent event) {
 				System.exit(0);
 			}
 		});
-		
-
-
 		
 		add(btnUsuarioNuevo);
 		add(btnYaSoyUsuario);

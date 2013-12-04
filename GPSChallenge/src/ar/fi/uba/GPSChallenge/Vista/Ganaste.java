@@ -19,6 +19,7 @@ public class Ganaste extends JPanel {
 
 	public Ganaste(final VistaPrincipal vistaPrincipal, final Controlador controlador) {
 		setLayout(null);
+		setBounds(10, 10, 1200, 700);
 		
 		this.vistaPrincipal = vistaPrincipal;
 		this.controlador = controlador;
@@ -26,52 +27,54 @@ public class Ganaste extends JPanel {
 		this.controlador.persistirJugadorActual();
 		
 		JPanel panel = new JPanel();
-		panel.setLayout(null);
-		panel.setBorder(null);
 		panel.setBackground(UIManager.getColor("Button.focus"));
-		panel.setBounds(0, 0, 450, 59);
+		panel.setLayout(null);
+		panel.setBounds(10, 10, 1200, 60);
 		add(panel);
 		
-		JLabel label = new JLabel("");
-		label.setBounds(12, 12, 70, 15);
-		panel.add(label);
-		
-		JLabel lblGpschallenge = new JLabel("GPSChallenge\n");
-		lblGpschallenge.setFont(new Font("DejaVu Serif", Font.BOLD, 20));
-		lblGpschallenge.setBounds(147, 12, 169, 35);
+		JLabel lblGpschallenge = new JLabel("GPS Challenge");
+		lblGpschallenge.setHorizontalAlignment(SwingConstants.CENTER);
+		lblGpschallenge.setFont(new Font("Dialog", Font.BOLD, 30));
+		lblGpschallenge.setBounds(445, 12, 300, 35);;
 		panel.add(lblGpschallenge);
 		
 		JLabel lblganaste = new JLabel("Ganaste!");
-		lblganaste.setFont(new Font("Dialog", Font.BOLD, 20));
+		lblganaste.setFont(new Font("Dialog", Font.BOLD, 40));
+		lblganaste.setHorizontalAlignment(SwingConstants.CENTER);
 		lblganaste.setHorizontalAlignment(SwingConstants.CENTER);
 		lblganaste.setForeground(new Color(0, 255, 0));
-		lblganaste.setBounds(160, 90, 118, 34);
+		lblganaste.setBounds(400, 120, 400, 70);
 		add(lblganaste);
 		
-		JLabel lblTuPuntajeEs = new JLabel("Te sobraron " + controlador.pedirMovimientosSobrantes() + " movimientos.\n");
-		lblTuPuntajeEs.setVerticalAlignment(SwingConstants.TOP);
-		lblTuPuntajeEs.setBounds(60, 136, 312, 25);
+		JLabel lblTuPuntajeEs = new JLabel("Te sobraron " + controlador.pedirMovimientosSobrantes() + " movimientos.");
+		lblTuPuntajeEs.setFont(new Font("Dialog", Font.BOLD, 20));
+		lblTuPuntajeEs.setVerticalAlignment(SwingConstants.CENTER);
+		lblTuPuntajeEs.setHorizontalAlignment(SwingConstants.CENTER);
+		lblTuPuntajeEs.setBounds(400, 220, 400, 70);
 		add(lblTuPuntajeEs);
 		
 		JLabel lblObtuvisteUnPuntaje = new JLabel("Obtuviste un puntaje de " + controlador.pedirPuntajeActualComoString() + " puntos.");
-		lblObtuvisteUnPuntaje.setBounds(60, 173, 345, 15);
+		lblObtuvisteUnPuntaje.setFont(new Font("Dialog", Font.BOLD, 20));
+		lblObtuvisteUnPuntaje.setVerticalAlignment(SwingConstants.CENTER);
+		lblObtuvisteUnPuntaje.setHorizontalAlignment(SwingConstants.CENTER);
+		lblObtuvisteUnPuntaje.setBounds(300, 400, 600, 70);;
 		add(lblObtuvisteUnPuntaje);
 		
-		JButton btnVolver = new JButton("Volver al menu");
-		btnVolver.setBounds(257, 230, 139, 25);
-		add(btnVolver);
-		btnVolver.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				vistaPrincipal.cambiarPanel("pMenuPartida");
-			}
-		});
-		
 		JButton btnJugarOtraVez = new JButton("Jugar otra vez");
-		btnJugarOtraVez.setBounds(91, 230, 133, 25);
+		btnJugarOtraVez.setBounds(350, 530, 200, 70);
 		add(btnJugarOtraVez);
 		btnJugarOtraVez.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				vistaPrincipal.cambiarPanel("pPartidaNueva");
+			}
+		});
+		
+		JButton btnVolver = new JButton("Volver al menu");
+		btnVolver.setBounds(650, 530, 200, 70);
+		add(btnVolver);
+		btnVolver.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				vistaPrincipal.cambiarPanel("pMenuPartida");
 			}
 		});
 

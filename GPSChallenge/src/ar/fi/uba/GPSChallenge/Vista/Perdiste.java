@@ -19,37 +19,34 @@ public class Perdiste extends JPanel {
 	private Controlador controlador;
 	
 	public Perdiste(final VistaPrincipal vistaPrincipal, Controlador controlador) {
+		setLayout(null);
+		setBounds(10, 10, 1200, 700);
 		
 		this.vistaPrincipal = vistaPrincipal;
 		this.controlador = controlador;
 		
-		setLayout(null);
-		
-		JLabel lblperdiste = new JLabel("Perdiste!");
-		lblperdiste.setHorizontalAlignment(SwingConstants.CENTER);
-		lblperdiste.setForeground(new Color(255, 0, 0));
-		lblperdiste.setFont(new Font("Dialog", Font.BOLD, 20));
-		lblperdiste.setBounds(159, 118, 131, 34);
-		add(lblperdiste);
-		
 		JPanel panel = new JPanel();
-		panel.setLayout(null);
-		panel.setBorder(null);
 		panel.setBackground(UIManager.getColor("Button.focus"));
-		panel.setBounds(0, 0, 450, 59);
+		panel.setLayout(null);
+		panel.setBounds(10, 10, 1200, 60);
 		add(panel);
 		
-		JLabel label_1 = new JLabel("");
-		label_1.setBounds(12, 12, 70, 15);
-		panel.add(label_1);
+		JLabel lblGpschallenge = new JLabel("GPS Challenge");
+		lblGpschallenge.setHorizontalAlignment(SwingConstants.CENTER);
+		lblGpschallenge.setFont(new Font("Dialog", Font.BOLD, 30));
+		lblGpschallenge.setBounds(445, 12, 300, 35);;
+		panel.add(lblGpschallenge);
 		
-		JLabel label_2 = new JLabel("GPSChallenge\n");
-		label_2.setFont(new Font("DejaVu Serif", Font.BOLD, 20));
-		label_2.setBounds(147, 12, 169, 35);
-		panel.add(label_2);
-		
+		JLabel lblperdiste = new JLabel("Perdiste!");
+		lblperdiste.setFont(new Font("Dialog", Font.BOLD, 40));
+		lblperdiste.setHorizontalAlignment(SwingConstants.CENTER);
+		lblperdiste.setHorizontalAlignment(SwingConstants.CENTER);
+		lblperdiste.setForeground(new Color(0, 255, 0));
+		lblperdiste.setBounds(400, 320, 400, 70);
+		add(lblperdiste);
+				
 		JButton btnJugarOtraVez = new JButton("Jugar otra vez");
-		btnJugarOtraVez.setBounds(67, 207, 139, 25);
+		btnJugarOtraVez.setBounds(350, 530, 200, 70);
 		add(btnJugarOtraVez);
 		btnJugarOtraVez.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -58,7 +55,7 @@ public class Perdiste extends JPanel {
 		});
 		
 		JButton btnVolver = new JButton("Volver al menu");
-		btnVolver.setBounds(243, 207, 139, 25);
+		btnVolver.setBounds(650, 530, 200, 70);
 		add(btnVolver);
 		btnVolver.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

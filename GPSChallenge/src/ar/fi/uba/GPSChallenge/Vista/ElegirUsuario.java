@@ -25,12 +25,12 @@ public class ElegirUsuario extends JPanel {
 
 	public ElegirUsuario(final VistaPrincipal vistaPrincipal, final Controlador controlador) {
 		setLayout(null);
-		setBounds(10, 10, 1180, 680);
+		setBounds(10, 10, 1200, 700);
 		
 		JLabel lblElijaSuUsuario = new JLabel("Elija su usuario");
-		lblElijaSuUsuario.setFont(new Font("Dialog", Font.BOLD, 20));
+		lblElijaSuUsuario.setFont(new Font("Dialog", Font.BOLD, 30));
 		lblElijaSuUsuario.setHorizontalAlignment(SwingConstants.CENTER);
-		lblElijaSuUsuario.setBounds(518, 29, 250, 20);
+		lblElijaSuUsuario.setBounds(400, 30, 400, 40);
 		add(lblElijaSuUsuario);
 		
 		botoneraDeUsuarios = new ButtonGroup();
@@ -40,16 +40,18 @@ public class ElegirUsuario extends JPanel {
 		Iterator<Jugador> iterador = jugadores.iterator();
 		int numeroDePosicion = 70;
 		while(iterador.hasNext()){
-			numeroDePosicion = numeroDePosicion + 24;
+			numeroDePosicion = numeroDePosicion + 35;
 			nombreJugador = iterador.next().getNombre();
 			rdbtnNewRadioButton = new JRadioButton(nombreJugador);
-			rdbtnNewRadioButton.setBounds(600, numeroDePosicion, 149, 23);
+			rdbtnNewRadioButton.setFont(new Font("Dialog", Font.BOLD, 16));
+			rdbtnNewRadioButton.setHorizontalAlignment(SwingConstants.LEFT);
+			rdbtnNewRadioButton.setBounds(300, numeroDePosicion, 149, 30);
 			botoneraDeUsuarios.add(rdbtnNewRadioButton);
 			add(rdbtnNewRadioButton);
 		}
 		
 		JButton btnSeleccionarUsuario = new JButton("Seleccionar Usuario");
-		btnSeleccionarUsuario.setBounds(451, 550, 175, 25);
+		btnSeleccionarUsuario.setBounds(350, 530, 200, 70);
 		add(btnSeleccionarUsuario);
 		btnSeleccionarUsuario.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent event) {
@@ -62,7 +64,7 @@ public class ElegirUsuario extends JPanel {
 		});
 		
 		JButton btnVolver = new JButton("Volver");
-		btnVolver.setBounds(658, 550, 175, 25);
+		btnVolver.setBounds(650, 530, 200, 70);
 		add(btnVolver);
 		btnVolver.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent event) {
