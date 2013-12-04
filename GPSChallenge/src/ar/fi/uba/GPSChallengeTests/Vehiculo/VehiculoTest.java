@@ -4,6 +4,10 @@ import junit.framework.TestCase;
 
 import org.junit.Test;
 
+import ar.fi.uba.GPSChallenge.Modelo.Imprevistos.ObstaculoPiquete;
+import ar.fi.uba.GPSChallenge.Modelo.Imprevistos.ObstaculoPolicial;
+import ar.fi.uba.GPSChallenge.Modelo.Imprevistos.ObstaculoPozos;
+import ar.fi.uba.GPSChallenge.Modelo.Imprevistos.SorpresaDesfavorable;
 import ar.fi.uba.GPSChallenge.Modelo.Imprevistos.SorpresaFavorable;
 import ar.fi.uba.GPSChallenge.Modelo.Mapa.Cuadra;
 import ar.fi.uba.GPSChallenge.Modelo.Mapa.Esquina;
@@ -153,7 +157,7 @@ public class VehiculoTest extends TestCase {
 	}
 	
 	@Test
-	public void testUnVehiculoAgarraUnaSorpresaFavorable(){
+	public void testUnVehiculoAutoAgarraUnaSorpresaFavorable() throws Exception{
 		Auto auto = new Auto();
 		Vehiculo vehiculo = new Vehiculo(auto);
 		vehiculo.setCantidadDeMovimientos(10);
@@ -164,13 +168,220 @@ public class VehiculoTest extends TestCase {
 		Cuadra cuadra = new Cuadra(new Esquina(new Posicion(2,2)), new Esquina(new Posicion(2,3)));
 		SorpresaFavorable sorpresa = new SorpresaFavorable();
 		cuadra.agregarImprevisto(sorpresa);
-		vehiculo.mover(new Este());
+		mapa.agregarCuadra(cuadra);
+		mapa.moverVehiculo(new Este());
 		assertEquals(vehiculo.getEsquina(), new Esquina(new Posicion(2,2)));
-		vehiculo.mover(new Este());
+		mapa.moverVehiculo(new Este());
 		assertEquals(vehiculo.getEsquina(), new Esquina(new Posicion(2,3)));
-		assertEquals(vehiculo.getCantidadDeMovimientos(), 12);
-		vehiculo.mover(new Este());
+		mapa.moverVehiculo(new Este());
 		assertEquals(vehiculo.getEsquina(), new Esquina(new Posicion(2,4)));
+	}
+	
+	@Test
+	public void testUnVehiculoCuatroPorCuatroAgarraUnaSorpresaFavorable() throws Exception{
+		CuatroPorCuatro cuatroPorCuatro = new CuatroPorCuatro();
+		Vehiculo vehiculo = new Vehiculo(cuatroPorCuatro);
+		vehiculo.setCantidadDeMovimientos(10);
+		assertEquals(vehiculo.getCantidadDeMovimientos(), 10);
+		Mapa mapa = new Mapa(10,10);
+		mapa.setEsquinaLargada(new Esquina(new Posicion(2,1)));
+		mapa.agregarVehiculo(vehiculo);
+		Cuadra cuadra = new Cuadra(new Esquina(new Posicion(2,2)), new Esquina(new Posicion(2,3)));
+		SorpresaFavorable sorpresa = new SorpresaFavorable();
+		cuadra.agregarImprevisto(sorpresa);
+		mapa.agregarCuadra(cuadra);
+		mapa.moverVehiculo(new Este());
+		assertEquals(vehiculo.getEsquina(), new Esquina(new Posicion(2,2)));
+		mapa.moverVehiculo(new Este());
+		assertEquals(vehiculo.getEsquina(), new Esquina(new Posicion(2,3)));
+		mapa.moverVehiculo(new Este());
+		assertEquals(vehiculo.getEsquina(), new Esquina(new Posicion(2,4)));
+	}
+	
+	@Test
+	public void testUnVehiculoMotoAgarraUnaSorpresaFavorable() throws Exception{
+		Moto moto = new Moto();
+		Vehiculo vehiculo = new Vehiculo(moto);
+		vehiculo.setCantidadDeMovimientos(10);
+		assertEquals(vehiculo.getCantidadDeMovimientos(), 10);
+		Mapa mapa = new Mapa(10,10);
+		mapa.setEsquinaLargada(new Esquina(new Posicion(2,1)));
+		mapa.agregarVehiculo(vehiculo);
+		Cuadra cuadra = new Cuadra(new Esquina(new Posicion(2,2)), new Esquina(new Posicion(2,3)));
+		SorpresaFavorable sorpresa = new SorpresaFavorable();
+		cuadra.agregarImprevisto(sorpresa);
+		mapa.agregarCuadra(cuadra);
+		mapa.moverVehiculo(new Este());
+		assertEquals(vehiculo.getEsquina(), new Esquina(new Posicion(2,2)));
+		mapa.moverVehiculo(new Este());
+		assertEquals(vehiculo.getEsquina(), new Esquina(new Posicion(2,3)));
+		mapa.moverVehiculo(new Este());
+		assertEquals(vehiculo.getEsquina(), new Esquina(new Posicion(2,4)));
+	}
+	
+	@Test
+	public void testUnVehiculoAutoAgarraUnaSorpresaDesFavorable() throws Exception{
+		Auto auto = new Auto();
+		Vehiculo vehiculo = new Vehiculo(auto);
+		vehiculo.setCantidadDeMovimientos(10);
+		assertEquals(vehiculo.getCantidadDeMovimientos(), 10);
+		Mapa mapa = new Mapa(10,10);
+		mapa.setEsquinaLargada(new Esquina(new Posicion(2,1)));
+		mapa.agregarVehiculo(vehiculo);
+		Cuadra cuadra = new Cuadra(new Esquina(new Posicion(2,2)), new Esquina(new Posicion(2,3)));
+		SorpresaDesfavorable sorpresa = new SorpresaDesfavorable();
+		cuadra.agregarImprevisto(sorpresa);
+		mapa.agregarCuadra(cuadra);
+		mapa.moverVehiculo(new Este());
+		assertEquals(vehiculo.getEsquina(), new Esquina(new Posicion(2,2)));
+		mapa.moverVehiculo(new Este());
+		assertEquals(vehiculo.getEsquina(), new Esquina(new Posicion(2,3)));
+		mapa.moverVehiculo(new Este());
+		assertEquals(vehiculo.getEsquina(), new Esquina(new Posicion(2,4)));
+	}
+	
+	@Test
+	public void testUnVehiculoAutoNoPuedePasarUnPiquete() throws Exception{
+		Auto auto = new Auto();
+		Vehiculo vehiculo = new Vehiculo(auto);
+		Mapa mapa = new Mapa(10,10);
+		mapa.setEsquinaLargada(new Esquina(new Posicion(2,1)));
+		mapa.agregarVehiculo(vehiculo);
+		Cuadra cuadra = new Cuadra(new Esquina(new Posicion(2,2)), new Esquina(new Posicion(2,3)));
+		ObstaculoPiquete piquete = new ObstaculoPiquete();
+		cuadra.agregarImprevisto(piquete);
+		mapa.agregarCuadra(cuadra);
+		mapa.moverVehiculo(new Este());
+		mapa.moverVehiculo(new Este());
+		assertEquals(mapa.getVehiculo().getEsquina(), new Esquina(new Posicion(2,2)));
+	}
+	
+	@Test
+	public void testUnVehiculoCuatroPorCuatroNoPuedePasarUnPiquete() throws Exception{
+		CuatroPorCuatro cuatroPorCuatro = new CuatroPorCuatro();
+		Vehiculo vehiculo = new Vehiculo(cuatroPorCuatro);
+		Mapa mapa = new Mapa(10,10);
+		mapa.setEsquinaLargada(new Esquina(new Posicion(2,1)));
+		mapa.agregarVehiculo(vehiculo);
+		Cuadra cuadra = new Cuadra(new Esquina(new Posicion(2,2)), new Esquina(new Posicion(2,3)));
+		ObstaculoPiquete piquete = new ObstaculoPiquete();
+		cuadra.agregarImprevisto(piquete);
+		mapa.agregarCuadra(cuadra);
+		mapa.moverVehiculo(new Este());
+		mapa.moverVehiculo(new Este());
+		assertEquals(mapa.getVehiculo().getEsquina(), new Esquina(new Posicion(2,2)));
+	}
+	
+	@Test
+	public void testUnVehiculoMotoPuedePasarUnPiquete() throws Exception{
+		Moto moto = new Moto();
+		Vehiculo vehiculo = new Vehiculo(moto);
+		Mapa mapa = new Mapa(10,10);
+		mapa.setEsquinaLargada(new Esquina(new Posicion(2,1)));
+		mapa.agregarVehiculo(vehiculo);
+		Cuadra cuadra = new Cuadra(new Esquina(new Posicion(2,2)), new Esquina(new Posicion(2,3)));
+		ObstaculoPiquete piquete = new ObstaculoPiquete();
+		cuadra.agregarImprevisto(piquete);
+		mapa.agregarCuadra(cuadra);
+		mapa.moverVehiculo(new Este());
+		mapa.moverVehiculo(new Este());
+		assertEquals(mapa.getVehiculo().getEsquina(), new Esquina(new Posicion(2,3)));
+	}
+	
+	@Test
+	public void testUnVehiculoAutoPuedePasarUnObstaculoPolicial() throws Exception{
+		Auto auto = new Auto();
+		Vehiculo vehiculo = new Vehiculo(auto);
+		Mapa mapa = new Mapa(10,10);
+		mapa.setEsquinaLargada(new Esquina(new Posicion(2,1)));
+		mapa.agregarVehiculo(vehiculo);
+		Cuadra cuadra = new Cuadra(new Esquina(new Posicion(2,2)), new Esquina(new Posicion(2,3)));
+		ObstaculoPolicial policia = new ObstaculoPolicial();
+		cuadra.agregarImprevisto(policia);
+		mapa.agregarCuadra(cuadra);
+		mapa.moverVehiculo(new Este());
+		mapa.moverVehiculo(new Este());
+		assertEquals(mapa.getVehiculo().getEsquina(), new Esquina(new Posicion(2,3)));
+	}
+	
+	@Test
+	public void testUnVehiculoCuatroPorCuatroPuedePasarUnObstaculoPolicial() throws Exception{
+		CuatroPorCuatro cuatroPorCuatro = new CuatroPorCuatro();
+		Vehiculo vehiculo = new Vehiculo(cuatroPorCuatro);
+		Mapa mapa = new Mapa(10,10);
+		mapa.setEsquinaLargada(new Esquina(new Posicion(2,1)));
+		mapa.agregarVehiculo(vehiculo);
+		Cuadra cuadra = new Cuadra(new Esquina(new Posicion(2,2)), new Esquina(new Posicion(2,3)));
+		ObstaculoPolicial policia = new ObstaculoPolicial();
+		cuadra.agregarImprevisto(policia);
+		mapa.agregarCuadra(cuadra);
+		mapa.moverVehiculo(new Este());
+		mapa.moverVehiculo(new Este());
+		assertEquals(mapa.getVehiculo().getEsquina(), new Esquina(new Posicion(2,3)));
+	}
+	
+	@Test
+	public void testUnVehiculoMotoPuedePasarUnObstaculoPolicial() throws Exception{
+		Moto moto = new Moto();
+		Vehiculo vehiculo = new Vehiculo(moto);
+		Mapa mapa = new Mapa(10,10);
+		mapa.setEsquinaLargada(new Esquina(new Posicion(2,1)));
+		mapa.agregarVehiculo(vehiculo);
+		Cuadra cuadra = new Cuadra(new Esquina(new Posicion(2,2)), new Esquina(new Posicion(2,3)));
+		ObstaculoPolicial policia = new ObstaculoPolicial();
+		cuadra.agregarImprevisto(policia);
+		mapa.agregarCuadra(cuadra);
+		mapa.moverVehiculo(new Este());
+		mapa.moverVehiculo(new Este());
+		assertEquals(mapa.getVehiculo().getEsquina(), new Esquina(new Posicion(2,3)));
+	}
+	
+	@Test
+	public void testUnVehiculoAutoPuedePasarUnObstaculoPozos() throws Exception{
+		Auto auto = new Auto();
+		Vehiculo vehiculo = new Vehiculo(auto);
+		Mapa mapa = new Mapa(10,10);
+		mapa.setEsquinaLargada(new Esquina(new Posicion(2,1)));
+		mapa.agregarVehiculo(vehiculo);
+		Cuadra cuadra = new Cuadra(new Esquina(new Posicion(2,2)), new Esquina(new Posicion(2,3)));
+		ObstaculoPozos pozo = new ObstaculoPozos();
+		cuadra.agregarImprevisto(pozo);
+		mapa.agregarCuadra(cuadra);
+		mapa.moverVehiculo(new Este());
+		mapa.moverVehiculo(new Este());
+		assertEquals(mapa.getVehiculo().getEsquina(), new Esquina(new Posicion(2,3)));
+	}
+	
+	@Test
+	public void testUnVehiculoCuatroPorCuatroPuedePasarUnObstaculoPozos() throws Exception{
+		CuatroPorCuatro cuatroPorCuatro = new CuatroPorCuatro();
+		Vehiculo vehiculo = new Vehiculo(cuatroPorCuatro);
+		Mapa mapa = new Mapa(10,10);
+		mapa.setEsquinaLargada(new Esquina(new Posicion(2,1)));
+		mapa.agregarVehiculo(vehiculo);
+		Cuadra cuadra = new Cuadra(new Esquina(new Posicion(2,2)), new Esquina(new Posicion(2,3)));
+		ObstaculoPozos pozo = new ObstaculoPozos();
+		cuadra.agregarImprevisto(pozo);
+		mapa.agregarCuadra(cuadra);
+		mapa.moverVehiculo(new Este());
+		mapa.moverVehiculo(new Este());
+		assertEquals(mapa.getVehiculo().getEsquina(), new Esquina(new Posicion(2,3)));
+	}
+	
+	@Test
+	public void testUnVehiculoMotoPuedePasarUnObstaculoPozos() throws Exception{
+		Moto moto = new Moto();
+		Vehiculo vehiculo = new Vehiculo(moto);
+		Mapa mapa = new Mapa(10,10);
+		mapa.setEsquinaLargada(new Esquina(new Posicion(2,1)));
+		mapa.agregarVehiculo(vehiculo);
+		Cuadra cuadra = new Cuadra(new Esquina(new Posicion(2,2)), new Esquina(new Posicion(2,3)));
+		ObstaculoPozos pozo = new ObstaculoPozos();
+		cuadra.agregarImprevisto(pozo);
+		mapa.agregarCuadra(cuadra);
+		mapa.moverVehiculo(new Este());
+		mapa.moverVehiculo(new Este());
+		assertEquals(mapa.getVehiculo().getEsquina(), new Esquina(new Posicion(2,3)));
 	}
 }
 
