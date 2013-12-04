@@ -14,6 +14,8 @@ import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import ar.fi.uba.GPSChallenge.Controlador.Controlador;
 import ar.fi.uba.GPSChallenge.Modelo.Jugador;
+import javax.swing.SwingConstants;
+import java.awt.Font;
 
 public class ElegirUsuario extends JPanel {
 
@@ -26,7 +28,9 @@ public class ElegirUsuario extends JPanel {
 		setBounds(10, 10, 1180, 680);
 		
 		JLabel lblElijaSuUsuario = new JLabel("Elija su usuario");
-		lblElijaSuUsuario.setBounds(144, 24, 156, 15);
+		lblElijaSuUsuario.setFont(new Font("Dialog", Font.BOLD, 20));
+		lblElijaSuUsuario.setHorizontalAlignment(SwingConstants.CENTER);
+		lblElijaSuUsuario.setBounds(518, 29, 250, 20);
 		add(lblElijaSuUsuario);
 		
 		botoneraDeUsuarios = new ButtonGroup();
@@ -39,13 +43,13 @@ public class ElegirUsuario extends JPanel {
 			numeroDePosicion = numeroDePosicion + 24;
 			nombreJugador = iterador.next().getNombre();
 			rdbtnNewRadioButton = new JRadioButton(nombreJugador);
-			rdbtnNewRadioButton.setBounds(134, numeroDePosicion, 149, 23);
+			rdbtnNewRadioButton.setBounds(600, numeroDePosicion, 149, 23);
 			botoneraDeUsuarios.add(rdbtnNewRadioButton);
 			add(rdbtnNewRadioButton);
 		}
 		
 		JButton btnSeleccionarUsuario = new JButton("Seleccionar Usuario");
-		btnSeleccionarUsuario.setBounds(39, 230, 175, 25);
+		btnSeleccionarUsuario.setBounds(451, 550, 175, 25);
 		add(btnSeleccionarUsuario);
 		btnSeleccionarUsuario.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent event) {
@@ -58,7 +62,7 @@ public class ElegirUsuario extends JPanel {
 		});
 		
 		JButton btnVolver = new JButton("Volver");
-		btnVolver.setBounds(244, 230, 175, 25);
+		btnVolver.setBounds(658, 550, 175, 25);
 		add(btnVolver);
 		btnVolver.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent event) {

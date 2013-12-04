@@ -62,42 +62,6 @@ public class JugadorTests extends TestCase {
 	}
 	
 	@Test
-	public void testUnJugadorCalculaSuPuntajeEnNivelFacil() throws Exception{
-		Jugador jugador = new Jugador("DiegoTest");
-		jugador.comenzarPartida(new Facil());
-		jugador.elegirVehiculo(new Vehiculo(new Auto()));
-		jugador.moverVehiculo(new Este());
-		jugador.moverVehiculo(new Este());
-		jugador.moverVehiculo(new Este());
-		jugador.calcularPuntaje();
-		assertEquals(jugador.getPuntaje(), 67);
-	}
-	
-	@Test
-	public void testUnJugadorCalculaSuPuntajeEnNivelModerado() throws Exception{
-		Jugador jugador = new Jugador("DiegoTest");
-		jugador.comenzarPartida(new Moderado());
-		jugador.elegirVehiculo(new Vehiculo(new Auto()));
-		jugador.moverVehiculo(new Este());
-		jugador.moverVehiculo(new Este());
-		jugador.moverVehiculo(new Este());
-		jugador.calcularPuntaje();
-		assertEquals(jugador.getPuntaje(), 94);
-	}
-	
-	@Test
-	public void testUnJugadorCalculaSuPuntajeEnNivelDificil() throws Exception{
-		Jugador jugador = new Jugador("DiegoTest");
-		jugador.comenzarPartida(new Dificil());
-		jugador.elegirVehiculo(new Vehiculo(new Auto()));
-		jugador.moverVehiculo(new Este());
-		jugador.moverVehiculo(new Este());
-		jugador.moverVehiculo(new Este());
-		jugador.calcularPuntaje();
-		assertEquals(jugador.getPuntaje(), 81);
-	}
-	
-	@Test
 	
 	public void testUnJugadorGuardaSuPartida(){
 		Jugador jugador = new Jugador("JuanaTest");

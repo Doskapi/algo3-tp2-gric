@@ -8,6 +8,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.UIManager;
 import ar.fi.uba.GPSChallenge.Controlador.Controlador;
+import javax.swing.SwingConstants;
 
 public class MenuPartida extends JPanel {
 
@@ -29,16 +30,23 @@ public class MenuPartida extends JPanel {
 		String nombreDelJugador = this.controlador.pedirNombreDelJugadorActual();
 		
 		JLabel labelGpsChallenge = new JLabel("GPS Challenge");
-		labelGpsChallenge.setFont(new Font("DejaVu Serif", Font.BOLD, 20));
-		labelGpsChallenge.setBounds(251, 12, 169, 35);
+		labelGpsChallenge.setHorizontalAlignment(SwingConstants.CENTER);
+		labelGpsChallenge.setFont(new Font("Dialog", Font.BOLD, 30));
+		labelGpsChallenge.setBounds(445, 12, 300, 35);
 		panelCabecera.add(labelGpsChallenge);
-		JLabel labelNombreDelUsuario = new JLabel(nombreDelJugador);
-		labelNombreDelUsuario.setBounds(28, 14, 92, 35);
-		panelCabecera.add(labelNombreDelUsuario);
+		
+		JButton btnVolver = new JButton("Volver");
+		btnVolver.setBounds(959, 26, 89, 23);
+		panelCabecera.add(btnVolver);
+		btnVolver.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent event) {
+				vistaPrincipal.cambiarPanel("pBienvenida");
+			}
+		});
 		
 		JButton btnSalir = new JButton("Salir");
-		btnSalir.setBounds(572, 19, 78, 25);
-		add(btnSalir);
+		btnSalir.setBounds(1080, 25, 78, 25);
+		panelCabecera.add(btnSalir);
 		btnSalir.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent event) {
 				System.exit(0);
