@@ -32,9 +32,6 @@
                 <imprevisto>
                     <tipoDeImprevisto>ObstaculoPiquete</tipoDeImprevisto>
                 </imprevisto>
-                <imprevisto>
-                    <tipoDeImprevisto>SopresaCambioDeVehiculo</tipoDeImprevisto>
-                </imprevisto>
             </imprevistos>
             <esquinaInicial>
                 <posicion>

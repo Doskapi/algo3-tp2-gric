@@ -49,9 +49,6 @@
         <cuadras>
             <imprevistos>
                 <imprevisto>
-                    <tipoDeImprevisto>SopresaCambioDeVehiculo</tipoDeImprevisto>
-                </imprevisto>
-                <imprevisto>
                     <tipoDeImprevisto>ObstaculoPiquete</tipoDeImprevisto>
                 </imprevisto>
             </imprevistos>
@@ -91,9 +88,6 @@
             <imprevistos>
                 <imprevisto>
                     <tipoDeImprevisto>ObstaculoPozos</tipoDeImprevisto>
-                </imprevisto>
-                <imprevisto>
-                    <tipoDeImprevisto>SopresaCambioDeVehiculo</tipoDeImprevisto>
                 </imprevisto>
             </imprevistos>
             <esquinaInicial>

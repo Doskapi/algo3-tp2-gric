@@ -50,6 +50,7 @@ public class DespersistidorMapa {
 			while(iteradorCuadras.hasNext()){
 				Cuadra cuadraActual = iteradorCuadras.next();
 				List<Imprevisto> imprevistos = new ArrayList<Imprevisto>();
+				imprevistos = cuadraActual.getImprevistos();
 				ArrayList<Imprevisto> imprevistosCasteados = new ArrayList<Imprevisto>();
 				Iterator<Imprevisto> iteradorImprevistos = imprevistos.iterator();
 				while(iteradorImprevistos.hasNext()){

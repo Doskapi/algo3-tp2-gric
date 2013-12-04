@@ -1,7 +1,11 @@
 package ar.fi.uba.GPSChallengeTests.Vehiculo;
 
-import org.junit.Test;
 import junit.framework.TestCase;
+
+import org.junit.Test;
+
+import ar.fi.uba.GPSChallenge.Modelo.Imprevistos.SorpresaFavorable;
+import ar.fi.uba.GPSChallenge.Modelo.Mapa.Cuadra;
 import ar.fi.uba.GPSChallenge.Modelo.Mapa.Esquina;
 import ar.fi.uba.GPSChallenge.Modelo.Mapa.Mapa;
 import ar.fi.uba.GPSChallenge.Modelo.Mapa.Posicion;
@@ -146,6 +150,27 @@ public class VehiculoTest extends TestCase {
 		assertEquals(vehiculo.getCantidadDeMovimientos(), 0);
 		vehiculo.agarrarPozos();
 		assertEquals(vehiculo.getCantidadDeMovimientos(), 3);
+	}
+	
+	@Test
+	public void testUnVehiculoAgarraUnaSorpresaFavorable(){
+		Auto auto = new Auto();
+		Vehiculo vehiculo = new Vehiculo(auto);
+		vehiculo.setCantidadDeMovimientos(10);
+		assertEquals(vehiculo.getCantidadDeMovimientos(), 10);
+		Mapa mapa = new Mapa(10,10);
+		mapa.setEsquinaLargada(new Esquina(new Posicion(2,1)));
+		mapa.agregarVehiculo(vehiculo);
+		Cuadra cuadra = new Cuadra(new Esquina(new Posicion(2,2)), new Esquina(new Posicion(2,3)));
+		SorpresaFavorable sorpresa = new SorpresaFavorable();
+		cuadra.agregarImprevisto(sorpresa);
+		vehiculo.mover(new Este());
+		assertEquals(vehiculo.getEsquina(), new Esquina(new Posicion(2,2)));
+		vehiculo.mover(new Este());
+		assertEquals(vehiculo.getEsquina(), new Esquina(new Posicion(2,3)));
+		assertEquals(vehiculo.getCantidadDeMovimientos(), 12);
+		vehiculo.mover(new Este());
+		assertEquals(vehiculo.getEsquina(), new Esquina(new Posicion(2,4)));
 	}
 }
 
