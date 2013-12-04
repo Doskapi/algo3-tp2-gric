@@ -101,7 +101,7 @@ public class Escenario extends JPanel {
 		add(lblCantMovRealizados);
 		
 		JButton btnUp = new JButton("UP");
-		btnUp.setBounds(800, 301, 117, 25);
+		btnUp.setBounds(800, 177, 117, 25);
 		add(btnUp);
 		btnUp.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -115,7 +115,7 @@ public class Escenario extends JPanel {
 		
 		
 		JButton btnDown = new JButton("Down");
-		btnDown.setBounds(800, 380, 117, 25);
+		btnDown.setBounds(800, 251, 117, 25);
 		add(btnDown);
 		btnDown.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -128,7 +128,7 @@ public class Escenario extends JPanel {
 		});
 		
 		JButton btnLeft = new JButton("Left");
-		btnLeft.setBounds(730, 338, 117, 25);
+		btnLeft.setBounds(730, 214, 117, 25);
 		add(btnLeft);
 		btnLeft.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -142,7 +142,7 @@ public class Escenario extends JPanel {
 		
 		
 		JButton btnRight = new JButton("Right");
-		btnRight.setBounds(867, 338, 117, 25);
+		btnRight.setBounds(867, 214, 117, 25);
 		add(btnRight);
 		btnRight.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -175,7 +175,7 @@ public class Escenario extends JPanel {
 		});
 		
 		pImgDeMuestra = new PanelConFondo();
-		pImgDeMuestra.setBounds(765, 177, 186, 101);
+		pImgDeMuestra.setBounds(710, 305, 302, 211);
 		pImgDeMuestra.setImagen(imagen);
 		add(pImgDeMuestra);
 		
@@ -211,7 +211,6 @@ public class Escenario extends JPanel {
 			switch(this.controlador.obtenerMapa().getVehiculo().getNombreEstado()){
 				case "Auto":
 					celdas[(posLargada.getFila()-1)*3][(posLargada.getColumna()-1)*3].setImagen("LargadaAuto.png");
-					
 					break;
 				case "CuatroPorCuatro":
 					celdas[(posLargada.getFila()-1)*3][(posLargada.getColumna()-1)*3].setImagen("LargadaCuatroPorCuatro.png");
@@ -257,7 +256,7 @@ public class Escenario extends JPanel {
 		tipoVehiculo = mapa.getVehiculo().getNombreEstado();
 		posicionVehiculo = mapa.getVehiculo().getEsquina().getPosicion();
 		imagenVehiculo = new ImageIcon(getClass().getResource(tipoVehiculo + ".png")).getImage();
-		pImgDeMuestra.setImagen(tipoVehiculo + ".png");
+		pImgDeMuestra.setImagen(tipoVehiculo + "DeMuestra.png");
 		int fila = (posicionVehiculo.getFila()-1)*3;
 		int columna = (posicionVehiculo.getColumna()-1)*3;
 		celdas[fila][columna].setImagen(imagenVehiculo);
