@@ -90,10 +90,8 @@ public class Jugador {
 		this.partidaActual.moverVehiculo(rumbo);
 		if(!this.partidaActual.getEstaEnJuego()){
 			int puntajeDeLaPartidaActual = this.partidaActual.getPuntajeActual();
-			System.out.println("PuntosJugador " + puntajeDeLaPartidaActual);
 			if(puntajeDeLaPartidaActual > this.puntaje){
 				this.puntaje = puntajeDeLaPartidaActual;
-				System.out.println("PuntosJugador " + this.puntaje);
 			}
 		}
 	}

@@ -62,7 +62,6 @@ public class Ganaste extends JPanel {
 		add(btnVolver);
 		btnVolver.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
 				vistaPrincipal.cambiarPanel("pMenuPartida");
 			}
 		});

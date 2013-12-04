@@ -155,6 +155,5 @@ public class Controlador {
 	public void persistirJugadorActual() {
 		PersistidorJugador persistidor = new PersistidorJugador();
 		persistidor.persistirJugador(this.referenciaAlJuego.getJugadorActual());
-		System.out.println("ESTA TRATANDO DE PERSISTIR");
 	}
 }
