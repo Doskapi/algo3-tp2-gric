@@ -22,16 +22,19 @@ public class Partida {
 	private String rutaMapa;
 	private Nivel nivel;
 	private int puntajeActual;
+	private boolean estaEnJuego;
 	
 	public Partida(){
 		this.mapa = new Mapa(1,1);
 		this.puntajeActual = 0;
+		this.estaEnJuego = true;
 	}
 	
 	public Partida(Nivel nivel) {
 		this.setNivel(nivel);
 		this.setMapa(this.nivel.pedirUnMapa());
 		this.puntajeActual = 0;
+		this.estaEnJuego = true;
 	}
 	
 	@XmlElement
@@ -66,7 +69,12 @@ public class Partida {
 	}
 
 	public void moverVehiculo(Rumbo rumbo) throws Exception {
-		this.mapa.moverVehiculo(rumbo);	
+		if(getMapa().getEsquinaMeta().equals(getMapa().getVehiculo().getEsquina())){
+			this.estaEnJuego = false;
+		}
+		else{
+			this.mapa.moverVehiculo(rumbo);				
+		}
 	}
 	
 	public int calcularPuntaje(){
@@ -101,5 +109,14 @@ public class Partida {
 	@XmlTransient
 	public void setPuntajeActual(int puntajeActual){
 		this.puntajeActual = puntajeActual;
+	}
+	
+	public boolean getEstaEnJuego(){
+		return this.estaEnJuego;
+	}
+	
+	@XmlTransient
+	public void setEstaEnJuego(boolean estaEnJuego){
+		this.estaEnJuego = estaEnJuego;
 	}
 }

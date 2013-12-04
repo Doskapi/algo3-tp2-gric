@@ -177,7 +177,7 @@ public class Escenario extends JPanel {
 		mostrarMeta();
         dibujarVehiculo();//no deberia ir es tapado por el prox metodo
         mostrarLargada();
-//        dibujarImprevistos();
+        dibujarImprevistos();
 	}
 	
 	public void inicializarTablero(){
@@ -354,15 +354,25 @@ public class Escenario extends JPanel {
 	    Posicion posicionVehiculo;
 	    Image imagenVehiculo;
 	    String tipoVehiculo;
-	    limpiarTablero();
-	    Mapa mapa = controlador.obtenerMapa();
-	    posicionVehiculo = mapa.getVehiculo().getEsquina().getPosicion();
-	    tipoVehiculo = mapa.getVehiculo().getNombreEstado();
-	    escribirDatosDelJugador();
-	    mostrarLargada();
-	    mostrarMeta();
-	    dibujarVehiculo();
-//	    dibujarImprevistos();
+	    if(controlador.estaEnJuego()){	
+	    	limpiarTablero();
+	    	Mapa mapa = controlador.obtenerMapa();
+	    	posicionVehiculo = mapa.getVehiculo().getEsquina().getPosicion();
+	    	tipoVehiculo = mapa.getVehiculo().getNombreEstado();
+	    	escribirDatosDelJugador();
+	    	mostrarLargada();
+	    	mostrarMeta();
+	    	dibujarVehiculo();
+	    	dibujarImprevistos();
+	    }
+	    else{
+	    	if(controlador.pedirPuntajeActual() == 0){
+	    		vistaPrincipal.cambiarPanel("pPerdiste");
+	    	}
+	    	else{
+	    		vistaPrincipal.cambiarPanel("pGanaste");
+	    	}
+	    }
 	}
 }
 	

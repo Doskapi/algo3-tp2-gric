@@ -140,9 +140,13 @@ public class Controlador {
 		DespersistidorPartida despersistidorPartida = new DespersistidorPartida();
 		partida = despersistidorPartida.despersistirPartida(laPartidaGuardada);
 		this.referenciaAlJuego.getJugadorActual().setPartidaActual(partida);
-		
-		
+	}
+	
+	public boolean estaEnJuego() {
+		return (this.referenciaAlJuego.getJugadorActual().getPartida().getEstaEnJuego());
 	}
 
-
+	public int pedirPuntajeActual() {
+		return (this.referenciaAlJuego.getJugadorActual().getPartida().calcularPuntaje());
+	}
 }
