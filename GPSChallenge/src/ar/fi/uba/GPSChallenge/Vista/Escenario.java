@@ -306,7 +306,7 @@ public class Escenario extends JPanel {
 						if(!imprevistoActual.getUsada()){
 							String tipoDeImprevisto = imprevistoActual	.getTipoDeImprevisto();
 							imagenImprevisto = new ImageIcon(getClass().getResource(tipoDeImprevisto + ".png")).getImage();
-							celdas[posInicial.getFila()*3][posInicial.getColumna()*3 - posicionAdicionalPorLaVista].setImagen(imagenImprevisto);
+							celdas[(posInicial.getFila()-1)*3][(posInicial.getColumna()-1)*3 - posicionAdicionalPorLaVista].setImagen(imagenImprevisto);
 						}
 						++posicionAdicionalPorLaVista;
 					}
