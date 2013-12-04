@@ -13,6 +13,7 @@ import javax.swing.UIManager;
 import ar.fi.uba.GPSChallenge.Controlador.Controlador;
 import ar.fi.uba.GPSChallenge.Modelo.Jugador;
 import javax.swing.JTextArea;
+import java.awt.SystemColor;
 
 public class Puntajes extends JPanel {
 
@@ -46,10 +47,11 @@ public class Puntajes extends JPanel {
 			}
 		});	
 		
-		JTextArea textArea = new JTextArea();
-		textArea.setBackground(UIManager.getColor("Button.background"));
-		textArea.setBounds(293, 168, 585, 391);
-		add(textArea);
+		java.awt.List list = new java.awt.List();
+		list.setFont(new Font("Dialog", Font.BOLD, 16));
+		list.setBackground(UIManager.getColor("Button.background"));
+		list.setBounds(253, 92, 481, 531);
+		add(list);
 		List<Jugador> jugadores = new ArrayList<Jugador>();
 		jugadores = controlador.pedirJugadoresExistentes();
 		Iterator<Jugador> iterador = jugadores.iterator();
@@ -57,9 +59,8 @@ public class Puntajes extends JPanel {
 		String puntajesAMostrar = "";
 		while(iterador.hasNext()){
 			jugadorAMostrar = iterador.next();
-			puntajesAMostrar = puntajesAMostrar + jugadorAMostrar.getNombre() + ".................." + jugadorAMostrar.getPuntaje() + "\n";
-		}		
-		textArea.setText(puntajesAMostrar);
-		
+			puntajesAMostrar = jugadorAMostrar.getNombre() + ".................." + jugadorAMostrar.getPuntaje() + "\n";
+			list.add(puntajesAMostrar);	
+		}	
 	}
 }

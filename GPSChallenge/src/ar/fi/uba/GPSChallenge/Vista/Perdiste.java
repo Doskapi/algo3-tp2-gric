@@ -25,7 +25,7 @@ public class Perdiste extends JPanel {
 		
 		setLayout(null);
 		
-		JLabel lblperdiste = new JLabel("¡Perdiste!");
+		JLabel lblperdiste = new JLabel("Perdiste!");
 		lblperdiste.setHorizontalAlignment(SwingConstants.CENTER);
 		lblperdiste.setForeground(new Color(255, 0, 0));
 		lblperdiste.setFont(new Font("Dialog", Font.BOLD, 20));

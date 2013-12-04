@@ -40,7 +40,6 @@ public class VistaPrincipal implements Observer, KeyListener{
 		frmGpsChallenge.setSize(1200, 700);
 		frmGpsChallenge.setVisible(true);
 		frmGpsChallenge.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);	
-		
 		frmGpsChallenge.addKeyListener(this);
 		frmGpsChallenge.setFocusable(true);
 		

@@ -41,7 +41,7 @@ public class Ganaste extends JPanel {
 		lblGpschallenge.setBounds(147, 12, 169, 35);
 		panel.add(lblGpschallenge);
 		
-		JLabel lblganaste = new JLabel("¡Ganaste!");
+		JLabel lblganaste = new JLabel("Ganaste!");
 		lblganaste.setFont(new Font("Dialog", Font.BOLD, 20));
 		lblganaste.setHorizontalAlignment(SwingConstants.CENTER);
 		lblganaste.setForeground(new Color(0, 255, 0));
